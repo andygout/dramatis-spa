@@ -1,0 +1,62 @@
+{
+  "name": "theatrebase",
+  "version": "0.0.0",
+  "description": "A graph database-driven site that provides listings for theatrical productions, playtexts and associated data.",
+  "main": "src/server/app.js",
+  "scripts": {
+    "pretest": "babel src/server --out-dir dist",
+    "test": "find spec -name '*.spec.js' | xargs mocha -R spec",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "start": "nodemon built/main.js"
+  },
+  "author": "https://github.com/andygout",
+  "license": "MS-RSL",
+  "dependencies": {
+    "directly": "^2.0.4",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "history": "^4.7.2",
+    "method-override": "^2.3.6",
+    "morgan": "^1.5.1",
+    "neo4j": "^2.0.0-RC2",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-helmet": "^5.2.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "next",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "serve-favicon": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.22.0",
+    "chai": "^3.5.0",
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "mocha": "^3.2.0",
+    "node-mocks-http": "^1.5.4",
+    "node-sass": "^4.5.2",
+    "nodemon": "^1.11.0",
+    "proxyquire": "^1.7.10",
+    "sass-loader": "^6.0.3",
+    "sinon": "^2.3.2",
+    "webpack": "^2.4.1",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "engines": {
+    "node": "8.1.4"
+  }
+}

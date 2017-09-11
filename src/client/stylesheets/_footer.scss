@@ -1,0 +1,20 @@
+.footer {
+	height: 20px;
+	background-color: $header-bg-color;
+	font-weight: bold;
+}
+
+.footer__text {
+	margin-top: 4px;
+	padding: 0 10px;
+	font-size: x-small;
+	color: $header-text-color;
+}
+
+.footer__text--left {
+	float: left;
+}
+
+.footer__text--right {
+	float: right;
+}
