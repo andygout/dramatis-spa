@@ -5,10 +5,8 @@ import http from 'http';
 import logger from 'morgan';
 import session from 'express-session';
 
-import createHistory from 'history/createMemoryHistory';
 import { Helmet } from 'react-helmet';
 import { matchPath } from 'react-router-dom';
-import { routerMiddleware as createRouterMiddleware } from 'react-router-redux';
 import { applyMiddleware, createStore, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
@@ -31,14 +29,10 @@ app.use(express.static('public'));
 
 app.use('/api', apiRouter);
 
-const history = createHistory();
-
-const routerMiddleware = createRouterMiddleware(history);
-
 const store = createStore(
 	combineReducers(reducers),
 	{},
-	applyMiddleware(...[routerMiddleware, thunkMiddleware])
+	applyMiddleware(...[thunkMiddleware])
 );
 
 app.get('*', (req, res) => {

@@ -1,5 +1,3 @@
-import { routerReducer } from 'react-router-redux';
-
 import error from './error';
 
 import character from './character';
@@ -24,6 +22,5 @@ export default {
 	production,
 	productions,
 	theatre,
-	theatres,
-	routing: routerReducer
+	theatres
 };
