@@ -9,8 +9,8 @@ To run locally
 - Install node modules: `$ npm install`.
 - Add favicon: `$ touch ./src/client/favicons/favicon.ico`.
 - Copy development environment variables from `.env-dev` into `.env` by running command: `$ node transfer-env-dev`.
-- Create Neo4j database called `theatrebase` and run on port `localhost:7474` (using [Neo4j Community Edition](https://neo4j.com/download/community-edition)). N.B. Database must be populated using Neo4j console until API and CMS are built as this app is capable of retrieving data only.
 - Build client-side JavaScript and CSS: `$ npm run build`; build and update on change with `$ npm run watch`.
+- Ensure an instance of [`theatrebase-api`](https://github.com/andygout/theatrebase-api) is running on `localhost:4000`.
 - Run server using: `$ npm start` and visit homepage: `localhost:3000`.
 
 

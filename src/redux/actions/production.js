@@ -15,24 +15,10 @@ const fetchProduction = uuid => (dispatch, getState) => {
 
 		dispatch(requestProduction());
 
-		if (WEBPACK_CONFIG_IS_NODE) {
-
-			const Production = require('../../server/models/production').default;
-
-			const production = new Production({ uuid });
-
-			return production.show()
-				.then(({ production }) => dispatch(receiveProduction(production)))
-				.catch(() => null);
-
-		} else {
-
-			return fetch(`/api/productions/${uuid}`, { 'credentials': 'same-origin' })
-				.then(response => response.json())
-				.then(production => dispatch(receiveProduction(production)))
-				.catch(() => dispatch(setError(true)));
-
-		}
+		return fetch(`${process.env.API_URL}/productions/${uuid}`, { 'mode': 'cors' })
+			.then(response => response.json())
+			.then(production => dispatch(receiveProduction(production)))
+			.catch(() => dispatch(setError(true)));
 
 	}
 

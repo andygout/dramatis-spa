@@ -15,24 +15,10 @@ const fetchTheatre = uuid => (dispatch, getState) => {
 
 		dispatch(requestTheatre());
 
-		if (WEBPACK_CONFIG_IS_NODE) {
-
-			const Theatre = require('../../server/models/theatre').default;
-
-			const theatre = new Theatre({ uuid });
-
-			return theatre.show()
-				.then(({ theatre }) => dispatch(receiveTheatre(theatre)))
-				.catch(() => null);
-
-		} else {
-
-			return fetch(`/api/theatres/${uuid}`, { 'credentials': 'same-origin' })
-				.then(response => response.json())
-				.then(theatre => dispatch(receiveTheatre(theatre)))
-				.catch(() => dispatch(setError(true)));
-
-		}
+		return fetch(`${process.env.API_URL}/theatres/${uuid}`, { 'mode': 'cors' })
+			.then(response => response.json())
+			.then(theatre => dispatch(receiveTheatre(theatre)))
+			.catch(() => dispatch(setError(true)));
 
 	}
 

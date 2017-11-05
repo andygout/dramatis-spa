@@ -10,9 +10,6 @@ import { matchPath } from 'react-router-dom';
 import { applyMiddleware, createStore, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
-import createConstraints from './database/create-constraints';
-import apiRouter from './api-routes';
-
 import getReactHtml from '../react/react-html';
 import reducers from '../redux/reducers';
 import routes from '../react/routes';
@@ -26,8 +23,6 @@ app.use(logger('dev'));
 app.use(session({ secret: 'secret', resave: false, saveUninitialized: true }));
 
 app.use(express.static('public'));
-
-app.use('/api', apiRouter);
 
 const store = createStore(
 	combineReducers(reducers),
@@ -181,10 +176,6 @@ app.set('port', port);
 
 const server = http.createServer(app);
 
-createConstraints().then(() => {
+server.listen(port, () => console.log(`Listening on port ${port}`));
 
-	server.listen(port, () => console.log(`Listening on port ${port}`));
-
-	server.on('error', onError);
-
-});
+server.on('error', onError);

@@ -15,22 +15,10 @@ const fetchPlaytexts = () => (dispatch, getState) => {
 
 		dispatch(requestPlaytexts());
 
-		if (WEBPACK_CONFIG_IS_NODE) {
-
-			const Playtext = require('../../server/models/playtext').default;
-
-			return Playtext.list('playtext')
-				.then(({ playtexts }) => dispatch(receivePlaytexts(playtexts)))
-				.catch(() => null);
-
-		} else {
-
-			return fetch('/api/playtexts', { 'credentials': 'same-origin' })
-				.then(response => response.json())
-				.then(playtexts => dispatch(receivePlaytexts(playtexts)))
-				.catch(() => dispatch(setError(true)));
-
-		}
+		return fetch(`${process.env.API_URL}/playtexts`, { 'mode': 'cors' })
+			.then(response => response.json())
+			.then(playtexts => dispatch(receivePlaytexts(playtexts)))
+			.catch(() => dispatch(setError(true)));
 
 	}
 

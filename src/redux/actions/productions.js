@@ -15,22 +15,10 @@ const fetchProductions = () => (dispatch, getState) => {
 
 		dispatch(requestProductions());
 
-		if (WEBPACK_CONFIG_IS_NODE) {
-
-			const Production = require('../../server/models/production').default;
-
-			return Production.list('production')
-				.then(({ productions }) => dispatch(receiveProductions(productions)))
-				.catch(() => null);
-
-		} else {
-
-			return fetch('/api/productions', { 'credentials': 'same-origin' })
-				.then(response => response.json())
-				.then(productions => dispatch(receiveProductions(productions)))
-				.catch(() => dispatch(setError(true)));
-
-		}
+		return fetch(`${process.env.API_URL}/productions`, { 'mode': 'cors' })
+			.then(response => response.json())
+			.then(productions => dispatch(receiveProductions(productions)))
+			.catch(() => dispatch(setError(true)));
 
 	}
 
