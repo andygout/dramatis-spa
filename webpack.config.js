@@ -6,7 +6,9 @@ const webpack = require('webpack');
 const serverConfig = {
 	target: 'node',
 	externals: [nodeExternals()],
-	entry: './src/server/app.js',
+	entry: {
+		'express': ['isomorphic-fetch', './src/server/app.js']
+	},
 	output: {
 		path: path.join(__dirname, 'built'),
 		filename: 'main.js'
@@ -23,11 +25,6 @@ const serverConfig = {
 			}
 		]
 	},
-	plugins: [
-		new webpack.DefinePlugin({
-			WEBPACK_CONFIG_IS_NODE: true
-		})
-	],
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		modules: ['node_modules'],
@@ -68,9 +65,6 @@ const clientConfig = {
 			filename: 'main.css',
 			allChunks: true,
 			disable: false
-		}),
-		new webpack.DefinePlugin({
-			WEBPACK_CONFIG_IS_NODE: false
 		})
 	],
 	resolve: {

@@ -15,22 +15,10 @@ const fetchTheatres = () => (dispatch, getState) => {
 
 		dispatch(requestTheatres());
 
-		if (WEBPACK_CONFIG_IS_NODE) {
-
-			const Theatre = require('../../server/models/theatre').default;
-
-			return Theatre.list('theatre')
-				.then(({ theatres }) => dispatch(receiveTheatres(theatres)))
-				.catch(() => null);
-
-		} else {
-
-			return fetch('/api/theatres', { 'credentials': 'same-origin' })
-				.then(response => response.json())
-				.then(theatres => dispatch(receiveTheatres(theatres)))
-				.catch(() => dispatch(setError(true)));
-
-		}
+		return fetch(`${process.env.API_URL}/theatres`, { 'mode': 'cors' })
+			.then(response => response.json())
+			.then(theatres => dispatch(receiveTheatres(theatres)))
+			.catch(() => dispatch(setError(true)));
 
 	}
 

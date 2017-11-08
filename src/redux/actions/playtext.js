@@ -15,24 +15,10 @@ const fetchPlaytext = uuid => (dispatch, getState) => {
 
 		dispatch(requestPlaytext());
 
-		if (WEBPACK_CONFIG_IS_NODE) {
-
-			const Playtext = require('../../server/models/playtext').default;
-
-			const playtext = new Playtext({ uuid });
-
-			return playtext.show()
-				.then(({ playtext }) => dispatch(receivePlaytext(playtext)))
-				.catch(() => null);
-
-		} else {
-
-			return fetch(`/api/playtexts/${uuid}`, { 'credentials': 'same-origin' })
-				.then(response => response.json())
-				.then(playtext => dispatch(receivePlaytext(playtext)))
-				.catch(() => dispatch(setError(true)));
-
-		}
+		return fetch(`${process.env.API_URL}/playtexts/${uuid}`, { 'mode': 'cors' })
+			.then(response => response.json())
+			.then(playtext => dispatch(receivePlaytext(playtext)))
+			.catch(() => dispatch(setError(true)));
 
 	}
 

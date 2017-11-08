@@ -15,24 +15,10 @@ const fetchCharacter = uuid => (dispatch, getState) => {
 
 		dispatch(requestCharacter());
 
-		if (WEBPACK_CONFIG_IS_NODE) {
-
-			const Character = require('../../server/models/character').default;
-
-			const character = new Character({ uuid });
-
-			return character.show()
-				.then(({ character }) => dispatch(receiveCharacter(character)))
-				.catch(() => null);
-
-		} else {
-
-			return fetch(`/api/characters/${uuid}`, { 'credentials': 'same-origin' })
-				.then(response => response.json())
-				.then(character => dispatch(receiveCharacter(character)))
-				.catch(() => dispatch(setError(true)));
-
-		}
+		return fetch(`${process.env.API_URL}/characters/${uuid}`, { 'mode': 'cors' })
+			.then(response => response.json())
+			.then(character => dispatch(receiveCharacter(character)))
+			.catch(() => dispatch(setError(true)));
 
 	}
 

@@ -15,24 +15,10 @@ const fetchPerson = uuid => (dispatch, getState) => {
 
 		dispatch(requestPerson());
 
-		if (WEBPACK_CONFIG_IS_NODE) {
-
-			const Person = require('../../server/models/person').default;
-
-			const person = new Person({ uuid });
-
-			return person.show()
-				.then(({ person }) => dispatch(receivePerson(person)))
-				.catch(() => null);
-
-		} else {
-
-			return fetch(`/api/people/${uuid}`, { 'credentials': 'same-origin' })
-				.then(response => response.json())
-				.then(person => dispatch(receivePerson(person)))
-				.catch(() => dispatch(setError(true)));
-
-		}
+		return fetch(`${process.env.API_URL}/people/${uuid}`, { 'mode': 'cors' })
+			.then(response => response.json())
+			.then(person => dispatch(receivePerson(person)))
+			.catch(() => dispatch(setError(true)));
 
 	}
 

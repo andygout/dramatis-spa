@@ -15,22 +15,10 @@ const fetchPeople = () => (dispatch, getState) => {
 
 		dispatch(requestPeople());
 
-		if (WEBPACK_CONFIG_IS_NODE) {
-
-			const Person = require('../../server/models/person').default;
-
-			return Person.list('person')
-				.then(({ people }) => dispatch(receivePeople(people)))
-				.catch(() => null);
-
-		} else {
-
-			return fetch('/api/people', { 'credentials': 'same-origin' })
-				.then(response => response.json())
-				.then(people => dispatch(receivePeople(people)))
-				.catch(() => dispatch(setError(true)));
-
-		}
+		return fetch(`${process.env.API_URL}/people`, { 'mode': 'cors' })
+			.then(response => response.json())
+			.then(people => dispatch(receivePeople(people)))
+			.catch(() => dispatch(setError(true)));
 
 	}
 

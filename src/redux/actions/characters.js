@@ -15,22 +15,10 @@ const fetchCharacters = () => (dispatch, getState) => {
 
 		dispatch(requestCharacters());
 
-		if (WEBPACK_CONFIG_IS_NODE) {
-
-			const Character = require('../../server/models/character').default;
-
-			return Character.list('character')
-				.then(({ characters }) => dispatch(receiveCharacters(characters)))
-				.catch(() => null);
-
-		} else {
-
-			return fetch('/api/characters', { 'credentials': 'same-origin' })
-				.then(response => response.json())
-				.then(characters => dispatch(receiveCharacters(characters)))
-				.catch(() => dispatch(setError(true)));
-
-		}
+		return fetch(`${process.env.API_URL}/characters`, { 'mode': 'cors' })
+			.then(response => response.json())
+			.then(characters => dispatch(receiveCharacters(characters)))
+			.catch(() => dispatch(setError(true)));
 
 	}
 
