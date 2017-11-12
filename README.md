@@ -4,7 +4,6 @@ Front end rendering of site that provides listings for theatrical productions, p
 
 To run locally
 -------
-
 - Clone this repo.
 - Install node modules: `$ npm install`.
 - Add favicon: `$ touch ./src/client/favicons/favicon.ico`.
@@ -15,6 +14,5 @@ To run locally
 
 To test
 -------
-
 - Ensure `$ npm install` has been run.
 - `$ npm test`.
