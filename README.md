@@ -11,7 +11,6 @@ To run locally
 - Ensure an instance of [`theatrebase-api`](https://github.com/andygout/theatrebase-api) is running on `http://localhost:4000`.
 - Run server using: `$ npm start` and visit homepage: `http://localhost:3000`.
 
-
 To test
 -------
 - Ensure `$ npm install` has been run.
