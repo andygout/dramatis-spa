@@ -1,4 +1,3 @@
-import _ from './dotenv';
 import express from 'express';
 import favicon from 'serve-favicon';
 import http from 'http';

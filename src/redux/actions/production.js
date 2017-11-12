@@ -1,5 +1,6 @@
 import createAction from './base';
 import { setError } from './error';
+import { API_URL } from '../utils/constants';
 
 const REQUEST_PRODUCTION = 'REQUEST_PRODUCTION';
 const RECEIVE_PRODUCTION = 'RECEIVE_PRODUCTION';
@@ -15,7 +16,7 @@ const fetchProduction = uuid => (dispatch, getState) => {
 
 		dispatch(requestProduction());
 
-		return fetch(`${process.env.API_URL}/productions/${uuid}`, { 'mode': 'cors' })
+		return fetch(`${API_URL}/productions/${uuid}`, { 'mode': 'cors' })
 			.then(response => response.json())
 			.then(production => dispatch(receiveProduction(production)))
 			.catch(() => dispatch(setError(true)));

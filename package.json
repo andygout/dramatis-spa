@@ -12,7 +12,6 @@
   "author": "https://github.com/andygout",
   "license": "MS-RSL",
   "dependencies": {
-    "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
     "method-override": "^2.3.6",
