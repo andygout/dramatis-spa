@@ -2,6 +2,7 @@ import express from 'express';
 import favicon from 'serve-favicon';
 import http from 'http';
 import logger from 'morgan';
+import path from 'path';
 import session from 'express-session';
 
 import { Helmet } from 'react-helmet';
@@ -15,7 +16,8 @@ import routes from '../react/routes';
 
 const app = express();
 
-app.use(favicon('src/client/favicons/favicon.ico'));
+// Path is relative to `built/main.js`.
+app.use(favicon(path.join(__dirname, 'favicons', 'favicon-16x16.png')));
 
 app.use(logger('dev'));
 
