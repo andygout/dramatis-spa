@@ -1,5 +1,6 @@
 import createAction from './base';
 import { setError } from './error';
+import { API_URL } from '../utils/constants';
 
 const REQUEST_THEATRES = 'REQUEST_THEATRES';
 const RECEIVE_THEATRES = 'RECEIVE_THEATRES';
@@ -15,7 +16,7 @@ const fetchTheatres = () => (dispatch, getState) => {
 
 		dispatch(requestTheatres());
 
-		return fetch(`${process.env.API_URL}/theatres`, { 'mode': 'cors' })
+		return fetch(`${API_URL}/theatres`, { 'mode': 'cors' })
 			.then(response => response.json())
 			.then(theatres => dispatch(receiveTheatres(theatres)))
 			.catch(() => dispatch(setError(true)));

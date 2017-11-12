@@ -85,6 +85,7 @@ const List = props => {
 
 												</span>
 											)
+											.reduce((prev, curr) => [prev, ' / ', curr])
 									}
 
 								</span>

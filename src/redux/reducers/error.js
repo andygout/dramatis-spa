@@ -1,10 +1,10 @@
-import { SET_ERROR } from '../actions/error';
+import { SET_ERROR_STATUS } from '../actions/error';
 
 const error = (state = false, action) => {
 
 	switch (action.type) {
 
-		case SET_ERROR:
+		case SET_ERROR_STATUS:
 			return action.payload;
 
 		default:

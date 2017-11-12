@@ -1,5 +1,6 @@
 import createAction from './base';
 import { setError } from './error';
+import { API_URL } from '../utils/constants';
 
 const REQUEST_PLAYTEXTS = 'REQUEST_PLAYTEXTS';
 const RECEIVE_PLAYTEXTS = 'RECEIVE_PLAYTEXTS';
@@ -15,7 +16,7 @@ const fetchPlaytexts = () => (dispatch, getState) => {
 
 		dispatch(requestPlaytexts());
 
-		return fetch(`${process.env.API_URL}/playtexts`, { 'mode': 'cors' })
+		return fetch(`${API_URL}/playtexts`, { 'mode': 'cors' })
 			.then(response => response.json())
 			.then(playtexts => dispatch(receivePlaytexts(playtexts)))
 			.catch(() => dispatch(setError(true)));

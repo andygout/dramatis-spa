@@ -8,8 +8,6 @@ const Nav = () => {
 
 			<ul>
 
-				<li className="nav__list-item"><Link to={'/productions/new'}>New production</Link></li>
-
 				<li><Link to={'/'}>Home</Link></li>
 
 				<li><Link to={'/characters'}>Characters</Link></li>

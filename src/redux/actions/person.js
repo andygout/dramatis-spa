@@ -1,5 +1,6 @@
 import createAction from './base';
 import { setError } from './error';
+import { API_URL } from '../utils/constants';
 
 const REQUEST_PERSON = 'REQUEST_PERSON';
 const RECEIVE_PERSON = 'RECEIVE_PERSON';
@@ -15,7 +16,7 @@ const fetchPerson = uuid => (dispatch, getState) => {
 
 		dispatch(requestPerson());
 
-		return fetch(`${process.env.API_URL}/people/${uuid}`, { 'mode': 'cors' })
+		return fetch(`${API_URL}/people/${uuid}`, { 'mode': 'cors' })
 			.then(response => response.json())
 			.then(person => dispatch(receivePerson(person)))
 			.catch(() => dispatch(setError(true)));

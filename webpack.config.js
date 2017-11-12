@@ -1,10 +1,14 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const nodeExternals = require('webpack-node-externals');
 const path = require('path');
 const webpack = require('webpack');
 
 const serverConfig = {
 	target: 'node',
+	node: {
+		__dirname: false
+	},
 	externals: [nodeExternals()],
 	entry: {
 		'express': ['isomorphic-fetch', './src/server/app.js']
@@ -25,6 +29,19 @@ const serverConfig = {
 			}
 		]
 	},
+	plugins: [
+		new FaviconsWebpackPlugin({
+			logo: './src/client/favicons/favicon.ico',
+			prefix: 'favicons/',
+			icons: {
+				android: false,
+				appleIcon: false,
+				appleStartup: false,
+				favicons: true,
+				firefox: false,
+			}
+		})
+	],
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		modules: ['node_modules'],

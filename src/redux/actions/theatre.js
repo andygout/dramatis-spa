@@ -1,5 +1,6 @@
 import createAction from './base';
 import { setError } from './error';
+import { API_URL } from '../utils/constants';
 
 const REQUEST_THEATRE = 'REQUEST_THEATRE';
 const RECEIVE_THEATRE = 'RECEIVE_THEATRE';
@@ -15,7 +16,7 @@ const fetchTheatre = uuid => (dispatch, getState) => {
 
 		dispatch(requestTheatre());
 
-		return fetch(`${process.env.API_URL}/theatres/${uuid}`, { 'mode': 'cors' })
+		return fetch(`${API_URL}/theatres/${uuid}`, { 'mode': 'cors' })
 			.then(response => response.json())
 			.then(theatre => dispatch(receiveTheatre(theatre)))
 			.catch(() => dispatch(setError(true)));
