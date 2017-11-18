@@ -4,7 +4,8 @@
   "description": "Front end rendering of site that provides listings for theatrical productions, playtexts and associated data.",
   "main": "src/server/app.js",
   "scripts": {
-    "test": "echo \"TODO: Write tests\"",
+    "lint": "eslint --ext .js src/",
+    "test": "npm run lint",
     "build": "webpack",
     "watch": "webpack --watch",
     "start": "nodemon built/main.js"
@@ -36,6 +37,7 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.0",
+    "eslint": "^4.11.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "favicons-webpack-plugin": "0.0.7",
     "node-sass": "^4.5.2",
