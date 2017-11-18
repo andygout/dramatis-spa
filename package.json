@@ -10,6 +10,9 @@
     "watch": "webpack --watch",
     "start": "nodemon built/main.js"
   },
+  "pre-commit": [
+    "test"
+  ],
   "author": "https://github.com/andygout",
   "license": "MS-RSL",
   "dependencies": {
@@ -42,6 +45,7 @@
     "favicons-webpack-plugin": "0.0.7",
     "node-sass": "^4.5.2",
     "nodemon": "^1.11.0",
+    "pre-commit": "^1.2.2",
     "sass-loader": "^6.0.3",
     "webpack": "^2.4.1",
     "webpack-node-externals": "^1.6.0"
