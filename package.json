@@ -5,7 +5,8 @@
   "main": "src/server/app.js",
   "scripts": {
     "lint": "eslint --ext .js src/",
-    "test": "npm run lint",
+    "lintspaces": "git ls-files | xargs lintspaces -e .editorconfig",
+    "test": "npm run lint && npm run lintspaces",
     "build": "webpack",
     "watch": "webpack --watch",
     "start": "nodemon built/main.js"
@@ -43,6 +44,7 @@
     "eslint": "^4.11.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "favicons-webpack-plugin": "0.0.7",
+    "lintspaces-cli": "^0.6.0",
     "node-sass": "^4.5.2",
     "nodemon": "^1.11.0",
     "pre-commit": "^1.2.2",
