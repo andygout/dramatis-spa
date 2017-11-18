@@ -1,3 +1,8 @@
+/* eslint
+	no-console: 0,
+	no-unused-vars: ["error", { "argsIgnorePattern": "next" }]
+*/
+
 import express from 'express';
 import favicon from 'serve-favicon';
 import http from 'http';
