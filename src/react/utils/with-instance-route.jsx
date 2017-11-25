@@ -1,8 +1,6 @@
 import React from 'react';
 
-const irregularPluralNouns = {
-	'person': 'people'
-};
+import { irregularPluralNouns } from '../../utils/constants';
 
 const withInstanceRoute = WrappedComponent => props => {
 

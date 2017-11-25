@@ -1,4 +1,4 @@
-import { REQUEST_PRODUCTIONS, RECEIVE_PRODUCTIONS } from '../actions/productions';
+import { REQUEST_PRODUCTIONS, RECEIVE_PRODUCTIONS } from '../actions/utils/actions-list';
 
 const productions = (state = [], action) => {
 

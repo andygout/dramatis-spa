@@ -1,4 +1,4 @@
-import { REQUEST_THEATRE, RECEIVE_THEATRE } from '../actions/theatre';
+import { REQUEST_THEATRE, RECEIVE_THEATRE } from '../actions/utils/actions-list';
 
 const theatre = (state = {}, action) => {
 
