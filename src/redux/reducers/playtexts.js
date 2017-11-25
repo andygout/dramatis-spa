@@ -1,4 +1,4 @@
-import { REQUEST_PLAYTEXTS, RECEIVE_PLAYTEXTS } from '../actions/playtexts';
+import { REQUEST_PLAYTEXTS, RECEIVE_PLAYTEXTS } from '../actions/utils/actions-list';
 
 const playtexts = (state = [], action) => {
 

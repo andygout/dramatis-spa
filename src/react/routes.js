@@ -11,16 +11,7 @@ import Theatre from './pages/theatre';
 import Theatres from './pages/theatres';
 import NotFound from './pages/not-found';
 
-import { fetchCharacter } from '../redux/actions/character';
-import { fetchCharacters } from '../redux/actions/characters';
-import { fetchPerson } from '../redux/actions/person';
-import { fetchPeople } from '../redux/actions/people';
-import { fetchPlaytext } from '../redux/actions/playtext';
-import { fetchPlaytexts } from '../redux/actions/playtexts';
-import { fetchProduction } from '../redux/actions/production';
-import { fetchProductions } from '../redux/actions/productions';
-import { fetchTheatre } from '../redux/actions/theatre';
-import { fetchTheatres } from '../redux/actions/theatres';
+import fetchModel from '../redux/actions/model';
 
 export default [
 	{
@@ -35,7 +26,7 @@ export default [
 		documentTitle: () => 'Characters',
 		component: Characters,
 		fetchData: [
-			dispatch => dispatch(fetchCharacters())
+			dispatch => dispatch(fetchModel('characters'))
 		]
 	},
 	{
@@ -43,7 +34,7 @@ export default [
 		documentTitle: () => 'Character',
 		component: Character,
 		fetchData: [
-			(dispatch, { params: { uuid } }) => dispatch(fetchCharacter(uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchModel('character', uuid))
 		]
 	},
 	{
@@ -52,7 +43,7 @@ export default [
 		documentTitle: () => 'People',
 		component: People,
 		fetchData: [
-			dispatch => dispatch(fetchPeople())
+			dispatch => dispatch(fetchModel('people'))
 		]
 	},
 	{
@@ -60,7 +51,7 @@ export default [
 		documentTitle: () => 'Person',
 		component: Person,
 		fetchData: [
-			(dispatch, { params: { uuid } }) => dispatch(fetchPerson(uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchModel('person', uuid))
 		]
 	},
 	{
@@ -69,7 +60,7 @@ export default [
 		documentTitle: () => 'Playtexts',
 		component: Playtexts,
 		fetchData: [
-			dispatch => dispatch(fetchPlaytexts())
+			dispatch => dispatch(fetchModel('playtexts'))
 		]
 	},
 	{
@@ -77,7 +68,7 @@ export default [
 		documentTitle: () => 'Playtexts',
 		component: Playtext,
 		fetchData: [
-			(dispatch, { params: { uuid } }) => dispatch(fetchPlaytext(uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchModel('playtext', uuid))
 		]
 	},
 	{
@@ -86,7 +77,7 @@ export default [
 		documentTitle: () => 'Productions',
 		component: Productions,
 		fetchData: [
-			dispatch => dispatch(fetchProductions())
+			dispatch => dispatch(fetchModel('productions'))
 		]
 	},
 	{
@@ -94,7 +85,7 @@ export default [
 		documentTitle: () => 'Production',
 		component: Production,
 		fetchData: [
-			(dispatch, { params: { uuid } }) => dispatch(fetchProduction(uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchModel('production', uuid))
 		]
 	},
 	{
@@ -103,7 +94,7 @@ export default [
 		documentTitle: () => 'Theatres',
 		component: Theatres,
 		fetchData: [
-			dispatch => dispatch(fetchTheatres())
+			dispatch => dispatch(fetchModel('theatres'))
 		]
 	},
 	{
@@ -111,7 +102,7 @@ export default [
 		documentTitle: () => 'Theatre',
 		component: Theatre,
 		fetchData: [
-			(dispatch, { params: { uuid } }) => dispatch(fetchTheatre(uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchModel('theatre', uuid))
 		]
 	},
 	{

@@ -1,4 +1,4 @@
-import { REQUEST_THEATRES, RECEIVE_THEATRES } from '../actions/theatres';
+import { REQUEST_THEATRES, RECEIVE_THEATRES } from '../actions/utils/actions-list';
 
 const theatres = (state = [], action) => {
 
