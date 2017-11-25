@@ -107,7 +107,7 @@ export default [
 	},
 	{
 		path: '*',
-		documentTitle: () => 'Error',
+		documentTitle: () => 'Not Found',
 		component: NotFound
 	}
 ];
