@@ -43,8 +43,8 @@ const fetchDataOnMount = Component => {
 					<main className="main-content">
 
 						{
-							error ?
-								<ErrorMessage errorText='Error' /> :
+							error && error.exists ?
+								<ErrorMessage errorText={error.message} /> :
 								<Component {...props} />
 						}
 
@@ -59,9 +59,9 @@ const fetchDataOnMount = Component => {
 
 	};
 
-	FetchDataOnMount.propTypes = { error: PropTypes.bool.isRequired };
+	FetchDataOnMount.propTypes = { error: PropTypes.object.isRequired };
 
-	const mapStateToProps = ({ error }) => ({ error });
+	const mapStateToProps = error => (error);
 
 	return connect(mapStateToProps)(FetchDataOnMount);
 
