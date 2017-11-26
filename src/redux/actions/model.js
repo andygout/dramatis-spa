@@ -1,6 +1,6 @@
 import createAction from './base';
 import { setError } from './error';
-import * as actions from '../utils/actions-list';
+import * as actions from '../utils/model-actions';
 import { irregularPluralNouns } from '../../utils/constants';
 
 const request = model => createAction(actions[`REQUEST_${model.toUpperCase()}`]);

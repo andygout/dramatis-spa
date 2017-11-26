@@ -1,4 +1,4 @@
-import { REQUEST_PEOPLE, RECEIVE_PEOPLE } from '../utils/actions-list';
+import { REQUEST_PEOPLE, RECEIVE_PEOPLE } from '../utils/model-actions';
 
 const people = (state = [], action) => {
 
