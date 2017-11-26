@@ -9,7 +9,7 @@ const receive = (instance, model) => createAction(actions[`RECEIVE_${model.toUpp
 
 export default (dispatch, getState, model, opts) => {
 
-	dispatch(setError(false));
+	dispatch(setError({ exists: false, message: null }));
 
 	const instance = opts.uuid ? true : false;
 
@@ -30,9 +30,15 @@ export default (dispatch, getState, model, opts) => {
 		if (instance) url += `/${opts.uuid}`;
 
 		return fetch(url, { 'mode': 'cors' })
-			.then(response => response.json())
+			.then(response => {
+
+				if (response.status !== 200) throw new Error(response.statusText);
+
+				return response.json();
+
+			})
 			.then(instance => dispatch(receive(instance, model)))
-			.catch(() => dispatch(setError(true)));
+			.catch(({ message }) => dispatch(setError({ exists: true, message })));
 
 	}
 

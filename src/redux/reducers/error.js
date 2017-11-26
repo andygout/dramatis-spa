@@ -1,6 +1,6 @@
 import { SET_ERROR_STATUS } from '../actions/error';
 
-const error = (state = false, action) => {
+const error = (state = { exists: false, type: null }, action) => {
 
 	switch (action.type) {
 
