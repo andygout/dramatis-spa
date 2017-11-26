@@ -9,7 +9,7 @@ const receive = (instance, model) => createAction(actions[`RECEIVE_${model.toUpp
 
 export default (dispatch, getState, model, opts) => {
 
-	dispatch(setError({ exists: false, message: null }));
+	if (getState().error.exists) dispatch(setError({ exists: false, message: null }));
 
 	const instance = opts.uuid ? true : false;
 
