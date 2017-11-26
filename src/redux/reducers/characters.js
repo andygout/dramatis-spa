@@ -1,4 +1,4 @@
-import { REQUEST_CHARACTERS, RECEIVE_CHARACTERS } from '../actions/utils/actions-list';
+import { REQUEST_CHARACTERS, RECEIVE_CHARACTERS } from '../utils/actions-list';
 
 const characters = (state = [], action) => {
 
