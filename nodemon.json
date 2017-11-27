@@ -5,5 +5,5 @@
     "src",
     "views"
   ],
-  "ext": "html js jsx"
+  "ext": "js jsx"
 }
