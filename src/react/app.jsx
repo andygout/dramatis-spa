@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
 import routes from './routes';
-import fetchDataOnMount from './utils/fetch-data-on-mount';
+import FetchDataOnMountWrapper from './utils/fetch-data-on-mount-wrapper';
 
-export default class App extends Component {
+class App extends Component {
 
 	render () {
 
@@ -19,13 +19,15 @@ export default class App extends Component {
 							exact={route.exact}
 							render={
 								props => {
-									const HOC = connect()(fetchDataOnMount(route.component));
+									const RouteComponent = route.component;
 									return (
-										<HOC
+										<FetchDataOnMountWrapper
 											{...props}
 											documentTitle={route.documentTitle}
 											fetchData={route.fetchData}
-										/>
+										>
+											<RouteComponent />
+										</FetchDataOnMountWrapper>
 									);
 								}
 							}
@@ -39,3 +41,5 @@ export default class App extends Component {
 	};
 
 };
+
+export default App;

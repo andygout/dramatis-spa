@@ -9,8 +9,6 @@ const receive = (instance, model) => createAction(actions[`RECEIVE_${model.toUpp
 
 export default (model, uuid = null) => (dispatch, getState) => {
 
-	if (getState().error.exists) dispatch(setError({ exists: false, message: null }));
-
 	const instance = uuid ? true : false;
 
 	const apiCallReqd = instance ?

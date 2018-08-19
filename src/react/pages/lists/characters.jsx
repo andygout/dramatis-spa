@@ -3,21 +3,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import List from '../components/list';
-import PageTitle from '../components/page-title';
+import ListWrapper from '../../utils/list-wrapper';
 
 class Characters extends Component {
 
 	render () {
 
 		return (
-			<div>
-
-				<PageTitle pageTitle='Characters' />
-
-				<List instances={this.props.characters} />
-
-			</div>
+			<ListWrapper
+				instances={this.props.characters}
+				pageTitleText='Characters'
+			>
+			</ListWrapper>
 		);
 
 	};
