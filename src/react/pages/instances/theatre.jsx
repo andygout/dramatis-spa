@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import ContentWrapper from '../components/content-wrapper';
-import SharedInstancePageComponents from '../components/shared-instance-page-components';
+import ContentWrapper from '../../components/content-wrapper';
+import InstanceWrapper from '../../utils/instance-wrapper';
 
 class Theatre extends Component {
 
@@ -12,9 +12,7 @@ class Theatre extends Component {
 		const { theatre } = this.props;
 
 		return (
-			<div>
-
-				<SharedInstancePageComponents instance={theatre} />
+			<InstanceWrapper instance={theatre}>
 
 				{
 					theatre.productions && theatre.productions.length ?
@@ -22,7 +20,7 @@ class Theatre extends Component {
 						null
 				}
 
-			</div>
+			</InstanceWrapper>
 		);
 
 	};

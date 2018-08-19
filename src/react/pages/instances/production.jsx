@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import ContentWrapper from '../components/content-wrapper';
-import SharedInstancePageComponents from '../components/shared-instance-page-components';
+import ContentWrapper from '../../components/content-wrapper';
+import InstanceWrapper from '../../utils/instance-wrapper';
 
 class Production extends Component {
 
@@ -12,9 +12,7 @@ class Production extends Component {
 		const { production } = this.props;
 
 		return (
-			<div>
-
-				<SharedInstancePageComponents instance={production} />
+			<InstanceWrapper instance={production}>
 
 				{production.theatre ? <ContentWrapper labelText='Theatre' instance={production.theatre} /> : null}
 
@@ -26,7 +24,7 @@ class Production extends Component {
 						null
 				}
 
-			</div>
+			</InstanceWrapper>
 		);
 
 	};

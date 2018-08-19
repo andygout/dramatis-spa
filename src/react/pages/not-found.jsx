@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import ErrorMessage from '../components/error-message';
 
-export default class NotFound extends Component {
+class NotFound extends Component {
 
 	render () {
 
@@ -13,3 +13,5 @@ export default class NotFound extends Component {
 	};
 
 };
+
+export default NotFound;

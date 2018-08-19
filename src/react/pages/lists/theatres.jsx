@@ -3,21 +3,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import List from '../components/list';
-import PageTitle from '../components/page-title';
+import ListWrapper from '../../utils/list-wrapper';
 
 class Theatres extends Component {
 
 	render () {
 
 		return (
-			<div>
-
-				<PageTitle pageTitle='Theatres' />
-
-				<List instances={this.props.theatres} />
-
-			</div>
+			<ListWrapper
+				instances={this.props.theatres}
+				pageTitleText='Theatres'
+			>
+			</ListWrapper>
 		);
 
 	};

@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import ContentWrapper from '../components/content-wrapper';
-import SharedInstancePageComponents from '../components/shared-instance-page-components';
+import ContentWrapper from '../../components/content-wrapper';
+import InstanceWrapper from '../../utils/instance-wrapper';
 
 class Playtext extends Component {
 
@@ -12,9 +12,7 @@ class Playtext extends Component {
 		const { playtext } = this.props;
 
 		return (
-			<div>
-
-				<SharedInstancePageComponents instance={playtext} />
+			<InstanceWrapper instance={playtext}>
 
 				{
 					playtext.productions && playtext.productions.length ?
@@ -28,7 +26,7 @@ class Playtext extends Component {
 						null
 				}
 
-			</div>
+			</InstanceWrapper>
 		);
 
 	};
