@@ -63,7 +63,7 @@ app.get('*', (req, res) => {
 		const html = `
 			<!DOCTYPE html>
 
-			<html>
+			<html lang="en-GB">
 
 				<head>
 					${head.title.toString()}
