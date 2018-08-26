@@ -9,11 +9,13 @@ const receive = (instance, model) => createAction(actions[`RECEIVE_${model.toUpp
 
 export default (model, uuid = null) => (dispatch, getState) => {
 
-	const instance = uuid ? true : false;
+	const instance = uuid
+		? true
+		: false;
 
-	const apiCallReqd = instance ?
-		getState()[model].uuid !== uuid :
-		!getState()[model].length;
+	const apiCallReqd = instance
+		? getState()[model].uuid !== uuid
+		: !getState()[model].length;
 
 	if (apiCallReqd) {
 
@@ -21,9 +23,9 @@ export default (model, uuid = null) => (dispatch, getState) => {
 
 		let url = 'http://localhost:3000/';
 
-		url += instance ?
-			irregularPluralNouns[model] || model + 's' :
-			model;
+		url += instance
+			? irregularPluralNouns[model] || model + 's'
+			: model;
 
 		if (instance) url += `/${uuid}`;
 

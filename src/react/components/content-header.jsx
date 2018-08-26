@@ -5,13 +5,13 @@ const ContentHeader = props => {
 	const { text } = props;
 
 	return (
-		text ?
-		(
-			<div className="content-header">
-				{text}
-			</div>
-		) :
-		null
+		text
+			? (
+				<div className="content-header">
+					{text}
+				</div>
+			)
+			: null
 	);
 
 };

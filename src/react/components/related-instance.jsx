@@ -17,10 +17,10 @@ const RelatedInstance = props => {
 
 			<div className="content">
 				{
-					Array.isArray(instance) ?
-						join ?
-							<JoinedRoles instances={instance} /> :
-							<List instances={instance} />
+					Array.isArray(instance)
+						? join
+							? <JoinedRoles instances={instance} />
+							: <List instances={instance} />
 						: <InstanceLink instance={instance} />
 				}
 			</div>

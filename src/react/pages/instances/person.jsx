@@ -17,9 +17,9 @@ class Person extends Component {
 			<InstanceWrapper instance={person}>
 
 				{
-					productions && productions.length ?
-						<RelatedInstance labelText='Productions' instance={productions} /> :
-						null
+					productions && productions.length
+						? <RelatedInstance labelText='Productions' instance={productions} />
+						: null
 				}
 
 			</InstanceWrapper>

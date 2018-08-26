@@ -47,9 +47,9 @@ class FetchDataOnMountWrapper extends Component {
 				<main className="main-content">
 
 					{
-						error && error.exists ?
-							<ErrorMessage errorText={error.message} /> :
-							props.children
+						error && error.exists
+							? <ErrorMessage errorText={error.message} />
+							: props.children
 					}
 
 				</main>

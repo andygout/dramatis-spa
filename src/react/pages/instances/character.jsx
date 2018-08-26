@@ -17,21 +17,21 @@ class Character extends Component {
 			<InstanceWrapper instance={character}>
 
 				{
-					playtexts && playtexts.length ?
-						<RelatedInstance labelText='Playtexts' instance={playtexts} /> :
-						null
+					playtexts && playtexts.length
+						? <RelatedInstance labelText='Playtexts' instance={playtexts} />
+						: null
 				}
 
 				{
-					variantNames && variantNames.length ?
-						<RelatedInstance labelText='Variant names' instance={variantNames} join /> :
-						null
+					variantNames && variantNames.length
+						? <RelatedInstance labelText='Variant names' instance={variantNames} join />
+						: null
 				}
 
 				{
-					productions && productions.length ?
-						<RelatedInstance labelText='Productions' instance={productions} /> :
-						null
+					productions && productions.length
+						? <RelatedInstance labelText='Productions' instance={productions} />
+						: null
 				}
 
 			</InstanceWrapper>

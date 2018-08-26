@@ -17,9 +17,9 @@ class Theatre extends Component {
 			<InstanceWrapper instance={theatre}>
 
 				{
-					productions && productions.length ?
-						<RelatedInstance labelText='Productions' instance={productions} /> :
-						null
+					productions && productions.length
+						? <RelatedInstance labelText='Productions' instance={productions} />
+						: null
 				}
 
 			</InstanceWrapper>

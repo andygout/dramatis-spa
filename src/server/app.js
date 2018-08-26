@@ -159,7 +159,9 @@ const onError = err => {
 
 	if (err.syscall !== 'listen') throw err;
 
-	const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port
+	const bind = typeof port === 'string'
+		? 'Pipe ' + port
+		:'Port ' + port;
 
 	switch (err.code) {
 		case 'EACCES':

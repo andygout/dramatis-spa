@@ -17,15 +17,15 @@ class Playtext extends Component {
 			<InstanceWrapper instance={playtext}>
 
 				{
-					productions && productions.length ?
-						<RelatedInstance labelText='Productions' instance={productions} /> :
-						null
+					productions && productions.length
+						? <RelatedInstance labelText='Productions' instance={productions} />
+						: null
 				}
 
 				{
-					characters && characters.length ?
-						<RelatedInstance labelText='Characters' instance={characters} /> :
-						null
+					characters && characters.length
+						? <RelatedInstance labelText='Characters' instance={characters} />
+						: null
 				}
 
 			</InstanceWrapper>
