@@ -11,24 +11,26 @@ class Production extends Component {
 
 		const { production } = this.props;
 
+		const { theatre, playtext, cast } = production;
+
 		return (
 			<InstanceWrapper instance={production}>
 
 				{
-					production.theatre ?
-						<RelatedInstance labelText='Theatre' instance={production.theatre} /> :
+					theatre ?
+						<RelatedInstance labelText='Theatre' instance={theatre} /> :
 						null
 				}
 
 				{
-					production.playtext ?
-						<RelatedInstance labelText='Playtext' instance={production.playtext} /> :
+					playtext ?
+						<RelatedInstance labelText='Playtext' instance={playtext} /> :
 						null
 				}
 
 				{
-					production.cast && production.cast.length ?
-						<RelatedInstance labelText='Cast' instance={production.cast} /> :
+					cast && cast.length ?
+						<RelatedInstance labelText='Cast' instance={cast} /> :
 						null
 				}
 

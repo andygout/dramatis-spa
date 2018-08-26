@@ -11,24 +11,26 @@ class Character extends Component {
 
 		const { character } = this.props;
 
+		const { playtexts, variantNames, productions } = character;
+
 		return (
 			<InstanceWrapper instance={character}>
 
 				{
-					character.playtexts && character.playtexts.length ?
-						<RelatedInstance labelText='Playtexts' instance={character.playtexts} /> :
+					playtexts && playtexts.length ?
+						<RelatedInstance labelText='Playtexts' instance={playtexts} /> :
 						null
 				}
 
 				{
-					character.variantNames && character.variantNames.length ?
-						<RelatedInstance labelText='Variant names' instance={character.variantNames} join /> :
+					variantNames && variantNames.length ?
+						<RelatedInstance labelText='Variant names' instance={variantNames} join /> :
 						null
 				}
 
 				{
-					character.productions && character.productions.length ?
-						<RelatedInstance labelText='Productions' instance={character.productions} /> :
+					productions && productions.length ?
+						<RelatedInstance labelText='Productions' instance={productions} /> :
 						null
 				}
 

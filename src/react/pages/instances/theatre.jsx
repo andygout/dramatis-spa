@@ -11,12 +11,14 @@ class Theatre extends Component {
 
 		const { theatre } = this.props;
 
+		const { productions } = theatre;
+
 		return (
 			<InstanceWrapper instance={theatre}>
 
 				{
-					theatre.productions && theatre.productions.length ?
-						<RelatedInstance labelText='Productions' instance={theatre.productions} /> :
+					productions && productions.length ?
+						<RelatedInstance labelText='Productions' instance={productions} /> :
 						null
 				}
 

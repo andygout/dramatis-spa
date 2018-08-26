@@ -11,12 +11,14 @@ class Person extends Component {
 
 		const { person } = this.props;
 
+		const { productions } = person;
+
 		return (
 			<InstanceWrapper instance={person}>
 
 				{
-					person.productions && person.productions.length ?
-						<RelatedInstance labelText='Productions' instance={person.productions} /> :
+					productions && productions.length ?
+						<RelatedInstance labelText='Productions' instance={productions} /> :
 						null
 				}
 

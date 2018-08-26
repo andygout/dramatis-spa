@@ -11,18 +11,20 @@ class Playtext extends Component {
 
 		const { playtext } = this.props;
 
+		const { productions, characters } = playtext;
+
 		return (
 			<InstanceWrapper instance={playtext}>
 
 				{
-					playtext.productions && playtext.productions.length ?
-						<RelatedInstance labelText='Productions' instance={playtext.productions} /> :
+					productions && productions.length ?
+						<RelatedInstance labelText='Productions' instance={productions} /> :
 						null
 				}
 
 				{
-					playtext.characters && playtext.characters.length ?
-						<RelatedInstance labelText='Characters' instance={playtext.characters} /> :
+					characters && characters.length ?
+						<RelatedInstance labelText='Characters' instance={characters} /> :
 						null
 				}
 
