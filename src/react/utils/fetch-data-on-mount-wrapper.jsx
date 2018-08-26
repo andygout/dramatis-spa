@@ -18,6 +18,22 @@ class FetchDataOnMountWrapper extends React.Component {
 
 	};
 
+	componentWillReceiveProps (nextProps) {
+
+		const fetchReqd =
+			(this.props.match.path === nextProps.match.path) &&
+			(this.props.match.url !== nextProps.match.url);
+
+		if (fetchReqd) {
+
+			const { fetchData, dispatch, match, location } = nextProps;
+
+			fetchData.map(fn => fn(dispatch, match, location));
+
+		}
+
+	}
+
 	shouldComponentUpdate (nextProps) {
 
 		return this.props.error.exists !== nextProps.error.exists;
