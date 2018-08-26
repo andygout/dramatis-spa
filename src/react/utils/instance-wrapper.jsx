@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import ContentHeader from '../components/content-header';
 import InstanceDocumentTitle from '../components/instance-document-title';
 import PageTitle from '../components/page-title';
 
-class InstanceWrapper extends Component {
+class InstanceWrapper extends React.Component {
 
 	render () {
 
@@ -13,11 +13,11 @@ class InstanceWrapper extends Component {
 		return (
 			<React.Fragment>
 
-				<InstanceDocumentTitle instance={instance} />
+				<InstanceDocumentTitle instance={instance}/>
 
-				<ContentHeader text={instance.model} />
+				<ContentHeader text={instance.model}/>
 
-				<PageTitle pageTitle={instance.name} />
+				<PageTitle text={instance.name}/>
 
 				{children}
 

@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import ErrorMessage from '../components/error-message';
 
-class NotFound extends Component {
+class NotFound extends React.Component {
 
 	render () {
 
 		return (
-			<ErrorMessage errorText='Not Found' />
+			<ErrorMessage errorText='Not Found'/>
 		);
 
 	};

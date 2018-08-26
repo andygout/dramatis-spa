@@ -63,7 +63,7 @@ app.get('*', (req, res) => {
 		const html = `
 			<!DOCTYPE html>
 
-			<html>
+			<html lang="en-GB">
 
 				<head>
 					${head.title.toString()}
@@ -159,7 +159,9 @@ const onError = err => {
 
 	if (err.syscall !== 'listen') throw err;
 
-	const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port
+	const bind = typeof port === 'string'
+		? 'Pipe ' + port
+		:'Port ' + port;
 
 	switch (err.code) {
 		case 'EACCES':

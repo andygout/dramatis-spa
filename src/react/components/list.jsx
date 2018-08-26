@@ -11,86 +11,86 @@ const List = props => {
 				props.instances.map((instance, index) => (
 					<li key={index}>
 
-						<InstanceLink instance={instance} />
+						<InstanceLink instance={instance}/>
 
 						{
-							instance.theatre ?
-							(
-								<span>
+							instance.theatre
+								? (
+									<span>
 
-									&nbsp;-&nbsp;
+										&nbsp;-&nbsp;
 
-									<InstanceLink instance={instance.theatre} />
-
-								</span>
-							) :
-							null
-						}
-
-						{
-							instance.roles && instance.roles.length ?
-							(
-								<span>
-
-									&nbsp;…&nbsp;
-
-									<span className="role-text">
-
-										<JoinedRoles instances={instance.roles} />
+										<InstanceLink instance={instance.theatre}/>
 
 									</span>
-
-								</span>
-							) :
-							null
+								)
+								: null
 						}
 
 						{
-							instance.performers && instance.performers.length ?
-							(
-								<span>
+							instance.roles && instance.roles.length
+								? (
+									<span>
 
-									&nbsp;- performed by:&nbsp;
+										&nbsp;…&nbsp;
 
-									{
-										instance.performers
-											.map((performer, index) =>
-												<span key={index}>
+										<span className="role-text">
 
-													<span>
+											<JoinedRoles instances={instance.roles}/>
 
-														<InstanceLink instance={performer} />
+										</span>
 
-														&nbsp;…&nbsp;
+									</span>
+								)
+								: null
+						}
 
-														<span className="role-text">{performer.role.name}</span>
+						{
+							instance.performers && instance.performers.length
+								? (
+									<span>
+
+										&nbsp;- performed by:&nbsp;
+
+										{
+											instance.performers
+												.map((performer, index) =>
+													<span key={index}>
+
+														<span>
+
+															<InstanceLink instance={performer}/>
+
+															&nbsp;…&nbsp;
+
+															<span className="role-text">{performer.role.name}</span>
+
+														</span>
+
+														{
+															performer.otherRoles.length
+																? (
+																	<span>; also performed:&nbsp;
+
+																		<span className="role-text">
+
+																			<JoinedRoles instances={performer.otherRoles}/>
+
+																		</span>
+
+																	</span>
+																)
+																: null
+														}
 
 													</span>
+												)
+												.reduce((prev, curr) => [prev, ' / ', curr])
+										}
 
-													{
-														performer.otherRoles.length ?
-														(
-															<span>; also performed:&nbsp;
-
-																<span className="role-text">
-
-																	<JoinedRoles instances={performer.otherRoles} />
-
-																</span>
-
-															</span>
-														) :
-														null
-													}
-
-												</span>
-											)
-											.reduce((prev, curr) => [prev, ' / ', curr])
-									}
-
-								</span>
-							) :
-							null
+									</span>
+								)
+								: null
 						}
 
 					</li>

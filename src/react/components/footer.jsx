@@ -10,7 +10,7 @@ const Footer = () => {
 			</div>
 
 			<div className="footer__text footer__text--right">
-				Today's date is
+				{'Today\'s date is'}
 			</div>
 
 		</footer>

@@ -1,35 +1,37 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
-import ContentWrapper from '../../components/content-wrapper';
+import RelatedInstance from '../../components/related-instance';
 import InstanceWrapper from '../../utils/instance-wrapper';
 
-class Character extends Component {
+class Character extends React.Component {
 
 	render () {
 
 		const { character } = this.props;
 
+		const { playtexts, variantNames, productions } = character;
+
 		return (
 			<InstanceWrapper instance={character}>
 
 				{
-					character.playtexts && character.playtexts.length ?
-						<ContentWrapper labelText='Playtexts' instance={character.playtexts} /> :
-						null
+					playtexts && playtexts.length
+						? <RelatedInstance labelText='Playtexts' instance={playtexts}/>
+						: null
 				}
 
 				{
-					character.variantNames && character.variantNames.length ?
-						<ContentWrapper labelText='Variant names' instance={character.variantNames} join /> :
-						null
+					variantNames && variantNames.length
+						? <RelatedInstance labelText='Variant names' instance={variantNames} join/>
+						: null
 				}
 
 				{
-					character.productions && character.productions.length ?
-						<ContentWrapper labelText='Productions' instance={character.productions} /> :
-						null
+					productions && productions.length
+						? <RelatedInstance labelText='Productions' instance={productions}/>
+						: null
 				}
 
 			</InstanceWrapper>

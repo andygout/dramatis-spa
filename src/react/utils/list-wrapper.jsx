@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import List from '../components/list';
 import PageTitle from '../components/page-title';
 
-class ListWrapper extends Component {
+class ListWrapper extends React.Component {
 
 	render () {
 
@@ -12,9 +12,9 @@ class ListWrapper extends Component {
 		return (
 			<React.Fragment>
 
-				<PageTitle pageTitle={pageTitleText} />
+				<PageTitle text={pageTitleText}/>
 
-				<List instances={instances} />
+				<List instances={instances}/>
 
 				{children}
 

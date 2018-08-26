@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 
@@ -7,9 +7,8 @@ import ErrorMessage from '../components/error-message';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import Nav from '../components/nav';
-import PageTitle from '../components/page-title';
 
-class FetchDataOnMountWrapper extends Component {
+class FetchDataOnMountWrapper extends React.Component {
 
 	componentDidMount () {
 
@@ -40,21 +39,21 @@ class FetchDataOnMountWrapper extends Component {
 					title={props.documentTitle()}
 				/>
 
-				<Header />
+				<Header/>
 
-				<Nav />
+				<Nav/>
 
 				<main className="main-content">
 
 					{
-						error && error.exists ?
-							<ErrorMessage errorText={error.message} /> :
-							props.children
+						error && error.exists
+							? <ErrorMessage errorText={error.message}/>
+							: props.children
 					}
 
 				</main>
 
-				<Footer />
+				<Footer/>
 
 			</div>
 		);
