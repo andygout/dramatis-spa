@@ -1,18 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import withInstanceRoute from '../utils/with-instance-route';
+import { irregularPluralNouns } from '../../utils/constants';
 
 const InstanceLink = props => {
 
-	const { instance, index, instanceRoute } = props;
+	const { instance, index } = props;
+
+	const { model, uuid } = instance;
+
+	const instanceRoute = `/${irregularPluralNouns[model] || model + 's'}/${uuid}`;
 
 	return (
-		<Link key={index || null} to={`${instanceRoute}`}>
+		<Link key={index || null} to={instanceRoute}>
 			{instance.name}
 		</Link>
 	);
 
 };
 
-export default withInstanceRoute(InstanceLink);
+export default InstanceLink;
