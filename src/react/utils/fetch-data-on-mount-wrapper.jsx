@@ -7,7 +7,6 @@ import ErrorMessage from '../components/error-message';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import Nav from '../components/nav';
-import PageTitle from '../components/page-title';
 
 class FetchDataOnMountWrapper extends React.Component {
 
