@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import List from '../components/list';
 import PageTitle from '../components/page-title';
 
-class ListWrapper extends Component {
+class ListWrapper extends React.Component {
 
 	render () {
 

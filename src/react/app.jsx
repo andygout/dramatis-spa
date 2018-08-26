@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
 import routes from './routes';
 import FetchDataOnMountWrapper from './utils/fetch-data-on-mount-wrapper';
 
-class App extends Component {
+class App extends React.Component {
 
 	render () {
 
