@@ -1,9 +1,8 @@
-import error from './error';
-
 import character from './character';
 import characters from './characters';
-import person from './person';
+import error from './error';
 import people from './people';
+import person from './person';
 import playtext from './playtext';
 import playtexts from './playtexts';
 import production from './production';
@@ -12,9 +11,9 @@ import theatre from './theatre';
 import theatres from './theatres';
 
 export default {
-	error,
 	character,
 	characters,
+	error,
 	people,
 	person,
 	playtext,
