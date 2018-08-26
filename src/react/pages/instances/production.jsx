@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import ContentWrapper from '../../components/content-wrapper';
+import RelatedInstance from '../../components/related-instance';
 import InstanceWrapper from '../../utils/instance-wrapper';
 
 class Production extends Component {
@@ -14,13 +14,13 @@ class Production extends Component {
 		return (
 			<InstanceWrapper instance={production}>
 
-				{production.theatre ? <ContentWrapper labelText='Theatre' instance={production.theatre} /> : null}
+				{production.theatre ? <RelatedInstance labelText='Theatre' instance={production.theatre} /> : null}
 
-				{production.playtext ? <ContentWrapper labelText='Playtext' instance={production.playtext} /> : null}
+				{production.playtext ? <RelatedInstance labelText='Playtext' instance={production.playtext} /> : null}
 
 				{
 					production.cast && production.cast.length ?
-						<ContentWrapper labelText='Cast' instance={production.cast} /> :
+						<RelatedInstance labelText='Cast' instance={production.cast} /> :
 						null
 				}
 

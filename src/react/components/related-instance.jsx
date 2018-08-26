@@ -4,7 +4,7 @@ import InstanceLink from './instance-link';
 import JoinedRoles from './joined-roles';
 import List from './list';
 
-const ContentWrapper = props => {
+const RelatedInstance = props => {
 
 	const { labelText, instance, join } = props;
 
@@ -30,4 +30,4 @@ const ContentWrapper = props => {
 
 };
 
-export default ContentWrapper;
+export default RelatedInstance;

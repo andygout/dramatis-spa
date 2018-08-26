@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import ContentWrapper from '../../components/content-wrapper';
+import RelatedInstance from '../../components/related-instance';
 import InstanceWrapper from '../../utils/instance-wrapper';
 
 class Character extends Component {
@@ -16,19 +16,19 @@ class Character extends Component {
 
 				{
 					character.playtexts && character.playtexts.length ?
-						<ContentWrapper labelText='Playtexts' instance={character.playtexts} /> :
+						<RelatedInstance labelText='Playtexts' instance={character.playtexts} /> :
 						null
 				}
 
 				{
 					character.variantNames && character.variantNames.length ?
-						<ContentWrapper labelText='Variant names' instance={character.variantNames} join /> :
+						<RelatedInstance labelText='Variant names' instance={character.variantNames} join /> :
 						null
 				}
 
 				{
 					character.productions && character.productions.length ?
-						<ContentWrapper labelText='Productions' instance={character.productions} /> :
+						<RelatedInstance labelText='Productions' instance={character.productions} /> :
 						null
 				}
 

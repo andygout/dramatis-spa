@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import ContentWrapper from '../../components/content-wrapper';
+import RelatedInstance from '../../components/related-instance';
 import InstanceWrapper from '../../utils/instance-wrapper';
 
 class Theatre extends Component {
@@ -16,7 +16,7 @@ class Theatre extends Component {
 
 				{
 					theatre.productions && theatre.productions.length ?
-						<ContentWrapper labelText='Productions' instance={theatre.productions} /> :
+						<RelatedInstance labelText='Productions' instance={theatre.productions} /> :
 						null
 				}
 
