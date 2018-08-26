@@ -14,9 +14,17 @@ class Production extends Component {
 		return (
 			<InstanceWrapper instance={production}>
 
-				{production.theatre ? <RelatedInstance labelText='Theatre' instance={production.theatre} /> : null}
+				{
+					production.theatre ?
+						<RelatedInstance labelText='Theatre' instance={production.theatre} /> :
+						null
+				}
 
-				{production.playtext ? <RelatedInstance labelText='Playtext' instance={production.playtext} /> : null}
+				{
+					production.playtext ?
+						<RelatedInstance labelText='Playtext' instance={production.playtext} /> :
+						null
+				}
 
 				{
 					production.cast && production.cast.length ?
