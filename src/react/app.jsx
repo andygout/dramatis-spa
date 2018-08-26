@@ -26,7 +26,7 @@ class App extends Component {
 											documentTitle={route.documentTitle}
 											fetchData={route.fetchData}
 										>
-											<RouteComponent />
+											<RouteComponent/>
 										</FetchDataOnMountWrapper>
 									);
 								}

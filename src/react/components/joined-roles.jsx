@@ -12,7 +12,7 @@ const JoinedArray = props => {
 				instances
 					.map((instance, index) =>
 						instance.model && instance.uuid
-							? <InstanceLink key={index} index={index} instance={instance} />
+							? <InstanceLink key={index} index={index} instance={instance}/>
 							: <span key={index}>{instance.name || instance}</span>
 					)
 					.reduce((prev, curr) => [prev, ' / ', curr])

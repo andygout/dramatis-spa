@@ -18,19 +18,19 @@ class Character extends Component {
 
 				{
 					playtexts && playtexts.length
-						? <RelatedInstance labelText='Playtexts' instance={playtexts} />
+						? <RelatedInstance labelText='Playtexts' instance={playtexts}/>
 						: null
 				}
 
 				{
 					variantNames && variantNames.length
-						? <RelatedInstance labelText='Variant names' instance={variantNames} join />
+						? <RelatedInstance labelText='Variant names' instance={variantNames} join/>
 						: null
 				}
 
 				{
 					productions && productions.length
-						? <RelatedInstance labelText='Productions' instance={productions} />
+						? <RelatedInstance labelText='Productions' instance={productions}/>
 						: null
 				}
 

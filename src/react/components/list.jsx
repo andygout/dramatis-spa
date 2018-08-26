@@ -11,7 +11,7 @@ const List = props => {
 				props.instances.map((instance, index) => (
 					<li key={index}>
 
-						<InstanceLink instance={instance} />
+						<InstanceLink instance={instance}/>
 
 						{
 							instance.theatre
@@ -20,7 +20,7 @@ const List = props => {
 
 										&nbsp;-&nbsp;
 
-										<InstanceLink instance={instance.theatre} />
+										<InstanceLink instance={instance.theatre}/>
 
 									</span>
 								)
@@ -36,7 +36,7 @@ const List = props => {
 
 										<span className="role-text">
 
-											<JoinedRoles instances={instance.roles} />
+											<JoinedRoles instances={instance.roles}/>
 
 										</span>
 
@@ -59,7 +59,7 @@ const List = props => {
 
 														<span>
 
-															<InstanceLink instance={performer} />
+															<InstanceLink instance={performer}/>
 
 															&nbsp;…&nbsp;
 
@@ -74,7 +74,7 @@ const List = props => {
 
 																		<span className="role-text">
 
-																			<JoinedRoles instances={performer.otherRoles} />
+																			<JoinedRoles instances={performer.otherRoles}/>
 
 																		</span>
 

@@ -40,21 +40,21 @@ class FetchDataOnMountWrapper extends Component {
 					title={props.documentTitle()}
 				/>
 
-				<Header />
+				<Header/>
 
-				<Nav />
+				<Nav/>
 
 				<main className="main-content">
 
 					{
 						error && error.exists
-							? <ErrorMessage errorText={error.message} />
+							? <ErrorMessage errorText={error.message}/>
 							: props.children
 					}
 
 				</main>
 
-				<Footer />
+				<Footer/>
 
 			</div>
 		);

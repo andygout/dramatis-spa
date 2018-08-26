@@ -7,7 +7,7 @@ class NotFound extends Component {
 	render () {
 
 		return (
-			<ErrorMessage errorText='Not Found' />
+			<ErrorMessage errorText='Not Found'/>
 		);
 
 	};

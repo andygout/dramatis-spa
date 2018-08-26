@@ -7,7 +7,7 @@ const DocumentTitle = props => {
 
 	return (
 		name !== undefined && model !== undefined
-			? <Helmet title={`${name} (${model})`} />
+			? <Helmet title={`${name} (${model})`}/>
 			: null
 	);
 

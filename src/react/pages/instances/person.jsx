@@ -18,7 +18,7 @@ class Person extends Component {
 
 				{
 					productions && productions.length
-						? <RelatedInstance labelText='Productions' instance={productions} />
+						? <RelatedInstance labelText='Productions' instance={productions}/>
 						: null
 				}
 

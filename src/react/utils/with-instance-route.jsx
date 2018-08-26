@@ -9,7 +9,7 @@ const withInstanceRoute = WrappedComponent => props => {
 	const newProps = { instanceRoute: `/${irregularPluralNouns[model] || model + 's'}/${uuid}` };
 
 	return (
-		<WrappedComponent {...props} {...newProps} />
+		<WrappedComponent {...props} {...newProps}/>
 	);
 
 };

@@ -19,9 +19,9 @@ const RelatedInstance = props => {
 				{
 					Array.isArray(instance)
 						? join
-							? <JoinedRoles instances={instance} />
-							: <List instances={instance} />
-						: <InstanceLink instance={instance} />
+							? <JoinedRoles instances={instance}/>
+							: <List instances={instance}/>
+						: <InstanceLink instance={instance}/>
 				}
 			</div>
 

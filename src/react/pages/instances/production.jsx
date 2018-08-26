@@ -18,19 +18,19 @@ class Production extends Component {
 
 				{
 					theatre
-						? <RelatedInstance labelText='Theatre' instance={theatre} />
+						? <RelatedInstance labelText='Theatre' instance={theatre}/>
 						: null
 				}
 
 				{
 					playtext
-						? <RelatedInstance labelText='Playtext' instance={playtext} />
+						? <RelatedInstance labelText='Playtext' instance={playtext}/>
 						: null
 				}
 
 				{
 					cast && cast.length
-						? <RelatedInstance labelText='Cast' instance={cast} />
+						? <RelatedInstance labelText='Cast' instance={cast}/>
 						: null
 				}
 

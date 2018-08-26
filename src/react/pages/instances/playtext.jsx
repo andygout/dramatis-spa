@@ -18,13 +18,13 @@ class Playtext extends Component {
 
 				{
 					productions && productions.length
-						? <RelatedInstance labelText='Productions' instance={productions} />
+						? <RelatedInstance labelText='Productions' instance={productions}/>
 						: null
 				}
 
 				{
 					characters && characters.length
-						? <RelatedInstance labelText='Characters' instance={characters} />
+						? <RelatedInstance labelText='Characters' instance={characters}/>
 						: null
 				}
 
