@@ -7,7 +7,7 @@ class Home extends Component {
 	render () {
 
 		return (
-			<PageTitle pageTitle='Home'/>
+			<PageTitle text='Home'/>
 		);
 
 	};

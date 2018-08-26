@@ -17,7 +17,7 @@ class InstanceWrapper extends Component {
 
 				<ContentHeader text={instance.model}/>
 
-				<PageTitle pageTitle={instance.name}/>
+				<PageTitle text={instance.name}/>
 
 				{children}
 

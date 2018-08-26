@@ -12,7 +12,7 @@ const ErrorMessage = props => {
 
 			<Helmet title={errorText}/>
 
-			<PageTitle pageTitle={errorText}/>
+			<PageTitle text={errorText}/>
 
 		</div>
 	);
