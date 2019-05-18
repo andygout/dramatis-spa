@@ -14,8 +14,8 @@ export default (model, uuid = null) => (dispatch, getState) => {
 		: false;
 
 	const apiCallReqd = instance
-		? getState()[model].uuid !== uuid
-		: !getState()[model].length;
+		? getState().getIn([model, 'uuid']) !== uuid
+		: !getState().get(model).size;
 
 	if (apiCallReqd) {
 

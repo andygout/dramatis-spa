@@ -1,3 +1,4 @@
+import { List as ImmutableList } from 'immutable';
 import React from 'react';
 
 import InstanceLink from './instance-link';
@@ -17,7 +18,7 @@ const RelatedInstance = props => {
 
 			<div className="content">
 				{
-					Array.isArray(instance)
+					ImmutableList.isList(instance)
 						? join
 							? <JoinedRoles instances={instance}/>
 							: <List instances={instance}/>

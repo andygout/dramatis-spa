@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import RelatedInstance from '../../components/related-instance';
@@ -11,7 +11,9 @@ class Production extends React.Component {
 
 		const { production } = this.props;
 
-		const { theatre, playtext, cast } = production;
+		const theatre = production.get('theatre');
+		const playtext = production.get('playtext');
+		const cast = production.get('cast');
 
 		return (
 			<InstanceWrapper instance={production}>
@@ -29,7 +31,7 @@ class Production extends React.Component {
 				}
 
 				{
-					cast && cast.length
+					cast && cast.size
 						? <RelatedInstance labelText='Cast' instance={cast}/>
 						: null
 				}
@@ -41,8 +43,8 @@ class Production extends React.Component {
 
 };
 
-Production.propTypes = { production: PropTypes.object.isRequired };
+Production.propTypes = { production: ImmutablePropTypes.map.isRequired };
 
-const mapStateToProps = ({ production }) => ({ production });
+const mapStateToProps = state => ({ production: state.get('production') });
 
 export default connect(mapStateToProps)(Production);

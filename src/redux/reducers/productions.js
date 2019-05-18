@@ -1,6 +1,8 @@
+import { List, fromJS } from 'immutable';
+
 import { REQUEST_PRODUCTIONS, RECEIVE_PRODUCTIONS } from '../utils/model-actions';
 
-const productions = (state = [], action) => {
+const productions = (state = List([]), action) => {
 
 	switch (action.type) {
 
@@ -8,7 +10,7 @@ const productions = (state = [], action) => {
 			return state;
 
 		case RECEIVE_PRODUCTIONS:
-			return action.payload;
+			return fromJS(action.payload);
 
 		default:
 			return state;

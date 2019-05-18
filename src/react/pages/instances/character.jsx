@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import RelatedInstance from '../../components/related-instance';
@@ -11,25 +11,27 @@ class Character extends React.Component {
 
 		const { character } = this.props;
 
-		const { playtexts, variantNames, productions } = character;
+		const playtexts = character.get('playtexts');
+		const variantNames = character.get('variantNames');
+		const productions = character.get('productions');
 
 		return (
 			<InstanceWrapper instance={character}>
 
 				{
-					playtexts && playtexts.length
+					playtexts && playtexts.size
 						? <RelatedInstance labelText='Playtexts' instance={playtexts}/>
 						: null
 				}
 
 				{
-					variantNames && variantNames.length
+					variantNames && variantNames.size
 						? <RelatedInstance labelText='Variant names' instance={variantNames} join/>
 						: null
 				}
 
 				{
-					productions && productions.length
+					productions && productions.size
 						? <RelatedInstance labelText='Productions' instance={productions}/>
 						: null
 				}
@@ -41,8 +43,8 @@ class Character extends React.Component {
 
 };
 
-Character.propTypes = { character: PropTypes.object.isRequired };
+Character.propTypes = { character: ImmutablePropTypes.map.isRequired };
 
-const mapStateToProps = ({ character }) => ({ character });
+const mapStateToProps = state => ({ character: state.get('character') });
 
 export default connect(mapStateToProps)(Character);

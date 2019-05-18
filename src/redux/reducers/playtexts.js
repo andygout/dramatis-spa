@@ -1,6 +1,8 @@
+import { List, fromJS } from 'immutable';
+
 import { REQUEST_PLAYTEXTS, RECEIVE_PLAYTEXTS } from '../utils/model-actions';
 
-const playtexts = (state = [], action) => {
+const playtexts = (state = List([]), action) => {
 
 	switch (action.type) {
 
@@ -8,7 +10,7 @@ const playtexts = (state = [], action) => {
 			return state;
 
 		case RECEIVE_PLAYTEXTS:
-			return action.payload;
+			return fromJS(action.payload);
 
 		default:
 			return state;

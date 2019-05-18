@@ -1,8 +1,10 @@
+import { fromJS } from 'immutable';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom'
-import { applyMiddleware, createStore, combineReducers } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import { combineReducers } from 'redux-immutable';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 
@@ -13,11 +15,11 @@ window.onload = () => {
 
 	const preloadedState = JSON.parse(document.getElementById('react-client-data').innerText);
 
-	const loggerMiddleware = createLogger();
+	const loggerMiddleware = createLogger({ stateTransformer: state => state.toJS() });
 
 	const store = createStore(
 		combineReducers(reducers),
-		preloadedState,
+		fromJS(preloadedState),
 		applyMiddleware(...[thunkMiddleware, loggerMiddleware])
 	);
 

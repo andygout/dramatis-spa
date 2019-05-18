@@ -14,13 +14,13 @@ const List = props => {
 						<InstanceLink instance={instance}/>
 
 						{
-							instance.theatre
+							instance.get('theatre')
 								? (
 									<span>
 
 										&nbsp;-&nbsp;
 
-										<InstanceLink instance={instance.theatre}/>
+										<InstanceLink instance={instance.get('theatre')}/>
 
 									</span>
 								)
@@ -28,7 +28,7 @@ const List = props => {
 						}
 
 						{
-							instance.roles && instance.roles.length
+							instance.get('roles') && instance.get('roles').size
 								? (
 									<span>
 
@@ -36,7 +36,7 @@ const List = props => {
 
 										<span className="role-text">
 
-											<JoinedRoles instances={instance.roles}/>
+											<JoinedRoles instances={instance.get('roles')}/>
 
 										</span>
 
@@ -46,14 +46,14 @@ const List = props => {
 						}
 
 						{
-							instance.performers && instance.performers.length
+							instance.get('performers') && instance.get('performers').size
 								? (
 									<span>
 
 										&nbsp;- performed by:&nbsp;
 
 										{
-											instance.performers
+											instance.get('performers')
 												.map((performer, index) =>
 													<span key={index}>
 
@@ -63,18 +63,18 @@ const List = props => {
 
 															&nbsp;…&nbsp;
 
-															<span className="role-text">{performer.role.name}</span>
+															<span className="role-text">{performer.getIn(['role', 'name'])}</span>
 
 														</span>
 
 														{
-															performer.otherRoles.length
+															performer.get('otherRoles').size
 																? (
 																	<span>; also performed:&nbsp;
 
 																		<span className="role-text">
 
-																			<JoinedRoles instances={performer.otherRoles}/>
+																			<JoinedRoles instances={performer.get('otherRoles')}/>
 
 																		</span>
 

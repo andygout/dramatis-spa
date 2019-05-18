@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import ListWrapper from '../../utils/list-wrapper';
@@ -20,8 +20,8 @@ class Characters extends React.Component {
 
 };
 
-Characters.propTypes = { characters: PropTypes.array.isRequired };
+Characters.propTypes = { characters: ImmutablePropTypes.list.isRequired };
 
-const mapStateToProps = ({ characters }) => ({ characters });
+const mapStateToProps = state => ({ characters: state.get('characters') });
 
 export default connect(mapStateToProps)(Characters);

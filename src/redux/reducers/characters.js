@@ -1,6 +1,8 @@
+import { List, fromJS } from 'immutable';
+
 import { REQUEST_CHARACTERS, RECEIVE_CHARACTERS } from '../utils/model-actions';
 
-const characters = (state = [], action) => {
+const characters = (state = List([]), action) => {
 
 	switch (action.type) {
 
@@ -8,7 +10,7 @@ const characters = (state = [], action) => {
 			return state;
 
 		case RECEIVE_CHARACTERS:
-			return action.payload;
+			return fromJS(action.payload);
 
 		default:
 			return state;

@@ -1,3 +1,4 @@
+import { Map } from 'immutable';
 import React from 'react';
 
 import InstanceLink from './instance-link';
@@ -11,9 +12,9 @@ const JoinedArray = props => {
 			{
 				instances
 					.map((instance, index) =>
-						instance.model && instance.uuid
+						Map.isMap(instance) && instance.get('model') && instance.get('uuid')
 							? <InstanceLink key={index} index={index} instance={instance}/>
-							: <span key={index}>{instance.name || instance}</span>
+							: <span key={index}>{Map.isMap(instance) ? instance.get('name') : instance}</span>
 					)
 					.reduce((prev, curr) => [prev, ' / ', curr])
 			}

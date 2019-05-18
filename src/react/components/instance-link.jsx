@@ -7,13 +7,13 @@ const InstanceLink = props => {
 
 	const { instance, index } = props;
 
-	const { model, uuid } = instance;
+	const model = instance.get('model');
 
-	const instanceRoute = `/${irregularPluralNouns[model] || model + 's'}/${uuid}`;
+	const instanceRoute = `/${irregularPluralNouns[model] || model + 's'}/${instance.get('uuid')}`;
 
 	return (
 		<Link key={index || null} to={instanceRoute}>
-			{instance.name}
+			{instance.get('name')}
 		</Link>
 	);
 

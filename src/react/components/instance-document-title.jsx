@@ -3,7 +3,10 @@ import { Helmet } from 'react-helmet';
 
 const DocumentTitle = props => {
 
-	const { instance: { name, model } } = props;
+	const { instance } = props;
+
+	const name = instance.get('name');
+	const model = instance.get('model');
 
 	return (
 		name !== undefined && model !== undefined
