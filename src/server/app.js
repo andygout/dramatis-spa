@@ -6,13 +6,15 @@
 import express from 'express';
 import favicon from 'serve-favicon';
 import http from 'http';
+import { fromJS } from 'immutable';
 import logger from 'morgan';
 import path from 'path';
 import session from 'express-session';
 
 import { Helmet } from 'react-helmet';
 import { matchPath } from 'react-router-dom';
-import { applyMiddleware, createStore, combineReducers } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import { combineReducers } from 'redux-immutable';
 import thunkMiddleware from 'redux-thunk';
 
 import getReactHtml from '../react/react-html';
@@ -32,7 +34,7 @@ app.use(express.static('public'));
 
 const store = createStore(
 	combineReducers(reducers),
-	{},
+	fromJS({}),
 	applyMiddleware(...[thunkMiddleware])
 );
 

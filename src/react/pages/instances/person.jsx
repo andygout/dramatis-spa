@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import RelatedInstance from '../../components/related-instance';
@@ -11,13 +11,13 @@ class Person extends React.Component {
 
 		const { person } = this.props;
 
-		const { productions } = person;
+		const productions = person.get('productions');
 
 		return (
 			<InstanceWrapper instance={person}>
 
 				{
-					productions && productions.length
+					productions && productions.size
 						? <RelatedInstance labelText='Productions' instance={productions}/>
 						: null
 				}
@@ -29,8 +29,8 @@ class Person extends React.Component {
 
 };
 
-Person.propTypes = { person: PropTypes.object.isRequired };
+Person.propTypes = { person: ImmutablePropTypes.map.isRequired };
 
-const mapStateToProps = ({ person }) => ({ person });
+const mapStateToProps = state => ({ person: state.get('person') });
 
 export default connect(mapStateToProps)(Person);

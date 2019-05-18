@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import ListWrapper from '../../utils/list-wrapper';
@@ -20,8 +20,8 @@ class Theatres extends React.Component {
 
 };
 
-Theatres.propTypes = { theatres: PropTypes.array.isRequired };
+Theatres.propTypes = { theatres: ImmutablePropTypes.list.isRequired };
 
-const mapStateToProps = ({ theatres }) => ({ theatres });
+const mapStateToProps = state => ({ theatres: state.get('theatres') });
 
 export default connect(mapStateToProps)(Theatres);

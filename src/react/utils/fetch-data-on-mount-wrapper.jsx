@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 
@@ -36,7 +36,7 @@ class FetchDataOnMountWrapper extends React.Component {
 
 	shouldComponentUpdate (nextProps) {
 
-		return this.props.error.exists !== nextProps.error.exists;
+		return this.props.error.get('exists') !== nextProps.error.get('exists');
 
 	}
 
@@ -62,8 +62,8 @@ class FetchDataOnMountWrapper extends React.Component {
 				<main className="main-content">
 
 					{
-						error && error.exists
-							? <ErrorMessage errorText={error.message}/>
+						error.get('exists')
+							? <ErrorMessage errorText={error.get('message')}/>
 							: props.children
 					}
 
@@ -78,8 +78,8 @@ class FetchDataOnMountWrapper extends React.Component {
 
 };
 
-FetchDataOnMountWrapper.propTypes = { error: PropTypes.object.isRequired };
+FetchDataOnMountWrapper.propTypes = { error: ImmutablePropTypes.map.isRequired };
 
-const mapStateToProps = error => (error);
+const mapStateToProps = state => ({ error: state.get('error') });
 
 export default connect(mapStateToProps)(FetchDataOnMountWrapper);

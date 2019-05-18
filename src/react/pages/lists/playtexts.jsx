@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import ListWrapper from '../../utils/list-wrapper';
@@ -20,8 +20,8 @@ class Playtexts extends React.Component {
 
 };
 
-Playtexts.propTypes = { playtexts: PropTypes.array.isRequired };
+Playtexts.propTypes = { playtexts: ImmutablePropTypes.list.isRequired };
 
-const mapStateToProps = ({ playtexts }) => ({ playtexts });
+const mapStateToProps = state => ({ playtexts: state.get('playtexts') });
 
 export default connect(mapStateToProps)(Playtexts);

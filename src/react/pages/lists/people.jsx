@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import ListWrapper from '../../utils/list-wrapper';
@@ -20,8 +20,8 @@ class People extends React.Component {
 
 };
 
-People.propTypes = { people: PropTypes.array.isRequired };
+People.propTypes = { people: ImmutablePropTypes.list.isRequired };
 
-const mapStateToProps = ({ people }) => ({ people });
+const mapStateToProps = state => ({ people: state.get('people') });
 
 export default connect(mapStateToProps)(People);

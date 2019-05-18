@@ -1,6 +1,8 @@
+import { List, fromJS } from 'immutable';
+
 import { REQUEST_PEOPLE, RECEIVE_PEOPLE } from '../utils/model-actions';
 
-const people = (state = [], action) => {
+const people = (state = List([]), action) => {
 
 	switch (action.type) {
 
@@ -8,7 +10,7 @@ const people = (state = [], action) => {
 			return state;
 
 		case RECEIVE_PEOPLE:
-			return action.payload;
+			return fromJS(action.payload);
 
 		default:
 			return state;

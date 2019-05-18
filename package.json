@@ -19,15 +19,17 @@
   "dependencies": {
     "express": "^4.14.0",
     "express-session": "^1.14.1",
+    "immutable": "^4.0.0-rc.12",
     "morgan": "^1.5.1",
-    "prop-types": "^15.5.10",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
+    "react-immutable-proptypes": "^2.1.0",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
+    "redux-immutable": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "serve-favicon": "^2.2.0"

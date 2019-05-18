@@ -7,7 +7,7 @@ const setError = error => createAction(SET_ERROR_STATUS, error);
 
 const resetError = () => (dispatch, getState) => {
 
-	if (getState().error.exists) {
+	if (getState().getIn(['error', 'exists'])) {
 
 		dispatch(createAction(RESET_ERROR_STATUS, { exists: false }));
 

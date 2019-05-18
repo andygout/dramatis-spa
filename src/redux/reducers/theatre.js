@@ -1,6 +1,8 @@
+import { Map, fromJS } from 'immutable';
+
 import { REQUEST_THEATRE, RECEIVE_THEATRE } from '../utils/model-actions';
 
-const theatre = (state = {}, action) => {
+const theatre = (state = Map({}), action) => {
 
 	switch (action.type) {
 
@@ -8,7 +10,7 @@ const theatre = (state = {}, action) => {
 			return state;
 
 		case RECEIVE_THEATRE:
-			return action.payload;
+			return fromJS(action.payload);
 
 		default:
 			return state;
