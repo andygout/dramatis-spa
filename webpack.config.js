@@ -24,7 +24,7 @@ const serverConfig = {
 				exclude: [/node_modules/],
 				loader: 'babel-loader',
 				options: {
-					presets: ['react', 'latest']
+					presets: ['@babel/preset-env', '@babel/preset-react']
 				}
 			}
 		]
@@ -72,7 +72,7 @@ const clientConfig = {
 				test: /\.(js|jsx)$/,
 				loader: 'babel-loader',
 				query: {
-					presets: ['react', 'latest']
+					presets: ['@babel/preset-env', '@babel/preset-react']
 				}
 			}
 		]

@@ -35,12 +35,10 @@
     "serve-favicon": "^2.2.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.1",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
-    "babel-preset-latest": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
     "css-loader": "^0.28.0",
     "eslint": "^4.11.0",
     "extract-text-webpack-plugin": "^2.1.0",
