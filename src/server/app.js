@@ -3,6 +3,9 @@
 	no-unused-vars: ["error", { "argsIgnorePattern": "next" }]
 */
 
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+
 import express from 'express';
 import favicon from 'serve-favicon';
 import http from 'http';
@@ -38,7 +41,7 @@ const store = createStore(
 	applyMiddleware(...[thunkMiddleware])
 );
 
-app.get('*', (req, res) => {
+app.get('*', async (req, res) => {
 
 	const { dispatch, getState } = store;
 
@@ -54,42 +57,40 @@ app.get('*', (req, res) => {
 
 	});
 
-	Promise.all(fetchDataPromises).then(() => {
+	await Promise.all(fetchDataPromises);
 
-		const preloadedState = getState();
+	const preloadedState = getState();
 
-		const reactHtml = getReactHtml(req, store);
+	const reactHtml = getReactHtml(req, store);
 
-		const head = Helmet.rewind();
+	const head = Helmet.rewind();
 
-		const html = `
-			<!DOCTYPE html>
+	const html = `
+		<!DOCTYPE html>
 
-			<html lang="en-GB">
+		<html lang="en-GB">
 
-				<head>
-					${head.title.toString()}
-					<link rel="stylesheet" href="/main.css">
-					<script src="/main.js"></script>
-					<meta charset="utf-8">
-				</head>
+			<head>
+				${head.title.toString()}
+				<link rel="stylesheet" href="/main.css">
+				<script src="/main.js"></script>
+				<meta charset="utf-8">
+			</head>
 
-				<script id="react-client-data" type="text/json">
-					${JSON.stringify(preloadedState)}
-				</script>
+			<script id="react-client-data" type="text/json">
+				${JSON.stringify(preloadedState)}
+			</script>
 
-				<div id="app" class="app">
-					${reactHtml}
-				</div>
+			<div id="app" class="app">
+				${reactHtml}
+			</div>
 
-			</html>
-		`.split('\n').map(line => line.trim()).join('');
+		</html>
+	`.split('\n').map(line => line.trim()).join('');
 
-		res.write(html);
+	res.write(html);
 
-		res.end();
-
-	});
+	res.end();
 
 });
 
