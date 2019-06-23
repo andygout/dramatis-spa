@@ -7,7 +7,7 @@ const request = model => createAction(actions[`REQUEST_${model.toUpperCase()}`])
 
 const receive = (instance, model) => createAction(actions[`RECEIVE_${model.toUpperCase()}`], instance);
 
-export default (model, uuid = null) => (dispatch, getState) => {
+export default (model, uuid = null) => async (dispatch, getState) => {
 
 	const instance = uuid
 		? true
@@ -29,16 +29,21 @@ export default (model, uuid = null) => (dispatch, getState) => {
 
 		if (instance) url += `/${uuid}`;
 
-		return fetch(url, { 'mode': 'cors' })
-			.then(response => {
+		try {
 
-				if (response.status !== 200) throw new Error(response.statusText);
+			const response = await fetch(url, { 'mode': 'cors' });
 
-				return response.json();
+			if (response.status !== 200) throw new Error(response.statusText);
 
-			})
-			.then(instance => dispatch(receive(instance, model)))
-			.catch(({ message }) => dispatch(setError({ exists: true, message })));
+			const instance = await response.json();
+
+			dispatch(receive(instance, model));
+
+		} catch ({ message }) {
+
+			dispatch(setError({ exists: true, message }));
+
+		}
 
 	}
 
