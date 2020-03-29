@@ -12,4 +12,4 @@ Front end rendering of site that provides listings for theatrical productions, p
 
 ## To run linting checks
 - Ensure `$ npm install` has been run.
-- `$ npm run lint-checks`.
+- `$ npm run lint-check`.
