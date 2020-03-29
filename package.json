@@ -6,13 +6,13 @@
   "scripts": {
     "lint": "eslint --ext .js src/",
     "lintspaces": "git ls-files | xargs lintspaces -e .editorconfig",
-    "test": "npm run lint && npm run lintspaces",
+    "checks": "npm run lint && npm run lintspaces",
     "build": "webpack",
     "watch": "webpack --watch",
     "start": "nodemon built/main.js"
   },
   "pre-commit": [
-    "test"
+    "checks"
   ],
   "author": "https://github.com/andygout",
   "license": "MS-RSL",

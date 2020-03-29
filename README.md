@@ -10,6 +10,6 @@ Front end rendering of site that provides listings for theatrical productions, p
 - Ensure an instance of [`theatrebase-api`](https://github.com/andygout/theatrebase-api) is running on `http://localhost:3000`.
 - Run server using `$ npm start` and visit homepage at `http://localhost:3001`.
 
-## To test
+## To run checks (linting)
 - Ensure `$ npm install` has been run.
-- `$ npm test`.
+- `$ npm run checks`.
