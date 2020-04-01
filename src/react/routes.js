@@ -1,15 +1,15 @@
-import Character from './pages/instances/character';
-import Person from './pages/instances/person';
-import Playtext from './pages/instances/playtext';
-import Production from './pages/instances/production';
-import Theatre from './pages/instances/theatre';
-import Characters from './pages/lists/characters';
-import People from './pages/lists/people';
-import Playtexts from './pages/lists/playtexts';
-import Productions from './pages/lists/productions';
-import Theatres from './pages/lists/theatres';
-import Home from './pages/home';
-import NotFound from './pages/not-found';
+import Character from './pages/instances/Character';
+import Person from './pages/instances/Person';
+import Playtext from './pages/instances/Playtext';
+import Production from './pages/instances/Production';
+import Theatre from './pages/instances/Theatre';
+import Characters from './pages/lists/Characters';
+import People from './pages/lists/People';
+import Playtexts from './pages/lists/Playtexts';
+import Productions from './pages/lists/Productions';
+import Theatres from './pages/lists/Theatres';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 
 import { resetError } from '../redux/actions/error';
 import fetchModel from '../redux/actions/model';

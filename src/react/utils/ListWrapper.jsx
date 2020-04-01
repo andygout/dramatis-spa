@@ -1,7 +1,7 @@
 import React from 'react';
 
-import List from '../components/list';
-import PageTitle from '../components/page-title';
+import List from '../components/List';
+import PageTitle from '../components/PageTitle';
 
 class ListWrapper extends React.Component {
 

@@ -8,7 +8,7 @@ import { combineReducers } from 'redux-immutable';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 
-import App from './app';
+import App from './App';
 import reducers from '../redux/reducers';
 
 window.onload = () => {

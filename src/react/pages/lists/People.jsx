@@ -2,7 +2,7 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
-import ListWrapper from '../../utils/list-wrapper';
+import ListWrapper from '../../utils/ListWrapper';
 
 class People extends React.Component {
 
