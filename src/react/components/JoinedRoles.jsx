@@ -1,7 +1,7 @@
 import { Map } from 'immutable';
 import React from 'react';
 
-import InstanceLink from './InstanceLink';
+import { InstanceLink } from '.';
 
 const JoinedArray = props => {
 

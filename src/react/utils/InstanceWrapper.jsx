@@ -1,8 +1,6 @@
 import React from 'react';
 
-import ContentHeader from '../components/ContentHeader';
-import InstanceDocumentTitle from '../components/InstanceDocumentTitle';
-import PageTitle from '../components/PageTitle';
+import { ContentHeader, InstanceDocumentTitle, PageTitle } from '../components';
 
 class InstanceWrapper extends React.Component {
 

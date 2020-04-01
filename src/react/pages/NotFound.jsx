@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ErrorMessage from '../components/ErrorMessage';
+import { ErrorMessage } from '../components';
 
 class NotFound extends React.Component {
 

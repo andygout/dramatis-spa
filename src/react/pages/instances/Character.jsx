@@ -2,8 +2,8 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
-import RelatedInstance from '../../components/RelatedInstance';
-import InstanceWrapper from '../../utils/InstanceWrapper';
+import { RelatedInstance } from '../../components';
+import { InstanceWrapper } from '../../utils';
 
 class Character extends React.Component {
 

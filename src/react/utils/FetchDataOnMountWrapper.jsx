@@ -3,10 +3,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 
-import ErrorMessage from '../components/ErrorMessage';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import Nav from '../components/Nav';
+import { ErrorMessage, Footer, Header, Nav } from '../components';
 
 class FetchDataOnMountWrapper extends React.Component {
 
