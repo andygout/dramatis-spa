@@ -2,8 +2,8 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
-import RelatedInstance from '../../components/related-instance';
-import InstanceWrapper from '../../utils/instance-wrapper';
+import RelatedInstance from '../../components/RelatedInstance';
+import InstanceWrapper from '../../utils/InstanceWrapper';
 
 class Playtext extends React.Component {
 

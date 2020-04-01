@@ -1,7 +1,7 @@
 import React from 'react';
 
-import InstanceLink from './instance-link';
-import JoinedRoles from './joined-roles';
+import InstanceLink from './InstanceLink';
+import JoinedRoles from './JoinedRoles';
 
 const List = props => {
 
