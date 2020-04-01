@@ -1,7 +1,6 @@
 {
   "ignoreRoot": [],
   "watch": [
-    "node_modules",
     "src"
   ],
   "ext": "js jsx"
