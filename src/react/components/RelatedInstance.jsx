@@ -1,9 +1,7 @@
 import { List as ImmutableList } from 'immutable';
 import React from 'react';
 
-import InstanceLink from './InstanceLink';
-import JoinedRoles from './JoinedRoles';
-import List from './List';
+import { InstanceLink, JoinedRoles, List } from '.';
 
 const RelatedInstance = props => {
 

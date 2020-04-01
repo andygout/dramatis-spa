@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
 import routes from './routes';
-import FetchDataOnMountWrapper from './utils/FetchDataOnMountWrapper';
+import { FetchDataOnMountWrapper } from './utils';
 
 class App extends React.Component {
 
