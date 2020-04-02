@@ -1,4 +1,4 @@
-import express from 'express';
+import { Router } from 'express';
 import { fromJS } from 'immutable';
 import { Helmet } from 'react-helmet';
 import { matchPath } from 'react-router-dom';
@@ -10,7 +10,7 @@ import getReactHtml from '../react/react-html';
 import reducers from '../redux/reducers';
 import routes from '../react/routes';
 
-const router = express.Router();
+const router = new Router();
 
 const store = createStore(
 	combineReducers(reducers),
