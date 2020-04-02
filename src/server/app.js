@@ -34,15 +34,15 @@ const normalizePort = val => {
 
 };
 
-const onError = err => {
+const onError = error => {
 
-	if (err.syscall !== 'listen') throw err;
+	if (error.syscall !== 'listen') throw error;
 
 	const bind = typeof port === 'string'
 		? 'Pipe ' + port
 		:'Port ' + port;
 
-	switch (err.code) {
+	switch (error.code) {
 		case 'EACCES':
 			console.error(bind + ' requires elevated privileges'); // eslint-disable-line no-console
 			process.exit(1);
@@ -52,7 +52,7 @@ const onError = err => {
 			process.exit(1);
 			break;
 		default:
-			throw err;
+			throw error;
 	}
 
 };

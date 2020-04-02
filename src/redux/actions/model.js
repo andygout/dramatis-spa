@@ -13,11 +13,11 @@ export default (model, uuid = null) => async (dispatch, getState) => {
 		? true
 		: false;
 
-	const apiCallReqd = instance
+	const apiCallRequired = instance
 		? getState().getIn([model, 'uuid']) !== uuid
 		: !getState().get(model).size;
 
-	if (apiCallReqd) {
+	if (apiCallRequired) {
 
 		dispatch(request(model));
 
