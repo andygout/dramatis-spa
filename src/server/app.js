@@ -1,5 +1,3 @@
-/* eslint no-console: 0 */
-
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
@@ -46,11 +44,11 @@ const onError = err => {
 
 	switch (err.code) {
 		case 'EACCES':
-			console.error(bind + ' requires elevated privileges');
+			console.error(bind + ' requires elevated privileges'); // eslint-disable-line no-console
 			process.exit(1);
 			break;
 		case 'EADDRINUSE':
-			console.error(bind + ' is already in use');
+			console.error(bind + ' is already in use'); // eslint-disable-line no-console
 			process.exit(1);
 			break;
 		default:
@@ -65,6 +63,6 @@ app.set('port', port);
 
 const server = http.createServer(app);
 
-server.listen(port, () => console.log(`Listening on port ${port}`));
+server.listen(port, () => console.log(`Listening on port ${port}`)); // eslint-disable-line no-console
 
 server.on('error', onError);
