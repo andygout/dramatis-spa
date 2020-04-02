@@ -11,21 +11,21 @@ class FetchDataOnMountWrapper extends React.Component {
 
 		const { fetchData, dispatch, match, location } = this.props;
 
-		if (fetchData) fetchData.map(fn => fn(dispatch, match, location));
+		if (fetchData) fetchData.map(fetchDataFunction => fetchDataFunction(dispatch, match, location));
 
 	};
 
 	componentWillReceiveProps (nextProps) {
 
-		const fetchReqd =
+		const fetchRequired =
 			(this.props.match.path === nextProps.match.path) &&
 			(this.props.match.url !== nextProps.match.url);
 
-		if (fetchReqd) {
+		if (fetchRequired) {
 
 			const { fetchData, dispatch, match, location } = nextProps;
 
-			fetchData.map(fn => fn(dispatch, match, location));
+			fetchData.map(fetchDataFunction => fetchDataFunction(dispatch, match, location));
 
 		}
 

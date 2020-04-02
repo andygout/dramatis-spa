@@ -18,7 +18,7 @@ const store = createStore(
 	applyMiddleware(...[thunkMiddleware])
 );
 
-router.get('*', async (req, res, next) => {
+router.get('*', async (request, response, next) => {
 
 	try {
 
@@ -28,9 +28,13 @@ router.get('*', async (req, res, next) => {
 
 		routes.some(route => {
 
-			const match = matchPath(req.url, route);
+			const match = matchPath(request.url, route);
 
-			if (match && route.fetchData) route.fetchData.forEach(fn => fetchDataPromises.push(fn(dispatch, match)));
+			if (match && route.fetchData) {
+				route.fetchData.forEach(fetchDataFunction =>
+					fetchDataPromises.push(fetchDataFunction(dispatch, match))
+				);
+			}
 
 			return match
 
@@ -40,7 +44,7 @@ router.get('*', async (req, res, next) => {
 
 		const preloadedState = getState();
 
-		const reactHtml = getReactHtml(req, store);
+		const reactHtml = getReactHtml(request, store);
 
 		const head = Helmet.rewind();
 
@@ -67,9 +71,9 @@ router.get('*', async (req, res, next) => {
 			</html>
 		`.split('\n').map(line => line.trim()).join('');
 
-		res.write(html);
+		response.write(html);
 
-		res.end();
+		response.end();
 
 	} catch (error) {
 
