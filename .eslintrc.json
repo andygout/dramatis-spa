@@ -9,11 +9,12 @@
   },
   "parserOptions": {
       "sourceType": "module",
-      "ecmaVersion": 2017
+      "ecmaVersion": 2018
   },
   "rules": {
     "eqeqeq": 2,
     "guard-for-in": 2,
+    "new-cap": 0,
     "no-caller": 2,
     "no-console": 2,
     "no-extend-native": 2,
