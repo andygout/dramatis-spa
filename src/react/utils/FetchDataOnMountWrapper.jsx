@@ -7,21 +7,6 @@ import { ErrorMessage, Footer, Header, Nav } from '../components';
 
 class FetchDataOnMountWrapper extends React.Component {
 
-	constructor (props) {
-
-		super(props);
-
-		const { match: { path, url } } = props;
-
-		this.state = {
-			match: {
-				path,
-				url
-			}
-		};
-
-	}
-
 	componentDidMount () {
 
 		const { fetchData, dispatch, match, location } = this.props;
@@ -29,37 +14,6 @@ class FetchDataOnMountWrapper extends React.Component {
 		if (fetchData) fetchData.map(fetchDataFunction => fetchDataFunction(dispatch, match, location));
 
 	};
-
-	static getDerivedStateFromProps (props, state) {
-
-		const fetchRequired =
-			(state.match.path === props.match.path) &&
-			(state.match.url !== props.match.url);
-
-		if (fetchRequired) {
-
-			const { fetchData, dispatch, match: { path, url }, location } = props;
-
-			fetchData.map(fetchDataFunction => fetchDataFunction(dispatch, match, location));
-
-			return {
-				match: {
-					path,
-					url
-				}
-			};
-
-		}
-
-		return null;
-
-	}
-
-	shouldComponentUpdate (nextProps) {
-
-		return this.props.error.get('exists') !== nextProps.error.get('exists');
-
-	}
 
 	render () {
 
