@@ -1,10 +1,11 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const nodeExternals = require('webpack-node-externals');
 const path = require('path');
 const webpack = require('webpack');
 
 const serverConfig = {
+	mode: 'none', // i.e. not production or development (see: https://webpack.js.org/configuration/mode).
 	target: 'node',
 	node: {
 		__dirname: false
@@ -18,13 +19,16 @@ const serverConfig = {
 		filename: 'main.js'
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.(js|jsx)$/,
 				exclude: [/node_modules/],
-				loader: 'babel-loader',
-				options: {
-					presets: ['@babel/preset-env', '@babel/preset-react']
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env', '@babel/preset-react']
+					}
+
 				}
 			}
 		]
@@ -50,6 +54,7 @@ const serverConfig = {
 };
 
 const clientConfig = {
+	mode: 'none', // i.e. not production or development (see: https://webpack.js.org/configuration/mode).
 	entry: {
 		main: [
 			'./src/client/stylesheets/index.scss',
@@ -63,36 +68,41 @@ const clientConfig = {
 	},
 	devtool: 'cheap-module-eval-source-map',
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.scss$/,
-				loader: ExtractTextPlugin.extract('css-loader!sass-loader')
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader
+					},
+					'css-loader',
+					'sass-loader'
+				]
 			},
 			{
 				test: /\.(js|jsx)$/,
-				loader: 'babel-loader',
-				query: {
-					presets: [
-						[
-							"@babel/preset-env",
-							{
-								"targets": {
-									"node": "10"
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: [
+							[
+								"@babel/preset-env",
+								{
+									"targets": {
+										"node": "12"
+									}
 								}
-							}
-						],
-						'@babel/preset-react'
-					]
+							],
+							'@babel/preset-react'
+						]
+					}
+
 				}
 			}
 		]
 	},
 	plugins: [
-		new ExtractTextPlugin({
-			filename: 'main.css',
-			allChunks: true,
-			disable: false
-		})
+		new MiniCssExtractPlugin()
 	],
 	resolve: {
 		extensions: ['.js', '.jsx']
