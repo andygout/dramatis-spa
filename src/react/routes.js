@@ -14,7 +14,7 @@ import {
 } from './pages';
 
 import { resetError } from '../redux/actions/error';
-import fetchModel from '../redux/actions/model';
+import { fetchModel } from '../redux/actions/model';
 
 export default [
 	{
