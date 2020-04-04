@@ -3,17 +3,21 @@ import { setError } from './error';
 import * as actions from '../utils/model-actions';
 import { irregularPluralNouns } from '../../utils/constants';
 
+const URL_BASE = 'http://localhost:3000';
+
+const getPluralisedModel = model => irregularPluralNouns[model] || model + 's';
+
 const request = model => createAction(actions[`REQUEST_${model.toUpperCase()}`]);
 
 const receive = (instance, model) => createAction(actions[`RECEIVE_${model.toUpperCase()}`], instance);
 
-export default (model, uuid = null) => async (dispatch, getState) => {
+export const fetchModel = (model, uuid = null) => async (dispatch, getState) => {
 
-	const instance = uuid
+	const isInstance = uuid
 		? true
 		: false;
 
-	const apiCallRequired = instance
+	const apiCallRequired = isInstance
 		? getState().getIn([model, 'uuid']) !== uuid
 		: !getState().get(model).size;
 
@@ -21,13 +25,13 @@ export default (model, uuid = null) => async (dispatch, getState) => {
 
 		dispatch(request(model));
 
-		let url = 'http://localhost:3000/';
+		let url = URL_BASE;
 
-		url += instance
-			? irregularPluralNouns[model] || model + 's'
-			: model;
+		url += isInstance
+			? `/${getPluralisedModel(model)}`
+			: `/${model}`;
 
-		if (instance) url += `/${uuid}`;
+		if (isInstance) url += `/${uuid}`;
 
 		try {
 
