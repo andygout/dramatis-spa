@@ -6,7 +6,6 @@ Single-page application (SPA) that provides listings for theatrical productions,
 - Clone this repo.
 - Set local Node version to same as listed in `package.json` `engines.node`.
 - Install node modules: `$ npm install`.
-- Add favicon: `$ mkdir ./src/client/favicons && touch ./src/client/favicons/favicon.ico`.
 
 ## To run locally
 - Compile code: `$ npm run build`; compile and re-compile on change: `$ npm run watch`.
