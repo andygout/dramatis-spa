@@ -1,11 +1,11 @@
 import createAction from './base';
 import { setError } from './error';
 import * as actions from '../utils/model-actions';
-import { irregularPluralNouns } from '../../utils/constants';
+import { irregularPluralNounsMap } from '../../utils/constants';
 
 const URL_BASE = 'http://localhost:3000';
 
-const getPluralisedModel = model => irregularPluralNouns[model] || model + 's';
+const getPluralisedModel = model => irregularPluralNounsMap[model] || model + 's';
 
 const request = model => createAction(actions[`REQUEST_${model.toUpperCase()}`]);
 

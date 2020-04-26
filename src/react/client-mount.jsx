@@ -26,7 +26,7 @@ window.onload = () => {
 	ReactDOM.hydrate(
 		<Provider store={store}>
 			<BrowserRouter>
-				<App/>
+				<App />
 			</BrowserRouter>
 		</Provider>,
 		document.getElementById('app')

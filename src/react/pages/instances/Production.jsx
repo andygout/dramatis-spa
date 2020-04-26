@@ -19,21 +19,21 @@ class Production extends React.Component {
 			<InstanceWrapper instance={production}>
 
 				{
-					theatre
-						? <RelatedInstance labelText='Theatre' instance={theatre}/>
-						: null
+					theatre && (
+						<RelatedInstance labelText='Theatre' instance={theatre} />
+					)
 				}
 
 				{
-					playtext
-						? <RelatedInstance labelText='Playtext' instance={playtext}/>
-						: null
+					playtext && (
+						<RelatedInstance labelText='Playtext' instance={playtext} />
+					)
 				}
 
 				{
-					cast && cast.size
-						? <RelatedInstance labelText='Cast' instance={cast}/>
-						: null
+					cast && cast.size > 0 && (
+						<RelatedInstance labelText='Cast' instance={cast} />
+					)
 				}
 
 			</InstanceWrapper>

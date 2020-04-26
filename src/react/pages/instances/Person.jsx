@@ -17,9 +17,9 @@ class Person extends React.Component {
 			<InstanceWrapper instance={person}>
 
 				{
-					productions && productions.size
-						? <RelatedInstance labelText='Productions' instance={productions}/>
-						: null
+					productions && productions.size > 0 && (
+						<RelatedInstance labelText='Productions' instance={productions} />
+					)
 				}
 
 			</InstanceWrapper>

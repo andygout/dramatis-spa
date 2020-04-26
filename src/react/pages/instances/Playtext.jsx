@@ -18,15 +18,15 @@ class Playtext extends React.Component {
 			<InstanceWrapper instance={playtext}>
 
 				{
-					productions && productions.size
-						? <RelatedInstance labelText='Productions' instance={productions}/>
-						: null
+					productions && productions.size > 0 && (
+						<RelatedInstance labelText='Productions' instance={productions} />
+					)
 				}
 
 				{
-					characters && characters.size
-						? <RelatedInstance labelText='Characters' instance={characters}/>
-						: null
+					characters && characters.size > 0 && (
+						<RelatedInstance labelText='Characters' instance={characters} />
+					)
 				}
 
 			</InstanceWrapper>

@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import routes from './routes';
 import { FetchDataOnMountWrapper } from './utils';
 
-class App extends React.Component {
+export default class App extends React.Component {
 
 	render () {
 
@@ -26,7 +26,7 @@ class App extends React.Component {
 											documentTitle={route.documentTitle}
 											fetchData={route.fetchData}
 										>
-											<RouteComponent/>
+											<RouteComponent />
 										</FetchDataOnMountWrapper>
 									);
 								}
@@ -41,5 +41,3 @@ class App extends React.Component {
 	};
 
 };
-
-export default App;

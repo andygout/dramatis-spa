@@ -2,7 +2,7 @@ import React from 'react';
 
 import { List, PageTitle } from '../components';
 
-class ListWrapper extends React.Component {
+export default class ListWrapper extends React.Component {
 
 	render () {
 
@@ -11,11 +11,11 @@ class ListWrapper extends React.Component {
 		return (
 			<React.Fragment>
 
-				<PageTitle text={pageTitleText}/>
+				<PageTitle text={pageTitleText} />
 
-				<List instances={instances}/>
+				<List instances={instances} />
 
-				{children}
+				{ children }
 
 			</React.Fragment>
 		);
@@ -23,5 +23,3 @@ class ListWrapper extends React.Component {
 	};
 
 };
-
-export default ListWrapper;

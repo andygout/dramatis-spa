@@ -3,20 +3,18 @@ import { Helmet } from 'react-helmet';
 
 import { PageTitle } from '.';
 
-const ErrorMessage = props => {
+export default function (props) {
 
 	const { errorText } = props;
 
 	return (
 		<React.Fragment>
 
-			<Helmet title={errorText}/>
+			<Helmet title={errorText} />
 
-			<PageTitle text={errorText}/>
+			<PageTitle text={errorText} />
 
 		</React.Fragment>
 	);
 
 };
-
-export default ErrorMessage;
