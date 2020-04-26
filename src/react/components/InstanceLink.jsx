@@ -12,10 +12,10 @@ export default function (props) {
 
 	const uuid = instance.get('uuid');
 
-	const instanceRoute = `/${pluralisedModel}/${uuid}`;
+	const instancePath = `/${pluralisedModel}/${uuid}`;
 
 	return (
-		<Link to={instanceRoute}>
+		<Link to={instancePath}>
 			{ instance.get('name') }
 		</Link>
 	);
