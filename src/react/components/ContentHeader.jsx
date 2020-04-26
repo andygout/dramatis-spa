@@ -6,7 +6,7 @@ export default function (props) {
 
 	return (
 		<div className="content-header">
-			{text}
+			{ text }
 		</div>
 	);
 

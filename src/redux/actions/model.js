@@ -1,11 +1,9 @@
+import pluraliseModel from '../../lib/pluralise-model';
 import createAction from './base';
 import { setError } from './error';
 import * as actions from '../utils/model-actions';
-import { irregularPluralNounsMap } from '../../utils/constants';
 
 const URL_BASE = 'http://localhost:3000';
-
-const getPluralisedModel = model => irregularPluralNounsMap[model] || model + 's';
 
 const request = model => createAction(actions[`REQUEST_${model.toUpperCase()}`]);
 
@@ -28,14 +26,14 @@ export const fetchModel = (model, uuid = null) => async (dispatch, getState) => 
 		let url = URL_BASE;
 
 		url += isInstance
-			? `/${getPluralisedModel(model)}`
+			? `/${pluraliseModel(model)}`
 			: `/${model}`;
 
 		if (isInstance) url += `/${uuid}`;
 
 		try {
 
-			const response = await fetch(url, { 'mode': 'cors' });
+			const response = await fetch(url, { mode: 'cors' });
 
 			if (response.status !== 200) throw new Error(response.statusText);
 
