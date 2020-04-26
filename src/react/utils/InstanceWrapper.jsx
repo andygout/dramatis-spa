@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ContentHeader, InstanceDocumentTitle, PageTitle } from '../components';
 
-class InstanceWrapper extends React.Component {
+export default class InstanceWrapper extends React.Component {
 
 	render () {
 
@@ -11,13 +11,17 @@ class InstanceWrapper extends React.Component {
 		return (
 			<React.Fragment>
 
-				<InstanceDocumentTitle instance={instance}/>
+				<InstanceDocumentTitle instance={instance} />
 
-				<ContentHeader text={instance.get('model')}/>
+				{
+					instance.get('model') && (
+						<ContentHeader text={instance.get('model')} />
+					)
+				}
 
-				<PageTitle text={instance.get('name')}/>
+				<PageTitle text={instance.get('name')} />
 
-				{children}
+				{ children }
 
 			</React.Fragment>
 		);
@@ -25,5 +29,3 @@ class InstanceWrapper extends React.Component {
 	};
 
 };
-
-export default InstanceWrapper;

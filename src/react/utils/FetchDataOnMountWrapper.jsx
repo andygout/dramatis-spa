@@ -3,7 +3,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 
-import { ErrorMessage, Footer, Header, Nav } from '../components';
+import { ErrorMessage, Footer, Header, Navigation } from '../components';
 
 class FetchDataOnMountWrapper extends React.Component {
 
@@ -22,7 +22,7 @@ class FetchDataOnMountWrapper extends React.Component {
 		const { error } = props;
 
 		return (
-			<div className="page-container">
+			<React.Fragment>
 
 				<Helmet
 					defaultTitle='TheatreBase'
@@ -30,23 +30,23 @@ class FetchDataOnMountWrapper extends React.Component {
 					title={props.documentTitle()}
 				/>
 
-				<Header/>
+				<Header />
 
-				<Nav/>
+				<Navigation />
 
 				<main className="main-content">
 
 					{
 						error.get('exists')
-							? <ErrorMessage errorText={error.get('message')}/>
+							? <ErrorMessage errorText={error.get('message')} />
 							: props.children
 					}
 
 				</main>
 
-				<Footer/>
+				<Footer />
 
-			</div>
+			</React.Fragment>
 		);
 
 	};

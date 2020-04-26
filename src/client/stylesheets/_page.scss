@@ -30,10 +30,6 @@ a {
 	display: flex;
 	flex: auto;
 	margin: 0 auto;
-}
-
-.page-container {
-	@extend .app;
 	width: 1000px;
 	flex-direction: column;
 	background-color: $content-bg-color;

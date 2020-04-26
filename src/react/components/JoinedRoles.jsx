@@ -3,7 +3,7 @@ import React from 'react';
 
 import { InstanceLink } from '.';
 
-const JoinedArray = props => {
+export default function (props) {
 
 	const { instances } = props;
 
@@ -12,9 +12,15 @@ const JoinedArray = props => {
 			{
 				instances
 					.map((instance, index) =>
-						Map.isMap(instance) && instance.get('model') && instance.get('uuid')
-							? <InstanceLink key={index} index={index} instance={instance}/>
-							: <span key={index}>{Map.isMap(instance) ? instance.get('name') : instance}</span>
+						<span key={index}>
+							{
+								Map.isMap(instance) && instance.get('model') && instance.get('uuid')
+									? <InstanceLink instance={instance} />
+									: Map.isMap(instance)
+										? instance.get('name')
+										: instance
+							}
+						</span>
 					)
 					.reduce((prev, curr) => [prev, ' / ', curr])
 			}
@@ -22,5 +28,3 @@ const JoinedArray = props => {
 	);
 
 };
-
-export default JoinedArray;

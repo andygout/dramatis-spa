@@ -17,9 +17,9 @@ class Theatre extends React.Component {
 			<InstanceWrapper instance={theatre}>
 
 				{
-					productions && productions.size
-						? <RelatedInstance labelText='Productions' instance={productions}/>
-						: null
+					productions && productions.size > 0 && (
+						<RelatedInstance labelText='Productions' instance={productions} />
+					)
 				}
 
 			</InstanceWrapper>

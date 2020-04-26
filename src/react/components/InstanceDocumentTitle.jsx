@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-const DocumentTitle = props => {
+export default function (props) {
 
 	const { instance } = props;
 
@@ -10,10 +10,8 @@ const DocumentTitle = props => {
 
 	return (
 		name !== undefined && model !== undefined
-			? <Helmet title={`${name} (${model})`}/>
+			? <Helmet title={`${name} (${model})`} />
 			: null
 	);
 
 };
-
-export default DocumentTitle;

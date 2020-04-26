@@ -3,7 +3,7 @@ import React from 'react';
 
 import { InstanceLink, JoinedRoles, List } from '.';
 
-const RelatedInstance = props => {
+export default function (props) {
 
 	const { labelText, instance, join } = props;
 
@@ -11,16 +11,16 @@ const RelatedInstance = props => {
 		<div className="content-wrapper">
 
 			<div className="content-label">
-				{labelText}
+				{ labelText }
 			</div>
 
 			<div className="content">
 				{
 					ImmutableList.isList(instance)
 						? join
-							? <JoinedRoles instances={instance}/>
-							: <List instances={instance}/>
-						: <InstanceLink instance={instance}/>
+							? <JoinedRoles instances={instance} />
+							: <List instances={instance} />
+						: <InstanceLink instance={instance} />
 				}
 			</div>
 
@@ -28,5 +28,3 @@ const RelatedInstance = props => {
 	);
 
 };
-
-export default RelatedInstance;

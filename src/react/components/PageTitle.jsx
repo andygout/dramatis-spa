@@ -1,13 +1,13 @@
 import React from 'react';
 
-const PageTitle = props => {
+export default function (props) {
+
+	const { text } = props;
 
 	return (
 		<h1 className="title-text">
-			{props.text}
+			{ text }
 		</h1>
 	);
 
 };
-
-export default PageTitle;

@@ -6,7 +6,7 @@ import InstanceDocumentTitle from './InstanceDocumentTitle';
 import InstanceLink from './InstanceLink';
 import JoinedRoles from './JoinedRoles';
 import List from './List';
-import Nav from './Nav';
+import Navigation from './Navigation';
 import PageTitle from './PageTitle';
 import RelatedInstance from './RelatedInstance';
 
@@ -19,7 +19,7 @@ export {
 	InstanceLink,
 	JoinedRoles,
 	List,
-	Nav,
+	Navigation,
 	PageTitle,
 	RelatedInstance
 };

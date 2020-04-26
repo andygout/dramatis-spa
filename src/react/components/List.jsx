@@ -2,7 +2,7 @@ import React from 'react';
 
 import { InstanceLink, JoinedRoles } from '.';
 
-const List = props => {
+export default function (props) {
 
 	return (
 		<ul className="list">
@@ -10,86 +10,72 @@ const List = props => {
 				props.instances.map((instance, index) => (
 					<li key={index}>
 
-						<InstanceLink instance={instance}/>
+						<InstanceLink instance={instance} />
 
 						{
-							instance.get('theatre')
-								? (
-									<span>
+							instance.get('theatre') && (
+								<span>
 
-										&nbsp;-&nbsp;
+									<span>&nbsp;-&nbsp;</span>
 
-										<InstanceLink instance={instance.get('theatre')}/>
+									<InstanceLink instance={instance.get('theatre')} />
 
-									</span>
-								)
-								: null
+								</span>
+							)
 						}
 
 						{
-							instance.get('roles') && instance.get('roles').size
-								? (
-									<span>
+							instance.get('roles') && instance.get('roles').size > 0 && (
+								<React.Fragment>
 
-										&nbsp;…&nbsp;
+									<span>&nbsp;…&nbsp;</span>
 
-										<span className="role-text">
+									<JoinedRoles instances={instance.get('roles')} />
 
-											<JoinedRoles instances={instance.get('roles')}/>
-
-										</span>
-
-									</span>
-								)
-								: null
+								</React.Fragment>
+							)
 						}
 
 						{
-							instance.get('performers') && instance.get('performers').size
-								? (
-									<span>
+							instance.get('performers') && instance.get('performers').size > 0 && (
+								<React.Fragment>
 
-										&nbsp;- performed by:&nbsp;
+									<span>&nbsp;- performed by:&nbsp;</span>
 
-										{
-											instance.get('performers')
-												.map((performer, index) =>
-													<span key={index}>
+									{
+										instance.get('performers')
+											.map((performer, index) =>
+												<React.Fragment key={index}>
 
-														<span>
+													<React.Fragment>
 
-															<InstanceLink instance={performer}/>
+														<InstanceLink instance={performer} />
 
-															&nbsp;…&nbsp;
+														<span>&nbsp;…&nbsp;</span>
 
-															<span className="role-text">{performer.getIn(['role', 'name'])}</span>
+														<span className="role-text">{performer.getIn(['role', 'name'])}</span>
 
-														</span>
+													</React.Fragment>
 
-														{
-															performer.get('otherRoles').size
-																? (
-																	<span>; also performed:&nbsp;
+													{
+														performer.get('otherRoles').size > 0 && (
+															<React.Fragment>
 
-																		<span className="role-text">
+																<span>; also performed:&nbsp;</span>
 
-																			<JoinedRoles instances={performer.get('otherRoles')}/>
+																<JoinedRoles instances={performer.get('otherRoles')} />
 
-																		</span>
+															</React.Fragment>
+														)
+													}
 
-																	</span>
-																)
-																: null
-														}
+												</React.Fragment>
+											)
+											.reduce((prev, curr) => [prev, ' / ', curr])
+									}
 
-													</span>
-												)
-												.reduce((prev, curr) => [prev, ' / ', curr])
-										}
-
-									</span>
-								)
-								: null
+								</React.Fragment>
+							)
 						}
 
 					</li>
@@ -99,5 +85,3 @@ const List = props => {
 	);
 
 };
-
-export default List;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = () => {
+export default function () {
 
 	return (
 		<footer className="footer">
@@ -10,12 +10,10 @@ const Footer = () => {
 			</div>
 
 			<div className="footer__text footer__text--right">
-				{'Today\'s date is'}
+				{ 'Today\'s date is' }
 			</div>
 
 		</footer>
 	);
 
 };
-
-export default Footer;

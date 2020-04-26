@@ -19,21 +19,21 @@ class Character extends React.Component {
 			<InstanceWrapper instance={character}>
 
 				{
-					playtexts && playtexts.size
-						? <RelatedInstance labelText='Playtexts' instance={playtexts}/>
-						: null
+					playtexts && playtexts.size > 0 && (
+						<RelatedInstance labelText='Playtexts' instance={playtexts} />
+					)
 				}
 
 				{
-					variantNames && variantNames.size
-						? <RelatedInstance labelText='Variant names' instance={variantNames} join/>
-						: null
+					variantNames && variantNames.size > 0 && (
+						<RelatedInstance labelText='Variant names' instance={variantNames} join />
+					)
 				}
 
 				{
-					productions && productions.size
-						? <RelatedInstance labelText='Productions' instance={productions}/>
-						: null
+					productions && productions.size > 0 && (
+						<RelatedInstance labelText='Productions' instance={productions} />
+					)
 				}
 
 			</InstanceWrapper>
