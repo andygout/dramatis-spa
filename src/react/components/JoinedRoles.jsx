@@ -14,7 +14,7 @@ export default function (props) {
 					.map((instance, index) =>
 						<span key={index}>
 							{
-								Map.isMap(instance) && instance.get('model') && instance.get('uuid')
+								Map.isMap(instance) && instance.get('uuid')
 									? <InstanceLink instance={instance} />
 									: Map.isMap(instance)
 										? instance.get('name')
