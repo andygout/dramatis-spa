@@ -25,6 +25,7 @@ export default class App extends React.Component {
 											{...props}
 											documentTitle={route.documentTitle}
 											fetchData={route.fetchData}
+											key={props.match.params.uuid}
 										>
 											<RouteComponent />
 										</FetchDataOnMountWrapper>
