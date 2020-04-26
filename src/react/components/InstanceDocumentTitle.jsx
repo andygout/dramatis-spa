@@ -9,7 +9,7 @@ export default function (props) {
 	const model = instance.get('model');
 
 	return (
-		name !== undefined && model !== undefined
+		name && model
 			? <Helmet title={`${name} (${model})`} />
 			: null
 	);
