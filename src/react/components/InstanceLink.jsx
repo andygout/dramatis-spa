@@ -8,8 +8,11 @@ export default function (props) {
 	const { instance } = props;
 
 	const model = instance.get('model');
+	const pluralisedModel = irregularPluralNounsMap[model] || model + 's';
 
-	const instanceRoute = `/${irregularPluralNounsMap[model] || model + 's'}/${instance.get('uuid')}`;
+	const uuid = instance.get('uuid');
+
+	const instanceRoute = `/${pluralisedModel}/${uuid}`;
 
 	return (
 		<Link to={instanceRoute}>
