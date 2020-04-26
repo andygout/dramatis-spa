@@ -5,7 +5,7 @@
   "main": "src/server/app.js",
   "scripts": {
     "lint": "eslint --ext .js src/",
-    "lintspaces": "git ls-files | xargs lintspaces -e .editorconfig",
+    "lintspaces": "git ls-files ':!:*.ico' | xargs lintspaces -e .editorconfig",
     "lint-check": "npm run lint && npm run lintspaces",
     "build": "webpack",
     "watch": "webpack --watch",
