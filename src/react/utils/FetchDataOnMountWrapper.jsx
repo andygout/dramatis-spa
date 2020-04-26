@@ -17,9 +17,7 @@ class FetchDataOnMountWrapper extends React.Component {
 
 	render () {
 
-		const { props } = this;
-
-		const { error } = props;
+		const { error, documentTitle, children } = this.props;
 
 		return (
 			<React.Fragment>
@@ -27,7 +25,7 @@ class FetchDataOnMountWrapper extends React.Component {
 				<Helmet
 					defaultTitle='TheatreBase'
 					titleTemplate='%s | TheatreBase'
-					title={props.documentTitle()}
+					title={documentTitle()}
 				/>
 
 				<Header />
@@ -39,7 +37,7 @@ class FetchDataOnMountWrapper extends React.Component {
 					{
 						error.get('exists')
 							? <ErrorMessage errorText={error.get('message')} />
-							: props.children
+							: children
 					}
 
 				</main>
