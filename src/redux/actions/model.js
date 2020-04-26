@@ -35,7 +35,7 @@ export const fetchModel = (model, uuid = null) => async (dispatch, getState) => 
 
 		try {
 
-			const response = await fetch(url, { 'mode': 'cors' });
+			const response = await fetch(url, { mode: 'cors' });
 
 			if (response.status !== 200) throw new Error(response.statusText);
 
