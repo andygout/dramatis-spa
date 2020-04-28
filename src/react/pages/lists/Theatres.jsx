@@ -8,9 +8,11 @@ class Theatres extends React.Component {
 
 	render () {
 
+		const { theatres } = this.props;
+
 		return (
 			<ListWrapper
-				instances={this.props.theatres}
+				instances={theatres}
 				pageTitleText='Theatres'
 			>
 			</ListWrapper>

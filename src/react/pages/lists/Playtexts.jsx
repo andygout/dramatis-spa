@@ -8,9 +8,11 @@ class Playtexts extends React.Component {
 
 	render () {
 
+		const { playtexts } = this.props;
+
 		return (
 			<ListWrapper
-				instances={this.props.playtexts}
+				instances={playtexts}
 				pageTitleText='Playtexts'
 			>
 			</ListWrapper>
