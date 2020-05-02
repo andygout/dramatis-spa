@@ -2,7 +2,7 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
-import { RelatedInstance } from '../../components';
+import { InstanceFacet, JoinedRoles, List } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
 class Character extends React.Component {
@@ -20,19 +20,31 @@ class Character extends React.Component {
 
 				{
 					playtexts && playtexts.size > 0 && (
-						<RelatedInstance labelText='Playtexts' instance={playtexts} />
+						<InstanceFacet labelText='Playtexts'>
+
+							<List instances={playtexts} />
+
+						</InstanceFacet>
 					)
 				}
 
 				{
 					variantNames && variantNames.size > 0 && (
-						<RelatedInstance labelText='Variant names' instance={variantNames} join />
+						<InstanceFacet labelText='Variant names'>
+
+							<JoinedRoles instances={variantNames} />
+
+						</InstanceFacet>
 					)
 				}
 
 				{
 					productions && productions.size > 0 && (
-						<RelatedInstance labelText='Productions' instance={productions} />
+						<InstanceFacet labelText='Productions'>
+
+							<List instances={productions} />
+
+						</InstanceFacet>
 					)
 				}
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ContentHeader, InstanceDocumentTitle, PageTitle } from '../components';
+import { InstanceDocumentTitle, InstanceLabel, PageTitle } from '../components';
 
 export default class InstanceWrapper extends React.Component {
 
@@ -13,11 +13,7 @@ export default class InstanceWrapper extends React.Component {
 
 				<InstanceDocumentTitle instance={instance} />
 
-				{
-					instance.get('model') && (
-						<ContentHeader text={instance.get('model')} />
-					)
-				}
+				<InstanceLabel text={instance.get('model')} />
 
 				<PageTitle text={instance.get('name')} />
 

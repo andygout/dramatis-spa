@@ -8,9 +8,11 @@ class Productions extends React.Component {
 
 	render () {
 
+		const { productions } = this.props;
+
 		return (
 			<ListWrapper
-				instances={this.props.productions}
+				instances={productions}
 				pageTitleText='Productions'
 			>
 			</ListWrapper>

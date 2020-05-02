@@ -8,9 +8,11 @@ class Characters extends React.Component {
 
 	render () {
 
+		const { characters } = this.props;
+
 		return (
 			<ListWrapper
-				instances={this.props.characters}
+				instances={characters}
 				pageTitleText='Characters'
 			>
 			</ListWrapper>

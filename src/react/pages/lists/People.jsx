@@ -8,9 +8,11 @@ class People extends React.Component {
 
 	render () {
 
+		const { people } = this.props;
+
 		return (
 			<ListWrapper
-				instances={this.props.people}
+				instances={people}
 				pageTitleText='People'
 			>
 			</ListWrapper>
