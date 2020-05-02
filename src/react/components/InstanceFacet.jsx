@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function (props) {
 
-	const { labelText, instance, children } = props;
+	const { labelText, children } = props;
 
 	return (
 		<div className="instance-facet-wrapper">
