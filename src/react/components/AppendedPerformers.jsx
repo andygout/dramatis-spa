@@ -22,7 +22,7 @@ export default function (props) {
 
 								<span>&nbsp;…&nbsp;</span>
 
-								<span className="role-text">{performer.getIn(['role', 'name'])}</span>
+								<span className="role-text">{performer.get('roleName')}</span>
 
 							</React.Fragment>
 
