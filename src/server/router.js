@@ -71,9 +71,7 @@ router.get('*', async (request, response, next) => {
 			</html>
 		`.split('\n').map(line => line.trim()).join('');
 
-		response.write(html);
-
-		response.end();
+		response.send(html);
 
 	} catch (error) {
 
