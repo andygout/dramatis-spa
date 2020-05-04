@@ -1,5 +1,5 @@
-import errorHandlingMiddleware from './error-handling-middleware';
+import errorHandler from './error-handler';
 
 export {
-	errorHandlingMiddleware
+	errorHandler
 };
