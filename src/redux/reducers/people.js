@@ -6,12 +6,10 @@ const people = (state = List([]), action) => {
 
 	switch (action.type) {
 
-		case REQUEST_PEOPLE:
-			return state;
-
 		case RECEIVE_PEOPLE:
 			return fromJS(action.payload);
 
+		case REQUEST_PEOPLE:
 		default:
 			return state;
 

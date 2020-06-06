@@ -6,12 +6,10 @@ const person = (state = Map({}), action) => {
 
 	switch (action.type) {
 
-		case REQUEST_PERSON:
-			return state;
-
 		case RECEIVE_PERSON:
 			return fromJS(action.payload);
 
+		case REQUEST_PERSON:
 		default:
 			return state;
 
