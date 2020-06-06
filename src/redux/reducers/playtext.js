@@ -6,12 +6,10 @@ const playtext = (state = Map({}), action) => {
 
 	switch (action.type) {
 
-		case REQUEST_PLAYTEXT:
-			return state;
-
 		case RECEIVE_PLAYTEXT:
 			return fromJS(action.payload);
 
+		case REQUEST_PLAYTEXT:
 		default:
 			return state;
 

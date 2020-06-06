@@ -6,12 +6,10 @@ const character = (state = Map({}), action) => {
 
 	switch (action.type) {
 
-		case REQUEST_CHARACTER:
-			return state;
-
 		case RECEIVE_CHARACTER:
 			return fromJS(action.payload);
 
+		case REQUEST_CHARACTER:
 		default:
 			return state;
 

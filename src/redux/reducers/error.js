@@ -7,8 +7,6 @@ const error = (state = Map({ exists: false }), action) => {
 	switch (action.type) {
 
 		case SET_ERROR_STATUS:
-			return fromJS(action.payload);
-
 		case RESET_ERROR_STATUS:
 			return fromJS(action.payload);
 

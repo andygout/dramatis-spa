@@ -6,12 +6,10 @@ const theatres = (state = List([]), action) => {
 
 	switch (action.type) {
 
-		case REQUEST_THEATRES:
-			return state;
-
 		case RECEIVE_THEATRES:
 			return fromJS(action.payload);
 
+		case REQUEST_THEATRES:
 		default:
 			return state;
 

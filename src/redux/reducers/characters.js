@@ -6,12 +6,10 @@ const characters = (state = List([]), action) => {
 
 	switch (action.type) {
 
-		case REQUEST_CHARACTERS:
-			return state;
-
 		case RECEIVE_CHARACTERS:
 			return fromJS(action.payload);
 
+		case REQUEST_CHARACTERS:
 		default:
 			return state;
 
