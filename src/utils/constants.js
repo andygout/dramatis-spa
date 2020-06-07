@@ -1,7 +1,7 @@
-const irregularPluralNounsMap = {
-	'person': 'people'
+const IRREGULAR_PLURAL_NOUNS_MAP = {
+	person: 'people'
 };
 
 export {
-	irregularPluralNounsMap
+	IRREGULAR_PLURAL_NOUNS_MAP
 };
