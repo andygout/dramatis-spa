@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { irregularPluralNounsMap } from '../../utils/constants';
 import pluraliseModel from '../../lib/pluralise-model';
 
 export default function (props) {

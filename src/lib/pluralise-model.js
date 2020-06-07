@@ -1,3 +1,3 @@
-import { irregularPluralNounsMap } from '../utils/constants';
+import { IRREGULAR_PLURAL_NOUNS_MAP } from '../utils/constants';
 
-export default model => irregularPluralNounsMap[model] || `${model}s`;
+export default model => IRREGULAR_PLURAL_NOUNS_MAP[model] || `${model}s`;
