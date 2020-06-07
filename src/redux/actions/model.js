@@ -1,4 +1,4 @@
-import pluraliseModel from '../../lib/pluralise-model';
+import { pluralise } from '../../lib/strings';
 import createAction from './base';
 import { setError } from './error';
 import * as actions from '../utils/model-actions';
@@ -26,7 +26,7 @@ export const fetchModel = (model, uuid = null) => async (dispatch, getState) => 
 		let url = URL_BASE;
 
 		url += isInstance
-			? `/${pluraliseModel(model)}`
+			? `/${pluralise(model)}`
 			: `/${model}`;
 
 		if (isInstance) url += `/${uuid}`;

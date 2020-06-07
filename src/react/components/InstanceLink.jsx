@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import pluraliseModel from '../../lib/pluralise-model';
+import { pluralise } from '../../lib/strings';
 
 export default function (props) {
 
 	const { instance } = props;
 
 	const model = instance.get('model');
-	const pluralisedModel = pluraliseModel(model);
+	const pluralisedModel = pluralise(model);
 
 	const uuid = instance.get('uuid');
 
