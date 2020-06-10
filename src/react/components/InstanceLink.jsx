@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { pluralise } from '../../lib/strings';
 
-export default function (props) {
+export default props => {
 
 	const { instance } = props;
 

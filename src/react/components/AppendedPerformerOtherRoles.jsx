@@ -2,7 +2,7 @@ import React from 'react';
 
 import { JoinedRoles } from '.';
 
-export default function (props) {
+export default props => {
 
 	const { otherRoles } = props;
 

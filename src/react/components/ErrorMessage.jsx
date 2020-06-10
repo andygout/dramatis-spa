@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 
 import { PageTitle } from '.';
 
-export default function (props) {
+export default props => {
 
 	const { errorText } = props;
 
