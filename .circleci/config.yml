@@ -11,3 +11,6 @@ jobs:
       - run:
           name: Lint checks
           command: npm run lint-check
+      - run:
+          name: Unit tests
+          command: npm run unit-test
