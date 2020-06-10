@@ -2,14 +2,10 @@ import React from 'react';
 
 import { ErrorMessage } from '../components';
 
-export default class NotFound extends React.Component {
+export default () => {
 
-	render () {
-
-		return (
-			<ErrorMessage errorText='Not Found' />
-		);
-
-	};
+	return (
+		<ErrorMessage errorText='Not Found' />
+	);
 
 };
