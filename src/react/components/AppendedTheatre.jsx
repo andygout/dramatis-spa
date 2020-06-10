@@ -2,7 +2,7 @@ import React from 'react';
 
 import { InstanceLink } from '.';
 
-export default function (props) {
+export default props => {
 
 	const { theatre } = props;
 

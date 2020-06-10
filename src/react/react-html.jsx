@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router-dom';
 import App from './App';
 
-export default function (request, store) {
+export default (request, store) => {
 
 	return renderToString(
 		<Provider store={store}>

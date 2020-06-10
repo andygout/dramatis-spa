@@ -2,7 +2,7 @@ import React from 'react';
 
 import { AppendedPerformers, AppendedRoles, AppendedTheatre, InstanceLink } from '.';
 
-export default function (props) {
+export default props => {
 
 	const { instances } = props;
 
