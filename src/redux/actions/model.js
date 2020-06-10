@@ -5,41 +5,43 @@ import * as actions from '../utils/model-actions';
 
 const URL_BASE = 'http://localhost:3000';
 
-const request = model => createAction(actions[`REQUEST_${model.toUpperCase()}`]);
+const requestList = pluralisedModel =>
+	createAction(actions[`REQUEST_${pluralisedModel.toUpperCase()}`]);
 
-const receive = (instance, model) => createAction(actions[`RECEIVE_${model.toUpperCase()}`], instance);
+const receiveList = (list, pluralisedModel) =>
+	createAction(actions[`RECEIVE_${pluralisedModel.toUpperCase()}`], list);
 
-export const fetchModel = (model, uuid = null) => async (dispatch, getState) => {
+const requestInstance = model =>
+	createAction(actions[`REQUEST_${model.toUpperCase()}`]);
 
-	const isInstance = uuid
-		? true
-		: false;
+const receiveInstance = instance =>
+	createAction(actions[`RECEIVE_${instance.model.toUpperCase()}`], instance);
 
-	const apiCallRequired = isInstance
-		? getState().getIn([model, 'uuid']) !== uuid
-		: !getState().get(model).size;
+const performFetch = async url => {
+
+	const response = await fetch(url, { mode: 'cors' });
+
+	if (response.status !== 200) throw new Error(response.statusText);
+
+	return response.json();
+
+}
+
+const fetchList = pluralisedModel => async (dispatch, getState) => {
+
+	const apiCallRequired = !getState().get(pluralisedModel).size;
 
 	if (apiCallRequired) {
 
-		dispatch(request(model));
+		dispatch(requestList(pluralisedModel));
 
-		let url = URL_BASE;
-
-		url += isInstance
-			? `/${pluralise(model)}`
-			: `/${model}`;
-
-		if (isInstance) url += `/${uuid}`;
+		const url = `${URL_BASE}/${pluralisedModel}`;
 
 		try {
 
-			const response = await fetch(url, { mode: 'cors' });
+			const list = await performFetch(url);
 
-			if (response.status !== 200) throw new Error(response.statusText);
-
-			const instance = await response.json();
-
-			dispatch(receive(instance, model));
+			dispatch(receiveList(list, pluralisedModel));
 
 		} catch ({ message }) {
 
@@ -49,4 +51,35 @@ export const fetchModel = (model, uuid = null) => async (dispatch, getState) => 
 
 	}
 
+}
+
+const fetchInstance = (model, uuid) => async (dispatch, getState) => {
+
+	const apiCallRequired = getState().getIn([model, 'uuid']) !== uuid;
+
+	if (apiCallRequired) {
+
+		dispatch(requestInstance(model));
+
+		const url = `${URL_BASE}/${pluralise(model)}/${uuid}`;
+
+		try {
+
+			const instance = await performFetch(url);
+
+			dispatch(receiveInstance(instance));
+
+		} catch ({ message }) {
+
+			dispatch(setError({ exists: true, message }));
+
+		}
+
+	}
+
+}
+
+export {
+	fetchList,
+	fetchInstance
 }
