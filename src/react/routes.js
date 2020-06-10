@@ -14,7 +14,7 @@ import {
 } from './pages';
 
 import { resetError } from '../redux/actions/error';
-import { fetchModel } from '../redux/actions/model';
+import { fetchList, fetchInstance } from '../redux/actions/model';
 
 export default [
 	{
@@ -33,7 +33,7 @@ export default [
 		component: Characters,
 		fetchData: [
 			dispatch => dispatch(resetError()),
-			dispatch => dispatch(fetchModel('characters'))
+			dispatch => dispatch(fetchList('characters'))
 		]
 	},
 	{
@@ -42,7 +42,7 @@ export default [
 		component: Character,
 		fetchData: [
 			dispatch => dispatch(resetError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchModel('character', uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('character', uuid))
 		]
 	},
 	{
@@ -52,7 +52,7 @@ export default [
 		component: People,
 		fetchData: [
 			dispatch => dispatch(resetError()),
-			dispatch => dispatch(fetchModel('people'))
+			dispatch => dispatch(fetchList('people'))
 		]
 	},
 	{
@@ -61,7 +61,7 @@ export default [
 		component: Person,
 		fetchData: [
 			dispatch => dispatch(resetError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchModel('person', uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('person', uuid))
 		]
 	},
 	{
@@ -71,7 +71,7 @@ export default [
 		component: Playtexts,
 		fetchData: [
 			dispatch => dispatch(resetError()),
-			dispatch => dispatch(fetchModel('playtexts'))
+			dispatch => dispatch(fetchList('playtexts'))
 		]
 	},
 	{
@@ -80,7 +80,7 @@ export default [
 		component: Playtext,
 		fetchData: [
 			dispatch => dispatch(resetError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchModel('playtext', uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('playtext', uuid))
 		]
 	},
 	{
@@ -90,7 +90,7 @@ export default [
 		component: Productions,
 		fetchData: [
 			dispatch => dispatch(resetError()),
-			dispatch => dispatch(fetchModel('productions'))
+			dispatch => dispatch(fetchList('productions'))
 		]
 	},
 	{
@@ -99,7 +99,7 @@ export default [
 		component: Production,
 		fetchData: [
 			dispatch => dispatch(resetError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchModel('production', uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('production', uuid))
 		]
 	},
 	{
@@ -109,7 +109,7 @@ export default [
 		component: Theatres,
 		fetchData: [
 			dispatch => dispatch(resetError()),
-			dispatch => dispatch(fetchModel('theatres'))
+			dispatch => dispatch(fetchList('theatres'))
 		]
 	},
 	{
@@ -118,7 +118,7 @@ export default [
 		component: Theatre,
 		fetchData: [
 			dispatch => dispatch(resetError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchModel('theatre', uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('theatre', uuid))
 		]
 	},
 	{

@@ -2,14 +2,10 @@ import React from 'react';
 
 import { PageTitle } from '../components';
 
-export default class Home extends React.Component {
+export default () => {
 
-	render () {
-
-		return (
-			<PageTitle text='Home' />
-		);
-
-	};
+	return (
+		<PageTitle text='Home' />
+	);
 
 };
