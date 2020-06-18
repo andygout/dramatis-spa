@@ -64,7 +64,7 @@ router.get('*', async (request, response, next) => {
 					${JSON.stringify(preloadedState)}
 				</script>
 
-				<div id="app" class="app">
+				<div id="page-container" class="page-container">
 					${reactHtml}
 				</div>
 
