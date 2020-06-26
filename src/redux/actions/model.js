@@ -1,3 +1,5 @@
+import nodeFetch from 'node-fetch';
+
 import { pluralise } from '../../lib/strings';
 import createAction from './base';
 import { setError } from './error';
@@ -18,6 +20,8 @@ const receiveInstance = instance =>
 	createAction(actions[`RECEIVE_${instance.model.toUpperCase()}`], instance);
 
 const performFetch = async url => {
+
+	const fetch = global.fetch || nodeFetch;
 
 	const response = await fetch(url, { mode: 'cors' });
 

@@ -12,7 +12,7 @@ const serverConfig = {
 	},
 	externals: [nodeExternals()],
 	entry: {
-		'express': ['isomorphic-fetch', './src/server/app.js']
+		express: ['./src/server/app.js']
 	},
 	output: {
 		path: path.join(__dirname, 'built'),
