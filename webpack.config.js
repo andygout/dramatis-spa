@@ -11,9 +11,7 @@ const serverConfig = {
 		__dirname: false
 	},
 	externals: [nodeExternals()],
-	entry: {
-		express: ['./src/server/app.js']
-	},
+	entry: './src/server/app.js',
 	output: {
 		path: path.join(__dirname, 'built'),
 		filename: 'main.js'
@@ -47,12 +45,10 @@ const serverConfig = {
 
 const clientConfig = {
 	mode: 'none', // i.e. not production or development (see: https://webpack.js.org/configuration/mode).
-	entry: {
-		main: [
-			'./src/client/stylesheets/index.scss',
-			'./src/react/client-mount.jsx'
-		]
-	},
+	entry: [
+		'./src/client/stylesheets/index.scss',
+		'./src/react/client-mount.jsx'
+	],
 	output: {
 		path: path.join(__dirname, 'public'),
 		publicPath: '/',
