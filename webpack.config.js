@@ -83,17 +83,16 @@ const clientConfig = {
 					options: {
 						presets: [
 							[
-								"@babel/preset-env",
+								'@babel/preset-env',
 								{
-									"targets": {
-										"node": "12"
+									targets: {
+										node: '12'
 									}
 								}
 							],
 							'@babel/preset-react'
 						]
 					}
-
 				}
 			}
 		]
