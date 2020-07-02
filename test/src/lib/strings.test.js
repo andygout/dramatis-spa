@@ -10,7 +10,7 @@ describe('Strings module', () => {
 
 			it('returns singular noun with appended \'s\'', () => {
 
-				expect(pluralise('production')).to.eq('productions');
+				expect(pluralise('production')).to.equal('productions');
 
 			});
 
@@ -20,7 +20,7 @@ describe('Strings module', () => {
 
 			it('returns specific plural noun', () => {
 
-				expect(pluralise('person')).to.eq('people');
+				expect(pluralise('person')).to.equal('people');
 
 			});
 
