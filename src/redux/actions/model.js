@@ -3,7 +3,7 @@ import nodeFetch from 'node-fetch';
 import { pluralise } from '../../lib/strings';
 import createAction from './base';
 import { setErrorStatus } from './error';
-import * as actions from '../utils/model-actions';
+import * as actions from '../utils/model-action-names';
 
 const URL_BASE = 'http://localhost:3000';
 

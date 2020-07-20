@@ -1,6 +1,9 @@
 import { Map, fromJS } from 'immutable';
 
-import { REQUEST_THEATRE, RECEIVE_THEATRE } from '../utils/model-actions';
+import {
+	REQUEST_THEATRE,
+	RECEIVE_THEATRE
+} from '../utils/model-action-names';
 
 const theatre = (state = Map({}), action) => {
 
