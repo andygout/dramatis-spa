@@ -1,6 +1,9 @@
 import { Map, fromJS } from 'immutable';
 
-import { REQUEST_PLAYTEXT, RECEIVE_PLAYTEXT } from '../utils/model-actions';
+import {
+	REQUEST_PLAYTEXT,
+	RECEIVE_PLAYTEXT
+} from '../utils/model-action-names';
 
 const playtext = (state = Map({}), action) => {
 

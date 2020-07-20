@@ -1,6 +1,9 @@
 import { Map, fromJS } from 'immutable';
 
-import { REQUEST_PERSON, RECEIVE_PERSON } from '../utils/model-actions';
+import {
+	REQUEST_PERSON,
+	RECEIVE_PERSON
+} from '../utils/model-action-names';
 
 const person = (state = Map({}), action) => {
 

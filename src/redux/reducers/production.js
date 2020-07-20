@@ -1,6 +1,9 @@
 import { Map, fromJS } from 'immutable';
 
-import { REQUEST_PRODUCTION, RECEIVE_PRODUCTION } from '../utils/model-actions';
+import {
+	REQUEST_PRODUCTION,
+	RECEIVE_PRODUCTION
+} from '../utils/model-action-names';
 
 const production = (state = Map({}), action) => {
 

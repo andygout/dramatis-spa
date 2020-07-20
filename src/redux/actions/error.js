@@ -1,7 +1,8 @@
 import createAction from './base';
-
-const SET_ERROR_STATUS = 'SET_ERROR_STATUS';
-const RESET_ERROR_STATUS = 'RESET_ERROR_STATUS';
+import {
+	SET_ERROR_STATUS,
+	RESET_ERROR_STATUS
+} from '../utils/error-action-names';
 
 const setErrorStatus = error => createAction(SET_ERROR_STATUS, error);
 
@@ -16,8 +17,6 @@ const resetErrorStatus = () => (dispatch, getState) => {
 }
 
 export {
-	SET_ERROR_STATUS,
-	RESET_ERROR_STATUS,
 	setErrorStatus,
 	resetErrorStatus
 };

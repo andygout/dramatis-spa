@@ -1,6 +1,9 @@
 import { List, fromJS } from 'immutable';
 
-import { REQUEST_PRODUCTIONS, RECEIVE_PRODUCTIONS } from '../utils/model-actions';
+import {
+	REQUEST_PRODUCTIONS,
+	RECEIVE_PRODUCTIONS
+} from '../utils/model-action-names';
 
 const productions = (state = List([]), action) => {
 
