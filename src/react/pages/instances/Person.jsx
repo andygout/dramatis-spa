@@ -17,7 +17,7 @@ class Person extends React.Component {
 			<InstanceWrapper instance={person}>
 
 				{
-					productions && productions.size > 0 && (
+					productions?.size > 0 && (
 						<InstanceFacet labelText='Productions'>
 
 							<List instances={productions} />

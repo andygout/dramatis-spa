@@ -21,13 +21,13 @@ export default props => {
 						}
 
 						{
-							instance.get('roles') && instance.get('roles').size > 0 && (
+							instance.get('roles')?.size > 0 && (
 								<AppendedRoles roles={instance.get('roles')} />
 							)
 						}
 
 						{
-							instance.get('performers') && instance.get('performers').size > 0 && (
+							instance.get('performers')?.size > 0 && (
 								<AppendedPerformers performers={instance.get('performers')} />
 							)
 						}

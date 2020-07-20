@@ -19,7 +19,7 @@ class Character extends React.Component {
 			<InstanceWrapper instance={character}>
 
 				{
-					playtexts && playtexts.size > 0 && (
+					playtexts?.size > 0 && (
 						<InstanceFacet labelText='Playtexts'>
 
 							<List instances={playtexts} />
@@ -29,7 +29,7 @@ class Character extends React.Component {
 				}
 
 				{
-					variantNames && variantNames.size > 0 && (
+					variantNames?.size > 0 && (
 						<InstanceFacet labelText='Variant names'>
 
 							<JoinedRoles instances={variantNames} />
@@ -39,7 +39,7 @@ class Character extends React.Component {
 				}
 
 				{
-					productions && productions.size > 0 && (
+					productions?.size > 0 && (
 						<InstanceFacet labelText='Productions'>
 
 							<List instances={productions} />

@@ -18,7 +18,7 @@ class Playtext extends React.Component {
 			<InstanceWrapper instance={playtext}>
 
 				{
-					productions && productions.size > 0 && (
+					productions?.size > 0 && (
 						<InstanceFacet labelText='Productions'>
 
 							<List instances={productions} />
@@ -28,7 +28,7 @@ class Playtext extends React.Component {
 				}
 
 				{
-					characters && characters.size > 0 && (
+					characters?.size > 0 && (
 						<InstanceFacet labelText='Characters'>
 
 							<List instances={characters} />
