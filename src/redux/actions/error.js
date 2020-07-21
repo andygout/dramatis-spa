@@ -14,7 +14,7 @@ const resetErrorStatus = () => (dispatch, getState) => {
 
 	}
 
-}
+};
 
 export {
 	setErrorStatus,

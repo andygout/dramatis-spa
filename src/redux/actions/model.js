@@ -29,7 +29,7 @@ const performFetch = async url => {
 
 	return response.json();
 
-}
+};
 
 const fetchList = pluralisedModel => async (dispatch, getState) => {
 
@@ -55,7 +55,7 @@ const fetchList = pluralisedModel => async (dispatch, getState) => {
 
 	}
 
-}
+};
 
 const fetchInstance = (model, uuid) => async (dispatch, getState) => {
 
@@ -81,9 +81,9 @@ const fetchInstance = (model, uuid) => async (dispatch, getState) => {
 
 	}
 
-}
+};
 
 export {
 	fetchList,
 	fetchInstance
-}
+};
