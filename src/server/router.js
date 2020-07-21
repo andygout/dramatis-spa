@@ -36,7 +36,7 @@ router.get('*', async (request, response, next) => {
 				);
 			}
 
-			return match
+			return match;
 
 		});
 
