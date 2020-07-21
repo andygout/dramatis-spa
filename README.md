@@ -10,7 +10,7 @@ Single-page application (SPA) that provides listings for theatrical productions,
 ## To run locally
 - Compile code: `$ npm run build`; compile and re-compile on change: `$ npm run watch`.
 - Ensure an instance of [`theatrebase-api`](https://github.com/andygout/theatrebase-api) is running on `http://localhost:3000`.
-- Run server using `$ npm start` and visit homepage at `http://localhost:3003`.
+- Run server using `$ npm start` and visit homepage at `http://localhost:3002`.
 
 ## To run linting checks
 - `$ npm run lint-check`.
