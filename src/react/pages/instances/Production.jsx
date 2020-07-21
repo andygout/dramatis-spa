@@ -39,7 +39,7 @@ class Production extends React.Component {
 				}
 
 				{
-					cast && cast.size > 0 && (
+					cast?.size > 0 && (
 						<InstanceFacet labelText='Cast'>
 
 							<List instances={cast} />
