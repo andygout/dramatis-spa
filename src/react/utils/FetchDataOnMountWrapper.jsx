@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
@@ -13,11 +14,11 @@ class FetchDataOnMountWrapper extends React.Component {
 
 		if (fetchData) fetchData.map(fetchDataFunction => fetchDataFunction(dispatch, match, location));
 
-	};
+	}
 
 	render () {
 
-		const { error, documentTitle, children } = this.props;
+		const { documentTitle, error, children } = this.props;
 
 		return (
 			<React.Fragment>
@@ -47,12 +48,22 @@ class FetchDataOnMountWrapper extends React.Component {
 			</React.Fragment>
 		);
 
-	};
+	}
 
+}
+
+FetchDataOnMountWrapper.propTypes = {
+	documentTitle: PropTypes.func.isRequired,
+	error: ImmutablePropTypes.map.isRequired,
+	children: PropTypes.node.isRequired,
+	fetchData: PropTypes.array.isRequired,
+	dispatch: PropTypes.func.isRequired,
+	match: PropTypes.object.isRequired,
+	location: PropTypes.object.isRequired
 };
 
-FetchDataOnMountWrapper.propTypes = { error: ImmutablePropTypes.map.isRequired };
-
-const mapStateToProps = state => ({ error: state.get('error') });
+const mapStateToProps = state => ({
+	error: state.get('error')
+});
 
 export default connect(mapStateToProps)(FetchDataOnMountWrapper);

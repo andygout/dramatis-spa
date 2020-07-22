@@ -1,8 +1,10 @@
+import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { InstanceDocumentTitle, InstanceLabel, PageTitle } from '../components';
 
-export default class InstanceWrapper extends React.Component {
+class InstanceWrapper extends React.Component {
 
 	render () {
 
@@ -22,6 +24,13 @@ export default class InstanceWrapper extends React.Component {
 			</React.Fragment>
 		);
 
-	};
+	}
 
+}
+
+InstanceWrapper.propTypes = {
+	instance: ImmutablePropTypes.map.isRequired,
+	children: PropTypes.node.isRequired
 };
+
+export default InstanceWrapper;

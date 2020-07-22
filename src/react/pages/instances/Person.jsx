@@ -29,12 +29,16 @@ class Person extends React.Component {
 			</InstanceWrapper>
 		);
 
-	};
+	}
 
+}
+
+Person.propTypes = {
+	person: ImmutablePropTypes.map.isRequired
 };
 
-Person.propTypes = { person: ImmutablePropTypes.map.isRequired };
-
-const mapStateToProps = state => ({ person: state.get('person') });
+const mapStateToProps = state => ({
+	person: state.get('person')
+});
 
 export default connect(mapStateToProps)(Person);

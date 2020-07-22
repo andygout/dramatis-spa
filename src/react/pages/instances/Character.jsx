@@ -51,12 +51,16 @@ class Character extends React.Component {
 			</InstanceWrapper>
 		);
 
-	};
+	}
 
+}
+
+Character.propTypes = {
+	character: ImmutablePropTypes.map.isRequired
 };
 
-Character.propTypes = { character: ImmutablePropTypes.map.isRequired };
-
-const mapStateToProps = state => ({ character: state.get('character') });
+const mapStateToProps = state => ({
+	character: state.get('character')
+});
 
 export default connect(mapStateToProps)(Character);

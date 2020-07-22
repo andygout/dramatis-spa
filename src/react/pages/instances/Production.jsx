@@ -51,12 +51,16 @@ class Production extends React.Component {
 			</InstanceWrapper>
 		);
 
-	};
+	}
 
+}
+
+Production.propTypes = {
+	production: ImmutablePropTypes.map.isRequired
 };
 
-Production.propTypes = { production: ImmutablePropTypes.map.isRequired };
-
-const mapStateToProps = state => ({ production: state.get('production') });
+const mapStateToProps = state => ({
+	production: state.get('production')
+});
 
 export default connect(mapStateToProps)(Production);

@@ -18,12 +18,16 @@ class Playtexts extends React.Component {
 			</ListWrapper>
 		);
 
-	};
+	}
 
+}
+
+Playtexts.propTypes = {
+	playtexts: ImmutablePropTypes.list.isRequired
 };
 
-Playtexts.propTypes = { playtexts: ImmutablePropTypes.list.isRequired };
-
-const mapStateToProps = state => ({ playtexts: state.get('playtexts') });
+const mapStateToProps = state => ({
+	playtexts: state.get('playtexts')
+});
 
 export default connect(mapStateToProps)(Playtexts);

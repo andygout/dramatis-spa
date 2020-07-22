@@ -1,8 +1,10 @@
+import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { List, PageTitle } from '../components';
 
-export default class ListWrapper extends React.Component {
+class ListWrapper extends React.Component {
 
 	render () {
 
@@ -20,6 +22,14 @@ export default class ListWrapper extends React.Component {
 			</React.Fragment>
 		);
 
-	};
+	}
 
+}
+
+ListWrapper.propTypes = {
+	pageTitleText: PropTypes.string.isRequired,
+	instances: ImmutablePropTypes.list.isRequired,
+	children: PropTypes.node
 };
+
+export default ListWrapper;

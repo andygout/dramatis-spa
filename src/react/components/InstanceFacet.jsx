@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
-export default props => {
+const InstanceFacet = props => {
 
 	const { labelText, children } = props;
 
@@ -19,3 +20,10 @@ export default props => {
 	);
 
 };
+
+InstanceFacet.propTypes = {
+	labelText: PropTypes.string.isRequired,
+	children: PropTypes.node.isRequired
+};
+
+export default InstanceFacet;

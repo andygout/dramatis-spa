@@ -1,8 +1,9 @@
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { InstanceLink, AppendedPerformerOtherRoles } from '.';
 
-export default props => {
+const AppendedPerformers = props => {
 
 	const { performers } = props;
 
@@ -41,3 +42,9 @@ export default props => {
 	);
 
 };
+
+AppendedPerformers.propTypes = {
+	performers: ImmutablePropTypes.list.isRequired
+};
+
+export default AppendedPerformers;

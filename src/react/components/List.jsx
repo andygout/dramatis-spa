@@ -1,8 +1,9 @@
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { AppendedPerformers, AppendedRoles, AppendedTheatre, InstanceLink } from '.';
 
-export default props => {
+const List = props => {
 
 	const { instances } = props;
 
@@ -39,3 +40,9 @@ export default props => {
 	);
 
 };
+
+List.propTypes = {
+	instances: ImmutablePropTypes.list.isRequired
+};
+
+export default List;

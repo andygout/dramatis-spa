@@ -1,9 +1,10 @@
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { Link } from 'react-router-dom';
 
 import { pluralise } from '../../lib/strings';
 
-export default props => {
+const InstanceLink = props => {
 
 	const { instance } = props;
 
@@ -21,3 +22,9 @@ export default props => {
 	);
 
 };
+
+InstanceLink.propTypes = {
+	instance: ImmutablePropTypes.map.isRequired
+};
+
+export default InstanceLink;

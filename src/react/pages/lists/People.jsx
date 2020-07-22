@@ -18,12 +18,16 @@ class People extends React.Component {
 			</ListWrapper>
 		);
 
-	};
+	}
 
+}
+
+People.propTypes = {
+	people: ImmutablePropTypes.list.isRequired
 };
 
-People.propTypes = { people: ImmutablePropTypes.list.isRequired };
-
-const mapStateToProps = state => ({ people: state.get('people') });
+const mapStateToProps = state => ({
+	people: state.get('people')
+});
 
 export default connect(mapStateToProps)(People);

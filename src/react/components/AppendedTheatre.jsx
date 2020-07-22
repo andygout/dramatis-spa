@@ -1,8 +1,9 @@
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { InstanceLink } from '.';
 
-export default props => {
+const AppendedTheatre = props => {
 
 	const { theatre } = props;
 
@@ -17,3 +18,9 @@ export default props => {
 	);
 
 };
+
+AppendedTheatre.propTypes = {
+	theatre: ImmutablePropTypes.map.isRequired
+};
+
+export default AppendedTheatre;
