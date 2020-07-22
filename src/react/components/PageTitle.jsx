@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
-export default props => {
+const PageTitle = props => {
 
 	const { text } = props;
 
@@ -11,3 +12,9 @@ export default props => {
 	);
 
 };
+
+PageTitle.propTypes = {
+	text: PropTypes.string
+};
+
+export default PageTitle;

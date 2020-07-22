@@ -18,12 +18,16 @@ class Characters extends React.Component {
 			</ListWrapper>
 		);
 
-	};
+	}
 
+}
+
+Characters.propTypes = {
+	characters: ImmutablePropTypes.list.isRequired
 };
 
-Characters.propTypes = { characters: ImmutablePropTypes.list.isRequired };
-
-const mapStateToProps = state => ({ characters: state.get('characters') });
+const mapStateToProps = state => ({
+	characters: state.get('characters')
+});
 
 export default connect(mapStateToProps)(Characters);

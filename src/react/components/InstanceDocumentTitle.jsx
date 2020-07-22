@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
-export default props => {
+const InstanceDocumentTitle = props => {
 
 	const { instance } = props;
 
@@ -15,3 +16,9 @@ export default props => {
 	);
 
 };
+
+InstanceDocumentTitle.propTypes = {
+	instance: ImmutablePropTypes.map.isRequired
+};
+
+export default InstanceDocumentTitle;

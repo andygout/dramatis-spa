@@ -1,11 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
 import routes from './routes';
 import { FetchDataOnMountWrapper } from './utils';
 
-export default class App extends React.Component {
+class App extends React.Component {
 
 	render () {
 
@@ -39,6 +38,8 @@ export default class App extends React.Component {
 			</Switch>
 		);
 
-	};
+	}
 
-};
+}
+
+export default App;

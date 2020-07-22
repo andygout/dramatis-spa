@@ -2,10 +2,12 @@ import React from 'react';
 
 import { PageTitle } from '../components';
 
-export default () => {
+const Home = () => {
 
 	return (
 		<PageTitle text='Home' />
 	);
 
 };
+
+export default Home;

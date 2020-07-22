@@ -1,8 +1,9 @@
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { JoinedRoles } from '.';
 
-export default props => {
+const AppendedRoles = props => {
 
 	const { roles } = props;
 
@@ -17,3 +18,9 @@ export default props => {
 	);
 
 };
+
+AppendedRoles.propTypes = {
+	roles: ImmutablePropTypes.list.isRequired
+};
+
+export default AppendedRoles;

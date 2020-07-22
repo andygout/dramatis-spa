@@ -40,12 +40,16 @@ class Playtext extends React.Component {
 			</InstanceWrapper>
 		);
 
-	};
+	}
 
+}
+
+Playtext.propTypes = {
+	playtext: ImmutablePropTypes.map.isRequired
 };
 
-Playtext.propTypes = { playtext: ImmutablePropTypes.map.isRequired };
-
-const mapStateToProps = state => ({ playtext: state.get('playtext') });
+const mapStateToProps = state => ({
+	playtext: state.get('playtext')
+});
 
 export default connect(mapStateToProps)(Playtext);

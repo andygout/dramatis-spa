@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
-export default props => {
+const InstanceLabel = props => {
 
 	const { text } = props;
 
@@ -11,3 +12,9 @@ export default props => {
 	);
 
 };
+
+InstanceLabel.propTypes = {
+	text: PropTypes.string
+};
+
+export default InstanceLabel;

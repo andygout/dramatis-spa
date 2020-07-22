@@ -18,12 +18,16 @@ class Productions extends React.Component {
 			</ListWrapper>
 		);
 
-	};
+	}
 
+}
+
+Productions.propTypes = {
+	productions: ImmutablePropTypes.list.isRequired
 };
 
-Productions.propTypes = { productions: ImmutablePropTypes.list.isRequired };
-
-const mapStateToProps = state => ({ productions: state.get('productions') });
+const mapStateToProps = state => ({
+	productions: state.get('productions')
+});
 
 export default connect(mapStateToProps)(Productions);
