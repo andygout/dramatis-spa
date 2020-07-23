@@ -14,7 +14,7 @@ const InstanceLabel = props => {
 };
 
 InstanceLabel.propTypes = {
-	text: PropTypes.string
+	text: PropTypes.string.isRequired
 };
 
 export default InstanceLabel;

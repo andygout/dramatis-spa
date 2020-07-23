@@ -15,9 +15,9 @@ class InstanceWrapper extends React.Component {
 
 				<InstanceDocumentTitle instance={instance} />
 
-				<InstanceLabel text={instance.get('model')} />
+				<InstanceLabel text={instance.get('model', '')} />
 
-				<PageTitle text={instance.get('name')} />
+				<PageTitle text={instance.get('name', '')} />
 
 				{ children }
 
