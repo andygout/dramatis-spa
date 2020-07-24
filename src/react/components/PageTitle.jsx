@@ -14,7 +14,7 @@ const PageTitle = props => {
 };
 
 PageTitle.propTypes = {
-	text: PropTypes.string
+	text: PropTypes.string.isRequired
 };
 
 export default PageTitle;
