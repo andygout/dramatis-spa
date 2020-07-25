@@ -1,16 +1,16 @@
 import { Map, fromJS } from 'immutable';
 
 import {
-	SET_ERROR_STATUS,
-	RESET_ERROR_STATUS
+	RECEIVE_ERROR,
+	CANCEL_ERROR
 } from '../utils/error-action-names';
 
-const error = (state = Map({ exists: false }), action) => {
+const error = (state = Map({ isExistent: false }), action) => {
 
 	switch (action.type) {
 
-		case SET_ERROR_STATUS:
-		case RESET_ERROR_STATUS:
+		case RECEIVE_ERROR:
+		case CANCEL_ERROR:
 			return fromJS(action.payload);
 
 		default:

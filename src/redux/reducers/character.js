@@ -5,7 +5,7 @@ import {
 	RECEIVE_CHARACTER
 } from '../utils/model-action-names';
 
-const character = (state = Map({}), action) => {
+const character = (state = Map(), action) => {
 
 	switch (action.type) {
 

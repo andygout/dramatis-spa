@@ -5,7 +5,7 @@ import {
 	RECEIVE_CHARACTERS
 } from '../utils/model-action-names';
 
-const characters = (state = List([]), action) => {
+const characters = (state = List(), action) => {
 
 	switch (action.type) {
 

@@ -2,7 +2,7 @@ import nodeFetch from 'node-fetch';
 
 import { pluralise } from '../../lib/strings';
 import createAction from './base';
-import { setErrorStatus } from './error';
+import { receiveError } from './error';
 import * as actions from '../utils/model-action-names';
 
 const URL_BASE = 'http://localhost:3000';
@@ -49,7 +49,7 @@ const fetchList = pluralisedModel => async (dispatch, getState) => {
 
 		} catch ({ message }) {
 
-			dispatch(setErrorStatus({ exists: true, message }));
+			dispatch(receiveError({ isExistent: true, message }));
 
 		}
 
@@ -75,7 +75,7 @@ const fetchInstance = (model, uuid) => async (dispatch, getState) => {
 
 		} catch ({ message }) {
 
-			dispatch(setErrorStatus({ exists: true, message }));
+			dispatch(receiveError({ isExistent: true, message }));
 
 		}
 

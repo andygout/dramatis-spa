@@ -1,22 +1,22 @@
 import createAction from './base';
 import {
-	SET_ERROR_STATUS,
-	RESET_ERROR_STATUS
+	RECEIVE_ERROR,
+	CANCEL_ERROR
 } from '../utils/error-action-names';
 
-const setErrorStatus = error => createAction(SET_ERROR_STATUS, error);
+const receiveError = error => createAction(RECEIVE_ERROR, error);
 
-const resetErrorStatus = () => (dispatch, getState) => {
+const cancelError = () => (dispatch, getState) => {
 
-	if (getState().getIn(['error', 'exists'])) {
+	if (getState().getIn(['error', 'isExistent'])) {
 
-		dispatch(createAction(RESET_ERROR_STATUS, { exists: false }));
+		dispatch(createAction(CANCEL_ERROR, { isExistent: false }));
 
 	}
 
 };
 
 export {
-	setErrorStatus,
-	resetErrorStatus
+	receiveError,
+	cancelError
 };
