@@ -10,9 +10,9 @@ class FetchDataOnMountWrapper extends React.Component {
 
 	componentDidMount () {
 
-		const { fetchData, dispatch, match, location } = this.props;
+		const { fetchData, dispatch, match } = this.props;
 
-		if (fetchData) fetchData.map(fetchDataFunction => fetchDataFunction(dispatch, match, location));
+		if (fetchData) fetchData.map(fetchDataFunction => fetchDataFunction(dispatch, match));
 
 	}
 
