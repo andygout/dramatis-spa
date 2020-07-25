@@ -5,7 +5,7 @@ import {
 	RECEIVE_PRODUCTION
 } from '../utils/model-action-names';
 
-const production = (state = Map({}), action) => {
+const production = (state = Map(), action) => {
 
 	switch (action.type) {
 

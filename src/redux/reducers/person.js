@@ -5,7 +5,7 @@ import {
 	RECEIVE_PERSON
 } from '../utils/model-action-names';
 
-const person = (state = Map({}), action) => {
+const person = (state = Map(), action) => {
 
 	switch (action.type) {
 
