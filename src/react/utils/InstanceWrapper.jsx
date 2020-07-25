@@ -13,7 +13,14 @@ class InstanceWrapper extends React.Component {
 		return (
 			<React.Fragment>
 
-				<InstanceDocumentTitle instance={instance} />
+				{
+					instance.get('name') && instance.get('model') && (
+						<InstanceDocumentTitle
+							name={instance.get('name')}
+							model={instance.get('model')}
+						/>
+					)
+				}
 
 				<InstanceLabel text={instance.get('model', '')} />
 

@@ -1,24 +1,20 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 const InstanceDocumentTitle = props => {
 
-	const { instance } = props;
-
-	const name = instance.get('name');
-	const model = instance.get('model');
+	const { name, model } = props;
 
 	return (
-		name && model
-			? <Helmet title={`${name} (${model})`} />
-			: null
+		<Helmet title={`${name} (${model})`} />
 	);
 
 };
 
 InstanceDocumentTitle.propTypes = {
-	instance: ImmutablePropTypes.map.isRequired
+	name: PropTypes.string.isRequired,
+	model: PropTypes.string.isRequired
 };
 
 export default InstanceDocumentTitle;
