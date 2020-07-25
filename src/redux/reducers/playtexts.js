@@ -5,7 +5,7 @@ import {
 	RECEIVE_PLAYTEXTS
 } from '../utils/model-action-names';
 
-const playtexts = (state = List([]), action) => {
+const playtexts = (state = List(), action) => {
 
 	switch (action.type) {
 

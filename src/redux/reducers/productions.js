@@ -5,7 +5,7 @@ import {
 	RECEIVE_PRODUCTIONS
 } from '../utils/model-action-names';
 
-const productions = (state = List([]), action) => {
+const productions = (state = List(), action) => {
 
 	switch (action.type) {
 

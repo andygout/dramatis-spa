@@ -5,7 +5,7 @@ import {
 	RECEIVE_PEOPLE
 } from '../utils/model-action-names';
 
-const people = (state = List([]), action) => {
+const people = (state = List(), action) => {
 
 	switch (action.type) {
 

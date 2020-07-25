@@ -5,7 +5,7 @@ import {
 	RECEIVE_THEATRES
 } from '../utils/model-action-names';
 
-const theatres = (state = List([]), action) => {
+const theatres = (state = List(), action) => {
 
 	switch (action.type) {
 
