@@ -12,7 +12,7 @@ const InstanceFacet = props => {
 				{ labelText }
 			</div>
 
-			<div className="instance-facet">
+			<div className="instance-facet-content">
 				{ children }
 			</div>
 
