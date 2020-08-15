@@ -16,6 +16,7 @@ const serverConfig = {
 		path: path.join(__dirname, 'built'),
 		filename: 'main.js'
 	},
+	devtool: 'inline-source-map',
 	module: {
 		rules: [
 			{
