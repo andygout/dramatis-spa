@@ -2,7 +2,6 @@ const path = require('path');
 
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 
 const serverConfig = {
