@@ -12,7 +12,7 @@
     "unit-test": "mocha --require @babel/register test/**/*.test.js",
     "build": "webpack",
     "watch": "webpack --watch",
-    "start": "nodemon built/main.js"
+    "start": "nodemon --require source-map-support/register built/main.js"
   },
   "pre-commit": [
     "lint-check",
@@ -39,7 +39,8 @@
     "redux-immutable": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
-    "serve-favicon": "^2.2.0"
+    "serve-favicon": "^2.2.0",
+    "source-map-support": "^0.5.19"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
