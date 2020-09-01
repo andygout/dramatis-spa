@@ -10,6 +10,12 @@ class InstanceWrapper extends React.Component {
 
 		const { instance, children } = this.props;
 
+		let pageTitleText = instance.get('name', '');
+
+		const differentiator = instance.get('differentiator');
+
+		if (differentiator) pageTitleText += ` (${differentiator})`;
+
 		return (
 			<React.Fragment>
 
@@ -17,6 +23,7 @@ class InstanceWrapper extends React.Component {
 					instance.get('name') && instance.get('model') && (
 						<InstanceDocumentTitle
 							name={instance.get('name')}
+							differentiator={instance.get('differentiator')}
 							model={instance.get('model')}
 						/>
 					)
@@ -24,7 +31,7 @@ class InstanceWrapper extends React.Component {
 
 				<InstanceLabel text={instance.get('model', '')} />
 
-				<PageTitle text={instance.get('name', '')} />
+				<PageTitle text={pageTitleText} />
 
 				{ children }
 
