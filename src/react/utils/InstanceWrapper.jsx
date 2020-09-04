@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
+import getDifferentiatorSuffix from '../../lib/get-differentiator-suffix';
 import { InstanceDocumentTitle, InstanceLabel, PageTitle } from '../components';
 
 class InstanceWrapper extends React.Component {
@@ -12,9 +13,7 @@ class InstanceWrapper extends React.Component {
 
 		let pageTitleText = instance.get('name', '');
 
-		const differentiator = instance.get('differentiator');
-
-		if (differentiator) pageTitleText += ` (${differentiator})`;
+		pageTitleText += getDifferentiatorSuffix(instance.get('differentiator'));
 
 		return (
 			<React.Fragment>
