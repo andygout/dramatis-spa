@@ -4,9 +4,9 @@ import { pluralise } from '../../../src/lib/strings';
 
 describe('Strings module', () => {
 
-	describe('Pluralise function', () => {
+	describe('pluralise function', () => {
 
-		context('Model has regular plural noun', () => {
+		context('model has regular plural noun', () => {
 
 			it('returns singular noun with appended \'s\'', () => {
 
@@ -16,7 +16,7 @@ describe('Strings module', () => {
 
 		});
 
-		context('Model has irregular plural noun', () => {
+		context('model has irregular plural noun', () => {
 
 			it('returns specific plural noun', () => {
 
