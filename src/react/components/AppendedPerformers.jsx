@@ -23,7 +23,16 @@ const AppendedPerformers = props => {
 
 								<span>&nbsp;…&nbsp;</span>
 
-								<span className="role-text">{performer.get('roleName')}</span>
+								<span className="role-text">
+									{
+										performer.get('roleName')
+									}
+									{
+										performer.get('qualifier') && (
+											<span> ({ performer.get('qualifier') })</span>
+										)
+									}
+								</span>
 
 							</React.Fragment>
 

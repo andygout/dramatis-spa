@@ -1,5 +1,6 @@
 import AppendedPerformers from './AppendedPerformers';
 import AppendedPerformerOtherRoles from './AppendedPerformerOtherRoles';
+import AppendedQualifiers from './AppendedQualifiers';
 import AppendedRoles from './AppendedRoles';
 import AppendedTheatre from './AppendedTheatre';
 import ErrorMessage from './ErrorMessage';
@@ -17,6 +18,7 @@ import PageTitle from './PageTitle';
 export {
 	AppendedPerformers,
 	AppendedPerformerOtherRoles,
+	AppendedQualifiers,
 	AppendedRoles,
 	AppendedTheatre,
 	ErrorMessage,

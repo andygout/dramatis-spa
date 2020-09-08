@@ -1,7 +1,7 @@
 import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
-import { AppendedPerformers, AppendedRoles, AppendedTheatre, InstanceLink } from '.';
+import { AppendedPerformers, AppendedRoles, AppendedQualifiers, AppendedTheatre, InstanceLink } from '.';
 
 const List = props => {
 
@@ -28,8 +28,20 @@ const List = props => {
 						}
 
 						{
+							instance.get('qualifiers')?.size > 0 && (
+								<AppendedQualifiers qualifiers={instance.get('qualifiers')} />
+							)
+						}
+
+						{
 							instance.get('performers')?.size > 0 && (
 								<AppendedPerformers performers={instance.get('performers')} />
+							)
+						}
+
+						{
+							instance.get('qualifier') && (
+								<span> ({instance.get('qualifier')})</span>
 							)
 						}
 
