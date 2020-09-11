@@ -21,6 +21,11 @@ const JoinedRoles = props => {
 										? instance.get('name')
 										: instance
 							}
+							{
+								Map.isMap(instance) && instance.get('qualifier') && (
+									<span> ({ instance.get('qualifier') })</span>
+								)
+							}
 						</span>
 					)
 					.reduce((prev, curr) => [prev, ' / ', curr])
