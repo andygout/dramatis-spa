@@ -1,7 +1,14 @@
 import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
-import { AppendedPerformers, AppendedRoles, AppendedQualifiers, AppendedTheatre, InstanceLink } from '.';
+import {
+	AppendedGroups,
+	AppendedPerformers,
+	AppendedRoles,
+	AppendedQualifiers,
+	AppendedTheatre,
+	InstanceLink
+} from '.';
 
 const List = props => {
 
@@ -13,7 +20,11 @@ const List = props => {
 				instances.map((instance, index) => (
 					<li key={index}>
 
-						<InstanceLink instance={instance} />
+						{
+							instance.get('uuid')
+								? <InstanceLink instance={instance} />
+								: <span>{ instance.get('name') }</span>
+						}
 
 						{
 							instance.get('theatre') && (
@@ -30,6 +41,12 @@ const List = props => {
 						{
 							instance.get('qualifiers')?.size > 0 && (
 								<AppendedQualifiers qualifiers={instance.get('qualifiers')} />
+							)
+						}
+
+						{
+							instance.get('groups')?.size > 0 && (
+								<AppendedGroups groups={instance.get('groups')} />
 							)
 						}
 
