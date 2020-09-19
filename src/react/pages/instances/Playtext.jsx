@@ -12,7 +12,10 @@ class Playtext extends React.Component {
 		const { playtext } = this.props;
 
 		const productions = playtext.get('productions');
-		const characters = playtext.get('characters');
+		const characterGroups = playtext.get('characterGroups');
+
+		const instanceFacetSubheader = subheaderText =>
+			<div className="instance-facet-subheader">{ subheaderText }</div>;
 
 		return (
 			<InstanceWrapper instance={playtext}>
@@ -28,10 +31,46 @@ class Playtext extends React.Component {
 				}
 
 				{
-					characters?.size > 0 && (
+					characterGroups?.size > 0 && (
 						<InstanceFacet labelText='Characters'>
 
-							<List instances={characters} />
+							{
+								characterGroups.size === 1
+									? (
+										<React.Fragment>
+
+											{
+												!!characterGroups.first().get('name') && (
+													instanceFacetSubheader(characterGroups.first().get('name'))
+												)
+											}
+
+											<List instances={characterGroups.first().get('characters')} />
+
+										</React.Fragment>
+									)
+									: (
+										<ul className="list list--no-bullets">
+
+											{
+												characterGroups.map((characterGroup, index) => (
+													<li key={index} className="instance-facet-group">
+
+														{
+															!!characterGroup.get('name') && (
+																instanceFacetSubheader(characterGroup.get('name'))
+															)
+														}
+
+														<List instances={characterGroup.get('characters')} />
+
+													</li>
+												))
+											}
+
+										</ul>
+									)
+							}
 
 						</InstanceFacet>
 					)

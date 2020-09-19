@@ -1,3 +1,4 @@
+import AppendedGroups from './AppendedGroups';
 import AppendedPerformers from './AppendedPerformers';
 import AppendedPerformerOtherRoles from './AppendedPerformerOtherRoles';
 import AppendedQualifiers from './AppendedQualifiers';
@@ -16,6 +17,7 @@ import Navigation from './Navigation';
 import PageTitle from './PageTitle';
 
 export {
+	AppendedGroups,
 	AppendedPerformers,
 	AppendedPerformerOtherRoles,
 	AppendedQualifiers,
