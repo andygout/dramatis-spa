@@ -1,3 +1,4 @@
+import AppendedDisplayName from './AppendedDisplayName';
 import AppendedGroups from './AppendedGroups';
 import AppendedPerformers from './AppendedPerformers';
 import AppendedPerformerOtherRoles from './AppendedPerformerOtherRoles';
@@ -17,6 +18,7 @@ import Navigation from './Navigation';
 import PageTitle from './PageTitle';
 
 export {
+	AppendedDisplayName,
 	AppendedGroups,
 	AppendedPerformers,
 	AppendedPerformerOtherRoles,
