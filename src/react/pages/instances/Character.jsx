@@ -11,12 +11,23 @@ class Character extends React.Component {
 
 		const { character } = this.props;
 
+		const variantNamedDepictions = character.get('variantNamedDepictions');
 		const playtexts = character.get('playtexts');
-		const variantNames = character.get('variantNames');
+		const variantNamedPortrayals = character.get('variantNamedPortrayals');
 		const productions = character.get('productions');
 
 		return (
 			<InstanceWrapper instance={character}>
+
+				{
+					variantNamedDepictions?.size > 0 && (
+						<InstanceFacet labelText='Variant named depictions'>
+
+							<JoinedRoles instances={variantNamedDepictions} />
+
+						</InstanceFacet>
+					)
+				}
 
 				{
 					playtexts?.size > 0 && (
@@ -29,10 +40,10 @@ class Character extends React.Component {
 				}
 
 				{
-					variantNames?.size > 0 && (
-						<InstanceFacet labelText='Variant names'>
+					variantNamedPortrayals?.size > 0 && (
+						<InstanceFacet labelText='Variant named portrayals'>
 
-							<JoinedRoles instances={variantNames} />
+							<JoinedRoles instances={variantNamedPortrayals} />
 
 						</InstanceFacet>
 					)
