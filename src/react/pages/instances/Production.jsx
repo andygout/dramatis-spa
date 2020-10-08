@@ -19,20 +19,20 @@ class Production extends React.Component {
 			<InstanceWrapper instance={production}>
 
 				{
-					theatre && (
-						<InstanceFacet labelText='Theatre'>
+					playtext && (
+						<InstanceFacet labelText='Playtext'>
 
-							<InstanceLink instance={theatre} />
+							<InstanceLink instance={playtext} />
 
 						</InstanceFacet>
 					)
 				}
 
 				{
-					playtext && (
-						<InstanceFacet labelText='Playtext'>
+					theatre && (
+						<InstanceFacet labelText='Theatre'>
 
-							<InstanceLink instance={playtext} />
+							<InstanceLink instance={theatre} />
 
 						</InstanceFacet>
 					)
