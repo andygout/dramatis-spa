@@ -9,9 +9,9 @@ class InstanceWrapper extends React.Component {
 
 	render () {
 
-		const { instance, children } = this.props;
+		const { instance, titleName, children } = this.props;
 
-		let pageTitleText = instance.get('name', '');
+		let pageTitleText = titleName || instance.get('name', '');
 
 		pageTitleText += getDifferentiatorSuffix(instance.get('differentiator'));
 
@@ -21,7 +21,7 @@ class InstanceWrapper extends React.Component {
 				{
 					instance.get('name') && instance.get('model') && (
 						<InstanceDocumentTitle
-							name={instance.get('name')}
+							name={titleName || instance.get('name')}
 							differentiator={instance.get('differentiator')}
 							model={instance.get('model')}
 						/>
@@ -43,6 +43,7 @@ class InstanceWrapper extends React.Component {
 
 InstanceWrapper.propTypes = {
 	instance: ImmutablePropTypes.map.isRequired,
+	titleName: PropTypes.string,
 	children: PropTypes.node.isRequired
 };
 

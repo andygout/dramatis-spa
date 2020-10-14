@@ -2,6 +2,7 @@ import AppendedDepictions from './AppendedDepictions';
 import AppendedPerformers from './AppendedPerformers';
 import AppendedPerformerOtherRoles from './AppendedPerformerOtherRoles';
 import AppendedRoles from './AppendedRoles';
+import AppendedSubTheatres from './AppendedSubTheatres';
 import AppendedTheatre from './AppendedTheatre';
 import ErrorMessage from './ErrorMessage';
 import Footer from './Footer';
@@ -20,6 +21,7 @@ export {
 	AppendedPerformers,
 	AppendedPerformerOtherRoles,
 	AppendedRoles,
+	AppendedSubTheatres,
 	AppendedTheatre,
 	ErrorMessage,
 	Footer,

@@ -12,6 +12,12 @@ const AppendedTheatre = props => {
 
 			<span>&nbsp;-&nbsp;</span>
 
+			{
+				theatre.get('surTheatre') && (
+					<span><InstanceLink instance={theatre.get('surTheatre')} />: </span>
+				)
+			}
+
 			<InstanceLink instance={theatre} />
 
 		</React.Fragment>

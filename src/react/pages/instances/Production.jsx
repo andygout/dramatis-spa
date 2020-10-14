@@ -32,6 +32,12 @@ class Production extends React.Component {
 					theatre && (
 						<InstanceFacet labelText='Theatre'>
 
+							{
+								theatre.get('surTheatre') && (
+									<span><InstanceLink instance={theatre.get('surTheatre')} />: </span>
+								)
+							}
+
 							<InstanceLink instance={theatre} />
 
 						</InstanceFacet>
