@@ -2,7 +2,7 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
-import { InstanceFacet, List } from '../../components';
+import { CommaSeparatedInstanceLinks, InstanceFacet, List } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
 class Playtext extends React.Component {
@@ -11,6 +11,7 @@ class Playtext extends React.Component {
 
 		const { playtext } = this.props;
 
+		const writers = playtext.get('writers');
 		const productions = playtext.get('productions');
 		const characterGroups = playtext.get('characterGroups');
 
@@ -19,6 +20,16 @@ class Playtext extends React.Component {
 
 		return (
 			<InstanceWrapper instance={playtext}>
+
+				{
+					writers?.size > 0 && (
+						<InstanceFacet labelText='Writers'>
+
+							<CommaSeparatedInstanceLinks instances={writers} />
+
+						</InstanceFacet>
+					)
+				}
 
 				{
 					characterGroups?.size > 0 && (

@@ -11,10 +11,21 @@ class Person extends React.Component {
 
 		const { person } = this.props;
 
+		const playtexts = person.get('playtexts');
 		const productions = person.get('productions');
 
 		return (
 			<InstanceWrapper instance={person}>
+
+				{
+					playtexts?.size > 0 && (
+						<InstanceFacet labelText='Playtexts'>
+
+							<List instances={playtexts} />
+
+						</InstanceFacet>
+					)
+				}
 
 				{
 					productions?.size > 0 && (

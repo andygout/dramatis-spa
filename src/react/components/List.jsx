@@ -2,11 +2,13 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import {
+	AppendedCoWriters,
 	AppendedDepictions,
 	AppendedPerformers,
 	AppendedRoles,
 	AppendedSubTheatres,
 	AppendedTheatre,
+	AppendedWriters,
 	InstanceLink
 } from '.';
 
@@ -47,6 +49,18 @@ const List = props => {
 						{
 							instance.get('roles')?.size > 0 && (
 								<AppendedRoles roles={instance.get('roles')} />
+							)
+						}
+
+						{
+							instance.get('writers')?.size > 0 && (
+								<AppendedWriters writers={instance.get('writers')} />
+							)
+						}
+
+						{
+							instance.get('coWriters')?.size > 0 && (
+								<AppendedCoWriters coWriters={instance.get('coWriters')} />
 							)
 						}
 

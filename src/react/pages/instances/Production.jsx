@@ -2,7 +2,7 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
-import { InstanceFacet, InstanceLink, List } from '../../components';
+import { AppendedWriters, InstanceFacet, InstanceLink, List } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
 class Production extends React.Component {
@@ -23,6 +23,12 @@ class Production extends React.Component {
 						<InstanceFacet labelText='Playtext'>
 
 							<InstanceLink instance={playtext} />
+
+							{
+								playtext.get('writers')?.size > 0 && (
+									<AppendedWriters writers={playtext.get('writers')} />
+								)
+							}
 
 						</InstanceFacet>
 					)
