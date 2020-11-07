@@ -1,11 +1,10 @@
-import AppendedCoWriters from './AppendedCoWriters';
 import AppendedDepictions from './AppendedDepictions';
 import AppendedPerformers from './AppendedPerformers';
 import AppendedPerformerOtherRoles from './AppendedPerformerOtherRoles';
 import AppendedRoles from './AppendedRoles';
 import AppendedSubTheatres from './AppendedSubTheatres';
 import AppendedTheatre from './AppendedTheatre';
-import AppendedWriters from './AppendedWriters';
+import AppendedWriterGroups from './AppendedWriterGroups';
 import CommaSeparatedInstanceLinks from './CommaSeparatedInstanceLinks';
 import ErrorMessage from './ErrorMessage';
 import Footer from './Footer';
@@ -18,16 +17,16 @@ import JoinedRoles from './JoinedRoles';
 import List from './List';
 import Navigation from './Navigation';
 import PageTitle from './PageTitle';
+import WriterGroups from './WriterGroups';
 
 export {
-	AppendedCoWriters,
 	AppendedDepictions,
 	AppendedPerformers,
 	AppendedPerformerOtherRoles,
 	AppendedRoles,
 	AppendedSubTheatres,
 	AppendedTheatre,
-	AppendedWriters,
+	AppendedWriterGroups,
 	CommaSeparatedInstanceLinks,
 	ErrorMessage,
 	Footer,
@@ -39,5 +38,6 @@ export {
 	JoinedRoles,
 	List,
 	Navigation,
-	PageTitle
+	PageTitle,
+	WriterGroups
 };

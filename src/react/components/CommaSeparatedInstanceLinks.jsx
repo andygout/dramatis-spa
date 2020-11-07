@@ -13,7 +13,15 @@ const CommaSeparatedInstanceLinks = props => {
 			{
 				instances
 					.map((instance, index) =>
-						<InstanceLink key={index} instance={instance} />
+						<React.Fragment key={index}>
+
+							{
+								instance.get('uuid')
+									? <InstanceLink key={index} instance={instance} />
+									: instance.get('name')
+							}
+
+						</React.Fragment>
 					)
 					.reduce((prev, curr) => [prev, ', ', curr])
 			}
