@@ -2,7 +2,7 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
-import { AppendedWriters, InstanceFacet, InstanceLink, List } from '../../components';
+import { AppendedWriterGroups, InstanceFacet, InstanceLink, List } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
 class Production extends React.Component {
@@ -25,8 +25,8 @@ class Production extends React.Component {
 							<InstanceLink instance={playtext} />
 
 							{
-								playtext.get('writers')?.size > 0 && (
-									<AppendedWriters writers={playtext.get('writers')} />
+								playtext.get('writerGroups')?.size > 0 && (
+									<AppendedWriterGroups writerGroups={playtext.get('writerGroups')} />
 								)
 							}
 
