@@ -26,7 +26,7 @@ class ListWrapper extends React.Component {
 
 ListWrapper.propTypes = {
 	pageTitleText: PropTypes.string.isRequired,
-	instances: ImmutablePropTypes.list.isRequired,
+	instances: ImmutablePropTypes.list.isRequired
 };
 
 export default ListWrapper;
