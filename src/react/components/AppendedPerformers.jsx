@@ -10,7 +10,7 @@ const AppendedPerformers = props => {
 	return (
 		<React.Fragment>
 
-			<span>&nbsp;- performed by:&nbsp;</span>
+			<React.Fragment>&nbsp;- performed by:&nbsp;</React.Fragment>
 
 			{
 				performers
@@ -21,7 +21,7 @@ const AppendedPerformers = props => {
 
 								<InstanceLink instance={performer} />
 
-								<span>&nbsp;…&nbsp;</span>
+								<React.Fragment>&nbsp;…&nbsp;</React.Fragment>
 
 								<span className="role-text">
 									{
@@ -29,7 +29,7 @@ const AppendedPerformers = props => {
 									}
 									{
 										performer.get('qualifier') && (
-											<span> ({ performer.get('qualifier') })</span>
+											<React.Fragment>&nbsp;({ performer.get('qualifier') })</React.Fragment>
 										)
 									}
 								</span>

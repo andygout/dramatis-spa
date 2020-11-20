@@ -10,7 +10,7 @@ const AppendedRoles = props => {
 	return (
 		<React.Fragment>
 
-			<span>&nbsp;…&nbsp;</span>
+			<React.Fragment>&nbsp;…&nbsp;</React.Fragment>
 
 			<JoinedRoles instances={roles} />
 

@@ -10,7 +10,7 @@ const AppendedPerformerOtherRoles = props => {
 	return (
 		<React.Fragment>
 
-			<span>; also performed:&nbsp;</span>
+			<React.Fragment>; also performed:&nbsp;</React.Fragment>
 
 			<JoinedRoles instances={otherRoles} />
 

@@ -24,7 +24,7 @@ const List = props => {
 						{
 							instance.get('uuid')
 								? <InstanceLink instance={instance} />
-								: <span>{ instance.get('name') }</span>
+								: <React.Fragment>{ instance.get('name') }</React.Fragment>
 						}
 
 						{
@@ -71,7 +71,7 @@ const List = props => {
 
 						{
 							instance.get('qualifier') && (
-								<span> ({instance.get('qualifier')})</span>
+								<React.Fragment>&nbsp;({instance.get('qualifier')})</React.Fragment>
 							)
 						}
 
