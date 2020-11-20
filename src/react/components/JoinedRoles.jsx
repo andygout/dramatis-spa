@@ -13,7 +13,7 @@ const JoinedRoles = props => {
 			{
 				instances
 					.map((instance, index) =>
-						<span key={index}>
+						<React.Fragment key={index}>
 							{
 								Map.isMap(instance) && instance.get('uuid')
 									? <InstanceLink instance={instance} />
@@ -23,10 +23,10 @@ const JoinedRoles = props => {
 							}
 							{
 								Map.isMap(instance) && instance.get('qualifier') && (
-									<span> ({ instance.get('qualifier') })</span>
+									<React.Fragment>&nbsp;({ instance.get('qualifier') })</React.Fragment>
 								)
 							}
-						</span>
+						</React.Fragment>
 					)
 					.reduce((prev, curr) => [prev, ' / ', curr])
 			}
