@@ -12,6 +12,7 @@ class Person extends React.Component {
 		const { person } = this.props;
 
 		const playtexts = person.get('playtexts');
+		const subsequentVersionPlaytexts = person.get('subsequentVersionPlaytexts');
 		const productions = person.get('productions');
 
 		return (
@@ -22,6 +23,16 @@ class Person extends React.Component {
 						<InstanceFacet labelText='Playtexts'>
 
 							<List instances={playtexts} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					subsequentVersionPlaytexts?.size > 0 && (
+						<InstanceFacet labelText='Subsequent versions of their playtexts'>
+
+							<List instances={subsequentVersionPlaytexts} />
 
 						</InstanceFacet>
 					)
