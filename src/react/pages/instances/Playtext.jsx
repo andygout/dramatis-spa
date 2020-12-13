@@ -2,7 +2,7 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
-import { InstanceFacet, List, WriterGroups } from '../../components';
+import { AppendedWriterGroups, InstanceFacet, InstanceLink, List, WriterGroups } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
 class Playtext extends React.Component {
@@ -12,8 +12,10 @@ class Playtext extends React.Component {
 		const { playtext } = this.props;
 
 		const writerGroups = playtext.get('writerGroups');
-		const productions = playtext.get('productions');
 		const characterGroups = playtext.get('characterGroups');
+		const originalVersionPlaytext = playtext.get('originalVersionPlaytext');
+		const subsequentVersionPlaytexts = playtext.get('subsequentVersionPlaytexts');
+		const productions = playtext.get('productions');
 
 		const instanceFacetSubheader = subheaderText =>
 			<div className="instance-facet-subheader">{ subheaderText }</div>;
@@ -72,6 +74,32 @@ class Playtext extends React.Component {
 										</ul>
 									)
 							}
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					originalVersionPlaytext && (
+						<InstanceFacet labelText='Original version'>
+
+							<InstanceLink instance={originalVersionPlaytext} />
+
+							{
+								originalVersionPlaytext.get('writerGroups')?.size > 0 && (
+									<AppendedWriterGroups writerGroups={originalVersionPlaytext.get('writerGroups')} />
+								)
+							}
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					subsequentVersionPlaytexts?.size > 0 && (
+						<InstanceFacet labelText='Subsequent versions'>
+
+							<List instances={subsequentVersionPlaytexts} />
 
 						</InstanceFacet>
 					)
