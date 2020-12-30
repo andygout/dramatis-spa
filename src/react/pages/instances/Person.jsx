@@ -13,6 +13,7 @@ class Person extends React.Component {
 
 		const playtexts = person.get('playtexts');
 		const subsequentVersionPlaytexts = person.get('subsequentVersionPlaytexts');
+		const sourcingPlaytexts = person.get('sourcingPlaytexts');
 		const productions = person.get('productions');
 
 		return (
@@ -43,6 +44,16 @@ class Person extends React.Component {
 						<InstanceFacet labelText='Productions'>
 
 							<List instances={productions} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					sourcingPlaytexts?.size > 0 && (
+						<InstanceFacet labelText='Playtexts as source material writer'>
+
+							<List instances={sourcingPlaytexts} />
 
 						</InstanceFacet>
 					)

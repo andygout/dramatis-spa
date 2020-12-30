@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
-import { CommaSeparatedInstanceLinks } from '.';
+import { WriterEntities } from '.';
 import { capitalise } from '../../lib/strings';
 
 const WriterGroups = props => {
@@ -25,7 +25,7 @@ const WriterGroups = props => {
 
 								<React.Fragment>{ writerGroupName }&nbsp;</React.Fragment>
 
-								<CommaSeparatedInstanceLinks instances={writerGroup.get('writers')} />
+								<WriterEntities entities={writerGroup.get('writers')} />
 
 							</React.Fragment>
 						);
