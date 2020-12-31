@@ -16,6 +16,8 @@ class Playtext extends React.Component {
 		const originalVersionPlaytext = playtext.get('originalVersionPlaytext');
 		const subsequentVersionPlaytexts = playtext.get('subsequentVersionPlaytexts');
 		const productions = playtext.get('productions');
+		const sourcingPlaytexts = playtext.get('sourcingPlaytexts');
+		const sourcingPlaytextProductions = playtext.get('sourcingPlaytextProductions');
 
 		const instanceFacetSubheader = subheaderText =>
 			<div className="instance-facet-subheader">{ subheaderText }</div>;
@@ -110,6 +112,26 @@ class Playtext extends React.Component {
 						<InstanceFacet labelText='Productions'>
 
 							<List instances={productions} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					sourcingPlaytexts?.size > 0 && (
+						<InstanceFacet labelText='Playtexts as source material'>
+
+							<List instances={sourcingPlaytexts} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					sourcingPlaytextProductions?.size > 0 && (
+						<InstanceFacet labelText='Productions of playtexts as source material'>
+
+							<List instances={sourcingPlaytextProductions} />
 
 						</InstanceFacet>
 					)
