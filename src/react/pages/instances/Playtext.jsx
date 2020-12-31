@@ -58,7 +58,7 @@ class Playtext extends React.Component {
 										<ul className="list list--no-bullets">
 
 											{
-												characterGroups.map((characterGroup, index) => (
+												characterGroups.map((characterGroup, index) =>
 													<li key={index} className="instance-facet-group">
 
 														{
@@ -70,7 +70,7 @@ class Playtext extends React.Component {
 														<List instances={characterGroup.get('characters')} />
 
 													</li>
-												))
+												)
 											}
 
 										</ul>
