@@ -36,7 +36,7 @@ const WriterEntities = props => {
 
 						</React.Fragment>
 					)
-					.reduce((prev, curr) => [prev, ' / ', curr])
+					.reduce((prev, curr) => [prev, ', ', curr])
 			}
 
 		</React.Fragment>
