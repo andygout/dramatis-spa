@@ -11,7 +11,7 @@ class App extends React.Component {
 		return (
 			<Switch>
 				{
-					routes.map((route, index) => (
+					routes.map((route, index) =>
 						<Route
 							key={index}
 							path={route.path}
@@ -33,7 +33,7 @@ class App extends React.Component {
 							}
 						/>
 
-					))
+					)
 				}
 			</Switch>
 		);
