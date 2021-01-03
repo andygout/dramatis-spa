@@ -2,28 +2,47 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
-import { AppendedWriterGroups, InstanceFacet, InstanceLink, List, WriterGroups } from '../../components';
+import { capitalise } from '../../../lib/strings';
+import {
+	AppendedFormat,
+	AppendedWriterGroups,
+	InstanceFacet,
+	InstanceLink,
+	List,
+	WriterGroups
+} from '../../components';
 import { InstanceWrapper } from '../../utils';
 
-class Playtext extends React.Component {
+class Material extends React.Component {
 
 	render () {
 
-		const { playtext } = this.props;
+		const { material } = this.props;
 
-		const writerGroups = playtext.get('writerGroups');
-		const characterGroups = playtext.get('characterGroups');
-		const originalVersionPlaytext = playtext.get('originalVersionPlaytext');
-		const subsequentVersionPlaytexts = playtext.get('subsequentVersionPlaytexts');
-		const productions = playtext.get('productions');
-		const sourcingPlaytexts = playtext.get('sourcingPlaytexts');
-		const sourcingPlaytextProductions = playtext.get('sourcingPlaytextProductions');
+		const format = material.get('format');
+		const writerGroups = material.get('writerGroups');
+		const characterGroups = material.get('characterGroups');
+		const originalVersionMaterial = material.get('originalVersionMaterial');
+		const subsequentVersionMaterials = material.get('subsequentVersionMaterials');
+		const productions = material.get('productions');
+		const sourcingMaterials = material.get('sourcingMaterials');
+		const sourcingMaterialProductions = material.get('sourcingMaterialProductions');
 
 		const instanceFacetSubheader = subheaderText =>
 			<div className="instance-facet-subheader">{ subheaderText }</div>;
 
 		return (
-			<InstanceWrapper instance={playtext}>
+			<InstanceWrapper instance={material}>
+
+				{
+					format && (
+						<InstanceFacet labelText='Format'>
+
+							<React.Fragment>{ capitalise(format) }</React.Fragment>
+
+						</InstanceFacet>
+					)
+				}
 
 				{
 					writerGroups?.size > 0 && (
@@ -82,14 +101,20 @@ class Playtext extends React.Component {
 				}
 
 				{
-					originalVersionPlaytext && (
+					originalVersionMaterial && (
 						<InstanceFacet labelText='Original version'>
 
-							<InstanceLink instance={originalVersionPlaytext} />
+							<InstanceLink instance={originalVersionMaterial} />
 
 							{
-								originalVersionPlaytext.get('writerGroups')?.size > 0 && (
-									<AppendedWriterGroups writerGroups={originalVersionPlaytext.get('writerGroups')} />
+								originalVersionMaterial.get('format') && (
+									<AppendedFormat format={originalVersionMaterial.get('format')} />
+								)
+							}
+
+							{
+								originalVersionMaterial.get('writerGroups')?.size > 0 && (
+									<AppendedWriterGroups writerGroups={originalVersionMaterial.get('writerGroups')} />
 								)
 							}
 
@@ -98,10 +123,10 @@ class Playtext extends React.Component {
 				}
 
 				{
-					subsequentVersionPlaytexts?.size > 0 && (
+					subsequentVersionMaterials?.size > 0 && (
 						<InstanceFacet labelText='Subsequent versions'>
 
-							<List instances={subsequentVersionPlaytexts} />
+							<List instances={subsequentVersionMaterials} />
 
 						</InstanceFacet>
 					)
@@ -118,20 +143,20 @@ class Playtext extends React.Component {
 				}
 
 				{
-					sourcingPlaytexts?.size > 0 && (
-						<InstanceFacet labelText='Playtexts as source material'>
+					sourcingMaterials?.size > 0 && (
+						<InstanceFacet labelText='Materials as source material'>
 
-							<List instances={sourcingPlaytexts} />
+							<List instances={sourcingMaterials} />
 
 						</InstanceFacet>
 					)
 				}
 
 				{
-					sourcingPlaytextProductions?.size > 0 && (
-						<InstanceFacet labelText='Productions of playtexts as source material'>
+					sourcingMaterialProductions?.size > 0 && (
+						<InstanceFacet labelText='Productions of materials as source material'>
 
-							<List instances={sourcingPlaytextProductions} />
+							<List instances={sourcingMaterialProductions} />
 
 						</InstanceFacet>
 					)
@@ -144,12 +169,12 @@ class Playtext extends React.Component {
 
 }
 
-Playtext.propTypes = {
-	playtext: ImmutablePropTypes.map.isRequired
+Material.propTypes = {
+	material: ImmutablePropTypes.map.isRequired
 };
 
 const mapStateToProps = state => ({
-	playtext: state.get('playtext')
+	material: state.get('material')
 });
 
-export default connect(mapStateToProps)(Playtext);
+export default connect(mapStateToProps)(Material);

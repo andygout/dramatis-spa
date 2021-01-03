@@ -11,29 +11,29 @@ class Person extends React.Component {
 
 		const { person } = this.props;
 
-		const playtexts = person.get('playtexts');
-		const subsequentVersionPlaytexts = person.get('subsequentVersionPlaytexts');
-		const sourcingPlaytexts = person.get('sourcingPlaytexts');
+		const materials = person.get('materials');
+		const subsequentVersionMaterials = person.get('subsequentVersionMaterials');
+		const sourcingMaterials = person.get('sourcingMaterials');
 		const productions = person.get('productions');
 
 		return (
 			<InstanceWrapper instance={person}>
 
 				{
-					playtexts?.size > 0 && (
-						<InstanceFacet labelText='Playtexts'>
+					materials?.size > 0 && (
+						<InstanceFacet labelText='Materials'>
 
-							<List instances={playtexts} />
+							<List instances={materials} />
 
 						</InstanceFacet>
 					)
 				}
 
 				{
-					subsequentVersionPlaytexts?.size > 0 && (
-						<InstanceFacet labelText='Subsequent versions of their playtexts'>
+					subsequentVersionMaterials?.size > 0 && (
+						<InstanceFacet labelText='Subsequent versions of their materials'>
 
-							<List instances={subsequentVersionPlaytexts} />
+							<List instances={subsequentVersionMaterials} />
 
 						</InstanceFacet>
 					)
@@ -50,10 +50,10 @@ class Person extends React.Component {
 				}
 
 				{
-					sourcingPlaytexts?.size > 0 && (
-						<InstanceFacet labelText='Playtexts as source material writer'>
+					sourcingMaterials?.size > 0 && (
+						<InstanceFacet labelText='Materials as source material writer'>
 
-							<List instances={sourcingPlaytexts} />
+							<List instances={sourcingMaterials} />
 
 						</InstanceFacet>
 					)

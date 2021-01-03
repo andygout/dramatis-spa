@@ -3,6 +3,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import {
 	AppendedDepictions,
+	AppendedFormat,
 	AppendedPerformers,
 	AppendedRoles,
 	AppendedSubTheatres,
@@ -25,6 +26,12 @@ const List = props => {
 							instance.get('uuid')
 								? <InstanceLink instance={instance} />
 								: <React.Fragment>{ instance.get('name') }</React.Fragment>
+						}
+
+						{
+							instance.get('format') && (
+								<AppendedFormat format={instance.get('format')} />
+							)
 						}
 
 						{

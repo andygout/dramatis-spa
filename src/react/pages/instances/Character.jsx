@@ -12,7 +12,7 @@ class Character extends React.Component {
 		const { character } = this.props;
 
 		const variantNamedDepictions = character.get('variantNamedDepictions');
-		const playtexts = character.get('playtexts');
+		const materials = character.get('materials');
 		const variantNamedPortrayals = character.get('variantNamedPortrayals');
 		const productions = character.get('productions');
 
@@ -30,10 +30,10 @@ class Character extends React.Component {
 				}
 
 				{
-					playtexts?.size > 0 && (
-						<InstanceFacet labelText='Playtexts'>
+					materials?.size > 0 && (
+						<InstanceFacet labelText='Materials'>
 
-							<List instances={playtexts} />
+							<List instances={materials} />
 
 						</InstanceFacet>
 					)

@@ -2,7 +2,7 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
-import { AppendedWriterGroups, InstanceFacet, InstanceLink, List } from '../../components';
+import { AppendedFormat, AppendedWriterGroups, InstanceFacet, InstanceLink, List } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
 class Production extends React.Component {
@@ -12,21 +12,27 @@ class Production extends React.Component {
 		const { production } = this.props;
 
 		const theatre = production.get('theatre');
-		const playtext = production.get('playtext');
+		const material = production.get('material');
 		const cast = production.get('cast');
 
 		return (
 			<InstanceWrapper instance={production}>
 
 				{
-					playtext && (
-						<InstanceFacet labelText='Playtext'>
+					material && (
+						<InstanceFacet labelText='Material'>
 
-							<InstanceLink instance={playtext} />
+							<InstanceLink instance={material} />
 
 							{
-								playtext.get('writerGroups')?.size > 0 && (
-									<AppendedWriterGroups writerGroups={playtext.get('writerGroups')} />
+								material.get('format') && (
+									<AppendedFormat format={material.get('format')} />
+								)
+							}
+
+							{
+								material.get('writerGroups')?.size > 0 && (
+									<AppendedWriterGroups writerGroups={material.get('writerGroups')} />
 								)
 							}
 
