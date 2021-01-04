@@ -1,7 +1,7 @@
 import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
-import { InstanceLink, WriterGroups } from '.';
+import { AppendedFormat, InstanceLink, WriterGroups } from '.';
 
 const WriterEntities = props => {
 
@@ -19,6 +19,12 @@ const WriterEntities = props => {
 								entity.get('uuid')
 									? <InstanceLink instance={entity} />
 									: entity.get('name')
+							}
+
+							{
+								entity.get('format') && (
+									<AppendedFormat format={entity.get('format')} />
+								)
 							}
 
 							{

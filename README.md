@@ -1,6 +1,6 @@
 # theatrebase-spa [![CircleCI](https://circleci.com/gh/andygout/theatrebase-spa/tree/master.svg?style=svg)](https://circleci.com/gh/andygout/theatrebase-spa/tree/master)
 
-Single-page application (SPA) that provides listings for theatrical productions, playtexts, and associated data.
+Single-page application (SPA) that provides listings for theatrical productions, materials, and associated data.
 
 ## Setup
 - Clone this repo.

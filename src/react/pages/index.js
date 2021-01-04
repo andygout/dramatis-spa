@@ -1,14 +1,14 @@
 import {
 	Character,
+	Material,
 	Person,
-	Playtext,
 	Production,
 	Theatre
 } from './instances';
 import {
 	Characters,
+	Materials,
 	People,
-	Playtexts,
 	Productions,
 	Theatres
 } from './lists';
@@ -18,10 +18,10 @@ import NotFound from './NotFound';
 export {
 	Character,
 	Characters,
+	Material,
+	Materials,
 	Person,
 	People,
-	Playtext,
-	Playtexts,
 	Production,
 	Productions,
 	Theatre,

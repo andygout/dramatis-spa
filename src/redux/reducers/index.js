@@ -1,10 +1,10 @@
 import character from './character';
 import characters from './characters';
 import error from './error';
+import material from './material';
+import materials from './materials';
 import people from './people';
 import person from './person';
-import playtext from './playtext';
-import playtexts from './playtexts';
 import production from './production';
 import productions from './productions';
 import theatre from './theatre';
@@ -14,10 +14,10 @@ export default {
 	character,
 	characters,
 	error,
+	material,
+	materials,
 	people,
 	person,
-	playtext,
-	playtexts,
 	production,
 	productions,
 	theatre,

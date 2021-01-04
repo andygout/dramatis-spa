@@ -1,18 +1,18 @@
 import { List, fromJS } from 'immutable';
 
 import {
-	REQUEST_PLAYTEXTS,
-	RECEIVE_PLAYTEXTS
+	REQUEST_MATERIALS,
+	RECEIVE_MATERIALS
 } from '../utils/model-action-names';
 
-const playtexts = (state = List(), action) => {
+const materials = (state = List(), action) => {
 
 	switch (action.type) {
 
-		case RECEIVE_PLAYTEXTS:
+		case RECEIVE_MATERIALS:
 			return fromJS(action.payload);
 
-		case REQUEST_PLAYTEXTS:
+		case REQUEST_MATERIALS:
 		default:
 			return state;
 
@@ -20,4 +20,4 @@ const playtexts = (state = List(), action) => {
 
 };
 
-export default playtexts;
+export default materials;

@@ -1,18 +1,18 @@
 import { Map, fromJS } from 'immutable';
 
 import {
-	REQUEST_PLAYTEXT,
-	RECEIVE_PLAYTEXT
+	REQUEST_MATERIAL,
+	RECEIVE_MATERIAL
 } from '../utils/model-action-names';
 
-const playtext = (state = Map(), action) => {
+const material = (state = Map(), action) => {
 
 	switch (action.type) {
 
-		case RECEIVE_PLAYTEXT:
+		case RECEIVE_MATERIAL:
 			return fromJS(action.payload);
 
-		case REQUEST_PLAYTEXT:
+		case REQUEST_MATERIAL:
 		default:
 			return state;
 
@@ -20,4 +20,4 @@ const playtext = (state = Map(), action) => {
 
 };
 
-export default playtext;
+export default material;

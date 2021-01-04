@@ -12,9 +12,9 @@ const Navigation = () => {
 
 				<li><Link to={'/characters'}>Characters</Link></li>
 
-				<li><Link to={'/people'}>People</Link></li>
+				<li><Link to={'/materials'}>Materials</Link></li>
 
-				<li><Link to={'/playtexts'}>Playtexts</Link></li>
+				<li><Link to={'/people'}>People</Link></li>
 
 				<li><Link to={'/productions'}>Productions</Link></li>
 

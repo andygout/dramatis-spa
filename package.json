@@ -1,7 +1,7 @@
 {
   "name": "theatrebase-spa",
   "version": "0.0.0",
-  "description": "Single-page application (SPA) that provides listings for theatrical productions, playtexts, and associated data.",
+  "description": "Single-page application (SPA) that provides listings for theatrical productions, materials, and associated data.",
   "author": "https://github.com/andygout",
   "license": "MS-RSL",
   "main": "src/server/app.js",

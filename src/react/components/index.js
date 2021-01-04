@@ -1,4 +1,5 @@
 import AppendedDepictions from './AppendedDepictions';
+import AppendedFormat from './AppendedFormat';
 import AppendedPerformers from './AppendedPerformers';
 import AppendedPerformerOtherRoles from './AppendedPerformerOtherRoles';
 import AppendedRoles from './AppendedRoles';
@@ -22,6 +23,7 @@ import WriterGroups from './WriterGroups';
 
 export {
 	AppendedDepictions,
+	AppendedFormat,
 	AppendedPerformers,
 	AppendedPerformerOtherRoles,
 	AppendedRoles,
