@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import { capitalise } from '../../../lib/strings';
 import {
 	AppendedFormat,
-	AppendedWriterGroups,
+	AppendedWritingCredits,
 	InstanceFacet,
 	InstanceLink,
 	List,
-	WriterGroups
+	WritingCredits
 } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
@@ -20,7 +20,7 @@ class Material extends React.Component {
 		const { material } = this.props;
 
 		const format = material.get('format');
-		const writerGroups = material.get('writerGroups');
+		const writingCredits = material.get('writingCredits');
 		const characterGroups = material.get('characterGroups');
 		const originalVersionMaterial = material.get('originalVersionMaterial');
 		const subsequentVersionMaterials = material.get('subsequentVersionMaterials');
@@ -45,10 +45,10 @@ class Material extends React.Component {
 				}
 
 				{
-					writerGroups?.size > 0 && (
+					writingCredits?.size > 0 && (
 						<InstanceFacet labelText='Writers'>
 
-							<WriterGroups writerGroups={writerGroups} isAppendage={false} />
+							<WritingCredits writingCredits={writingCredits} isAppendage={false} />
 
 						</InstanceFacet>
 					)
@@ -113,8 +113,8 @@ class Material extends React.Component {
 							}
 
 							{
-								originalVersionMaterial.get('writerGroups')?.size > 0 && (
-									<AppendedWriterGroups writerGroups={originalVersionMaterial.get('writerGroups')} />
+								originalVersionMaterial.get('writingCredits')?.size > 0 && (
+									<AppendedWritingCredits writingCredits={originalVersionMaterial.get('writingCredits')} />
 								)
 							}
 

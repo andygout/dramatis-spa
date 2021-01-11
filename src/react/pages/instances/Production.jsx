@@ -2,7 +2,7 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
-import { AppendedFormat, AppendedWriterGroups, InstanceFacet, InstanceLink, List } from '../../components';
+import { AppendedFormat, AppendedWritingCredits, InstanceFacet, InstanceLink, List } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
 class Production extends React.Component {
@@ -31,8 +31,8 @@ class Production extends React.Component {
 							}
 
 							{
-								material.get('writerGroups')?.size > 0 && (
-									<AppendedWriterGroups writerGroups={material.get('writerGroups')} />
+								material.get('writingCredits')?.size > 0 && (
+									<AppendedWritingCredits writingCredits={material.get('writingCredits')} />
 								)
 							}
 
