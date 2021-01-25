@@ -1,5 +1,6 @@
 import {
 	Character,
+	Company,
 	Material,
 	Person,
 	Production,
@@ -7,6 +8,7 @@ import {
 } from './instances';
 import {
 	Characters,
+	Companies,
 	Materials,
 	People,
 	Productions,
@@ -18,6 +20,8 @@ import NotFound from './NotFound';
 export {
 	Character,
 	Characters,
+	Company,
+	Companies,
 	Material,
 	Materials,
 	Person,

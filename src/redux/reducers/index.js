@@ -1,5 +1,7 @@
 import character from './character';
 import characters from './characters';
+import company from './company';
+import companies from './companies';
 import error from './error';
 import material from './material';
 import materials from './materials';
@@ -13,6 +15,8 @@ import theatres from './theatres';
 export default {
 	character,
 	characters,
+	company,
+	companies,
 	error,
 	material,
 	materials,

@@ -1,6 +1,8 @@
 import {
 	Character,
 	Characters,
+	Company,
+	Companies,
 	Material,
 	Materials,
 	Person,
@@ -43,6 +45,25 @@ export default [
 		fetchData: [
 			dispatch => dispatch(cancelError()),
 			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('character', uuid))
+		]
+	},
+	{
+		path: '/companies',
+		exact: true,
+		documentTitle: () => 'Companies',
+		component: Companies,
+		fetchData: [
+			dispatch => dispatch(cancelError()),
+			dispatch => dispatch(fetchList('companies'))
+		]
+	},
+	{
+		path: '/companies/:uuid',
+		documentTitle: () => 'Comany',
+		component: Company,
+		fetchData: [
+			dispatch => dispatch(cancelError()),
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('company', uuid))
 		]
 	},
 	{
