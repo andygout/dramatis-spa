@@ -2,6 +2,7 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
+import { InstanceFacet, List } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
 class Company extends React.Component {
@@ -10,8 +11,44 @@ class Company extends React.Component {
 
 		const { company } = this.props;
 
+		const materials = company.get('materials');
+		const subsequentVersionMaterials = company.get('subsequentVersionMaterials');
+		const sourcingMaterials = company.get('sourcingMaterials');
+
 		return (
-			<InstanceWrapper instance={company} />
+			<InstanceWrapper instance={company}>
+
+				{
+					materials?.size > 0 && (
+						<InstanceFacet labelText='Materials'>
+
+							<List instances={materials} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					subsequentVersionMaterials?.size > 0 && (
+						<InstanceFacet labelText='Subsequent versions of their materials'>
+
+							<List instances={subsequentVersionMaterials} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					sourcingMaterials?.size > 0 && (
+						<InstanceFacet labelText='Materials as source material writer'>
+
+							<List instances={sourcingMaterials} />
+
+						</InstanceFacet>
+					)
+				}
+
+			</InstanceWrapper>
 		);
 
 	}
