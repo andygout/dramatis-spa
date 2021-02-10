@@ -14,6 +14,7 @@ class Person extends React.Component {
 		const materials = person.get('materials');
 		const subsequentVersionMaterials = person.get('subsequentVersionMaterials');
 		const sourcingMaterials = person.get('sourcingMaterials');
+		const rightsGrantorMaterials = person.get('rightsGrantorMaterials');
 		const productions = person.get('productions');
 
 		return (
@@ -54,6 +55,16 @@ class Person extends React.Component {
 						<InstanceFacet labelText='Materials as source material writer'>
 
 							<List instances={sourcingMaterials} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					rightsGrantorMaterials?.size > 0 && (
+						<InstanceFacet labelText='Materials as rights grantor'>
+
+							<List instances={rightsGrantorMaterials} />
 
 						</InstanceFacet>
 					)
