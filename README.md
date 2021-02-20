@@ -1,4 +1,4 @@
-# theatrebase-spa [![CircleCI](https://circleci.com/gh/andygout/theatrebase-spa/tree/master.svg?style=svg)](https://circleci.com/gh/andygout/theatrebase-spa/tree/master)
+# theatrebase-spa [![CircleCI](https://circleci.com/gh/andygout/theatrebase-spa/tree/main.svg?style=svg)](https://circleci.com/gh/andygout/theatrebase-spa/tree/main)
 
 Single-page application (SPA) that provides listings for theatrical productions, materials, and associated data.
 
