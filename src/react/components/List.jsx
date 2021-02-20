@@ -2,6 +2,8 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import {
+	AppendedCreativeCredits,
+	AppendedCreativeEntities,
 	AppendedDepictions,
 	AppendedFormat,
 	AppendedPerformers,
@@ -62,6 +64,18 @@ const List = props => {
 						{
 							instance.get('writingCredits')?.size > 0 && (
 								<AppendedWritingCredits writingCredits={instance.get('writingCredits')} />
+							)
+						}
+
+						{
+							instance.get('creativeCredits')?.size > 0 && (
+								<AppendedCreativeCredits creativeCredits={instance.get('creativeCredits')} />
+							)
+						}
+
+						{
+							instance.get('creativeEntities')?.size > 0 && (
+								<AppendedCreativeEntities creativeEntities={instance.get('creativeEntities')} />
 							)
 						}
 

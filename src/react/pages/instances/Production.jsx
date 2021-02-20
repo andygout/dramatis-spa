@@ -14,6 +14,7 @@ class Production extends React.Component {
 		const theatre = production.get('theatre');
 		const material = production.get('material');
 		const cast = production.get('cast');
+		const creativeCredits = production.get('creativeCredits');
 
 		return (
 			<InstanceWrapper instance={production}>
@@ -61,6 +62,16 @@ class Production extends React.Component {
 						<InstanceFacet labelText='Cast'>
 
 							<List instances={cast} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					creativeCredits?.size > 0 && (
+						<InstanceFacet labelText='Creative Team'>
+
+							<List instances={creativeCredits} />
 
 						</InstanceFacet>
 					)
