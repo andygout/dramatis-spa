@@ -1,3 +1,6 @@
+import AppendedCoCreditedEntities from './AppendedCoCreditedEntities';
+import AppendedCreativeCredits from './AppendedCreativeCredits';
+import AppendedCreativeEntities from './AppendedCreativeEntities';
 import AppendedDepictions from './AppendedDepictions';
 import AppendedFormat from './AppendedFormat';
 import AppendedPerformers from './AppendedPerformers';
@@ -22,6 +25,9 @@ import WritingCredits from './WritingCredits';
 import WritingEntities from './WritingEntities';
 
 export {
+	AppendedCoCreditedEntities,
+	AppendedCreativeCredits,
+	AppendedCreativeEntities,
 	AppendedDepictions,
 	AppendedFormat,
 	AppendedPerformers,
