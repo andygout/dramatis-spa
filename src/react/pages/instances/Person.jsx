@@ -15,7 +15,7 @@ class Person extends React.Component {
 		const subsequentVersionMaterials = person.get('subsequentVersionMaterials');
 		const sourcingMaterials = person.get('sourcingMaterials');
 		const rightsGrantorMaterials = person.get('rightsGrantorMaterials');
-		const productions = person.get('productions');
+		const castMemberProductions = person.get('castMemberProductions');
 		const creativeProductions = person.get('creativeProductions');
 
 		return (
@@ -62,10 +62,10 @@ class Person extends React.Component {
 				}
 
 				{
-					productions?.size > 0 && (
+					castMemberProductions?.size > 0 && (
 						<InstanceFacet labelText='Productions'>
 
-							<List instances={productions} />
+							<List instances={castMemberProductions} />
 
 						</InstanceFacet>
 					)
