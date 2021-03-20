@@ -1,7 +1,7 @@
 import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
-import { AppendedCoCreditedEntities } from '.';
+import { AppendedCoCreditedEntities, AppendedCreditedEmployerCompany, AppendedCreditedMembers } from '.';
 
 const AppendedCreativeCredits = props => {
 
@@ -18,6 +18,20 @@ const AppendedCreativeCredits = props => {
 						<React.Fragment key={index}>
 
 							<React.Fragment>{ creativeCredit.get('name') }</React.Fragment>
+
+							{
+								creativeCredit.get('creditedMembers')?.size > 0 && (
+									<AppendedCreditedMembers creditedMembers={creativeCredit.get('creditedMembers')} />
+								)
+							}
+
+							{
+								creativeCredit.get('creditedEmployerCompany') && (
+									<AppendedCreditedEmployerCompany
+										creditedEmployerCompany={creativeCredit.get('creditedEmployerCompany')}
+									/>
+								)
+							}
 
 							{
 								creativeCredit.get('coCreditedEntities')?.size > 0 && (

@@ -1,7 +1,7 @@
 import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
-import { CommaSeparatedInstanceLinks } from '.';
+import { CreditedEntities } from '.';
 
 const AppendedCreativeEntities = props => {
 
@@ -12,7 +12,7 @@ const AppendedCreativeEntities = props => {
 
 			<React.Fragment>&nbsp;…&nbsp;</React.Fragment>
 
-			<CommaSeparatedInstanceLinks instances={creativeEntities} />
+			<CreditedEntities creditedEntities={creativeEntities} />
 
 		</React.Fragment>
 	);
