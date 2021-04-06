@@ -16,6 +16,7 @@ class Company extends React.Component {
 		const sourcingMaterials = company.get('sourcingMaterials');
 		const rightsGrantorMaterials = company.get('rightsGrantorMaterials');
 		const creativeProductions = company.get('creativeProductions');
+		const crewProductions = company.get('crewProductions');
 
 		return (
 			<InstanceWrapper instance={company}>
@@ -65,6 +66,16 @@ class Company extends React.Component {
 						<InstanceFacet labelText='Productions as creative team member'>
 
 							<List instances={creativeProductions} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					crewProductions?.size > 0 && (
+						<InstanceFacet labelText='Productions as crew member'>
+
+							<List instances={crewProductions} />
 
 						</InstanceFacet>
 					)

@@ -17,6 +17,7 @@ class Person extends React.Component {
 		const rightsGrantorMaterials = person.get('rightsGrantorMaterials');
 		const castMemberProductions = person.get('castMemberProductions');
 		const creativeProductions = person.get('creativeProductions');
+		const crewProductions = person.get('crewProductions');
 
 		return (
 			<InstanceWrapper instance={person}>
@@ -76,6 +77,16 @@ class Person extends React.Component {
 						<InstanceFacet labelText='Productions as creative team member'>
 
 							<List instances={creativeProductions} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					crewProductions?.size > 0 && (
+						<InstanceFacet labelText='Productions as crew member'>
+
+							<List instances={crewProductions} />
 
 						</InstanceFacet>
 					)

@@ -1,9 +1,9 @@
 import AppendedCoCreditedEntities from './AppendedCoCreditedEntities';
-import AppendedCreativeCredits from './AppendedCreativeCredits';
-import AppendedCreativeEntities from './AppendedCreativeEntities';
+import AppendedCreativeCrewCredits from './AppendedCreativeCrewCredits';
 import AppendedCreditedEmployerCompany from './AppendedCreditedEmployerCompany';
 import AppendedCreditedMembers from './AppendedCreditedMembers';
 import AppendedDepictions from './AppendedDepictions';
+import AppendedEntities from './AppendedEntities';
 import AppendedFormat from './AppendedFormat';
 import AppendedPerformers from './AppendedPerformers';
 import AppendedPerformerOtherRoles from './AppendedPerformerOtherRoles';
@@ -29,11 +29,11 @@ import WritingEntities from './WritingEntities';
 
 export {
 	AppendedCoCreditedEntities,
-	AppendedCreativeCredits,
-	AppendedCreativeEntities,
+	AppendedCreativeCrewCredits,
 	AppendedCreditedEmployerCompany,
 	AppendedCreditedMembers,
 	AppendedDepictions,
+	AppendedEntities,
 	AppendedFormat,
 	AppendedPerformers,
 	AppendedPerformerOtherRoles,
