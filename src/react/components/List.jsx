@@ -80,14 +80,8 @@ const List = props => {
 						}
 
 						{
-							instance.get('creativeEntities')?.size > 0 && (
-								<AppendedEntities entities={instance.get('creativeEntities')} />
-							)
-						}
-
-						{
-							instance.get('crewEntities')?.size > 0 && (
-								<AppendedEntities entities={instance.get('crewEntities')} />
+							instance.get('entities')?.size > 0 && (
+								<AppendedEntities entities={instance.get('entities')} />
 							)
 						}
 
