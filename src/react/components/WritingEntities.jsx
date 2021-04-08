@@ -28,11 +28,11 @@ const WritingEntities = props => {
 							}
 
 							{
-								entity.get('sourceMaterialWritingCredits')?.size > 0 && (
+								entity.get('writingCredits')?.size > 0 && (
 									<React.Fragment>&nbsp;
 
 										<WritingCredits
-											writingCredits={entity.get('sourceMaterialWritingCredits')}
+											writingCredits={entity.get('writingCredits')}
 											isAppendage={true}
 										/>
 
