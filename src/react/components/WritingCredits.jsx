@@ -25,7 +25,7 @@ const WritingCredits = props => {
 
 								<React.Fragment>{ writingCreditName }&nbsp;</React.Fragment>
 
-								<WritingEntities writingEntities={writingCredit.get('writingEntities')} />
+								<WritingEntities entities={writingCredit.get('entities')} />
 
 							</React.Fragment>
 						);

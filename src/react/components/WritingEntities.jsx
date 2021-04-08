@@ -5,34 +5,34 @@ import { AppendedFormat, InstanceLink, WritingCredits } from '.';
 
 const WritingEntities = props => {
 
-	const { writingEntities } = props;
+	const { entities } = props;
 
 	return (
 		<React.Fragment>
 
 			{
-				writingEntities
-					.map((writingEntity, index) =>
+				entities
+					.map((entity, index) =>
 						<React.Fragment key={index}>
 
 							{
-								writingEntity.get('uuid')
-									? <InstanceLink instance={writingEntity} />
-									: writingEntity.get('name')
+								entity.get('uuid')
+									? <InstanceLink instance={entity} />
+									: entity.get('name')
 							}
 
 							{
-								writingEntity.get('format') && (
-									<AppendedFormat format={writingEntity.get('format')} />
+								entity.get('format') && (
+									<AppendedFormat format={entity.get('format')} />
 								)
 							}
 
 							{
-								writingEntity.get('sourceMaterialWritingCredits')?.size > 0 && (
+								entity.get('sourceMaterialWritingCredits')?.size > 0 && (
 									<React.Fragment>&nbsp;
 
 										<WritingCredits
-											writingCredits={writingEntity.get('sourceMaterialWritingCredits')}
+											writingCredits={entity.get('sourceMaterialWritingCredits')}
 											isAppendage={true}
 										/>
 
@@ -51,7 +51,7 @@ const WritingEntities = props => {
 };
 
 WritingEntities.propTypes = {
-	writingEntities: ImmutablePropTypes.list.isRequired
+	entities: ImmutablePropTypes.list.isRequired
 };
 
 export default WritingEntities;
