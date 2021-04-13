@@ -13,6 +13,7 @@ class Production extends React.Component {
 
 		const theatre = production.get('theatre');
 		const material = production.get('material');
+		const producerCredits = production.get('producerCredits');
 		const cast = production.get('cast');
 		const creativeCredits = production.get('creativeCredits');
 		const crewCredits = production.get('crewCredits');
@@ -53,6 +54,16 @@ class Production extends React.Component {
 							}
 
 							<InstanceLink instance={theatre} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					producerCredits?.size > 0 && (
+						<InstanceFacet labelText='Producers'>
+
+							<List instances={producerCredits} />
 
 						</InstanceFacet>
 					)

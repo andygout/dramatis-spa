@@ -3,7 +3,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { AppendedCoCreditedEntities, AppendedCreditedEmployerCompany, AppendedCreditedMembers } from '.';
 
-const AppendedCreativeCrewCredits = props => {
+const AppendedProductionTeamCredits = props => {
 
 	const { credits } = props;
 
@@ -51,8 +51,8 @@ const AppendedCreativeCrewCredits = props => {
 
 };
 
-AppendedCreativeCrewCredits.propTypes = {
+AppendedProductionTeamCredits.propTypes = {
 	credits: ImmutablePropTypes.list.isRequired
 };
 
-export default AppendedCreativeCrewCredits;
+export default AppendedProductionTeamCredits;

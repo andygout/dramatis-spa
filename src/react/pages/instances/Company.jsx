@@ -15,6 +15,7 @@ class Company extends React.Component {
 		const subsequentVersionMaterials = company.get('subsequentVersionMaterials');
 		const sourcingMaterials = company.get('sourcingMaterials');
 		const rightsGrantorMaterials = company.get('rightsGrantorMaterials');
+		const producerProductions = company.get('producerProductions');
 		const creativeProductions = company.get('creativeProductions');
 		const crewProductions = company.get('crewProductions');
 
@@ -56,6 +57,16 @@ class Company extends React.Component {
 						<InstanceFacet labelText='Materials as rights grantor'>
 
 							<List instances={rightsGrantorMaterials} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					producerProductions?.size > 0 && (
+						<InstanceFacet labelText='Productions as producer'>
+
+							<List instances={producerProductions} />
 
 						</InstanceFacet>
 					)
