@@ -2,11 +2,11 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import {
-	AppendedCreativeCrewCredits,
 	AppendedDepictions,
 	AppendedEntities,
 	AppendedFormat,
 	AppendedPerformers,
+	AppendedProductionTeamCredits,
 	AppendedRoles,
 	AppendedSubTheatres,
 	AppendedTheatre,
@@ -68,14 +68,20 @@ const List = props => {
 						}
 
 						{
+							instance.get('producerCredits')?.size > 0 && (
+								<AppendedProductionTeamCredits credits={instance.get('producerCredits')} />
+							)
+						}
+
+						{
 							instance.get('creativeCredits')?.size > 0 && (
-								<AppendedCreativeCrewCredits credits={instance.get('creativeCredits')} />
+								<AppendedProductionTeamCredits credits={instance.get('creativeCredits')} />
 							)
 						}
 
 						{
 							instance.get('crewCredits')?.size > 0 && (
-								<AppendedCreativeCrewCredits credits={instance.get('crewCredits')} />
+								<AppendedProductionTeamCredits credits={instance.get('crewCredits')} />
 							)
 						}
 

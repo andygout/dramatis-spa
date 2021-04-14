@@ -15,6 +15,7 @@ class Person extends React.Component {
 		const subsequentVersionMaterials = person.get('subsequentVersionMaterials');
 		const sourcingMaterials = person.get('sourcingMaterials');
 		const rightsGrantorMaterials = person.get('rightsGrantorMaterials');
+		const producerProductions = person.get('producerProductions');
 		const castMemberProductions = person.get('castMemberProductions');
 		const creativeProductions = person.get('creativeProductions');
 		const crewProductions = person.get('crewProductions');
@@ -57,6 +58,16 @@ class Person extends React.Component {
 						<InstanceFacet labelText='Materials as rights grantor'>
 
 							<List instances={rightsGrantorMaterials} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					producerProductions?.size > 0 && (
+						<InstanceFacet labelText='Productions as producer'>
+
+							<List instances={producerProductions} />
 
 						</InstanceFacet>
 					)
