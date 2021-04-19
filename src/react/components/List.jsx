@@ -6,6 +6,7 @@ import {
 	AppendedEntities,
 	AppendedFormat,
 	AppendedPerformers,
+	AppendedProductionDates,
 	AppendedProductionTeamCredits,
 	AppendedRoles,
 	AppendedSubTheatres,
@@ -52,6 +53,21 @@ const List = props => {
 						{
 							instance.get('subTheatres')?.size > 0 && (
 								<AppendedSubTheatres subTheatres={instance.get('subTheatres')} />
+							)
+						}
+
+						{
+							instance.get('startDate') && instance.get('endDate') && (
+								<AppendedProductionDates
+									startDate={instance.get('startDate')}
+									endDate={instance.get('endDate')}
+								/>
+							)
+						}
+
+						{
+							instance.startDate && instance.endDate && (
+								<AppendedProductionDates startDate={instance.startDate} endDate={instance.endDate} />
 							)
 						}
 

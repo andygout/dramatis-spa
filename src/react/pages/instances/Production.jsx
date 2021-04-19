@@ -2,6 +2,7 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
+import { formatDate } from '../../../lib/format-date';
 import { AppendedFormat, AppendedWritingCredits, InstanceFacet, InstanceLink, List } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
@@ -12,11 +13,16 @@ class Production extends React.Component {
 		const { production } = this.props;
 
 		const material = production.get('material');
+		const startDate = production.get('startDate');
+		const pressDate = production.get('pressDate');
+		const endDate = production.get('endDate');
 		const theatre = production.get('theatre');
 		const producerCredits = production.get('producerCredits');
 		const cast = production.get('cast');
 		const creativeCredits = production.get('creativeCredits');
 		const crewCredits = production.get('crewCredits');
+
+		const dateFormatOptions = { weekday: 'long', month: 'long' };
 
 		return (
 			<InstanceWrapper instance={production}>
@@ -36,6 +42,38 @@ class Production extends React.Component {
 							{
 								material.get('writingCredits')?.size > 0 && (
 									<AppendedWritingCredits writingCredits={material.get('writingCredits')} />
+								)
+							}
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					(startDate || pressDate || endDate) && (
+						<InstanceFacet labelText='Dates'>
+
+							{
+								startDate && (
+									<div>
+										<b>Starts:</b>&nbsp;{ formatDate(startDate, dateFormatOptions) }
+									</div>
+								)
+							}
+
+							{
+								pressDate && (
+									<div>
+										<b>Press:</b>&nbsp;{ formatDate(pressDate, dateFormatOptions) }
+									</div>
+								)
+							}
+
+							{
+								endDate && (
+									<div>
+										<b>Ends:</b>&nbsp;{ formatDate(endDate, dateFormatOptions) }
+									</div>
 								)
 							}
 

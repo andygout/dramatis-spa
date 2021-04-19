@@ -6,6 +6,7 @@ import AppendedEntities from './AppendedEntities';
 import AppendedFormat from './AppendedFormat';
 import AppendedPerformers from './AppendedPerformers';
 import AppendedPerformerOtherRoles from './AppendedPerformerOtherRoles';
+import AppendedProductionDates from './AppendedProductionDates';
 import AppendedProductionTeamCredits from './AppendedProductionTeamCredits';
 import AppendedRoles from './AppendedRoles';
 import AppendedSubTheatres from './AppendedSubTheatres';
@@ -36,6 +37,7 @@ export {
 	AppendedFormat,
 	AppendedPerformers,
 	AppendedPerformerOtherRoles,
+	AppendedProductionDates,
 	AppendedProductionTeamCredits,
 	AppendedRoles,
 	AppendedSubTheatres,
