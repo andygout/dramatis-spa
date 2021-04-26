@@ -3,7 +3,14 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import { formatDate } from '../../../lib/format-date';
-import { AppendedFormat, AppendedWritingCredits, InstanceFacet, InstanceLink, List } from '../../components';
+import {
+	AppendedFormat,
+	AppendedWritingCredits,
+	InstanceFacet,
+	InstanceLink,
+	List,
+	ProducerCredits
+} from '../../components';
 import { InstanceWrapper } from '../../utils';
 
 class Production extends React.Component {
@@ -101,7 +108,7 @@ class Production extends React.Component {
 					producerCredits?.size > 0 && (
 						<InstanceFacet labelText='Producers'>
 
-							<List instances={producerCredits} />
+							<ProducerCredits credits={producerCredits} />
 
 						</InstanceFacet>
 					)
