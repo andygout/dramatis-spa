@@ -9,8 +9,8 @@ import {
 	People,
 	Production,
 	Productions,
-	Theatre,
-	Theatres,
+	Venue,
+	Venues,
 	Home,
 	NotFound
 } from './pages';
@@ -124,22 +124,22 @@ export default [
 		]
 	},
 	{
-		path: '/theatres',
+		path: '/venues',
 		exact: true,
-		documentTitle: () => 'Theatres',
-		component: Theatres,
+		documentTitle: () => 'Venues',
+		component: Venues,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			dispatch => dispatch(fetchList('theatres'))
+			dispatch => dispatch(fetchList('venues'))
 		]
 	},
 	{
-		path: '/theatres/:uuid',
-		documentTitle: () => 'Theatre',
-		component: Theatre,
+		path: '/venues/:uuid',
+		documentTitle: () => 'Venue',
+		component: Venue,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('theatre', uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('venue', uuid))
 		]
 	},
 	{

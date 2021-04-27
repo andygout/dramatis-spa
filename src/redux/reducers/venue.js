@@ -1,18 +1,18 @@
 import { Map, fromJS } from 'immutable';
 
 import {
-	REQUEST_THEATRE,
-	RECEIVE_THEATRE
+	REQUEST_VENUE,
+	RECEIVE_VENUE
 } from '../utils/model-action-names';
 
-const theatre = (state = Map(), action) => {
+const venue = (state = Map(), action) => {
 
 	switch (action.type) {
 
-		case RECEIVE_THEATRE:
+		case RECEIVE_VENUE:
 			return fromJS(action.payload);
 
-		case REQUEST_THEATRE:
+		case REQUEST_VENUE:
 		default:
 			return state;
 
@@ -20,4 +20,4 @@ const theatre = (state = Map(), action) => {
 
 };
 
-export default theatre;
+export default venue;

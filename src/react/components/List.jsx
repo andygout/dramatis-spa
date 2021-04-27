@@ -10,8 +10,8 @@ import {
 	AppendedProducerCredits,
 	AppendedProductionTeamCredits,
 	AppendedRoles,
-	AppendedSubTheatres,
-	AppendedTheatre,
+	AppendedSubVenues,
+	AppendedVenue,
 	AppendedWritingCredits,
 	InstanceLink
 } from '.';
@@ -40,20 +40,20 @@ const List = props => {
 						}
 
 						{
-							instance.get('theatre') && (
-								<AppendedTheatre theatre={instance.get('theatre')} />
+							instance.get('venue') && (
+								<AppendedVenue venue={instance.get('venue')} />
 							)
 						}
 
 						{
-							instance.get('subTheatre') && (
-								<AppendedTheatre theatre={instance.get('subTheatre')} />
+							instance.get('subVenue') && (
+								<AppendedVenue venue={instance.get('subVenue')} />
 							)
 						}
 
 						{
-							instance.get('subTheatres')?.size > 0 && (
-								<AppendedSubTheatres subTheatres={instance.get('subTheatres')} />
+							instance.get('subVenues')?.size > 0 && (
+								<AppendedSubVenues subVenues={instance.get('subVenues')} />
 							)
 						}
 
