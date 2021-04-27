@@ -9,8 +9,8 @@ import people from './people';
 import person from './person';
 import production from './production';
 import productions from './productions';
-import theatre from './theatre';
-import theatres from './theatres';
+import venue from './venue';
+import venues from './venues';
 
 export default {
 	character,
@@ -24,6 +24,6 @@ export default {
 	person,
 	production,
 	productions,
-	theatre,
-	theatres
+	venue,
+	venues
 };

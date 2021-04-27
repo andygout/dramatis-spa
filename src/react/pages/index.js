@@ -4,7 +4,7 @@ import {
 	Material,
 	Person,
 	Production,
-	Theatre
+	Venue
 } from './instances';
 import {
 	Characters,
@@ -12,7 +12,7 @@ import {
 	Materials,
 	People,
 	Productions,
-	Theatres
+	Venues
 } from './lists';
 import Home from './Home';
 import NotFound from './NotFound';
@@ -28,8 +28,8 @@ export {
 	People,
 	Production,
 	Productions,
-	Theatre,
-	Theatres,
+	Venue,
+	Venues,
 	Home,
 	NotFound
 };

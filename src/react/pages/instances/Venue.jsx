@@ -5,38 +5,38 @@ import { connect } from 'react-redux';
 import { InstanceFacet, InstanceLink, List } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
-class Theatre extends React.Component {
+class Venue extends React.Component {
 
 	render () {
 
-		const { theatre } = this.props;
+		const { venue } = this.props;
 
-		const surTheatre = theatre.get('surTheatre');
-		const subTheatres = theatre.get('subTheatres');
-		const productions = theatre.get('productions');
+		const surVenue = venue.get('surVenue');
+		const subVenues = venue.get('subVenues');
+		const productions = venue.get('productions');
 
-		let titleName = theatre.get('name');
+		let titleName = venue.get('name');
 
-		if (surTheatre) titleName = `${surTheatre.get('name')}: ${titleName}`;
+		if (surVenue) titleName = `${surVenue.get('name')}: ${titleName}`;
 
 		return (
-			<InstanceWrapper instance={theatre} titleName={titleName}>
+			<InstanceWrapper instance={venue} titleName={titleName}>
 
 				{
-					surTheatre && (
+					surVenue && (
 						<InstanceFacet labelText='Part of'>
 
-							<InstanceLink instance={surTheatre} />
+							<InstanceLink instance={surVenue} />
 
 						</InstanceFacet>
 					)
 				}
 
 				{
-					subTheatres?.size > 0 && (
+					subVenues?.size > 0 && (
 						<InstanceFacet labelText='Comprises'>
 
-							<List instances={subTheatres} />
+							<List instances={subVenues} />
 
 						</InstanceFacet>
 					)
@@ -59,12 +59,12 @@ class Theatre extends React.Component {
 
 }
 
-Theatre.propTypes = {
-	theatre: ImmutablePropTypes.map.isRequired
+Venue.propTypes = {
+	venue: ImmutablePropTypes.map.isRequired
 };
 
 const mapStateToProps = state => ({
-	theatre: state.get('theatre')
+	venue: state.get('venue')
 });
 
-export default connect(mapStateToProps)(Theatre);
+export default connect(mapStateToProps)(Venue);

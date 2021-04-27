@@ -20,7 +20,7 @@ const Navigation = () => {
 
 				<li><Link to={'/productions'}>Productions</Link></li>
 
-				<li><Link to={'/theatres'}>Theatres</Link></li>
+				<li><Link to={'/venues'}>Venues</Link></li>
 
 			</ul>
 

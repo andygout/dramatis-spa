@@ -3,9 +3,9 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { InstanceLink } from '.';
 
-const AppendedSubTheatres = props => {
+const AppendedSubVenues = props => {
 
-	const { subTheatres } = props;
+	const { subVenues } = props;
 
 	return (
 		<React.Fragment>
@@ -13,9 +13,9 @@ const AppendedSubTheatres = props => {
 			<React.Fragment>:&nbsp;</React.Fragment>
 
 			{
-				subTheatres
-					.map((subTheatre, index) =>
-						<InstanceLink key={index} instance={subTheatre} />
+				subVenues
+					.map((subVenue, index) =>
+						<InstanceLink key={index} instance={subVenue} />
 					)
 					.reduce((prev, curr) => [prev, ' / ', curr])
 			}
@@ -25,8 +25,8 @@ const AppendedSubTheatres = props => {
 
 };
 
-AppendedSubTheatres.propTypes = {
-	subTheatres: ImmutablePropTypes.list.isRequired
+AppendedSubVenues.propTypes = {
+	subVenues: ImmutablePropTypes.list.isRequired
 };
 
-export default AppendedSubTheatres;
+export default AppendedSubVenues;

@@ -4,16 +4,16 @@ import { connect } from 'react-redux';
 
 import { ListWrapper } from '../../utils';
 
-class Theatres extends React.Component {
+class Venues extends React.Component {
 
 	render () {
 
-		const { theatres } = this.props;
+		const { venues } = this.props;
 
 		return (
 			<ListWrapper
-				instances={theatres}
-				pageTitleText='Theatres'
+				instances={venues}
+				pageTitleText='Venues'
 			>
 			</ListWrapper>
 		);
@@ -22,12 +22,12 @@ class Theatres extends React.Component {
 
 }
 
-Theatres.propTypes = {
-	theatres: ImmutablePropTypes.list.isRequired
+Venues.propTypes = {
+	venues: ImmutablePropTypes.list.isRequired
 };
 
 const mapStateToProps = state => ({
-	theatres: state.get('theatres')
+	venues: state.get('venues')
 });
 
-export default connect(mapStateToProps)(Theatres);
+export default connect(mapStateToProps)(Venues);

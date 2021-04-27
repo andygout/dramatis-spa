@@ -23,7 +23,7 @@ class Production extends React.Component {
 		const startDate = production.get('startDate');
 		const pressDate = production.get('pressDate');
 		const endDate = production.get('endDate');
-		const theatre = production.get('theatre');
+		const venue = production.get('venue');
 		const producerCredits = production.get('producerCredits');
 		const cast = production.get('cast');
 		const creativeCredits = production.get('creativeCredits');
@@ -89,16 +89,16 @@ class Production extends React.Component {
 				}
 
 				{
-					theatre && (
-						<InstanceFacet labelText='Theatre'>
+					venue && (
+						<InstanceFacet labelText='Venue'>
 
 							{
-								theatre.get('surTheatre') && (
-									<span><InstanceLink instance={theatre.get('surTheatre')} />: </span>
+								venue.get('surVenue') && (
+									<span><InstanceLink instance={venue.get('surVenue')} />: </span>
 								)
 							}
 
-							<InstanceLink instance={theatre} />
+							<InstanceLink instance={venue} />
 
 						</InstanceFacet>
 					)
