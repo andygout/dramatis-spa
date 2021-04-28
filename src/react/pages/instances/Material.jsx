@@ -64,7 +64,7 @@ class Material extends React.Component {
 										<React.Fragment>
 
 											{
-												!!characterGroups.first().get('name') && (
+												Boolean(characterGroups.first().get('name')) && (
 													instanceFacetSubheader(characterGroups.first().get('name'))
 												)
 											}
@@ -81,7 +81,7 @@ class Material extends React.Component {
 													<li key={index} className="instance-facet-group">
 
 														{
-															!!characterGroup.get('name') && (
+															Boolean(characterGroup.get('name')) && (
 																instanceFacetSubheader(characterGroup.get('name'))
 															)
 														}
