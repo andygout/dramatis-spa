@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { formatDate } from '../../../lib/format-date';
 import {
-	AppendedFormat,
+	AppendedFormatAndYear,
 	AppendedWritingCredits,
 	InstanceFacet,
 	InstanceLink,
@@ -41,8 +41,11 @@ class Production extends React.Component {
 							<InstanceLink instance={material} />
 
 							{
-								material.get('format') && (
-									<AppendedFormat format={material.get('format')} />
+								(material.get('format') || material.get('year')) && (
+									<AppendedFormatAndYear
+										format={material.get('format')}
+										year={material.get('year')}
+									/>
 								)
 							}
 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { capitalise } from '../../../lib/strings';
 import {
-	AppendedFormat,
+	AppendedFormatAndYear,
 	AppendedWritingCredits,
 	InstanceFacet,
 	InstanceLink,
@@ -20,6 +20,7 @@ class Material extends React.Component {
 		const { material } = this.props;
 
 		const format = material.get('format');
+		const year = material.get('year');
 		const writingCredits = material.get('writingCredits');
 		const characterGroups = material.get('characterGroups');
 		const originalVersionMaterial = material.get('originalVersionMaterial');
@@ -39,6 +40,16 @@ class Material extends React.Component {
 						<InstanceFacet labelText='Format'>
 
 							<React.Fragment>{ capitalise(format) }</React.Fragment>
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					year && (
+						<InstanceFacet labelText='Year'>
+
+							<React.Fragment>{ year }</React.Fragment>
 
 						</InstanceFacet>
 					)
@@ -107,8 +118,11 @@ class Material extends React.Component {
 							<InstanceLink instance={originalVersionMaterial} />
 
 							{
-								originalVersionMaterial.get('format') && (
-									<AppendedFormat format={originalVersionMaterial.get('format')} />
+								(originalVersionMaterial.get('format') || originalVersionMaterial.get('year')) && (
+									<AppendedFormatAndYear
+										format={originalVersionMaterial.get('format')}
+										year={originalVersionMaterial.get('year')}
+									/>
 								)
 							}
 
