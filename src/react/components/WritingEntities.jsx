@@ -1,7 +1,7 @@
 import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
-import { AppendedFormat, InstanceLink, WritingCredits } from '.';
+import { AppendedFormatAndYear, InstanceLink, WritingCredits } from '.';
 
 const WritingEntities = props => {
 
@@ -22,8 +22,8 @@ const WritingEntities = props => {
 							}
 
 							{
-								entity.get('format') && (
-									<AppendedFormat format={entity.get('format')} />
+								(entity.get('format') || entity.get('year')) && (
+									<AppendedFormatAndYear format={entity.get('format')} year={entity.get('year')} />
 								)
 							}
 

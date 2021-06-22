@@ -4,7 +4,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import {
 	AppendedDepictions,
 	AppendedEntities,
-	AppendedFormat,
+	AppendedFormatAndYear,
 	AppendedPerformers,
 	AppendedProductionDates,
 	AppendedProducerCredits,
@@ -34,8 +34,8 @@ const List = props => {
 						}
 
 						{
-							instance.get('format') && (
-								<AppendedFormat format={instance.get('format')} />
+							(instance.get('format') || instance.get('year')) && (
+								<AppendedFormatAndYear format={instance.get('format')} year={instance.get('year')} />
 							)
 						}
 
