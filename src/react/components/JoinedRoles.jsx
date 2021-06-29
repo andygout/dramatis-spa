@@ -30,6 +30,12 @@ const JoinedRoles = props => {
 								)
 							}
 
+							{
+								Map.isMap(instance) && instance.get('isAlternate') && (
+									<React.Fragment>&nbsp;(alt)</React.Fragment>
+								)
+							}
+
 						</React.Fragment>
 					)
 					.reduce((prev, curr) => [prev, ' / ', curr])
