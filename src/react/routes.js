@@ -1,4 +1,6 @@
 import {
+	Award,
+	Awards,
 	Character,
 	Characters,
 	Company,
@@ -26,6 +28,25 @@ export default [
 		component: Home,
 		fetchData: [
 			dispatch => dispatch(cancelError())
+		]
+	},
+	{
+		path: '/awards',
+		exact: true,
+		documentTitle: () => 'Awards',
+		component: Awards,
+		fetchData: [
+			dispatch => dispatch(cancelError()),
+			dispatch => dispatch(fetchList('awards'))
+		]
+	},
+	{
+		path: '/awards/:uuid',
+		documentTitle: () => 'Award',
+		component: Award,
+		fetchData: [
+			dispatch => dispatch(cancelError()),
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('award', uuid))
 		]
 	},
 	{
