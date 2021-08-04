@@ -1,3 +1,5 @@
+import award from './award';
+import awards from './awards';
 import character from './character';
 import characters from './characters';
 import company from './company';
@@ -13,6 +15,8 @@ import venue from './venue';
 import venues from './venues';
 
 export default {
+	award,
+	awards,
 	character,
 	characters,
 	company,
