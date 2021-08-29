@@ -1,5 +1,7 @@
 import award from './award';
 import awards from './awards';
+import awardCeremony from './award-ceremony';
+import awardCeremonies from './award-ceremonies';
 import character from './character';
 import characters from './characters';
 import company from './company';
@@ -17,6 +19,8 @@ import venues from './venues';
 export default {
 	award,
 	awards,
+	awardCeremony,
+	awardCeremonies,
 	character,
 	characters,
 	company,

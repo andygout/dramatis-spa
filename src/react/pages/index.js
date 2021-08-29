@@ -1,5 +1,6 @@
 import {
 	Award,
+	AwardCeremony,
 	Character,
 	Company,
 	Material,
@@ -9,6 +10,7 @@ import {
 } from './instances';
 import {
 	Awards,
+	AwardCeremonies,
 	Characters,
 	Companies,
 	Materials,
@@ -22,6 +24,8 @@ import NotFound from './NotFound';
 export {
 	Award,
 	Awards,
+	AwardCeremony,
+	AwardCeremonies,
 	Character,
 	Characters,
 	Company,
