@@ -13,7 +13,8 @@ import {
 	AppendedSubVenues,
 	AppendedVenue,
 	AppendedWritingCredits,
-	InstanceLink
+	InstanceLink,
+	PrependedAward
 } from '.';
 
 const List = props => {
@@ -26,6 +27,12 @@ const List = props => {
 			{
 				instances.map((instance, index) =>
 					<li key={index}>
+
+						{
+							instance.get('award') && (
+								<PrependedAward award={instance.get('award')} />
+							)
+						}
 
 						{
 							instance.get('uuid')

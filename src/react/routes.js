@@ -1,6 +1,8 @@
 import {
 	Award,
 	Awards,
+	AwardCeremony,
+	AwardCeremonies,
 	Character,
 	Characters,
 	Company,
@@ -28,6 +30,25 @@ export default [
 		component: Home,
 		fetchData: [
 			dispatch => dispatch(cancelError())
+		]
+	},
+	{
+		path: '/awards/ceremonies',
+		exact: true,
+		documentTitle: () => 'Award ceremonies',
+		component: AwardCeremonies,
+		fetchData: [
+			dispatch => dispatch(cancelError()),
+			dispatch => dispatch(fetchList('awardCeremonies'))
+		]
+	},
+	{
+		path: '/awards/ceremonies/:uuid',
+		documentTitle: () => 'Award ceremony',
+		component: AwardCeremony,
+		fetchData: [
+			dispatch => dispatch(cancelError()),
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('awardCeremony', uuid))
 		]
 	},
 	{

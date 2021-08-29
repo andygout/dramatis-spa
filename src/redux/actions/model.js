@@ -1,6 +1,6 @@
 import nodeFetch from 'node-fetch';
 
-import { pluralise } from '../../lib/strings';
+import { getRouteFromModel, getRouteFromPluralisedModel } from '../../lib/get-route';
 import createAction from './base';
 import { receiveError } from './error';
 import * as actions from '../utils/model-action-names';
@@ -39,7 +39,7 @@ const fetchList = pluralisedModel => async (dispatch, getState) => {
 
 		dispatch(requestList(pluralisedModel));
 
-		const url = `${URL_BASE}/${pluralisedModel}`;
+		const url = `${URL_BASE}/${getRouteFromPluralisedModel(pluralisedModel)}`;
 
 		try {
 
@@ -65,7 +65,7 @@ const fetchInstance = (model, uuid) => async (dispatch, getState) => {
 
 		dispatch(requestInstance(model));
 
-		const url = `${URL_BASE}/${pluralise(model)}/${uuid}`;
+		const url = `${URL_BASE}/${getRouteFromModel(model)}/${uuid}`;
 
 		try {
 

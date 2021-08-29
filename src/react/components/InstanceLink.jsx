@@ -2,18 +2,17 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { Link } from 'react-router-dom';
 
-import { pluralise } from '../../lib/strings';
+import { getRouteFromModel } from '../../lib/get-route';
 
 const InstanceLink = props => {
 
 	const { instance } = props;
 
 	const model = instance.get('model');
-	const pluralisedModel = pluralise(model);
 
 	const uuid = instance.get('uuid');
 
-	const instancePath = `/${pluralisedModel}/${uuid}`;
+	const instancePath = `/${getRouteFromModel(model)}/${uuid}`;
 
 	return (
 		<Link to={instancePath}>
