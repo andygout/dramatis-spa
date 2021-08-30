@@ -21,6 +21,7 @@ import {
 
 import { cancelError } from '../redux/actions/error';
 import { fetchList, fetchInstance } from '../redux/actions/model';
+import { MODELS, PLURALISED_MODELS } from '../utils/constants';
 
 export default [
 	{
@@ -39,7 +40,7 @@ export default [
 		component: AwardCeremonies,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			dispatch => dispatch(fetchList('awardCeremonies'))
+			dispatch => dispatch(fetchList(PLURALISED_MODELS.AWARD_CEREMONIES))
 		]
 	},
 	{
@@ -48,7 +49,7 @@ export default [
 		component: AwardCeremony,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('awardCeremony', uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.AWARD_CEREMONY, uuid))
 		]
 	},
 	{
@@ -58,7 +59,7 @@ export default [
 		component: Awards,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			dispatch => dispatch(fetchList('awards'))
+			dispatch => dispatch(fetchList(PLURALISED_MODELS.AWARDS))
 		]
 	},
 	{
@@ -67,7 +68,7 @@ export default [
 		component: Award,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('award', uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.AWARD, uuid))
 		]
 	},
 	{
@@ -77,7 +78,7 @@ export default [
 		component: Characters,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			dispatch => dispatch(fetchList('characters'))
+			dispatch => dispatch(fetchList(PLURALISED_MODELS.CHARACTERS))
 		]
 	},
 	{
@@ -86,7 +87,7 @@ export default [
 		component: Character,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('character', uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.CHARACTER, uuid))
 		]
 	},
 	{
@@ -96,7 +97,7 @@ export default [
 		component: Companies,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			dispatch => dispatch(fetchList('companies'))
+			dispatch => dispatch(fetchList(PLURALISED_MODELS.COMPANIES))
 		]
 	},
 	{
@@ -105,7 +106,7 @@ export default [
 		component: Company,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('company', uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.COMPANY, uuid))
 		]
 	},
 	{
@@ -115,7 +116,7 @@ export default [
 		component: Materials,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			dispatch => dispatch(fetchList('materials'))
+			dispatch => dispatch(fetchList(PLURALISED_MODELS.MATERIALS))
 		]
 	},
 	{
@@ -124,7 +125,7 @@ export default [
 		component: Material,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('material', uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.MATERIAL, uuid))
 		]
 	},
 	{
@@ -134,7 +135,7 @@ export default [
 		component: People,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			dispatch => dispatch(fetchList('people'))
+			dispatch => dispatch(fetchList(PLURALISED_MODELS.PEOPLE))
 		]
 	},
 	{
@@ -143,7 +144,7 @@ export default [
 		component: Person,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('person', uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.PERSON, uuid))
 		]
 	},
 	{
@@ -153,7 +154,7 @@ export default [
 		component: Productions,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			dispatch => dispatch(fetchList('productions'))
+			dispatch => dispatch(fetchList(PLURALISED_MODELS.PRODUCTIONS))
 		]
 	},
 	{
@@ -162,7 +163,7 @@ export default [
 		component: Production,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('production', uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.PRODUCTION, uuid))
 		]
 	},
 	{
@@ -172,7 +173,7 @@ export default [
 		component: Venues,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			dispatch => dispatch(fetchList('venues'))
+			dispatch => dispatch(fetchList(PLURALISED_MODELS.VENUES))
 		]
 	},
 	{
@@ -181,7 +182,7 @@ export default [
 		component: Venue,
 		fetchData: [
 			dispatch => dispatch(cancelError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance('venue', uuid))
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.VENUE, uuid))
 		]
 	},
 	{

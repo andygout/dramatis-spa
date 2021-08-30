@@ -2,7 +2,7 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { Link } from 'react-router-dom';
 
-import { getRouteFromModel } from '../../lib/get-route';
+import { MODEL_TO_ROUTE_MAP } from '../../utils/constants';
 
 const InstanceLink = props => {
 
@@ -12,7 +12,7 @@ const InstanceLink = props => {
 
 	const uuid = instance.get('uuid');
 
-	const instancePath = `/${getRouteFromModel(model)}/${uuid}`;
+	const instancePath = `/${MODEL_TO_ROUTE_MAP[model]}/${uuid}`;
 
 	return (
 		<Link to={instancePath}>

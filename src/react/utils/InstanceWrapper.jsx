@@ -28,7 +28,7 @@ class InstanceWrapper extends React.Component {
 					)
 				}
 
-				<InstanceLabel text={instance.get('model', '')} />
+				<InstanceLabel model={instance.get('model', '')} />
 
 				<PageTitle text={pageTitleText} />
 
