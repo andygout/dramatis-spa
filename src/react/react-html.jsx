@@ -5,7 +5,7 @@ import { StaticRouter } from 'react-router-dom';
 
 import App from './App';
 
-export default (request, store) => // eslint-disable-line react/display-name
+const reactHtml = (request, store) =>
 	renderToString(
 		<Provider store={store}>
 			<StaticRouter location={request.url} context={{}}>
@@ -13,3 +13,5 @@ export default (request, store) => // eslint-disable-line react/display-name
 			</StaticRouter>
 		</Provider>
 	);
+
+export default reactHtml;
