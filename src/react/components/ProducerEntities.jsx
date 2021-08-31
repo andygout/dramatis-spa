@@ -1,5 +1,6 @@
+import { List } from 'immutable';
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { InstanceLink, PrependedCreditedMembers } from '.';
 
@@ -38,7 +39,7 @@ const ProducerEntities = props => {
 };
 
 ProducerEntities.propTypes = {
-	entities: ImmutablePropTypes.list.isRequired
+	entities: PropTypes.instanceOf(List).isRequired
 };
 
 export default ProducerEntities;

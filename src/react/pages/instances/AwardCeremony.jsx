@@ -1,5 +1,6 @@
+import { Map } from 'immutable';
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import { InstanceFacet, InstanceLink } from '../../components';
@@ -34,7 +35,7 @@ class AwardCeremony extends React.Component {
 }
 
 AwardCeremony.propTypes = {
-	awardCeremony: ImmutablePropTypes.map.isRequired
+	awardCeremony: PropTypes.instanceOf(Map).isRequired
 };
 
 const mapStateToProps = state => ({

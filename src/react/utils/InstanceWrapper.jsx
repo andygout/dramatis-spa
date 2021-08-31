@@ -1,6 +1,6 @@
+import { Map } from 'immutable';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import getDifferentiatorSuffix from '../../lib/get-differentiator-suffix';
 import { InstanceDocumentTitle, InstanceLabel, PageTitle } from '../components';
@@ -42,7 +42,7 @@ class InstanceWrapper extends React.Component {
 }
 
 InstanceWrapper.propTypes = {
-	instance: ImmutablePropTypes.map.isRequired,
+	instance: PropTypes.instanceOf(Map).isRequired,
 	titleName: PropTypes.string,
 	children: PropTypes.node.isRequired
 };

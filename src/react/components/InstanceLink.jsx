@@ -1,5 +1,6 @@
+import { Map } from 'immutable';
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import { Link } from 'react-router-dom';
 
 import { MODEL_TO_ROUTE_MAP } from '../../utils/constants';
@@ -23,7 +24,7 @@ const InstanceLink = props => {
 };
 
 InstanceLink.propTypes = {
-	instance: ImmutablePropTypes.map.isRequired
+	instance: PropTypes.instanceOf(Map).isRequired
 };
 
 export default InstanceLink;

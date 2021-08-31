@@ -1,5 +1,6 @@
+import { List } from 'immutable';
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { AppendedCreditedMembers, InstanceLink } from '.';
 
@@ -34,7 +35,7 @@ const CreditedEntities = props => {
 };
 
 CreditedEntities.propTypes = {
-	creditedEntities: ImmutablePropTypes.list.isRequired
+	creditedEntities: PropTypes.instanceOf(List).isRequired
 };
 
 export default CreditedEntities;

@@ -1,5 +1,6 @@
+import { List } from 'immutable';
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { WritingCredits } from '.';
 
@@ -20,7 +21,7 @@ const AppendedWritingCredits = props => {
 };
 
 AppendedWritingCredits.propTypes = {
-	writingCredits: ImmutablePropTypes.list.isRequired
+	writingCredits: PropTypes.instanceOf(List).isRequired
 };
 
 export default AppendedWritingCredits;

@@ -1,5 +1,6 @@
+import { List } from 'immutable';
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { ProducerEntities } from '.';
 import { capitalise } from '../../lib/strings';
@@ -39,7 +40,7 @@ const ProducerCredits = props => {
 };
 
 ProducerCredits.propTypes = {
-	credits: ImmutablePropTypes.list.isRequired
+	credits: PropTypes.instanceOf(List).isRequired
 };
 
 export default ProducerCredits;

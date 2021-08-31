@@ -1,5 +1,6 @@
+import { List } from 'immutable';
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import { ListWrapper } from '../../utils';
@@ -23,7 +24,7 @@ class AwardCeremonies extends React.Component {
 }
 
 AwardCeremonies.propTypes = {
-	awardCeremonies: ImmutablePropTypes.list.isRequired
+	awardCeremonies: PropTypes.instanceOf(List).isRequired
 };
 
 const mapStateToProps = state => ({
