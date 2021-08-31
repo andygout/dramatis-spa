@@ -1,23 +1,28 @@
 import nodeFetch from 'node-fetch';
 
-import { getRouteFromModel, getRouteFromPluralisedModel } from '../../lib/get-route';
 import createAction from './base';
 import { receiveError } from './error';
 import * as actions from '../utils/model-action-names';
+import {
+	MODEL_TO_PROP_NAME_MAP,
+	MODEL_TO_ROUTE_MAP,
+	PLURALISED_MODEL_TO_PROP_NAME_MAP,
+	PLURALISED_MODEL_TO_ROUTE_MAP
+} from '../../utils/constants';
 
 const URL_BASE = 'http://localhost:3000';
 
 const requestList = pluralisedModel =>
-	createAction(actions[`REQUEST_${pluralisedModel.toUpperCase()}`]);
+	createAction(actions[`REQUEST_${pluralisedModel}`]);
 
 const receiveList = (list, pluralisedModel) =>
-	createAction(actions[`RECEIVE_${pluralisedModel.toUpperCase()}`], list);
+	createAction(actions[`RECEIVE_${pluralisedModel}`], list);
 
 const requestInstance = model =>
-	createAction(actions[`REQUEST_${model.toUpperCase()}`]);
+	createAction(actions[`REQUEST_${model}`]);
 
 const receiveInstance = instance =>
-	createAction(actions[`RECEIVE_${instance.model.toUpperCase()}`], instance);
+	createAction(actions[`RECEIVE_${instance.model}`], instance);
 
 const performFetch = async url => {
 
@@ -33,13 +38,13 @@ const performFetch = async url => {
 
 const fetchList = pluralisedModel => async (dispatch, getState) => {
 
-	const apiCallRequired = !getState().get(pluralisedModel).size;
+	const apiCallRequired = !getState().get(PLURALISED_MODEL_TO_PROP_NAME_MAP[pluralisedModel]).size;
 
 	if (apiCallRequired) {
 
 		dispatch(requestList(pluralisedModel));
 
-		const url = `${URL_BASE}/${getRouteFromPluralisedModel(pluralisedModel)}`;
+		const url = `${URL_BASE}/${PLURALISED_MODEL_TO_ROUTE_MAP[pluralisedModel]}`;
 
 		try {
 
@@ -59,13 +64,13 @@ const fetchList = pluralisedModel => async (dispatch, getState) => {
 
 const fetchInstance = (model, uuid) => async (dispatch, getState) => {
 
-	const apiCallRequired = getState().getIn([model, 'uuid']) !== uuid;
+	const apiCallRequired = getState().getIn([MODEL_TO_PROP_NAME_MAP[model], 'uuid']) !== uuid;
 
 	if (apiCallRequired) {
 
 		dispatch(requestInstance(model));
 
-		const url = `${URL_BASE}/${getRouteFromModel(model)}/${uuid}`;
+		const url = `${URL_BASE}/${MODEL_TO_ROUTE_MAP[model]}/${uuid}`;
 
 		try {
 
