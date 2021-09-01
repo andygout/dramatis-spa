@@ -15,12 +15,8 @@ class Venue extends React.Component {
 		const subVenues = venue.get('subVenues');
 		const productions = venue.get('productions');
 
-		let titleName = venue.get('name');
-
-		if (surVenue) titleName = `${surVenue.get('name')}: ${titleName}`;
-
 		return (
-			<InstanceWrapper instance={venue} titleName={titleName}>
+			<InstanceWrapper instance={venue}>
 
 				{
 					surVenue && (
