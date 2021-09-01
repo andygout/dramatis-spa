@@ -3,17 +3,25 @@ import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import getDifferentiatorSuffix from '../../lib/get-differentiator-suffix';
+import getInstanceTitle from '../../lib/get-instance-title';
 import { InstanceDocumentTitle, InstanceLabel, PageTitle } from '../components';
 
 class InstanceWrapper extends React.Component {
 
 	render () {
 
-		const { instance, titleName, children } = this.props;
+		const { instance, children } = this.props;
 
-		let pageTitleText = titleName || instance.get('name', '');
+		const title = getInstanceTitle(instance);
 
-		pageTitleText += getDifferentiatorSuffix(instance.get('differentiator'));
+		const differentiatorSuffix = getDifferentiatorSuffix(instance.get('differentiator'));
+
+		const pageTitleText = [
+			title,
+			differentiatorSuffix
+		]
+			.filter(Boolean)
+			.join(' ');
 
 		return (
 			<React.Fragment>
@@ -21,9 +29,9 @@ class InstanceWrapper extends React.Component {
 				{
 					instance.get('name') && instance.get('model') && (
 						<InstanceDocumentTitle
-							name={titleName || instance.get('name')}
-							differentiator={instance.get('differentiator')}
+							title={title}
 							model={instance.get('model')}
+							differentiatorSuffix={differentiatorSuffix}
 						/>
 					)
 				}

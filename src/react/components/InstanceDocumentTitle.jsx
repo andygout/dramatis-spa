@@ -2,16 +2,19 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import getDifferentiatorSuffix from '../../lib/get-differentiator-suffix';
 import { MODEL_TO_DISPLAY_NAME_MAP } from '../../utils/constants';
 
 const InstanceDocumentTitle = props => {
 
-	const { name, differentiator, model } = props;
+	const { title, model, differentiatorSuffix } = props;
 
-	let documentTitle = `${name} (${MODEL_TO_DISPLAY_NAME_MAP[model]})`;
-
-	documentTitle += getDifferentiatorSuffix(differentiator);
+	const documentTitle = [
+		title,
+		`(${MODEL_TO_DISPLAY_NAME_MAP[model]})`,
+		differentiatorSuffix
+	]
+		.filter(Boolean)
+		.join(' ');
 
 	return (
 		<Helmet title={documentTitle} />
@@ -20,9 +23,9 @@ const InstanceDocumentTitle = props => {
 };
 
 InstanceDocumentTitle.propTypes = {
-	name: PropTypes.string.isRequired,
-	differentiator: PropTypes.string,
-	model: PropTypes.string.isRequired
+	title: PropTypes.string.isRequired,
+	model: PropTypes.string.isRequired,
+	differentiatorSuffix: PropTypes.string.isRequired
 };
 
 export default InstanceDocumentTitle;
