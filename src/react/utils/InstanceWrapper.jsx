@@ -52,7 +52,7 @@ class InstanceWrapper extends React.Component {
 InstanceWrapper.propTypes = {
 	instance: ImmutablePropTypes.map.isRequired,
 	titleName: PropTypes.string,
-	children: PropTypes.node.isRequired
+	children: PropTypes.node
 };
 
 export default InstanceWrapper;
