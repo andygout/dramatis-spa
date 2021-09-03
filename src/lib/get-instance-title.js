@@ -8,6 +8,10 @@ export default instance => {
 
 	switch (instance.get('model')) {
 
+		case MODELS.AWARD_CEREMONY:
+			if (instance.get('award')) title = `${instance.getIn(['award', 'name'])} ${title}`;
+			return title;
+
 		case MODELS.VENUE:
 			if (instance.get('surVenue')) title = `${instance.getIn(['surVenue', 'name'])}: ${title}`;
 			return title;
