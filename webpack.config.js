@@ -2,6 +2,7 @@ const path = require('path');
 
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 
 const serverConfig = {
@@ -30,7 +31,7 @@ const serverConfig = {
 								'@babel/preset-env',
 								{
 									targets: {
-										node: '14'
+										node: '16'
 									}
 								}
 							],
@@ -64,15 +65,13 @@ const clientConfig = {
 		publicPath: '/',
 		filename: 'main.js'
 	},
-	devtool: 'cheap-module-eval-source-map',
+	devtool: 'eval-cheap-module-source-map',
 	module: {
 		rules: [
 			{
 				test: /\.scss$/,
 				use: [
-					{
-						loader: MiniCssExtractPlugin.loader
-					},
+					MiniCssExtractPlugin.loader,
 					'css-loader',
 					'sass-loader'
 				]
@@ -87,7 +86,7 @@ const clientConfig = {
 								'@babel/preset-env',
 								{
 									targets: {
-										node: '14'
+										node: '16'
 									}
 								}
 							],
@@ -99,7 +98,10 @@ const clientConfig = {
 		]
 	},
 	plugins: [
-		new MiniCssExtractPlugin()
+		new MiniCssExtractPlugin(),
+		new webpack.ProvidePlugin({
+			process: 'process/browser'
+		})
 	],
 	resolve: {
 		extensions: ['.js', '.jsx']

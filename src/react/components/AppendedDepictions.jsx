@@ -1,6 +1,6 @@
+import { List } from 'immutable';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 const AppendedDepictions = props => {
 
@@ -43,13 +43,7 @@ const AppendedDepictions = props => {
 };
 
 AppendedDepictions.propTypes = {
-	depictions: ImmutablePropTypes.listOf(
-		ImmutablePropTypes.contains({
-			displayName: PropTypes.string,
-			qualifier: PropTypes.string,
-			group: PropTypes.string
-		})
-	).isRequired
+	depictions: PropTypes.instanceOf(List).isRequired
 };
 
 export default AppendedDepictions;

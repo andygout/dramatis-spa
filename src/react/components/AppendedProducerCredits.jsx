@@ -1,5 +1,6 @@
+import { List } from 'immutable';
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { ProducerCredits } from '.';
 
@@ -20,7 +21,7 @@ const AppendedProducerCredits = props => {
 };
 
 AppendedProducerCredits.propTypes = {
-	credits: ImmutablePropTypes.list.isRequired
+	credits: PropTypes.instanceOf(List).isRequired
 };
 
 export default AppendedProducerCredits;

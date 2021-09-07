@@ -1,5 +1,6 @@
+import { Map } from 'immutable';
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { CommaSeparatedInstanceLinks, InstanceLink } from '.';
 
@@ -38,7 +39,7 @@ const AppendedCreditedEmployerCompany = props => {
 };
 
 AppendedCreditedEmployerCompany.propTypes = {
-	creditedEmployerCompany: ImmutablePropTypes.map.isRequired
+	creditedEmployerCompany: PropTypes.instanceOf(Map).isRequired
 };
 
 export default AppendedCreditedEmployerCompany;

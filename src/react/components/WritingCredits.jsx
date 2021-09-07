@@ -1,6 +1,6 @@
+import { List } from 'immutable';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { WritingEntities } from '.';
 import { capitalise } from '../../lib/strings';
@@ -40,7 +40,7 @@ const WritingCredits = props => {
 };
 
 WritingCredits.propTypes = {
-	writingCredits: ImmutablePropTypes.list.isRequired,
+	writingCredits: PropTypes.instanceOf(List).isRequired,
 	isAppendage: PropTypes.bool.isRequired
 };
 
