@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { InstanceFacet, InstanceLink } from '../../components';
+import { InstanceFacet, InstanceLink, List } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
 class AwardCeremony extends React.Component {
@@ -13,6 +13,7 @@ class AwardCeremony extends React.Component {
 		const { awardCeremony } = this.props;
 
 		const award = awardCeremony.get('award');
+		const categories = awardCeremony.get('categories');
 
 		return (
 			<InstanceWrapper instance={awardCeremony}>
@@ -22,6 +23,16 @@ class AwardCeremony extends React.Component {
 						<InstanceFacet labelText='Award'>
 
 							<InstanceLink instance={award} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					categories?.size > 0 && (
+						<InstanceFacet labelText='Categories'>
+
+							<List instances={categories} />
 
 						</InstanceFacet>
 					)
