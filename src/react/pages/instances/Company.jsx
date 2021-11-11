@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { InstanceFacet, List } from '../../components';
+import {
+	AppendedCoNominatedEntities,
+	AppendedNominatedMembers,
+	InstanceFacet,
+	InstanceLink,
+	List
+} from '../../components';
 import { InstanceWrapper } from '../../utils';
 
 class Company extends React.Component {
@@ -19,6 +25,7 @@ class Company extends React.Component {
 		const producerProductions = company.get('producerProductions');
 		const creativeProductions = company.get('creativeProductions');
 		const crewProductions = company.get('crewProductions');
+		const awards = company.get('awards');
 
 		return (
 			<InstanceWrapper instance={company}>
@@ -92,6 +99,70 @@ class Company extends React.Component {
 						</InstanceFacet>
 					)
 				}
+
+			{
+				awards?.size > 0 && (
+					<InstanceFacet labelText='Awards'>
+
+						{
+							awards.map((award, index) =>
+								<React.Fragment key={index}>
+									<InstanceLink instance={award} />
+
+									<ul className="list">
+
+										{
+											award.get('ceremonies').map((ceremony, index) =>
+												<li key={index}>
+													<InstanceLink instance={ceremony} />{': '}
+
+													{
+														ceremony.get('categories')
+															.map((category, index) =>
+																<React.Fragment key={index}>
+																	{ category.get('name') }{': '}
+
+																	{
+																		category.get('nominations')
+																			.map((nomination, index) =>
+																				<React.Fragment key={index}>
+																					{'Nomination'}
+
+																					{
+																						nomination.get('nominatedMembers')?.size > 0 && (
+																							<AppendedNominatedMembers
+																								nominatedMembers={nomination.get('nominatedMembers')}
+																							/>
+																						)
+																					}
+
+																					{
+																						nomination.get('coNominatedEntities').size > 0 && (
+																							<AppendedCoNominatedEntities
+																								coNominatedEntities={nomination.get('coNominatedEntities')}
+																							/>
+																						)
+																					}
+																				</React.Fragment>
+																			)
+																			.reduce((prev, curr) => [prev, ', ', curr])
+																	}
+																</React.Fragment>
+															)
+															.reduce((prev, curr) => [prev, '; ', curr])
+													}
+												</li>
+											)
+										}
+
+									</ul>
+								</React.Fragment>
+							)
+						}
+
+					</InstanceFacet>
+				)
+			}
 
 			</InstanceWrapper>
 		);
