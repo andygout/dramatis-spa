@@ -19,7 +19,7 @@ class Award extends React.Component {
 
 				{
 					ceremonies?.size > 0 && (
-						<InstanceFacet labelText='Award ceremonies'>
+						<InstanceFacet labelText='Ceremonies'>
 
 							<List instances={ceremonies} />
 
