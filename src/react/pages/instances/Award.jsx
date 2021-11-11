@@ -12,16 +12,16 @@ class Award extends React.Component {
 
 		const { award } = this.props;
 
-		const awardCeremonies = award.get('awardCeremonies');
+		const ceremonies = award.get('ceremonies');
 
 		return (
 			<InstanceWrapper instance={award}>
 
 				{
-					awardCeremonies?.size > 0 && (
+					ceremonies?.size > 0 && (
 						<InstanceFacet labelText='Award ceremonies'>
 
-							<List instances={awardCeremonies} />
+							<List instances={ceremonies} />
 
 						</InstanceFacet>
 					)
