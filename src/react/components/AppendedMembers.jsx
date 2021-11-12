@@ -4,16 +4,16 @@ import React from 'react';
 
 import { CommaSeparatedInstanceLinks } from '.';
 
-const AppendedNominatedMembers = props => {
+const AppendedMembers = props => {
 
-	const { nominatedMembers } = props;
+	const { members } = props;
 
 	return (
 		<React.Fragment>
 
 			<React.Fragment>&nbsp;(</React.Fragment>
 
-			<CommaSeparatedInstanceLinks instances={nominatedMembers} />
+			<CommaSeparatedInstanceLinks instances={members} />
 
 			<React.Fragment>)</React.Fragment>
 
@@ -22,8 +22,8 @@ const AppendedNominatedMembers = props => {
 
 };
 
-AppendedNominatedMembers.propTypes = {
-	nominatedMembers: PropTypes.instanceOf(List).isRequired
+AppendedMembers.propTypes = {
+	members: PropTypes.instanceOf(List).isRequired
 };
 
-export default AppendedNominatedMembers;
+export default AppendedMembers;

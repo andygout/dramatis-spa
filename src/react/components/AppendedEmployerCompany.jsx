@@ -4,9 +4,9 @@ import React from 'react';
 
 import { CommaSeparatedInstanceLinks, InstanceLink } from '.';
 
-const AppendedCreditedEmployerCompany = props => {
+const AppendedEmployerCompany = props => {
 
-	const { creditedEmployerCompany } = props;
+	const { employerCompany } = props;
 
 	return (
 		<React.Fragment>
@@ -14,12 +14,12 @@ const AppendedCreditedEmployerCompany = props => {
 			<React.Fragment>&nbsp;(</React.Fragment>
 
 			{
-				creditedEmployerCompany.get('coCreditedMembers')?.size > 0 && (
+				employerCompany.get('coMembers')?.size > 0 && (
 					<React.Fragment>
 
 						<React.Fragment>with&nbsp;</React.Fragment>
 
-						<CommaSeparatedInstanceLinks instances={creditedEmployerCompany.get('coCreditedMembers')} />
+						<CommaSeparatedInstanceLinks instances={employerCompany.get('coMembers')} />
 
 						<React.Fragment>&nbsp;</React.Fragment>
 
@@ -29,7 +29,7 @@ const AppendedCreditedEmployerCompany = props => {
 
 			<React.Fragment>for&nbsp;</React.Fragment>
 
-			<InstanceLink instance={creditedEmployerCompany} />
+			<InstanceLink instance={employerCompany} />
 
 			<React.Fragment>)</React.Fragment>
 
@@ -38,8 +38,8 @@ const AppendedCreditedEmployerCompany = props => {
 
 };
 
-AppendedCreditedEmployerCompany.propTypes = {
-	creditedEmployerCompany: PropTypes.instanceOf(Map).isRequired
+AppendedEmployerCompany.propTypes = {
+	employerCompany: PropTypes.instanceOf(Map).isRequired
 };
 
-export default AppendedCreditedEmployerCompany;
+export default AppendedEmployerCompany;

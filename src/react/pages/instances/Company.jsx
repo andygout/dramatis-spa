@@ -3,13 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import {
-	AppendedCoNominatedEntities,
-	AppendedNominatedMembers,
-	InstanceFacet,
-	InstanceLink,
-	List
-} from '../../components';
+import { AppendedCoEntities, AppendedMembers, InstanceFacet, InstanceLink, List } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
 class Company extends React.Component {
@@ -129,17 +123,17 @@ class Company extends React.Component {
 																					{'Nomination'}
 
 																					{
-																						nomination.get('nominatedMembers')?.size > 0 && (
-																							<AppendedNominatedMembers
-																								nominatedMembers={nomination.get('nominatedMembers')}
+																						nomination.get('members')?.size > 0 && (
+																							<AppendedMembers
+																								members={nomination.get('members')}
 																							/>
 																						)
 																					}
 
 																					{
-																						nomination.get('coNominatedEntities').size > 0 && (
-																							<AppendedCoNominatedEntities
-																								coNominatedEntities={nomination.get('coNominatedEntities')}
+																						nomination.get('coEntities').size > 0 && (
+																							<AppendedCoEntities
+																								coEntities={nomination.get('coEntities')}
 																							/>
 																						)
 																					}
