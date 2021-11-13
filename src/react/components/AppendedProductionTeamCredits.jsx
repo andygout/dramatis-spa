@@ -2,7 +2,7 @@ import { List } from 'immutable';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { AppendedCoCreditedEntities, AppendedCreditedEmployerCompany, AppendedCreditedMembers } from '.';
+import { AppendedCoEntities, AppendedEmployerCompany, AppendedMembers } from '.';
 
 const AppendedProductionTeamCredits = props => {
 
@@ -21,24 +21,20 @@ const AppendedProductionTeamCredits = props => {
 							<React.Fragment>{ credit.get('name') }</React.Fragment>
 
 							{
-								credit.get('creditedMembers')?.size > 0 && (
-									<AppendedCreditedMembers creditedMembers={credit.get('creditedMembers')} />
+								credit.get('members')?.size > 0 && (
+									<AppendedMembers members={credit.get('members')} />
 								)
 							}
 
 							{
-								credit.get('creditedEmployerCompany') && (
-									<AppendedCreditedEmployerCompany
-										creditedEmployerCompany={credit.get('creditedEmployerCompany')}
-									/>
+								credit.get('employerCompany') && (
+									<AppendedEmployerCompany employerCompany={credit.get('employerCompany')} />
 								)
 							}
 
 							{
-								credit.get('coCreditedEntities')?.size > 0 && (
-									<AppendedCoCreditedEntities
-										coCreditedEntities={credit.get('coCreditedEntities')}
-									/>
+								credit.get('coEntities')?.size > 0 && (
+									<AppendedCoEntities coEntities={credit.get('coEntities')} />
 								)
 							}
 

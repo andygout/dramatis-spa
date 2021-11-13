@@ -2,9 +2,9 @@ import { List } from 'immutable';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { InstanceLink, PrependedMembers } from '.';
+import { AppendedMembers, InstanceLink } from '.';
 
-const ProducerEntities = props => {
+const Entities = props => {
 
 	const { entities } = props;
 
@@ -16,16 +16,12 @@ const ProducerEntities = props => {
 					.map((entity, index) =>
 						<React.Fragment key={index}>
 
-							{
-								entity.get('members')?.size > 0 && (
-									<PrependedMembers members={entity.get('members')} />
-								)
-							}
+							<InstanceLink instance={entity} />
 
 							{
-								entity.get('uuid')
-									? <InstanceLink instance={entity} />
-									: entity.get('name')
+								entity.get('members')?.size > 0 && (
+									<AppendedMembers members={entity.get('members')} />
+								)
 							}
 
 						</React.Fragment>
@@ -38,8 +34,8 @@ const ProducerEntities = props => {
 
 };
 
-ProducerEntities.propTypes = {
+Entities.propTypes = {
 	entities: PropTypes.instanceOf(List).isRequired
 };
 
-export default ProducerEntities;
+export default Entities;

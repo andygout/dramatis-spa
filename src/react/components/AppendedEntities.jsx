@@ -2,7 +2,7 @@ import { List } from 'immutable';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { CreditedEntities } from '.';
+import { Entities } from '.';
 
 const AppendedEntities = props => {
 
@@ -13,7 +13,7 @@ const AppendedEntities = props => {
 
 			<React.Fragment>&nbsp;…&nbsp;</React.Fragment>
 
-			<CreditedEntities creditedEntities={entities} />
+			<Entities entities={entities} />
 
 		</React.Fragment>
 	);

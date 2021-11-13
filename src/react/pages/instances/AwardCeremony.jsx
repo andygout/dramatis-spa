@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { InstanceFacet, InstanceLink, NominatedEntities } from '../../components';
+import { Entities, InstanceFacet, InstanceLink } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
 class AwardCeremony extends React.Component {
@@ -42,7 +42,7 @@ class AwardCeremony extends React.Component {
 											{
 												category.get('nominations').map((nomination, index) =>
 													<li key={index}>
-														<NominatedEntities nominatedEntities={nomination.get('entities')} />
+														<Entities entities={nomination.get('entities')} />
 													</li>
 												)
 											}
