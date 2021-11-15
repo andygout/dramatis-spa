@@ -131,7 +131,11 @@ class Person extends React.Component {
 																		category.get('nominations')
 																			.map((nomination, index) =>
 																				<React.Fragment key={index}>
-																					{'Nomination'}
+																					{
+																						nomination.get('isWinner')
+																							? (<span>{'Winner'}</span>)
+																							: (<span>{'Nomination'}</span>)
+																					}
 
 																					{
 																						nomination.get('employerCompany') && (
