@@ -7,10 +7,12 @@ import { formatDate } from '../../../lib/format-date';
 import {
 	AppendedFormatAndYear,
 	AppendedWritingCredits,
+	Entities,
 	InstanceFacet,
 	InstanceLink,
 	List,
-	ProducerCredits
+	ProducerCredits,
+	Productions
 } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
@@ -29,6 +31,7 @@ class Production extends React.Component {
 		const cast = production.get('cast');
 		const creativeCredits = production.get('creativeCredits');
 		const crewCredits = production.get('crewCredits');
+		const awards = production.get('awards');
 
 		const dateFormatOptions = { weekday: 'long', month: 'long' };
 
@@ -147,6 +150,81 @@ class Production extends React.Component {
 						</InstanceFacet>
 					)
 				}
+
+			{
+				awards?.size > 0 && (
+					<InstanceFacet labelText='Awards'>
+
+						{
+							awards.map((award, index) =>
+								<React.Fragment key={index}>
+									<InstanceLink instance={award} />
+
+									<ul className="list">
+
+										{
+											award.get('ceremonies').map((ceremony, index) =>
+												<li key={index}>
+													<InstanceLink instance={ceremony} />{': '}
+
+													{
+														ceremony.get('categories')
+															.map((category, index) =>
+																<React.Fragment key={index}>
+																	{ category.get('name') }{': '}
+
+																	{
+																		category.get('nominations')
+																			.map((nomination, index) =>
+																				<React.Fragment key={index}>
+																					{
+																						nomination.get('isWinner')
+																							? (<span>{'Winner'}</span>)
+																							: (<span>{'Nomination'}</span>)
+																					}
+
+																					{
+																						nomination.get('entities').size > 0 && (
+																							<React.Fragment>
+																								<React.Fragment>{': '}</React.Fragment>
+																								<Entities
+																									entities={nomination.get('entities')}
+																								/>
+																							</React.Fragment>
+																						)
+																					}
+
+																					{
+																						nomination.get('coProductions').size > 0 && (
+																							<React.Fragment>
+																								<React.Fragment>{' (with '}</React.Fragment>
+																								<Productions
+																									productions={nomination.get('coProductions')}
+																								/>
+																								<React.Fragment>{')'}</React.Fragment>
+																							</React.Fragment>
+																						)
+																					}
+																				</React.Fragment>
+																			)
+																			.reduce((prev, curr) => [prev, ', ', curr])
+																	}
+																</React.Fragment>
+															)
+															.reduce((prev, curr) => [prev, '; ', curr])
+													}
+												</li>
+											)
+										}
+
+									</ul>
+								</React.Fragment>
+							)
+						}
+
+					</InstanceFacet>
+				)
+			}
 
 			</InstanceWrapper>
 		);
