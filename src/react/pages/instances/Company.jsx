@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { AppendedCoEntities, AppendedMembers, InstanceFacet, InstanceLink, List } from '../../components';
+import { AppendedCoEntities, AppendedMembers, InstanceFacet, InstanceLink, List, Productions } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
 class Company extends React.Component {
@@ -139,6 +139,17 @@ class Company extends React.Component {
 																							<AppendedCoEntities
 																								coEntities={nomination.get('coEntities')}
 																							/>
+																						)
+																					}
+
+																					{
+																						nomination.get('productions').size > 0 && (
+																							<React.Fragment>
+																								<React.Fragment>{' for '}</React.Fragment>
+																								<Productions
+																									productions={nomination.get('productions')}
+																								/>
+																							</React.Fragment>
 																						)
 																					}
 																				</React.Fragment>
