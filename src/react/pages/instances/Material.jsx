@@ -7,9 +7,12 @@ import { capitalise } from '../../../lib/strings';
 import {
 	AppendedFormatAndYear,
 	AppendedWritingCredits,
+	Entities,
 	InstanceFacet,
 	InstanceLink,
 	List,
+	Materials,
+	Productions,
 	WritingCredits
 } from '../../components';
 import { InstanceWrapper } from '../../utils';
@@ -29,6 +32,7 @@ class Material extends React.Component {
 		const productions = material.get('productions');
 		const sourcingMaterials = material.get('sourcingMaterials');
 		const sourcingMaterialProductions = material.get('sourcingMaterialProductions');
+		const awards = material.get('awards');
 
 		const instanceFacetSubheader = subheaderText =>
 			<div className="instance-facet-subheader">{ subheaderText }</div>;
@@ -176,6 +180,99 @@ class Material extends React.Component {
 						</InstanceFacet>
 					)
 				}
+
+			{
+				awards?.size > 0 && (
+					<InstanceFacet labelText='Awards'>
+
+						{
+							awards.map((award, index) =>
+								<React.Fragment key={index}>
+									<InstanceLink instance={award} />
+
+									<ul className="list">
+
+										{
+											award.get('ceremonies').map((ceremony, index) =>
+												<li key={index}>
+													<InstanceLink instance={ceremony} />{': '}
+
+													{
+														ceremony.get('categories')
+															.map((category, index) =>
+																<React.Fragment key={index}>
+																	{ category.get('name') }{': '}
+
+																	{
+																		category.get('nominations')
+																			.map((nomination, index) =>
+																				<React.Fragment key={index}>
+																					{
+																						nomination.get('isWinner')
+																							? (<span>{'Winner'}</span>)
+																							: (<span>{'Nomination'}</span>)
+																					}
+
+																					{
+																						nomination.get('entities').size > 0 && (
+																							<React.Fragment>
+																								<React.Fragment>{': '}</React.Fragment>
+																								<Entities
+																									entities={nomination.get('entities')}
+																								/>
+																							</React.Fragment>
+																						)
+																					}
+
+																					{
+																						nomination.get('productions').size > 0 && (
+																							<React.Fragment>
+																								<React.Fragment>{' for '}</React.Fragment>
+																								<Productions
+																									productions={nomination.get('productions')}
+																								/>
+																							</React.Fragment>
+																						)
+																					}
+
+																					{
+																						nomination.get('productions').size > 0 &&
+																						nomination.get('coMaterials').size > 0 && (
+																							<React.Fragment>{';'}</React.Fragment>
+																						)
+																					}
+
+																					{
+																						nomination.get('coMaterials').size > 0 && (
+																							<React.Fragment>
+																								<React.Fragment>{' (with '}</React.Fragment>
+																								<Materials
+																									materials={nomination.get('coMaterials')}
+																								/>
+																								<React.Fragment>{')'}</React.Fragment>
+																							</React.Fragment>
+																						)
+																					}
+																				</React.Fragment>
+																			)
+																			.reduce((prev, curr) => [prev, ', ', curr])
+																	}
+																</React.Fragment>
+															)
+															.reduce((prev, curr) => [prev, '; ', curr])
+													}
+												</li>
+											)
+										}
+
+									</ul>
+								</React.Fragment>
+							)
+						}
+
+					</InstanceFacet>
+				)
+			}
 
 			</InstanceWrapper>
 		);

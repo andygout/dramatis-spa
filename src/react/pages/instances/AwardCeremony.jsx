@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Entities, InstanceFacet, InstanceLink, Productions } from '../../components';
+import { Entities, InstanceFacet, InstanceLink, Materials, Productions } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
 class AwardCeremony extends React.Component {
@@ -55,14 +55,33 @@ class AwardCeremony extends React.Component {
 														}
 
 														{
-															nomination.get('entities').size > 0 && nomination.get('productions').size > 0 && (
+															nomination.get('entities').size > 0 &&
+															(
+																nomination.get('productions').size > 0 ||
+																nomination.get('materials').size > 0
+															) && (
 																<React.Fragment>{' for '}</React.Fragment>
 															)
 														}
 
 														{
 															nomination.get('productions').size > 0 && (
-																<Productions productions={nomination.get('productions')} />
+																<Productions
+																	productions={nomination.get('productions')}
+																/>
+															)
+														}
+
+													{
+														nomination.get('productions').size > 0 &&
+														nomination.get('materials').size > 0 && (
+															<React.Fragment>{'; '}</React.Fragment>
+														)
+													}
+
+														{
+															nomination.get('materials').size > 0 && (
+																<Materials materials={nomination.get('materials')} />
 															)
 														}
 													</li>
