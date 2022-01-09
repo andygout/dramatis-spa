@@ -9,6 +9,7 @@ import {
 	InstanceFacet,
 	InstanceLink,
 	List,
+	Materials,
 	Productions
 } from '../../components';
 import { InstanceWrapper } from '../../utils';
@@ -166,6 +167,24 @@ class Person extends React.Component {
 																								<React.Fragment>{' for '}</React.Fragment>
 																								<Productions
 																									productions={nomination.get('productions')}
+																								/>
+																							</React.Fragment>
+																						)
+																					}
+
+																					{
+																						nomination.get('productions').size > 0 &&
+																						nomination.get('materials').size > 0 && (
+																							<React.Fragment>{';'}</React.Fragment>
+																						)
+																					}
+
+																					{
+																						nomination.get('materials').size > 0 && (
+																							<React.Fragment>
+																								<React.Fragment>{' for '}</React.Fragment>
+																								<Materials
+																									materials={nomination.get('materials')}
 																								/>
 																							</React.Fragment>
 																						)

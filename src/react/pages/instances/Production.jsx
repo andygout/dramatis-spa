@@ -11,6 +11,7 @@ import {
 	InstanceFacet,
 	InstanceLink,
 	List,
+	Materials,
 	ProducerCredits,
 	Productions
 } from '../../components';
@@ -202,6 +203,24 @@ class Production extends React.Component {
 																									productions={nomination.get('coProductions')}
 																								/>
 																								<React.Fragment>{')'}</React.Fragment>
+																							</React.Fragment>
+																						)
+																					}
+
+																					{
+																						nomination.get('coProductions').size > 0 &&
+																						nomination.get('materials').size > 0 && (
+																							<React.Fragment>{';'}</React.Fragment>
+																						)
+																					}
+
+																					{
+																						nomination.get('materials').size > 0 && (
+																							<React.Fragment>
+																								<React.Fragment>{' for '}</React.Fragment>
+																								<Materials
+																									materials={nomination.get('materials')}
+																								/>
 																							</React.Fragment>
 																						)
 																					}
