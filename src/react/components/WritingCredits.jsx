@@ -7,25 +7,25 @@ import { capitalise } from '../../lib/strings';
 
 const WritingCredits = props => {
 
-	const { writingCredits, isAppendage } = props;
+	const { credits, isAppendage } = props;
 
 	return (
 		<React.Fragment>
 
 			{
-				writingCredits
-					.map((writingCredit, index) => {
+				credits
+					.map((credit, index) => {
 
-						const writingCreditName = !isAppendage && index === 0
-							? capitalise(writingCredit.get('name'))
-							: writingCredit.get('name');
+						const creditName = !isAppendage && index === 0
+							? capitalise(credit.get('name'))
+							: credit.get('name');
 
 						return (
 							<React.Fragment key={index}>
 
-								<React.Fragment>{ writingCreditName }&nbsp;</React.Fragment>
+								<React.Fragment>{`${creditName} `}</React.Fragment>
 
-								<WritingEntities entities={writingCredit.get('entities')} />
+								<WritingEntities entities={credit.get('entities')} />
 
 							</React.Fragment>
 						);
@@ -40,7 +40,7 @@ const WritingCredits = props => {
 };
 
 WritingCredits.propTypes = {
-	writingCredits: PropTypes.instanceOf(List).isRequired,
+	credits: PropTypes.instanceOf(List).isRequired,
 	isAppendage: PropTypes.bool.isRequired
 };
 

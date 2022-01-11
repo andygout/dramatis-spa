@@ -6,14 +6,14 @@ import { WritingCredits } from '.';
 
 const AppendedWritingCredits = props => {
 
-	const { writingCredits } = props;
+	const { credits } = props;
 
 	return (
 		<React.Fragment>
 
-			<React.Fragment>&nbsp;</React.Fragment>
+			<React.Fragment>{' '}</React.Fragment>
 
-			<WritingCredits writingCredits={writingCredits} isAppendage={true} />
+			<WritingCredits credits={credits} isAppendage={true} />
 
 		</React.Fragment>
 	);
@@ -21,7 +21,7 @@ const AppendedWritingCredits = props => {
 };
 
 AppendedWritingCredits.propTypes = {
-	writingCredits: PropTypes.instanceOf(List).isRequired
+	credits: PropTypes.instanceOf(List).isRequired
 };
 
 export default AppendedWritingCredits;

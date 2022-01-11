@@ -9,8 +9,8 @@ import companies from './companies';
 import error from './error';
 import material from './material';
 import materials from './materials';
-import people from './people';
 import person from './person';
+import people from './people';
 import production from './production';
 import productions from './productions';
 import venue from './venue';
@@ -28,8 +28,8 @@ export default {
 	error,
 	material,
 	materials,
-	people,
 	person,
+	people,
 	production,
 	productions,
 	venue,

@@ -13,7 +13,7 @@ const PrependedAward = props => {
 
 			<InstanceLink instance={award} />
 
-			<React.Fragment>:&nbsp;</React.Fragment>
+			<React.Fragment>{': '}</React.Fragment>
 
 		</React.Fragment>
 	);

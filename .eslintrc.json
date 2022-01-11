@@ -16,6 +16,11 @@
       "jsx": true
     }
   },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "comma-dangle": 2,
     "eqeqeq": 2,

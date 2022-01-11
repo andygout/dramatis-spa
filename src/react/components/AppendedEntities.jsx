@@ -11,7 +11,7 @@ const AppendedEntities = props => {
 	return (
 		<React.Fragment>
 
-			<React.Fragment>&nbsp;…&nbsp;</React.Fragment>
+			<React.Fragment>{' … '}</React.Fragment>
 
 			<Entities entities={entities} />
 

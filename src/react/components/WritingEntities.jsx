@@ -30,12 +30,11 @@ const WritingEntities = props => {
 
 							{
 								entity.get('writingCredits')?.size > 0 && (
-									<React.Fragment>&nbsp;
+									<React.Fragment>
 
-										<WritingCredits
-											writingCredits={entity.get('writingCredits')}
-											isAppendage={true}
-										/>
+										<React.Fragment>{' '}</React.Fragment>
+
+										<WritingCredits credits={entity.get('writingCredits')} isAppendage={true} />
 
 									</React.Fragment>
 								)

@@ -7,8 +7,8 @@ import {
 	AppendedEntities,
 	AppendedFormatAndYear,
 	AppendedPerformers,
-	AppendedProductionDates,
 	AppendedProducerCredits,
+	AppendedProductionDates,
 	AppendedProductionTeamCredits,
 	AppendedRoles,
 	AppendedSubVenues,
@@ -38,7 +38,7 @@ const List = props => {
 						{
 							instance.get('uuid')
 								? <InstanceLink instance={instance} />
-								: <React.Fragment>{ instance.get('name') }</React.Fragment>
+								: instance.get('name')
 						}
 
 						{
@@ -66,7 +66,7 @@ const List = props => {
 						}
 
 						{
-							instance.get('startDate') && instance.get('endDate') && (
+							(instance.get('startDate') || instance.get('endDate')) && (
 								<AppendedProductionDates
 									startDate={instance.get('startDate')}
 									endDate={instance.get('endDate')}
@@ -88,7 +88,7 @@ const List = props => {
 
 						{
 							instance.get('writingCredits')?.size > 0 && (
-								<AppendedWritingCredits writingCredits={instance.get('writingCredits')} />
+								<AppendedWritingCredits credits={instance.get('writingCredits')} />
 							)
 						}
 
@@ -130,7 +130,7 @@ const List = props => {
 
 						{
 							instance.get('qualifier') && (
-								<React.Fragment>&nbsp;({instance.get('qualifier')})</React.Fragment>
+								<React.Fragment>{` (${instance.get('qualifier')})`}</React.Fragment>
 							)
 						}
 
