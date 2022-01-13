@@ -11,7 +11,7 @@ const AppendedProducerCredits = props => {
 	return (
 		<React.Fragment>
 
-			<React.Fragment>&nbsp;…&nbsp;</React.Fragment>
+			<React.Fragment>{' … '}</React.Fragment>
 
 			<ProducerCredits credits={credits} />
 

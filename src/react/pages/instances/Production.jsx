@@ -56,7 +56,7 @@ class Production extends React.Component {
 
 							{
 								material.get('writingCredits')?.size > 0 && (
-									<AppendedWritingCredits writingCredits={material.get('writingCredits')} />
+									<AppendedWritingCredits credits={material.get('writingCredits')} />
 								)
 							}
 
@@ -71,7 +71,7 @@ class Production extends React.Component {
 							{
 								startDate && (
 									<div>
-										<b>Starts:</b>&nbsp;{ formatDate(startDate, dateFormatOptions) }
+										<b>Starts:</b>{` ${formatDate(startDate, dateFormatOptions)}`}
 									</div>
 								)
 							}
@@ -79,7 +79,7 @@ class Production extends React.Component {
 							{
 								pressDate && (
 									<div>
-										<b>Press:</b>&nbsp;{ formatDate(pressDate, dateFormatOptions) }
+										<b>Press:</b>{` ${formatDate(pressDate, dateFormatOptions)}`}
 									</div>
 								)
 							}
@@ -87,7 +87,7 @@ class Production extends React.Component {
 							{
 								endDate && (
 									<div>
-										<b>Ends:</b>&nbsp;{ formatDate(endDate, dateFormatOptions) }
+										<b>Ends:</b>{` ${formatDate(endDate, dateFormatOptions)}`}
 									</div>
 								)
 							}
@@ -152,98 +152,98 @@ class Production extends React.Component {
 					)
 				}
 
-			{
-				awards?.size > 0 && (
-					<InstanceFacet labelText='Awards'>
+				{
+					awards?.size > 0 && (
+						<InstanceFacet labelText='Awards'>
 
-						{
-							awards.map((award, index) =>
-								<React.Fragment key={index}>
-									<InstanceLink instance={award} />
+							{
+								awards.map((award, index) =>
+									<React.Fragment key={index}>
+										<InstanceLink instance={award} />
 
-									<ul className="list">
+										<ul className="list">
 
-										{
-											award.get('ceremonies').map((ceremony, index) =>
-												<li key={index}>
-													<InstanceLink instance={ceremony} />{': '}
+											{
+												award.get('ceremonies').map((ceremony, index) =>
+													<li key={index}>
+														<InstanceLink instance={ceremony} />{': '}
 
-													{
-														ceremony.get('categories')
-															.map((category, index) =>
-																<React.Fragment key={index}>
-																	{ category.get('name') }{': '}
+														{
+															ceremony.get('categories')
+																.map((category, index) =>
+																	<React.Fragment key={index}>
+																		{ category.get('name') }{': '}
 
-																	{
-																		category.get('nominations')
-																			.map((nomination, index) =>
-																				<React.Fragment key={index}>
-																					{
-																						nomination.get('isWinner')
-																							? (<span>{'Winner'}</span>)
-																							: (<span>{'Nomination'}</span>)
-																					}
+																		{
+																			category.get('nominations')
+																				.map((nomination, index) =>
+																					<React.Fragment key={index}>
+																						{
+																							nomination.get('isWinner')
+																								? (<span>{'Winner'}</span>)
+																								: (<span>{'Nomination'}</span>)
+																						}
 
-																					{
-																						nomination.get('entities').size > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{': '}</React.Fragment>
-																								<Entities
-																									entities={nomination.get('entities')}
-																								/>
-																							</React.Fragment>
-																						)
-																					}
+																						{
+																							nomination.get('entities').size > 0 && (
+																								<React.Fragment>
+																									<React.Fragment>{': '}</React.Fragment>
+																									<Entities
+																										entities={nomination.get('entities')}
+																									/>
+																								</React.Fragment>
+																							)
+																						}
 
-																					{
-																						nomination.get('coProductions').size > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' (with '}</React.Fragment>
-																								<Productions
-																									productions={nomination.get('coProductions')}
-																								/>
-																								<React.Fragment>{')'}</React.Fragment>
-																							</React.Fragment>
-																						)
-																					}
+																						{
+																							nomination.get('coProductions').size > 0 && (
+																								<React.Fragment>
+																									<React.Fragment>{' (with '}</React.Fragment>
+																									<Productions
+																										productions={nomination.get('coProductions')}
+																									/>
+																									<React.Fragment>{')'}</React.Fragment>
+																								</React.Fragment>
+																							)
+																						}
 
-																					{
-																						nomination.get('coProductions').size > 0 &&
-																						nomination.get('materials').size > 0 && (
-																							<React.Fragment>{';'}</React.Fragment>
-																						)
-																					}
+																						{
+																							nomination.get('coProductions').size > 0 &&
+																							nomination.get('materials').size > 0 && (
+																								<React.Fragment>{';'}</React.Fragment>
+																							)
+																						}
 
-																					{
-																						nomination.get('materials').size > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' for '}</React.Fragment>
-																								<Materials
-																									materials={nomination.get('materials')}
-																								/>
-																							</React.Fragment>
-																						)
-																					}
-																				</React.Fragment>
-																			)
-																			.reduce((prev, curr) => [prev, ', ', curr])
-																	}
-																</React.Fragment>
-															)
-															.reduce((prev, curr) => [prev, '; ', curr])
-													}
-												</li>
-											)
-										}
+																						{
+																							nomination.get('materials').size > 0 && (
+																								<React.Fragment>
+																									<React.Fragment>{' for '}</React.Fragment>
+																									<Materials
+																										materials={nomination.get('materials')}
+																									/>
+																								</React.Fragment>
+																							)
+																						}
+																					</React.Fragment>
+																				)
+																				.reduce((prev, curr) => [prev, ', ', curr])
+																		}
+																	</React.Fragment>
+																)
+																.reduce((prev, curr) => [prev, '; ', curr])
+														}
+													</li>
+												)
+											}
 
-									</ul>
-								</React.Fragment>
-							)
-						}
+										</ul>
+									</React.Fragment>
+								)
+							}
 
-					</InstanceFacet>
-				)
-			}
+						</InstanceFacet>
+					)
+				}
 
 			</InstanceWrapper>
 		);

@@ -23,7 +23,7 @@ const ProducerCredits = props => {
 						return (
 							<React.Fragment key={index}>
 
-								<React.Fragment>{ creditName }&nbsp;</React.Fragment>
+								<React.Fragment>{`${creditName} `}</React.Fragment>
 
 								<ProducerEntities entities={credit.get('entities')} />
 

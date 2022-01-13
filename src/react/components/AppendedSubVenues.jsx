@@ -11,7 +11,7 @@ const AppendedSubVenues = props => {
 	return (
 		<React.Fragment>
 
-			<React.Fragment>:&nbsp;</React.Fragment>
+			<React.Fragment>{': '}</React.Fragment>
 
 			{
 				subVenues

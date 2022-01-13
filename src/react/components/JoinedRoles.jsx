@@ -26,13 +26,13 @@ const JoinedRoles = props => {
 
 							{
 								Map.isMap(instance) && instance.get('qualifier') && (
-									<React.Fragment>&nbsp;({ instance.get('qualifier') })</React.Fragment>
+									<React.Fragment>{` (${instance.get('qualifier')})`}</React.Fragment>
 								)
 							}
 
 							{
 								Map.isMap(instance) && instance.get('isAlternate') && (
-									<React.Fragment>&nbsp;(alt)</React.Fragment>
+									<React.Fragment>{' (alt)'}</React.Fragment>
 								)
 							}
 

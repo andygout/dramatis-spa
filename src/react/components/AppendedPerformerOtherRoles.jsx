@@ -11,7 +11,7 @@ const AppendedPerformerOtherRoles = props => {
 	return (
 		<React.Fragment>
 
-			<React.Fragment>; also performed:&nbsp;</React.Fragment>
+			<React.Fragment>{'; also performed: '}</React.Fragment>
 
 			<JoinedRoles instances={otherRoles} />
 

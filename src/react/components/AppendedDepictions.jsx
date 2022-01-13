@@ -16,19 +16,19 @@ const AppendedDepictions = props => {
 
 							{
 								depiction.get('displayName') && (
-									<React.Fragment>&nbsp;(as <span className="role-text">{ depiction.get('displayName') }</span>)</React.Fragment>
+									<React.Fragment>{' (as '}<span className="role-text">{ depiction.get('displayName') }</span>)</React.Fragment>
 								)
 							}
 
 							{
 								depiction.get('qualifier') && (
-									<React.Fragment>&nbsp;({ depiction.get('qualifier') })</React.Fragment>
+									<React.Fragment>{` (${depiction.get('qualifier')})`}</React.Fragment>
 								)
 							}
 
 							{
 								depiction.get('group') && (
-									<React.Fragment>&nbsp;({ depiction.get('group') })</React.Fragment>
+									<React.Fragment>{` (${depiction.get('group')})`}</React.Fragment>
 								)
 							}
 
