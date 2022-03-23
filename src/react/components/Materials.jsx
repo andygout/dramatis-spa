@@ -2,7 +2,7 @@ import { List } from 'immutable';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { AppendedFormatAndYear, InstanceLink } from '.';
+import { AppendedFormatAndYear, AppendedWritingCredits, InstanceLink } from '.';
 
 const Materials = props => {
 
@@ -24,6 +24,12 @@ const Materials = props => {
 										format={material.get('format')}
 										year={material.get('year')}
 									/>
+								)
+							}
+
+							{
+								material.get('writingCredits')?.size > 0 && (
+									<AppendedWritingCredits credits={material.get('writingCredits')} />
 								)
 							}
 
