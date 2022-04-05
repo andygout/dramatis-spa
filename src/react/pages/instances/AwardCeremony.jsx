@@ -43,9 +43,11 @@ class AwardCeremony extends React.Component {
 												category.get('nominations').map((nomination, index) =>
 													<li key={index}>
 														{
-															nomination.get('isWinner')
-																? (<span>{'Winner: '}</span>)
-																: (<span>{'Nomination: '}</span>)
+															nomination.get('customType')
+																? (<span>{`${nomination.get('customType')}: `}</span>)
+																: nomination.get('isWinner')
+																	? (<span>{'Winner: '}</span>)
+																	: (<span>{'Nomination: '}</span>)
 														}
 
 														{
