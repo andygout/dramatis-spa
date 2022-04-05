@@ -210,9 +210,11 @@ class Material extends React.Component {
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
 																						{
-																							nomination.get('isWinner')
-																								? (<span>{'Winner'}</span>)
-																								: (<span>{'Nomination'}</span>)
+																							nomination.get('customType')
+																								? (<span>{nomination.get('customType')}</span>)
+																								: nomination.get('isWinner')
+																									? (<span>{'Winner'}</span>)
+																									: (<span>{'Nomination'}</span>)
 																						}
 
 																						{
@@ -303,9 +305,11 @@ class Material extends React.Component {
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
 																						{
-																							nomination.get('isWinner')
-																								? (<span>{'Winner'}</span>)
-																								: (<span>{'Nomination'}</span>)
+																							nomination.get('customType')
+																								? (<span>{nomination.get('customType')}</span>)
+																								: nomination.get('isWinner')
+																									? (<span>{'Winner'}</span>)
+																									: (<span>{'Nomination'}</span>)
 																						}
 
 																						{
@@ -407,9 +411,11 @@ class Material extends React.Component {
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
 																						{
-																							nomination.get('isWinner')
-																								? (<span>{'Winner'}</span>)
-																								: (<span>{'Nomination'}</span>)
+																							nomination.get('customType')
+																								? (<span>{nomination.get('customType')}</span>)
+																								: nomination.get('isWinner')
+																									? (<span>{'Winner'}</span>)
+																									: (<span>{'Nomination'}</span>)
 																						}
 
 																						{
