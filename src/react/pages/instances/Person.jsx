@@ -143,13 +143,7 @@ class Person extends React.Component {
 																			category.get('nominations')
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
-																						{
-																							nomination.get('customType')
-																								? (<span>{nomination.get('customType')}</span>)
-																								: nomination.get('isWinner')
-																									? (<span>{'Winner'}</span>)
-																									: (<span>{'Nomination'}</span>)
-																						}
+																						<span>{nomination.get('type')}</span>
 
 																						{
 																							nomination.get('employerCompany') && (
@@ -242,13 +236,7 @@ class Person extends React.Component {
 																			category.get('nominations')
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
-																						{
-																							nomination.get('customType')
-																								? (<span>{nomination.get('customType')}</span>)
-																								: nomination.get('isWinner')
-																									? (<span>{'Winner'}</span>)
-																									: (<span>{'Nomination'}</span>)
-																						}
+																						<span>{nomination.get('type')}</span>
 
 																						{
 																							nomination.get('subsequentVersionMaterials').size > 0 && (
@@ -352,13 +340,7 @@ class Person extends React.Component {
 																			category.get('nominations')
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
-																						{
-																							nomination.get('customType')
-																								? (<span>{nomination.get('customType')}</span>)
-																								: nomination.get('isWinner')
-																									? (<span>{'Winner'}</span>)
-																									: (<span>{'Nomination'}</span>)
-																						}
+																						<span>{nomination.get('type')}</span>
 
 																						{
 																							nomination.get('sourcingMaterials').size > 0 && (
@@ -462,13 +444,7 @@ class Person extends React.Component {
 																			category.get('nominations')
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
-																						{
-																							nomination.get('customType')
-																								? (<span>{nomination.get('customType')}</span>)
-																								: nomination.get('isWinner')
-																									? (<span>{'Winner'}</span>)
-																									: (<span>{'Nomination'}</span>)
-																						}
+																						<span>{nomination.get('type')}</span>
 
 																						{
 																							nomination.get('rightsGrantorMaterials').size > 0 && (

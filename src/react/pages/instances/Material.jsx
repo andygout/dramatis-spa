@@ -209,13 +209,7 @@ class Material extends React.Component {
 																			category.get('nominations')
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
-																						{
-																							nomination.get('customType')
-																								? (<span>{nomination.get('customType')}</span>)
-																								: nomination.get('isWinner')
-																									? (<span>{'Winner'}</span>)
-																									: (<span>{'Nomination'}</span>)
-																						}
+																						<span>{nomination.get('type')}</span>
 
 																						{
 																							nomination.get('entities').size > 0 && (
@@ -304,13 +298,7 @@ class Material extends React.Component {
 																			category.get('nominations')
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
-																						{
-																							nomination.get('customType')
-																								? (<span>{nomination.get('customType')}</span>)
-																								: nomination.get('isWinner')
-																									? (<span>{'Winner'}</span>)
-																									: (<span>{'Nomination'}</span>)
-																						}
+																						<span>{nomination.get('type')}</span>
 
 																						{
 																							nomination.get('subsequentVersionMaterials').size > 0 && (
@@ -410,13 +398,7 @@ class Material extends React.Component {
 																			category.get('nominations')
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
-																						{
-																							nomination.get('customType')
-																								? (<span>{nomination.get('customType')}</span>)
-																								: nomination.get('isWinner')
-																									? (<span>{'Winner'}</span>)
-																									: (<span>{'Nomination'}</span>)
-																						}
+																						<span>{nomination.get('type')}</span>
 
 																						{
 																							nomination.get('sourcingMaterials').size > 0 && (
