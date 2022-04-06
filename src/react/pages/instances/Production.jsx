@@ -178,7 +178,9 @@ class Production extends React.Component {
 																			category.get('nominations')
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
-																						<span>{nomination.get('type')}</span>
+																						<span className={nomination.get('isWinner') ? 'nomination-winner-text' : ''}>
+																							{nomination.get('type')}
+																						</span>
 
 																						{
 																							nomination.get('entities').size > 0 && (

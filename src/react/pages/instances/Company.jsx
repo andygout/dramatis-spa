@@ -132,7 +132,9 @@ class Company extends React.Component {
 																			category.get('nominations')
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
-																						<span>{nomination.get('type')}</span>
+																						<span className={nomination.get('isWinner') ? 'nomination-winner-text' : ''}>
+																							{nomination.get('type')}
+																						</span>
 
 																						{
 																							nomination.get('members')?.size > 0 && (
@@ -225,7 +227,9 @@ class Company extends React.Component {
 																			category.get('nominations')
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
-																						<span>{nomination.get('type')}</span>
+																						<span className={nomination.get('isWinner') ? 'nomination-winner-text' : ''}>
+																							{nomination.get('type')}
+																						</span>
 
 																						{
 																							nomination.get('subsequentVersionMaterials').size > 0 && (
@@ -329,7 +333,9 @@ class Company extends React.Component {
 																			category.get('nominations')
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
-																						<span>{nomination.get('type')}</span>
+																						<span className={nomination.get('isWinner') ? 'nomination-winner-text' : ''}>
+																							{nomination.get('type')}
+																						</span>
 
 																						{
 																							nomination.get('sourcingMaterials').size > 0 && (
@@ -433,7 +439,9 @@ class Company extends React.Component {
 																			category.get('nominations')
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
-																						<span>{nomination.get('type')}</span>
+																						<span className={nomination.get('isWinner') ? 'nomination-winner-text' : ''}>
+																							{nomination.get('type')}
+																						</span>
 
 																						{
 																							nomination.get('rightsGrantorMaterials').size > 0 && (
