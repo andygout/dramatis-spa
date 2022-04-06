@@ -209,7 +209,9 @@ class Material extends React.Component {
 																			category.get('nominations')
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
-																						<span>{nomination.get('type')}</span>
+																						<span className={nomination.get('isWinner') ? 'nomination-winner-text' : ''}>
+																							{nomination.get('type')}
+																						</span>
 
 																						{
 																							nomination.get('entities').size > 0 && (
@@ -298,7 +300,9 @@ class Material extends React.Component {
 																			category.get('nominations')
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
-																						<span>{nomination.get('type')}</span>
+																						<span className={nomination.get('isWinner') ? 'nomination-winner-text' : ''}>
+																							{nomination.get('type')}
+																						</span>
 
 																						{
 																							nomination.get('subsequentVersionMaterials').size > 0 && (
@@ -398,7 +402,9 @@ class Material extends React.Component {
 																			category.get('nominations')
 																				.map((nomination, index) =>
 																					<React.Fragment key={index}>
-																						<span>{nomination.get('type')}</span>
+																						<span className={nomination.get('isWinner') ? 'nomination-winner-text' : ''}>
+																							{nomination.get('type')}
+																						</span>
 
 																						{
 																							nomination.get('sourcingMaterials').size > 0 && (
