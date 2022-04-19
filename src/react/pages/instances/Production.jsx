@@ -12,6 +12,7 @@ import {
 	InstanceLink,
 	List,
 	Materials,
+	PrependedSurMaterial,
 	ProducerCredits,
 	Productions
 } from '../../components';
@@ -42,6 +43,12 @@ class Production extends React.Component {
 				{
 					material && (
 						<InstanceFacet labelText='Material'>
+
+							{
+								material.get('surMaterial') && (
+									<PrependedSurMaterial surMaterial={material.get('surMaterial')} />
+								)
+							}
 
 							<InstanceLink instance={material} />
 
