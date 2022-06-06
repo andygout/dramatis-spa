@@ -11,7 +11,7 @@ const AppendedPerformers = props => {
 	return (
 		<React.Fragment>
 
-			<React.Fragment>{' - performed by: '};</React.Fragment>
+			<React.Fragment>{' - performed by: '}</React.Fragment>
 
 			{
 				performers
