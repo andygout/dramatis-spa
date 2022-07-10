@@ -2,7 +2,7 @@ import { List } from 'immutable';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { AppendedFormatAndYear, AppendedWritingCredits, InstanceLink } from '.';
+import { AppendedFormatAndYear, AppendedWritingCredits, InstanceLink, PrependedSurMaterial } from '.';
 
 const Materials = props => {
 
@@ -15,6 +15,12 @@ const Materials = props => {
 				materials
 					.map((material, index) =>
 						<React.Fragment key={index}>
+
+							{
+								material.get('surMaterial') && (
+									<PrependedSurMaterial surMaterial={material.get('surMaterial')} />
+								)
+							}
 
 							<InstanceLink instance={material} />
 

@@ -2,7 +2,7 @@ import { List } from 'immutable';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { AppendedFormatAndYear, InstanceLink, WritingCredits } from '.';
+import { AppendedFormatAndYear, InstanceLink, PrependedSurMaterial, WritingCredits } from '.';
 
 const WritingEntities = props => {
 
@@ -15,6 +15,12 @@ const WritingEntities = props => {
 				entities
 					.map((entity, index) =>
 						<React.Fragment key={index}>
+
+							{
+								entity.get('surMaterial') && (
+									<PrependedSurMaterial surMaterial={entity.get('surMaterial')} />
+								)
+							}
 
 							{
 								entity.get('uuid')

@@ -26,6 +26,8 @@ class Material extends React.Component {
 		const format = material.get('format');
 		const year = material.get('year');
 		const writingCredits = material.get('writingCredits');
+		const surMaterial = material.get('surMaterial');
+		const subMaterials = material.get('subMaterials');
 		const characterGroups = material.get('characterGroups');
 		const originalVersionMaterial = material.get('originalVersionMaterial');
 		const subsequentVersionMaterials = material.get('subsequentVersionMaterials');
@@ -67,6 +69,41 @@ class Material extends React.Component {
 						<InstanceFacet labelText='Writers'>
 
 							<WritingCredits credits={writingCredits} isAppendage={false} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					surMaterial && (
+						<InstanceFacet labelText='Part of'>
+
+							<InstanceLink instance={surMaterial} />
+
+							{
+								(surMaterial.get('format') || surMaterial.get('year')) && (
+									<AppendedFormatAndYear
+										format={surMaterial.get('format')}
+										year={surMaterial.get('year')}
+									/>
+								)
+							}
+
+							{
+								surMaterial.get('writingCredits')?.size > 0 && (
+									<AppendedWritingCredits credits={surMaterial.get('writingCredits')} />
+								)
+							}
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					subMaterials?.size > 0 && (
+						<InstanceFacet labelText='Comprises'>
+
+							<List instances={subMaterials} />
 
 						</InstanceFacet>
 					)
@@ -237,6 +274,31 @@ class Material extends React.Component {
 
 																						{
 																							nomination.get('productions').size > 0 &&
+																							(nomination.get('recipientMaterial') || nomination.get('coMaterials').size > 0) && (
+																								<React.Fragment>{';'}</React.Fragment>
+																							)
+																						}
+
+																						{
+																							nomination.get('recipientMaterial') && (
+																								<React.Fragment>
+																									<React.Fragment>{' (for '}</React.Fragment>
+																									<InstanceLink instance={nomination.get('recipientMaterial')} />
+																									{
+																										(nomination.getIn(['recipientMaterial', 'format']) || nomination.getIn(['recipientMaterial', 'year'])) && (
+																											<AppendedFormatAndYear
+																												format={nomination.getIn(['recipientMaterial', 'format'])}
+																												year={nomination.getIn(['recipientMaterial', 'year'])}
+																											/>
+																										)
+																									}
+																									<React.Fragment>{')'}</React.Fragment>
+																								</React.Fragment>
+																							)
+																						}
+
+																						{
+																							nomination.get('recipientMaterial') &&
 																							nomination.get('coMaterials').size > 0 && (
 																								<React.Fragment>{';'}</React.Fragment>
 																							)
