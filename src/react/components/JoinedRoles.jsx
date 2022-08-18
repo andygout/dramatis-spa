@@ -1,6 +1,6 @@
-import { List, Map } from 'immutable';
-import PropTypes from 'prop-types';
+import { Map } from 'immutable';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { InstanceLink } from '.';
 
@@ -47,7 +47,7 @@ const JoinedRoles = props => {
 };
 
 JoinedRoles.propTypes = {
-	instances: PropTypes.instanceOf(List).isRequired
+	instances: ImmutablePropTypes.list.isRequired
 };
 
 export default JoinedRoles;

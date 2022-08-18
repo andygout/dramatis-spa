@@ -1,6 +1,5 @@
-import { Map } from 'immutable';
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import {
@@ -538,7 +537,7 @@ class Person extends React.Component {
 }
 
 Person.propTypes = {
-	person: PropTypes.instanceOf(Map).isRequired
+	person: ImmutablePropTypes.map.isRequired
 };
 
 const mapStateToProps = state => ({

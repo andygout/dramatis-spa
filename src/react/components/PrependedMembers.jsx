@@ -1,6 +1,5 @@
-import { List } from 'immutable';
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { CommaSeparatedInstanceLinks } from '.';
 
@@ -21,7 +20,7 @@ const PrependedMembers = props => {
 };
 
 PrependedMembers.propTypes = {
-	members: PropTypes.instanceOf(List).isRequired
+	members: ImmutablePropTypes.list.isRequired
 };
 
 export default PrependedMembers;

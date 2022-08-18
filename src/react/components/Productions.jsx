@@ -1,6 +1,5 @@
-import { List } from 'immutable';
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { AppendedVenue, InstanceLink } from '.';
 
@@ -35,7 +34,7 @@ const Productions = props => {
 };
 
 Productions.propTypes = {
-	productions: PropTypes.instanceOf(List).isRequired
+	productions: ImmutablePropTypes.list.isRequired
 };
 
 export default Productions;

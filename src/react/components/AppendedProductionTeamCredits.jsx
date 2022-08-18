@@ -1,6 +1,5 @@
-import { List } from 'immutable';
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { AppendedCoEntities, AppendedEmployerCompany, AppendedMembers } from '.';
 
@@ -49,7 +48,7 @@ const AppendedProductionTeamCredits = props => {
 };
 
 AppendedProductionTeamCredits.propTypes = {
-	credits: PropTypes.instanceOf(List).isRequired
+	credits: ImmutablePropTypes.list.isRequired
 };
 
 export default AppendedProductionTeamCredits;
