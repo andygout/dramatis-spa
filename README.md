@@ -4,7 +4,7 @@ Single-page application (SPA) that provides listings for theatrical productions,
 
 ## Setup
 - Clone this repo.
-- Set Node to version specified in `.nvmrc`, which can be achieved by running `$ nvm use`.
+- Set Node to version specified in `.nvmrc`, which can be achieved by running `$ nvm use` (if using [Volta](https://docs.volta.sh/guide/getting-started) then it will be set automatically).
 - Install node modules: `$ npm install`.
 - Compile code: `$ npm run build`.
 
