@@ -1,6 +1,5 @@
-import { Map } from 'immutable';
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import { InstanceFacet, InstanceLink, List } from '../../components';
@@ -57,7 +56,7 @@ class Venue extends React.Component {
 }
 
 Venue.propTypes = {
-	venue: PropTypes.instanceOf(Map).isRequired
+	venue: ImmutablePropTypes.map.isRequired
 };
 
 const mapStateToProps = state => ({

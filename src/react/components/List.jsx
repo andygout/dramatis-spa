@@ -1,6 +1,5 @@
-import { List as ImmutableList } from 'immutable';
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import {
 	AppendedDepictions,
@@ -151,7 +150,7 @@ const List = props => {
 };
 
 List.propTypes = {
-	instances: PropTypes.instanceOf(ImmutableList).isRequired
+	instances: ImmutablePropTypes.list.isRequired
 };
 
 export default List;

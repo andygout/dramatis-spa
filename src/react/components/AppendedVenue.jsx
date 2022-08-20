@@ -1,6 +1,5 @@
-import { Map } from 'immutable';
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { InstanceLink } from '.';
 
@@ -27,7 +26,7 @@ const AppendedVenue = props => {
 };
 
 AppendedVenue.propTypes = {
-	venue: PropTypes.instanceOf(Map).isRequired
+	venue: ImmutablePropTypes.map.isRequired
 };
 
 export default AppendedVenue;

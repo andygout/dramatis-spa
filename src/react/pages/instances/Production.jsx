@@ -1,6 +1,5 @@
-import { Map } from 'immutable';
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import { formatDate } from '../../../lib/format-date';
@@ -258,7 +257,7 @@ class Production extends React.Component {
 }
 
 Production.propTypes = {
-	production: PropTypes.instanceOf(Map).isRequired
+	production: ImmutablePropTypes.map.isRequired
 };
 
 const mapStateToProps = state => ({

@@ -1,6 +1,5 @@
-import { List } from 'immutable';
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { JoinedRoles } from '.';
 
@@ -21,7 +20,7 @@ const AppendedPerformerOtherRoles = props => {
 };
 
 AppendedPerformerOtherRoles.propTypes = {
-	otherRoles: PropTypes.instanceOf(List).isRequired
+	otherRoles: ImmutablePropTypes.list.isRequired
 };
 
 export default AppendedPerformerOtherRoles;

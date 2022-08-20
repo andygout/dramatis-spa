@@ -1,6 +1,5 @@
-import { List } from 'immutable';
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { AppendedFormatAndYear, InstanceLink, PrependedSurMaterial, WritingCredits } from '.';
 
@@ -57,7 +56,7 @@ const WritingEntities = props => {
 };
 
 WritingEntities.propTypes = {
-	entities: PropTypes.instanceOf(List).isRequired
+	entities: ImmutablePropTypes.list.isRequired
 };
 
 export default WritingEntities;

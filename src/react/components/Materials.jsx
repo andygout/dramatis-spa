@@ -1,6 +1,5 @@
-import { List } from 'immutable';
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { AppendedFormatAndYear, AppendedWritingCredits, InstanceLink, PrependedSurMaterial } from '.';
 
@@ -50,7 +49,7 @@ const Materials = props => {
 };
 
 Materials.propTypes = {
-	materials: PropTypes.instanceOf(List).isRequired
+	materials: ImmutablePropTypes.list.isRequired
 };
 
 export default Materials;

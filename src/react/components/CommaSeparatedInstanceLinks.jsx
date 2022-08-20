@@ -1,6 +1,5 @@
-import { List } from 'immutable';
-import PropTypes from 'prop-types';
 import React from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { InstanceLink } from '.';
 
@@ -33,7 +32,7 @@ const CommaSeparatedInstanceLinks = props => {
 };
 
 CommaSeparatedInstanceLinks.propTypes = {
-	instances: PropTypes.instanceOf(List).isRequired
+	instances: ImmutablePropTypes.list.isRequired
 };
 
 export default CommaSeparatedInstanceLinks;
