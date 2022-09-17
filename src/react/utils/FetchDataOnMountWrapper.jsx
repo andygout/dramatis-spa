@@ -3,15 +3,15 @@ import React, { useEffect } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { useRouteMatch } from 'react-router-dom';
+import { useMatch } from 'react-router-dom';
 
 import { ErrorMessage, Footer, Header, Navigation } from '../components';
 
 const FetchDataOnMountWrapper = props => {
 
-	const { documentTitle, error, children } = props;
+	const { path, documentTitle, error, children } = props;
 
-	const match = useRouteMatch();
+	const match = useMatch(path);
 
 	useEffect(() => {
 
@@ -52,6 +52,7 @@ const FetchDataOnMountWrapper = props => {
 };
 
 FetchDataOnMountWrapper.propTypes = {
+	path: PropTypes.string.isRequired,
 	documentTitle: PropTypes.func.isRequired,
 	error: ImmutablePropTypes.map.isRequired,
 	children: PropTypes.node.isRequired,

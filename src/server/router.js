@@ -28,7 +28,7 @@ router.get('*', async (request, response, next) => {
 
 		routes.some(route => {
 
-			const match = matchPath(request.url, route);
+			const match = matchPath(route, request.url);
 
 			if (match && route.fetchData) {
 				route.fetchData.forEach(fetchDataFunction =>

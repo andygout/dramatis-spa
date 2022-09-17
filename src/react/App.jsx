@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 import routes from './routes';
 import { FetchDataOnMountWrapper } from './utils';
@@ -9,7 +9,7 @@ const App = () => {
 	const location = useLocation();
 
 	return (
-		<Switch>
+		<Routes>
 			{
 				routes.map((route, index) => {
 					const RouteComponent = route.component;
@@ -18,20 +18,21 @@ const App = () => {
 						<Route
 							key={index}
 							path={route.path}
-							exact={route.exact}
-						>
-							<FetchDataOnMountWrapper
-								documentTitle={route.documentTitle}
-								fetchData={route.fetchData}
-								key={location.key}
-							>
-								<RouteComponent />
-							</FetchDataOnMountWrapper>
-						</Route>
+							element={
+								<FetchDataOnMountWrapper
+									key={location.pathname}
+									path={route.path}
+									documentTitle={route.documentTitle}
+									fetchData={route.fetchData}
+								>
+									<RouteComponent />
+								</FetchDataOnMountWrapper>
+							}
+						/>
 					);
 				})
 			}
-		</Switch>
+		</Routes>
 	);
 
 };
