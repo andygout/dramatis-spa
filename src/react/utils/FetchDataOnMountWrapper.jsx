@@ -1,65 +1,62 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
+import { useRouteMatch } from 'react-router-dom';
 
 import { ErrorMessage, Footer, Header, Navigation } from '../components';
 
-class FetchDataOnMountWrapper extends React.Component {
+const FetchDataOnMountWrapper = props => {
 
-	componentDidMount () {
+	const { documentTitle, error, children } = props;
 
-		const { fetchData, dispatch, match } = this.props;
+	const match = useRouteMatch();
+
+	useEffect(() => {
+
+		const { fetchData, dispatch } = props;
 
 		if (fetchData) fetchData.map(fetchDataFunction => fetchDataFunction(dispatch, match));
 
-	}
+	}, []);
 
-	render () {
+	return (
+		<React.Fragment>
 
-		const { documentTitle, error, children } = this.props;
+			<Helmet
+				defaultTitle='TheatreBase'
+				titleTemplate='%s | TheatreBase'
+				title={documentTitle()}
+			/>
 
-		return (
-			<React.Fragment>
+			<Header />
 
-				<Helmet
-					defaultTitle='TheatreBase'
-					titleTemplate='%s | TheatreBase'
-					title={documentTitle()}
-				/>
+			<Navigation />
 
-				<Header />
+			<main className="main-content">
 
-				<Navigation />
+				{
+					error.get('isExistent')
+						? <ErrorMessage errorText={error.get('message')} />
+						: children
+				}
 
-				<main className="main-content">
+			</main>
 
-					{
-						error.get('isExistent')
-							? <ErrorMessage errorText={error.get('message')} />
-							: children
-					}
+			<Footer />
 
-				</main>
+		</React.Fragment>
+	);
 
-				<Footer />
-
-			</React.Fragment>
-		);
-
-	}
-
-}
+};
 
 FetchDataOnMountWrapper.propTypes = {
 	documentTitle: PropTypes.func.isRequired,
 	error: ImmutablePropTypes.map.isRequired,
 	children: PropTypes.node.isRequired,
 	fetchData: PropTypes.array.isRequired,
-	dispatch: PropTypes.func.isRequired,
-	match: PropTypes.object.isRequired,
-	location: PropTypes.object.isRequired
+	dispatch: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({

@@ -1,45 +1,39 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 
 import routes from './routes';
 import { FetchDataOnMountWrapper } from './utils';
 
-class App extends React.Component {
+const App = () => {
 
-	render () {
+	const location = useLocation();
 
-		return (
-			<Switch>
-				{
-					routes.map((route, index) =>
+	return (
+		<Switch>
+			{
+				routes.map((route, index) => {
+					const RouteComponent = route.component;
+
+					return (
 						<Route
 							key={index}
 							path={route.path}
 							exact={route.exact}
-							render={
-								props => {
-									const RouteComponent = route.component;
-									return (
-										<FetchDataOnMountWrapper
-											{...props}
-											documentTitle={route.documentTitle}
-											fetchData={route.fetchData}
-											key={props.match.params.uuid}
-										>
-											<RouteComponent />
-										</FetchDataOnMountWrapper>
-									);
-								}
-							}
-						/>
+						>
+							<FetchDataOnMountWrapper
+								documentTitle={route.documentTitle}
+								fetchData={route.fetchData}
+								key={location.key}
+							>
+								<RouteComponent />
+							</FetchDataOnMountWrapper>
+						</Route>
+					);
+				})
+			}
+		</Switch>
+	);
 
-					)
-				}
-			</Switch>
-		);
-
-	}
-
-}
+};
 
 export default App;
