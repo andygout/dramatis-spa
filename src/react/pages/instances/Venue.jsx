@@ -5,55 +5,51 @@ import { connect } from 'react-redux';
 import { InstanceFacet, InstanceLink, List } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
-class Venue extends React.Component {
+const Venue = props => {
 
-	render () {
+	const { venue } = props;
 
-		const { venue } = this.props;
+	const surVenue = venue.get('surVenue');
+	const subVenues = venue.get('subVenues');
+	const productions = venue.get('productions');
 
-		const surVenue = venue.get('surVenue');
-		const subVenues = venue.get('subVenues');
-		const productions = venue.get('productions');
+	return (
+		<InstanceWrapper instance={venue}>
 
-		return (
-			<InstanceWrapper instance={venue}>
+			{
+				surVenue && (
+					<InstanceFacet labelText='Part of'>
 
-				{
-					surVenue && (
-						<InstanceFacet labelText='Part of'>
+						<InstanceLink instance={surVenue} />
 
-							<InstanceLink instance={surVenue} />
+					</InstanceFacet>
+				)
+			}
 
-						</InstanceFacet>
-					)
-				}
+			{
+				subVenues?.size > 0 && (
+					<InstanceFacet labelText='Comprises'>
 
-				{
-					subVenues?.size > 0 && (
-						<InstanceFacet labelText='Comprises'>
+						<List instances={subVenues} />
 
-							<List instances={subVenues} />
+					</InstanceFacet>
+				)
+			}
 
-						</InstanceFacet>
-					)
-				}
+			{
+				productions?.size > 0 && (
+					<InstanceFacet labelText='Productions'>
 
-				{
-					productions?.size > 0 && (
-						<InstanceFacet labelText='Productions'>
+						<List instances={productions} />
 
-							<List instances={productions} />
+					</InstanceFacet>
+				)
+			}
 
-						</InstanceFacet>
-					)
-				}
+		</InstanceWrapper>
+	);
 
-			</InstanceWrapper>
-		);
-
-	}
-
-}
+};
 
 Venue.propTypes = {
 	venue: ImmutablePropTypes.map.isRequired

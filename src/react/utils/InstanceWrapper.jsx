@@ -6,48 +6,44 @@ import getDifferentiatorSuffix from '../../lib/get-differentiator-suffix';
 import getInstanceTitle from '../../lib/get-instance-title';
 import { InstanceDocumentTitle, InstanceLabel, PageTitle } from '../components';
 
-class InstanceWrapper extends React.Component {
+const InstanceWrapper = props => {
 
-	render () {
+	const { instance, children } = props;
 
-		const { instance, children } = this.props;
+	const title = getInstanceTitle(instance);
 
-		const title = getInstanceTitle(instance);
+	const differentiatorSuffix = getDifferentiatorSuffix(instance.get('differentiator'));
 
-		const differentiatorSuffix = getDifferentiatorSuffix(instance.get('differentiator'));
+	const pageTitleText = [
+		title,
+		differentiatorSuffix
+	]
+		.filter(Boolean)
+		.join(' ');
 
-		const pageTitleText = [
-			title,
-			differentiatorSuffix
-		]
-			.filter(Boolean)
-			.join(' ');
+	return (
+		<React.Fragment>
 
-		return (
-			<React.Fragment>
+			{
+				instance.get('name') && instance.get('model') && (
+					<InstanceDocumentTitle
+						title={title}
+						model={instance.get('model')}
+						differentiatorSuffix={differentiatorSuffix}
+					/>
+				)
+			}
 
-				{
-					instance.get('name') && instance.get('model') && (
-						<InstanceDocumentTitle
-							title={title}
-							model={instance.get('model')}
-							differentiatorSuffix={differentiatorSuffix}
-						/>
-					)
-				}
+			<InstanceLabel model={instance.get('model', '')} />
 
-				<InstanceLabel model={instance.get('model', '')} />
+			<PageTitle text={pageTitleText} />
 
-				<PageTitle text={pageTitleText} />
+			{ children }
 
-				{ children }
+		</React.Fragment>
+	);
 
-			</React.Fragment>
-		);
-
-	}
-
-}
+};
 
 InstanceWrapper.propTypes = {
 	instance: ImmutablePropTypes.map.isRequired,

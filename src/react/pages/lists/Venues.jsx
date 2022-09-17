@@ -4,23 +4,19 @@ import { connect } from 'react-redux';
 
 import { ListWrapper } from '../../utils';
 
-class Venues extends React.Component {
+const Venues = props => {
 
-	render () {
+	const { venues } = props;
 
-		const { venues } = this.props;
+	return (
+		<ListWrapper
+			instances={venues}
+			pageTitleText='Venues'
+		>
+		</ListWrapper>
+	);
 
-		return (
-			<ListWrapper
-				instances={venues}
-				pageTitleText='Venues'
-			>
-			</ListWrapper>
-		);
-
-	}
-
-}
+};
 
 Venues.propTypes = {
 	venues: ImmutablePropTypes.list.isRequired

@@ -4,23 +4,19 @@ import { connect } from 'react-redux';
 
 import { ListWrapper } from '../../utils';
 
-class AwardCeremonies extends React.Component {
+const AwardCeremonies = props => {
 
-	render () {
+	const { awardCeremonies } = props;
 
-		const { awardCeremonies } = this.props;
+	return (
+		<ListWrapper
+			instances={awardCeremonies}
+			pageTitleText='Award ceremonies'
+		>
+		</ListWrapper>
+	);
 
-		return (
-			<ListWrapper
-				instances={awardCeremonies}
-				pageTitleText='Award ceremonies'
-			>
-			</ListWrapper>
-		);
-
-	}
-
-}
+};
 
 AwardCeremonies.propTypes = {
 	awardCeremonies: ImmutablePropTypes.list.isRequired

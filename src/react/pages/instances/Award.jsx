@@ -5,33 +5,29 @@ import { connect } from 'react-redux';
 import { InstanceFacet, List } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
-class Award extends React.Component {
+const Award = props => {
 
-	render () {
+	const { award } = props;
 
-		const { award } = this.props;
+	const ceremonies = award.get('ceremonies');
 
-		const ceremonies = award.get('ceremonies');
+	return (
+		<InstanceWrapper instance={award}>
 
-		return (
-			<InstanceWrapper instance={award}>
+			{
+				ceremonies?.size > 0 && (
+					<InstanceFacet labelText='Ceremonies'>
 
-				{
-					ceremonies?.size > 0 && (
-						<InstanceFacet labelText='Ceremonies'>
+						<List instances={ceremonies} />
 
-							<List instances={ceremonies} />
+					</InstanceFacet>
+				)
+			}
 
-						</InstanceFacet>
-					)
-				}
+		</InstanceWrapper>
+	);
 
-			</InstanceWrapper>
-		);
-
-	}
-
-}
+};
 
 Award.propTypes = {
 	award: ImmutablePropTypes.map.isRequired

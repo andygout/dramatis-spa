@@ -5,66 +5,62 @@ import { connect } from 'react-redux';
 import { InstanceFacet, JoinedRoles, List } from '../../components';
 import { InstanceWrapper } from '../../utils';
 
-class Character extends React.Component {
+const Character = props => {
 
-	render () {
+	const { character } = props;
 
-		const { character } = this.props;
+	const variantNamedDepictions = character.get('variantNamedDepictions');
+	const materials = character.get('materials');
+	const variantNamedPortrayals = character.get('variantNamedPortrayals');
+	const productions = character.get('productions');
 
-		const variantNamedDepictions = character.get('variantNamedDepictions');
-		const materials = character.get('materials');
-		const variantNamedPortrayals = character.get('variantNamedPortrayals');
-		const productions = character.get('productions');
+	return (
+		<InstanceWrapper instance={character}>
 
-		return (
-			<InstanceWrapper instance={character}>
+			{
+				variantNamedDepictions?.size > 0 && (
+					<InstanceFacet labelText='Variant named depictions'>
 
-				{
-					variantNamedDepictions?.size > 0 && (
-						<InstanceFacet labelText='Variant named depictions'>
+						<JoinedRoles instances={variantNamedDepictions} />
 
-							<JoinedRoles instances={variantNamedDepictions} />
+					</InstanceFacet>
+				)
+			}
 
-						</InstanceFacet>
-					)
-				}
+			{
+				materials?.size > 0 && (
+					<InstanceFacet labelText='Materials'>
 
-				{
-					materials?.size > 0 && (
-						<InstanceFacet labelText='Materials'>
+						<List instances={materials} />
 
-							<List instances={materials} />
+					</InstanceFacet>
+				)
+			}
 
-						</InstanceFacet>
-					)
-				}
+			{
+				variantNamedPortrayals?.size > 0 && (
+					<InstanceFacet labelText='Variant named portrayals'>
 
-				{
-					variantNamedPortrayals?.size > 0 && (
-						<InstanceFacet labelText='Variant named portrayals'>
+						<JoinedRoles instances={variantNamedPortrayals} />
 
-							<JoinedRoles instances={variantNamedPortrayals} />
+					</InstanceFacet>
+				)
+			}
 
-						</InstanceFacet>
-					)
-				}
+			{
+				productions?.size > 0 && (
+					<InstanceFacet labelText='Productions'>
 
-				{
-					productions?.size > 0 && (
-						<InstanceFacet labelText='Productions'>
+						<List instances={productions} />
 
-							<List instances={productions} />
+					</InstanceFacet>
+				)
+			}
 
-						</InstanceFacet>
-					)
-				}
+		</InstanceWrapper>
+	);
 
-			</InstanceWrapper>
-		);
-
-	}
-
-}
+};
 
 Character.propTypes = {
 	character: ImmutablePropTypes.map.isRequired
