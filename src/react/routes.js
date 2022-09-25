@@ -26,7 +26,6 @@ import { MODELS, PLURALISED_MODELS } from '../utils/constants';
 export default [
 	{
 		path: '/',
-		exact: true,
 		documentTitle: () => 'Home',
 		component: Home,
 		fetchData: [
@@ -35,7 +34,6 @@ export default [
 	},
 	{
 		path: '/awards/ceremonies',
-		exact: true,
 		documentTitle: () => 'Award ceremonies',
 		component: AwardCeremonies,
 		fetchData: [
@@ -54,7 +52,6 @@ export default [
 	},
 	{
 		path: '/awards',
-		exact: true,
 		documentTitle: () => 'Awards',
 		component: Awards,
 		fetchData: [
@@ -73,7 +70,6 @@ export default [
 	},
 	{
 		path: '/characters',
-		exact: true,
 		documentTitle: () => 'Characters',
 		component: Characters,
 		fetchData: [
@@ -92,7 +88,6 @@ export default [
 	},
 	{
 		path: '/companies',
-		exact: true,
 		documentTitle: () => 'Companies',
 		component: Companies,
 		fetchData: [
@@ -111,7 +106,6 @@ export default [
 	},
 	{
 		path: '/materials',
-		exact: true,
 		documentTitle: () => 'Materials',
 		component: Materials,
 		fetchData: [
@@ -130,7 +124,6 @@ export default [
 	},
 	{
 		path: '/people',
-		exact: true,
 		documentTitle: () => 'People',
 		component: People,
 		fetchData: [
@@ -149,7 +142,6 @@ export default [
 	},
 	{
 		path: '/productions',
-		exact: true,
 		documentTitle: () => 'Productions',
 		component: Productions,
 		fetchData: [
@@ -168,7 +160,6 @@ export default [
 	},
 	{
 		path: '/venues',
-		exact: true,
 		documentTitle: () => 'Venues',
 		component: Venues,
 		fetchData: [
