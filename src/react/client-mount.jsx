@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { hydrateRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { applyMiddleware, createStore } from 'redux';
@@ -23,13 +23,13 @@ window.onload = () => {
 		applyMiddleware(...[thunkMiddleware, loggerMiddleware])
 	);
 
-	ReactDOM.hydrate(
+	hydrateRoot(
+		document.getElementById('page-container'),
 		<Provider store={store}>
 			<BrowserRouter>
 				<App />
 			</BrowserRouter>
-		</Provider>,
-		document.getElementById('page-container')
+		</Provider>
 	);
 
 };
