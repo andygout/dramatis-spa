@@ -1,16 +1,14 @@
-import { Map, fromJS } from 'immutable';
-
 import {
 	REQUEST_AWARD,
 	RECEIVE_AWARD
 } from '../utils/model-action-names';
 
-const award = (state = Map(), action) => {
+const award = (state = {}, action) => {
 
 	switch (action.type) {
 
 		case RECEIVE_AWARD:
-			return fromJS(action.payload);
+			return action.payload;
 
 		case REQUEST_AWARD:
 		default:

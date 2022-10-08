@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import { InstanceFacet, InstanceLink, List } from '../../components';
@@ -9,9 +9,11 @@ const Venue = props => {
 
 	const { venue } = props;
 
-	const surVenue = venue.get('surVenue');
-	const subVenues = venue.get('subVenues');
-	const productions = venue.get('productions');
+	const {
+		surVenue,
+		subVenues,
+		productions
+	} = venue;
 
 	return (
 		<InstanceWrapper instance={venue}>
@@ -27,7 +29,7 @@ const Venue = props => {
 			}
 
 			{
-				subVenues?.size > 0 && (
+				subVenues?.length > 0 && (
 					<InstanceFacet labelText='Comprises'>
 
 						<List instances={subVenues} />
@@ -37,7 +39,7 @@ const Venue = props => {
 			}
 
 			{
-				productions?.size > 0 && (
+				productions?.length > 0 && (
 					<InstanceFacet labelText='Productions'>
 
 						<List instances={productions} />
@@ -52,11 +54,11 @@ const Venue = props => {
 };
 
 Venue.propTypes = {
-	venue: ImmutablePropTypes.map.isRequired
+	venue: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-	venue: state.get('venue')
+	venue: state.venue
 });
 
 export default connect(mapStateToProps)(Venue);

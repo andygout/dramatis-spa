@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { useMatch } from 'react-router-dom';
@@ -37,8 +36,8 @@ const FetchDataOnMountWrapper = props => {
 			<main className="main-content">
 
 				{
-					error.get('isExistent')
-						? <ErrorMessage errorText={error.get('message')} />
+					error.isExistent
+						? <ErrorMessage errorText={error.message} />
 						: children
 				}
 
@@ -54,14 +53,14 @@ const FetchDataOnMountWrapper = props => {
 FetchDataOnMountWrapper.propTypes = {
 	path: PropTypes.string.isRequired,
 	documentTitle: PropTypes.func.isRequired,
-	error: ImmutablePropTypes.map.isRequired,
+	error: PropTypes.object.isRequired,
 	children: PropTypes.node.isRequired,
 	fetchData: PropTypes.array.isRequired,
 	dispatch: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-	error: state.get('error')
+	error: state.error
 });
 
 export default connect(mapStateToProps)(FetchDataOnMountWrapper);

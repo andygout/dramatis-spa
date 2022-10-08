@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import { InstanceFacet, JoinedRoles, List } from '../../components';
@@ -9,16 +9,18 @@ const Character = props => {
 
 	const { character } = props;
 
-	const variantNamedDepictions = character.get('variantNamedDepictions');
-	const materials = character.get('materials');
-	const variantNamedPortrayals = character.get('variantNamedPortrayals');
-	const productions = character.get('productions');
+	const {
+		variantNamedDepictions,
+		materials,
+		variantNamedPortrayals,
+		productions
+	} = character;
 
 	return (
 		<InstanceWrapper instance={character}>
 
 			{
-				variantNamedDepictions?.size > 0 && (
+				variantNamedDepictions?.length > 0 && (
 					<InstanceFacet labelText='Variant named depictions'>
 
 						<JoinedRoles instances={variantNamedDepictions} />
@@ -28,7 +30,7 @@ const Character = props => {
 			}
 
 			{
-				materials?.size > 0 && (
+				materials?.length > 0 && (
 					<InstanceFacet labelText='Materials'>
 
 						<List instances={materials} />
@@ -38,7 +40,7 @@ const Character = props => {
 			}
 
 			{
-				variantNamedPortrayals?.size > 0 && (
+				variantNamedPortrayals?.length > 0 && (
 					<InstanceFacet labelText='Variant named portrayals'>
 
 						<JoinedRoles instances={variantNamedPortrayals} />
@@ -48,7 +50,7 @@ const Character = props => {
 			}
 
 			{
-				productions?.size > 0 && (
+				productions?.length > 0 && (
 					<InstanceFacet labelText='Productions'>
 
 						<List instances={productions} />
@@ -63,11 +65,11 @@ const Character = props => {
 };
 
 Character.propTypes = {
-	character: ImmutablePropTypes.map.isRequired
+	character: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-	character: state.get('character')
+	character: state.character
 });
 
 export default connect(mapStateToProps)(Character);

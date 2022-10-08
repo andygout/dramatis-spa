@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { AppendedCoEntities, AppendedEmployerCompany, AppendedMembers } from '.';
 
@@ -17,23 +17,23 @@ const AppendedProductionTeamCredits = props => {
 					.map((credit, index) =>
 						<React.Fragment key={index}>
 
-							<React.Fragment>{ credit.get('name') }</React.Fragment>
+							<React.Fragment>{ credit.name }</React.Fragment>
 
 							{
-								credit.get('members')?.size > 0 && (
-									<AppendedMembers members={credit.get('members')} />
+								credit.members?.length > 0 && (
+									<AppendedMembers members={credit.members} />
 								)
 							}
 
 							{
-								credit.get('employerCompany') && (
-									<AppendedEmployerCompany employerCompany={credit.get('employerCompany')} />
+								credit.employerCompany && (
+									<AppendedEmployerCompany employerCompany={credit.employerCompany} />
 								)
 							}
 
 							{
-								credit.get('coEntities')?.size > 0 && (
-									<AppendedCoEntities coEntities={credit.get('coEntities')} />
+								credit.coEntities?.length > 0 && (
+									<AppendedCoEntities coEntities={credit.coEntities} />
 								)
 							}
 
@@ -48,7 +48,7 @@ const AppendedProductionTeamCredits = props => {
 };
 
 AppendedProductionTeamCredits.propTypes = {
-	credits: ImmutablePropTypes.list.isRequired
+	credits: PropTypes.array.isRequired
 };
 
 export default AppendedProductionTeamCredits;

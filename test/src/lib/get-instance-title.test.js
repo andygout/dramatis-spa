@@ -1,5 +1,4 @@
 import { expect } from 'chai';
-import { Map } from 'immutable';
 
 import getInstanceTitle from '../../../src/lib/get-instance-title';
 
@@ -11,11 +10,11 @@ describe('Get Instance Title module', () => {
 
 			it('returns requisite title', () => {
 
-				const instance = Map({
+				const instance = {
 					model: 'AWARD_CEREMONY',
 					name: '2020',
 					award: null
-				});
+				};
 
 				expect(getInstanceTitle(instance)).to.equal('2020');
 
@@ -27,13 +26,13 @@ describe('Get Instance Title module', () => {
 
 			it('returns requisite title', () => {
 
-				const instance = Map({
+				const instance = {
 					model: 'AWARD_CEREMONY',
 					name: '2020',
 					award: {
 						name: 'Laurence Olivier Awards'
 					}
-				});
+				};
 
 				expect(getInstanceTitle(instance)).to.equal('Laurence Olivier Awards 2020');
 
@@ -49,11 +48,11 @@ describe('Get Instance Title module', () => {
 
 			it('returns requisite title', () => {
 
-				const instance = Map({
+				const instance = {
 					model: 'VENUE',
 					name: 'New Theatre',
 					surVenue: null
-				});
+				};
 
 				expect(getInstanceTitle(instance)).to.equal('New Theatre');
 
@@ -65,13 +64,13 @@ describe('Get Instance Title module', () => {
 
 			it('returns requisite title', () => {
 
-				const instance = Map({
+				const instance = {
 					model: 'VENUE',
 					name: 'Studio Theatre',
 					surVenue: {
 						name: 'Sheffield Theatres'
 					}
-				});
+				};
 
 				expect(getInstanceTitle(instance)).to.equal('Sheffield Theatres: Studio Theatre');
 
@@ -85,10 +84,10 @@ describe('Get Instance Title module', () => {
 
 		it('returns requisite title', () => {
 
-			const instance = Map({
+			const instance = {
 				model: 'PERSON',
 				name: 'Paul Higgins'
-			});
+			};
 
 			expect(getInstanceTitle(instance)).to.equal('Paul Higgins');
 

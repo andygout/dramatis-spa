@@ -1,16 +1,14 @@
-import { Map, fromJS } from 'immutable';
-
 import {
 	REQUEST_VENUE,
 	RECEIVE_VENUE
 } from '../utils/model-action-names';
 
-const venue = (state = Map(), action) => {
+const venue = (state = {}, action) => {
 
 	switch (action.type) {
 
 		case RECEIVE_VENUE:
-			return fromJS(action.payload);
+			return action.payload;
 
 		case REQUEST_VENUE:
 		default:

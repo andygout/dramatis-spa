@@ -1,9 +1,7 @@
 import { Router } from 'express';
-import { fromJS } from 'immutable';
 import { Helmet } from 'react-helmet';
 import { matchPath } from 'react-router-dom';
-import { applyMiddleware, createStore } from 'redux';
-import { combineReducers } from 'redux-immutable';
+import { applyMiddleware, createStore, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
 import getReactHtml from '../react/react-html';
@@ -14,7 +12,7 @@ const router = new Router();
 
 const store = createStore(
 	combineReducers(reducers),
-	fromJS({}),
+	{},
 	applyMiddleware(...[thunkMiddleware])
 );
 

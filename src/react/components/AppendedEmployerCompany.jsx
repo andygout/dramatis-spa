@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { CommaSeparatedInstanceLinks, InstanceLink } from '.';
 
@@ -13,12 +13,12 @@ const AppendedEmployerCompany = props => {
 			<React.Fragment>{' ('}</React.Fragment>
 
 			{
-				employerCompany.get('coMembers')?.size > 0 && (
+				employerCompany.coMembers?.length > 0 && (
 					<React.Fragment>
 
 						<React.Fragment>{'with '}</React.Fragment>
 
-						<CommaSeparatedInstanceLinks instances={employerCompany.get('coMembers')} />
+						<CommaSeparatedInstanceLinks instances={employerCompany.coMembers} />
 
 						<React.Fragment>{' '}</React.Fragment>
 
@@ -38,7 +38,7 @@ const AppendedEmployerCompany = props => {
 };
 
 AppendedEmployerCompany.propTypes = {
-	employerCompany: ImmutablePropTypes.map.isRequired
+	employerCompany: PropTypes.object.isRequired
 };
 
 export default AppendedEmployerCompany;

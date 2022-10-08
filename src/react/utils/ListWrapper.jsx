@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { List, PageTitle } from '../components';
 
@@ -22,7 +21,7 @@ const ListWrapper = props => {
 
 ListWrapper.propTypes = {
 	pageTitleText: PropTypes.string.isRequired,
-	instances: ImmutablePropTypes.list.isRequired
+	instances: PropTypes.array.isRequired
 };
 
 export default ListWrapper;

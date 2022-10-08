@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { InstanceLink } from '.';
 
@@ -20,7 +20,7 @@ const PrependedSurMaterial = props => {
 };
 
 PrependedSurMaterial.propTypes = {
-	surMaterial: ImmutablePropTypes.map.isRequired
+	surMaterial: PropTypes.object.isRequired
 };
 
 export default PrependedSurMaterial;

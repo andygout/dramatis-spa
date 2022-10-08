@@ -1,7 +1,7 @@
-import { Map } from 'immutable';
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
+import { isObjectWithKeys } from '../../lib/is-object-with-keys';
 import { InstanceLink } from '.';
 
 const JoinedRoles = props => {
@@ -17,21 +17,21 @@ const JoinedRoles = props => {
 						<React.Fragment key={index}>
 
 							{
-								Map.isMap(instance) && instance.get('uuid')
+								isObjectWithKeys(instance) && instance.uuid
 									? <InstanceLink instance={instance} />
-									: Map.isMap(instance)
-										? instance.get('name')
+									: isObjectWithKeys(instance)
+										? instance.name
 										: instance
 							}
 
 							{
-								Map.isMap(instance) && instance.get('qualifier') && (
-									<React.Fragment>{` (${instance.get('qualifier')})`}</React.Fragment>
+								isObjectWithKeys(instance) && instance.qualifier && (
+									<React.Fragment>{` (${instance.qualifier})`}</React.Fragment>
 								)
 							}
 
 							{
-								Map.isMap(instance) && instance.get('isAlternate') && (
+								isObjectWithKeys(instance) && instance.isAlternate && (
 									<React.Fragment>{' (alt)'}</React.Fragment>
 								)
 							}
@@ -47,7 +47,7 @@ const JoinedRoles = props => {
 };
 
 JoinedRoles.propTypes = {
-	instances: ImmutablePropTypes.list.isRequired
+	instances: PropTypes.array.isRequired
 };
 
 export default JoinedRoles;

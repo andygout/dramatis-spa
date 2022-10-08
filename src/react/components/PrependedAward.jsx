@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { InstanceLink } from '.';
 
@@ -20,7 +20,7 @@ const PrependedAward = props => {
 };
 
 PrependedAward.propTypes = {
-	award: ImmutablePropTypes.map.isRequired
+	award: PropTypes.object.isRequired
 };
 
 export default PrependedAward;

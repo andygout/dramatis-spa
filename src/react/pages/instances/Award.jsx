@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import { InstanceFacet, List } from '../../components';
@@ -9,13 +9,15 @@ const Award = props => {
 
 	const { award } = props;
 
-	const ceremonies = award.get('ceremonies');
+	const {
+		ceremonies
+	} = award;
 
 	return (
 		<InstanceWrapper instance={award}>
 
 			{
-				ceremonies?.size > 0 && (
+				ceremonies?.length > 0 && (
 					<InstanceFacet labelText='Ceremonies'>
 
 						<List instances={ceremonies} />
@@ -30,11 +32,11 @@ const Award = props => {
 };
 
 Award.propTypes = {
-	award: ImmutablePropTypes.map.isRequired
+	award: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-	award: state.get('award')
+	award: state.award
 });
 
 export default connect(mapStateToProps)(Award);

@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { AppendedFormatAndYear, InstanceLink, PrependedSurMaterial, WritingCredits } from '.';
 
@@ -16,30 +16,30 @@ const WritingEntities = props => {
 						<React.Fragment key={index}>
 
 							{
-								entity.get('surMaterial') && (
-									<PrependedSurMaterial surMaterial={entity.get('surMaterial')} />
+								entity.surMaterial && (
+									<PrependedSurMaterial surMaterial={entity.surMaterial} />
 								)
 							}
 
 							{
-								entity.get('uuid')
+								entity.uuid
 									? <InstanceLink instance={entity} />
-									: entity.get('name')
+									: entity.name
 							}
 
 							{
-								(entity.get('format') || entity.get('year')) && (
-									<AppendedFormatAndYear format={entity.get('format')} year={entity.get('year')} />
+								(entity.format || entity.year) && (
+									<AppendedFormatAndYear format={entity.format} year={entity.year} />
 								)
 							}
 
 							{
-								entity.get('writingCredits')?.size > 0 && (
+								entity.writingCredits?.length > 0 && (
 									<React.Fragment>
 
 										<React.Fragment>{' '}</React.Fragment>
 
-										<WritingCredits credits={entity.get('writingCredits')} isAppendage={true} />
+										<WritingCredits credits={entity.writingCredits} isAppendage={true} />
 
 									</React.Fragment>
 								)
@@ -56,7 +56,7 @@ const WritingEntities = props => {
 };
 
 WritingEntities.propTypes = {
-	entities: ImmutablePropTypes.list.isRequired
+	entities: PropTypes.array.isRequired
 };
 
 export default WritingEntities;

@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { InstanceLink } from '.';
 
@@ -16,9 +16,9 @@ const CommaSeparatedInstanceLinks = props => {
 						<React.Fragment key={index}>
 
 							{
-								instance.get('uuid')
+								instance.uuid
 									? <InstanceLink key={index} instance={instance} />
-									: instance.get('name')
+									: instance.name
 							}
 
 						</React.Fragment>
@@ -32,7 +32,7 @@ const CommaSeparatedInstanceLinks = props => {
 };
 
 CommaSeparatedInstanceLinks.propTypes = {
-	instances: ImmutablePropTypes.list.isRequired
+	instances: PropTypes.array.isRequired
 };
 
 export default CommaSeparatedInstanceLinks;

@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import { formatDate } from '../../../lib/format-date';
@@ -21,16 +21,18 @@ const Production = props => {
 
 	const { production } = props;
 
-	const material = production.get('material');
-	const startDate = production.get('startDate');
-	const pressDate = production.get('pressDate');
-	const endDate = production.get('endDate');
-	const venue = production.get('venue');
-	const producerCredits = production.get('producerCredits');
-	const cast = production.get('cast');
-	const creativeCredits = production.get('creativeCredits');
-	const crewCredits = production.get('crewCredits');
-	const awards = production.get('awards');
+	const {
+		material,
+		startDate,
+		pressDate,
+		endDate,
+		venue,
+		producerCredits,
+		cast,
+		creativeCredits,
+		crewCredits,
+		awards
+	} = production;
 
 	const dateFormatOptions = { weekday: 'long', month: 'long' };
 
@@ -42,25 +44,25 @@ const Production = props => {
 					<InstanceFacet labelText='Material'>
 
 						{
-							material.get('surMaterial') && (
-								<PrependedSurMaterial surMaterial={material.get('surMaterial')} />
+							material.surMaterial && (
+								<PrependedSurMaterial surMaterial={material.surMaterial} />
 							)
 						}
 
 						<InstanceLink instance={material} />
 
 						{
-							(material.get('format') || material.get('year')) && (
+							(material.format || material.year) && (
 								<AppendedFormatAndYear
-									format={material.get('format')}
-									year={material.get('year')}
+									format={material.format}
+									year={material.year}
 								/>
 							)
 						}
 
 						{
-							material.get('writingCredits')?.size > 0 && (
-								<AppendedWritingCredits credits={material.get('writingCredits')} />
+							material.writingCredits?.length > 0 && (
+								<AppendedWritingCredits credits={material.writingCredits} />
 							)
 						}
 
@@ -105,8 +107,8 @@ const Production = props => {
 					<InstanceFacet labelText='Venue'>
 
 						{
-							venue.get('surVenue') && (
-								<span><InstanceLink instance={venue.get('surVenue')} />: </span>
+							venue.surVenue && (
+								<span><InstanceLink instance={venue.surVenue} />: </span>
 							)
 						}
 
@@ -117,7 +119,7 @@ const Production = props => {
 			}
 
 			{
-				producerCredits?.size > 0 && (
+				producerCredits?.length > 0 && (
 					<InstanceFacet labelText='Producers'>
 
 						<ProducerCredits credits={producerCredits} />
@@ -127,7 +129,7 @@ const Production = props => {
 			}
 
 			{
-				cast?.size > 0 && (
+				cast?.length > 0 && (
 					<InstanceFacet labelText='Cast'>
 
 						<List instances={cast} />
@@ -137,7 +139,7 @@ const Production = props => {
 			}
 
 			{
-				creativeCredits?.size > 0 && (
+				creativeCredits?.length > 0 && (
 					<InstanceFacet labelText='Creative Team'>
 
 						<List instances={creativeCredits} />
@@ -147,7 +149,7 @@ const Production = props => {
 			}
 
 			{
-				crewCredits?.size > 0 && (
+				crewCredits?.length > 0 && (
 					<InstanceFacet labelText='Crew'>
 
 						<List instances={crewCredits} />
@@ -157,7 +159,7 @@ const Production = props => {
 			}
 
 			{
-				awards?.size > 0 && (
+				awards?.length > 0 && (
 					<InstanceFacet labelText='Awards'>
 
 						{
@@ -168,41 +170,41 @@ const Production = props => {
 									<ul className="list">
 
 										{
-											award.get('ceremonies').map((ceremony, index) =>
+											award.ceremonies.map((ceremony, index) =>
 												<li key={index}>
 													<InstanceLink instance={ceremony} />{': '}
 
 													{
-														ceremony.get('categories')
+														ceremony.categories
 															.map((category, index) =>
 																<React.Fragment key={index}>
-																	{ category.get('name') }{': '}
+																	{ category.name }{': '}
 
 																	{
-																		category.get('nominations')
+																		category.nominations
 																			.map((nomination, index) =>
 																				<React.Fragment key={index}>
-																					<span className={nomination.get('isWinner') ? 'nomination-winner-text' : ''}>
-																						{nomination.get('type')}
+																					<span className={nomination.isWinner ? 'nomination-winner-text' : ''}>
+																						{nomination.type}
 																					</span>
 
 																					{
-																						nomination.get('entities').size > 0 && (
+																						nomination.entities.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{': '}</React.Fragment>
 																								<Entities
-																									entities={nomination.get('entities')}
+																									entities={nomination.entities}
 																								/>
 																							</React.Fragment>
 																						)
 																					}
 
 																					{
-																						nomination.get('coProductions').size > 0 && (
+																						nomination.coProductions.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' (with '}</React.Fragment>
 																								<Productions
-																									productions={nomination.get('coProductions')}
+																									productions={nomination.coProductions}
 																								/>
 																								<React.Fragment>{')'}</React.Fragment>
 																							</React.Fragment>
@@ -210,18 +212,18 @@ const Production = props => {
 																					}
 
 																					{
-																						nomination.get('coProductions').size > 0 &&
-																						nomination.get('materials').size > 0 && (
+																						nomination.coProductions.length > 0 &&
+																						nomination.materials.length > 0 && (
 																							<React.Fragment>{';'}</React.Fragment>
 																						)
 																					}
 
 																					{
-																						nomination.get('materials').size > 0 && (
+																						nomination.materials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
 																								<Materials
-																									materials={nomination.get('materials')}
+																									materials={nomination.materials}
 																								/>
 																							</React.Fragment>
 																						)
@@ -253,11 +255,11 @@ const Production = props => {
 };
 
 Production.propTypes = {
-	production: ImmutablePropTypes.map.isRequired
+	production: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-	production: state.get('production')
+	production: state.production
 });
 
 export default connect(mapStateToProps)(Production);

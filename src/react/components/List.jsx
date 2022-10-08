@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import {
 	AppendedDepictions,
@@ -30,113 +30,107 @@ const List = props => {
 					<li key={index}>
 
 						{
-							instance.get('award') && (
-								<PrependedAward award={instance.get('award')} />
+							instance.award && (
+								<PrependedAward award={instance.award} />
 							)
 						}
 
 						{
-							instance.get('surMaterial') && (
-								<PrependedSurMaterial surMaterial={instance.get('surMaterial')} />
+							instance.surMaterial && (
+								<PrependedSurMaterial surMaterial={instance.surMaterial} />
 							)
 						}
 
 						{
-							instance.get('uuid')
+							instance.uuid
 								? <InstanceLink instance={instance} />
-								: instance.get('name')
+								: instance.name
 						}
 
 						{
-							(instance.get('format') || instance.get('year')) && (
-								<AppendedFormatAndYear format={instance.get('format')} year={instance.get('year')} />
+							(instance.format || instance.year) && (
+								<AppendedFormatAndYear format={instance.format} year={instance.year} />
 							)
 						}
 
 						{
-							instance.get('venue') && (
-								<AppendedVenue venue={instance.get('venue')} />
+							instance.venue && (
+								<AppendedVenue venue={instance.venue} />
 							)
 						}
 
 						{
-							instance.get('subVenue') && (
-								<AppendedVenue venue={instance.get('subVenue')} />
+							instance.subVenue && (
+								<AppendedVenue venue={instance.subVenue} />
 							)
 						}
 
 						{
-							instance.get('subVenues')?.size > 0 && (
-								<AppendedSubVenues subVenues={instance.get('subVenues')} />
+							instance.subVenues?.length > 0 && (
+								<AppendedSubVenues subVenues={instance.subVenues} />
 							)
 						}
 
 						{
-							(instance.get('startDate') || instance.get('endDate')) && (
+							(instance.startDate || instance.endDate) && (
 								<AppendedProductionDates
-									startDate={instance.get('startDate')}
-									endDate={instance.get('endDate')}
+									startDate={instance.startDate}
+									endDate={instance.endDate}
 								/>
 							)
 						}
 
 						{
-							instance.startDate && instance.endDate && (
-								<AppendedProductionDates startDate={instance.startDate} endDate={instance.endDate} />
+							instance.roles?.length > 0 && (
+								<AppendedRoles roles={instance.roles} />
 							)
 						}
 
 						{
-							instance.get('roles')?.size > 0 && (
-								<AppendedRoles roles={instance.get('roles')} />
+							instance.writingCredits?.length > 0 && (
+								<AppendedWritingCredits credits={instance.writingCredits} />
 							)
 						}
 
 						{
-							instance.get('writingCredits')?.size > 0 && (
-								<AppendedWritingCredits credits={instance.get('writingCredits')} />
+							instance.producerCredits?.length > 0 && (
+								<AppendedProducerCredits credits={instance.producerCredits} />
 							)
 						}
 
 						{
-							instance.get('producerCredits')?.size > 0 && (
-								<AppendedProducerCredits credits={instance.get('producerCredits')} />
+							instance.creativeCredits?.length > 0 && (
+								<AppendedProductionTeamCredits credits={instance.creativeCredits} />
 							)
 						}
 
 						{
-							instance.get('creativeCredits')?.size > 0 && (
-								<AppendedProductionTeamCredits credits={instance.get('creativeCredits')} />
+							instance.crewCredits?.length > 0 && (
+								<AppendedProductionTeamCredits credits={instance.crewCredits} />
 							)
 						}
 
 						{
-							instance.get('crewCredits')?.size > 0 && (
-								<AppendedProductionTeamCredits credits={instance.get('crewCredits')} />
+							instance.entities?.length > 0 && (
+								<AppendedEntities entities={instance.entities} />
 							)
 						}
 
 						{
-							instance.get('entities')?.size > 0 && (
-								<AppendedEntities entities={instance.get('entities')} />
+							instance.depictions?.length > 0 && (
+								<AppendedDepictions depictions={instance.depictions} />
 							)
 						}
 
 						{
-							instance.get('depictions') && (
-								<AppendedDepictions depictions={instance.get('depictions')} />
+							instance.performers?.length > 0 && (
+								<AppendedPerformers performers={instance.performers} />
 							)
 						}
 
 						{
-							instance.get('performers')?.size > 0 && (
-								<AppendedPerformers performers={instance.get('performers')} />
-							)
-						}
-
-						{
-							instance.get('qualifier') && (
-								<React.Fragment>{` (${instance.get('qualifier')})`}</React.Fragment>
+							instance.qualifier && (
+								<React.Fragment>{` (${instance.qualifier})`}</React.Fragment>
 							)
 						}
 
@@ -150,7 +144,7 @@ const List = props => {
 };
 
 List.propTypes = {
-	instances: ImmutablePropTypes.list.isRequired
+	instances: PropTypes.array.isRequired
 };
 
 export default List;

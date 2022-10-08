@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { InstanceLink, PrependedMembers } from '.';
 
@@ -16,15 +16,15 @@ const ProducerEntities = props => {
 						<React.Fragment key={index}>
 
 							{
-								entity.get('members')?.size > 0 && (
-									<PrependedMembers members={entity.get('members')} />
+								entity.members?.length > 0 && (
+									<PrependedMembers members={entity.members} />
 								)
 							}
 
 							{
-								entity.get('uuid')
+								entity.uuid
 									? <InstanceLink instance={entity} />
-									: entity.get('name')
+									: entity.name
 							}
 
 						</React.Fragment>
@@ -38,7 +38,7 @@ const ProducerEntities = props => {
 };
 
 ProducerEntities.propTypes = {
-	entities: ImmutablePropTypes.list.isRequired
+	entities: PropTypes.array.isRequired
 };
 
 export default ProducerEntities;

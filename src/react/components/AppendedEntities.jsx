@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { Entities } from '.';
 
@@ -20,7 +20,7 @@ const AppendedEntities = props => {
 };
 
 AppendedEntities.propTypes = {
-	entities: ImmutablePropTypes.list.isRequired
+	entities: PropTypes.array.isRequired
 };
 
 export default AppendedEntities;

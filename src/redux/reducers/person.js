@@ -1,16 +1,14 @@
-import { Map, fromJS } from 'immutable';
-
 import {
 	REQUEST_PERSON,
 	RECEIVE_PERSON
 } from '../utils/model-action-names';
 
-const person = (state = Map(), action) => {
+const person = (state = {}, action) => {
 
 	switch (action.type) {
 
 		case RECEIVE_PERSON:
-			return fromJS(action.payload);
+			return action.payload;
 
 		case REQUEST_PERSON:
 		default:
