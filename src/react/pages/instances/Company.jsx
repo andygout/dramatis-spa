@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import {
@@ -18,23 +18,25 @@ const Company = props => {
 
 	const { company } = props;
 
-	const materials = company.get('materials');
-	const subsequentVersionMaterials = company.get('subsequentVersionMaterials');
-	const sourcingMaterials = company.get('sourcingMaterials');
-	const rightsGrantorMaterials = company.get('rightsGrantorMaterials');
-	const producerProductions = company.get('producerProductions');
-	const creativeProductions = company.get('creativeProductions');
-	const crewProductions = company.get('crewProductions');
-	const awards = company.get('awards');
-	const subsequentVersionMaterialAwards = company.get('subsequentVersionMaterialAwards');
-	const sourcingMaterialAwards = company.get('sourcingMaterialAwards');
-	const rightsGrantorMaterialAwards = company.get('rightsGrantorMaterialAwards');
+	const {
+		materials,
+		subsequentVersionMaterials,
+		sourcingMaterials,
+		rightsGrantorMaterials,
+		producerProductions,
+		creativeProductions,
+		crewProductions,
+		awards,
+		subsequentVersionMaterialAwards,
+		sourcingMaterialAwards,
+		rightsGrantorMaterialAwards
+	} = company;
 
 	return (
 		<InstanceWrapper instance={company}>
 
 			{
-				materials?.size > 0 && (
+				materials?.length > 0 && (
 					<InstanceFacet labelText='Materials'>
 
 						<List instances={materials} />
@@ -44,7 +46,7 @@ const Company = props => {
 			}
 
 			{
-				subsequentVersionMaterials?.size > 0 && (
+				subsequentVersionMaterials?.length > 0 && (
 					<InstanceFacet labelText='Subsequent versions of their materials'>
 
 						<List instances={subsequentVersionMaterials} />
@@ -54,7 +56,7 @@ const Company = props => {
 			}
 
 			{
-				sourcingMaterials?.size > 0 && (
+				sourcingMaterials?.length > 0 && (
 					<InstanceFacet labelText='Materials as source material writer'>
 
 						<List instances={sourcingMaterials} />
@@ -64,7 +66,7 @@ const Company = props => {
 			}
 
 			{
-				rightsGrantorMaterials?.size > 0 && (
+				rightsGrantorMaterials?.length > 0 && (
 					<InstanceFacet labelText='Materials as rights grantor'>
 
 						<List instances={rightsGrantorMaterials} />
@@ -74,7 +76,7 @@ const Company = props => {
 			}
 
 			{
-				producerProductions?.size > 0 && (
+				producerProductions?.length > 0 && (
 					<InstanceFacet labelText='Productions as producer'>
 
 						<List instances={producerProductions} />
@@ -84,7 +86,7 @@ const Company = props => {
 			}
 
 			{
-				creativeProductions?.size > 0 && (
+				creativeProductions?.length > 0 && (
 					<InstanceFacet labelText='Productions as creative team member'>
 
 						<List instances={creativeProductions} />
@@ -94,7 +96,7 @@ const Company = props => {
 			}
 
 			{
-				crewProductions?.size > 0 && (
+				crewProductions?.length > 0 && (
 					<InstanceFacet labelText='Productions as crew member'>
 
 						<List instances={crewProductions} />
@@ -104,7 +106,7 @@ const Company = props => {
 			}
 
 			{
-				awards?.size > 0 && (
+				awards?.length > 0 && (
 					<InstanceFacet labelText='Awards'>
 
 						{
@@ -115,64 +117,64 @@ const Company = props => {
 									<ul className="list">
 
 										{
-											award.get('ceremonies').map((ceremony, index) =>
+											award.ceremonies.map((ceremony, index) =>
 												<li key={index}>
 													<InstanceLink instance={ceremony} />{': '}
 
 													{
-														ceremony.get('categories')
+														ceremony.categories
 															.map((category, index) =>
 																<React.Fragment key={index}>
-																	{ category.get('name') }{': '}
+																	{ category.name }{': '}
 
 																	{
-																		category.get('nominations')
+																		category.nominations
 																			.map((nomination, index) =>
 																				<React.Fragment key={index}>
-																					<span className={nomination.get('isWinner') ? 'nomination-winner-text' : ''}>
-																						{nomination.get('type')}
+																					<span className={nomination.isWinner ? 'nomination-winner-text' : ''}>
+																						{nomination.type}
 																					</span>
 
 																					{
-																						nomination.get('members')?.size > 0 && (
+																						nomination.members?.length > 0 && (
 																							<AppendedMembers
-																								members={nomination.get('members')}
+																								members={nomination.members}
 																							/>
 																						)
 																					}
 
 																					{
-																						nomination.get('coEntities').size > 0 && (
+																						nomination.coEntities.length > 0 && (
 																							<AppendedCoEntities
-																								coEntities={nomination.get('coEntities')}
+																								coEntities={nomination.coEntities}
 																							/>
 																						)
 																					}
 
 																					{
-																						nomination.get('productions').size > 0 && (
+																						nomination.productions.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
 																								<Productions
-																									productions={nomination.get('productions')}
+																									productions={nomination.productions}
 																								/>
 																							</React.Fragment>
 																						)
 																					}
 
 																					{
-																						nomination.get('productions').size > 0 &&
-																						nomination.get('materials').size > 0 && (
+																						nomination.productions.length > 0 &&
+																						nomination.materials.length > 0 && (
 																							<React.Fragment>{';'}</React.Fragment>
 																						)
 																					}
 
 																					{
-																						nomination.get('materials').size > 0 && (
+																						nomination.materials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
 																								<Materials
-																									materials={nomination.get('materials')}
+																									materials={nomination.materials}
 																								/>
 																							</React.Fragment>
 																						)
@@ -199,7 +201,7 @@ const Company = props => {
 			}
 
 			{
-				subsequentVersionMaterialAwards?.size > 0 && (
+				subsequentVersionMaterialAwards?.length > 0 && (
 					<InstanceFacet labelText='Awards for subsequent versions of their material'>
 
 						{
@@ -210,75 +212,75 @@ const Company = props => {
 									<ul className="list">
 
 										{
-											subsequentVersionMaterialAward.get('ceremonies').map((ceremony, index) =>
+											subsequentVersionMaterialAward.ceremonies.map((ceremony, index) =>
 												<li key={index}>
 													<InstanceLink instance={ceremony} />{': '}
 
 													{
-														ceremony.get('categories')
+														ceremony.categories
 															.map((category, index) =>
 																<React.Fragment key={index}>
-																	{ category.get('name') }{': '}
+																	{ category.name }{': '}
 
 																	{
-																		category.get('nominations')
+																		category.nominations
 																			.map((nomination, index) =>
 																				<React.Fragment key={index}>
-																					<span className={nomination.get('isWinner') ? 'nomination-winner-text' : ''}>
-																						{nomination.get('type')}
+																					<span className={nomination.isWinner ? 'nomination-winner-text' : ''}>
+																						{nomination.type}
 																					</span>
 
 																					{
-																						nomination.get('subsequentVersionMaterials').size > 0 && (
+																						nomination.subsequentVersionMaterials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{': '}</React.Fragment>
 																								<Materials
-																									materials={nomination.get('subsequentVersionMaterials')}
+																									materials={nomination.subsequentVersionMaterials}
 																								/>
 																							</React.Fragment>
 																						)
 																					}
 
 																					{
-																						nomination.get('members')?.size > 0 && (
+																						nomination.members?.length > 0 && (
 																							<AppendedMembers
-																								members={nomination.get('members')}
+																								members={nomination.members}
 																							/>
 																						)
 																					}
 
 																					{
-																						nomination.get('entities').size > 0 && (
+																						nomination.entities.length > 0 && (
 																							<AppendedEntities
-																								entities={nomination.get('entities')}
+																								entities={nomination.entities}
 																							/>
 																						)
 																					}
 
 																					{
-																						nomination.get('productions').size > 0 && (
+																						nomination.productions.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
 																								<Productions
-																									productions={nomination.get('productions')}
+																									productions={nomination.productions}
 																								/>
 																							</React.Fragment>
 																						)
 																					}
 
 																					{
-																						nomination.get('productions').size > 0 &&
-																						nomination.get('materials').size > 0 && (
+																						nomination.productions.length > 0 &&
+																						nomination.materials.length > 0 && (
 																							<React.Fragment>{';'}</React.Fragment>
 																						)
 																					}
 
 																					{
-																						nomination.get('materials').size > 0 && (
+																						nomination.materials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
 																								<Materials
-																									materials={nomination.get('materials')}
+																									materials={nomination.materials}
 																								/>
 																							</React.Fragment>
 																						)
@@ -305,7 +307,7 @@ const Company = props => {
 			}
 
 			{
-				sourcingMaterialAwards?.size > 0 && (
+				sourcingMaterialAwards?.length > 0 && (
 					<InstanceFacet labelText='Awards for materials as source material writer'>
 
 						{
@@ -316,75 +318,75 @@ const Company = props => {
 									<ul className="list">
 
 										{
-											sourcingMaterialAward.get('ceremonies').map((ceremony, index) =>
+											sourcingMaterialAward.ceremonies.map((ceremony, index) =>
 												<li key={index}>
 													<InstanceLink instance={ceremony} />{': '}
 
 													{
-														ceremony.get('categories')
+														ceremony.categories
 															.map((category, index) =>
 																<React.Fragment key={index}>
-																	{ category.get('name') }{': '}
+																	{ category.name }{': '}
 
 																	{
-																		category.get('nominations')
+																		category.nominations
 																			.map((nomination, index) =>
 																				<React.Fragment key={index}>
-																					<span className={nomination.get('isWinner') ? 'nomination-winner-text' : ''}>
-																						{nomination.get('type')}
+																					<span className={nomination.isWinner ? 'nomination-winner-text' : ''}>
+																						{nomination.type}
 																					</span>
 
 																					{
-																						nomination.get('sourcingMaterials').size > 0 && (
+																						nomination.sourcingMaterials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{': '}</React.Fragment>
 																								<Materials
-																									materials={nomination.get('sourcingMaterials')}
+																									materials={nomination.sourcingMaterials}
 																								/>
 																							</React.Fragment>
 																						)
 																					}
 
 																					{
-																						nomination.get('members')?.size > 0 && (
+																						nomination.members?.length > 0 && (
 																							<AppendedMembers
-																								members={nomination.get('members')}
+																								members={nomination.members}
 																							/>
 																						)
 																					}
 
 																					{
-																						nomination.get('entities').size > 0 && (
+																						nomination.entities.length > 0 && (
 																							<AppendedEntities
-																								entities={nomination.get('entities')}
+																								entities={nomination.entities}
 																							/>
 																						)
 																					}
 
 																					{
-																						nomination.get('productions').size > 0 && (
+																						nomination.productions.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
 																								<Productions
-																									productions={nomination.get('productions')}
+																									productions={nomination.productions}
 																								/>
 																							</React.Fragment>
 																						)
 																					}
 
 																					{
-																						nomination.get('productions').size > 0 &&
-																						nomination.get('materials').size > 0 && (
+																						nomination.productions.length > 0 &&
+																						nomination.materials.length > 0 && (
 																							<React.Fragment>{';'}</React.Fragment>
 																						)
 																					}
 
 																					{
-																						nomination.get('materials').size > 0 && (
+																						nomination.materials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
 																								<Materials
-																									materials={nomination.get('materials')}
+																									materials={nomination.materials}
 																								/>
 																							</React.Fragment>
 																						)
@@ -411,7 +413,7 @@ const Company = props => {
 			}
 
 			{
-				rightsGrantorMaterialAwards?.size > 0 && (
+				rightsGrantorMaterialAwards?.length > 0 && (
 					<InstanceFacet labelText='Awards for materials as rights grantor'>
 
 						{
@@ -422,75 +424,75 @@ const Company = props => {
 									<ul className="list">
 
 										{
-											rightsGrantorMaterialAward.get('ceremonies').map((ceremony, index) =>
+											rightsGrantorMaterialAward.ceremonies.map((ceremony, index) =>
 												<li key={index}>
 													<InstanceLink instance={ceremony} />{': '}
 
 													{
-														ceremony.get('categories')
+														ceremony.categories
 															.map((category, index) =>
 																<React.Fragment key={index}>
-																	{ category.get('name') }{': '}
+																	{ category.name }{': '}
 
 																	{
-																		category.get('nominations')
+																		category.nominations
 																			.map((nomination, index) =>
 																				<React.Fragment key={index}>
-																					<span className={nomination.get('isWinner') ? 'nomination-winner-text' : ''}>
-																						{nomination.get('type')}
+																					<span className={nomination.isWinner ? 'nomination-winner-text' : ''}>
+																						{nomination.type}
 																					</span>
 
 																					{
-																						nomination.get('rightsGrantorMaterials').size > 0 && (
+																						nomination.rightsGrantorMaterials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{': '}</React.Fragment>
 																								<Materials
-																									materials={nomination.get('rightsGrantorMaterials')}
+																									materials={nomination.rightsGrantorMaterials}
 																								/>
 																							</React.Fragment>
 																						)
 																					}
 
 																					{
-																						nomination.get('members')?.size > 0 && (
+																						nomination.members?.length > 0 && (
 																							<AppendedMembers
-																								members={nomination.get('members')}
+																								members={nomination.members}
 																							/>
 																						)
 																					}
 
 																					{
-																						nomination.get('entities').size > 0 && (
+																						nomination.entities.length > 0 && (
 																							<AppendedEntities
-																								entities={nomination.get('entities')}
+																								entities={nomination.entities}
 																							/>
 																						)
 																					}
 
 																					{
-																						nomination.get('productions').size > 0 && (
+																						nomination.productions.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
 																								<Productions
-																									productions={nomination.get('productions')}
+																									productions={nomination.productions}
 																								/>
 																							</React.Fragment>
 																						)
 																					}
 
 																					{
-																						nomination.get('productions').size > 0 &&
-																						nomination.get('materials').size > 0 && (
+																						nomination.productions.length > 0 &&
+																						nomination.materials.length > 0 && (
 																							<React.Fragment>{';'}</React.Fragment>
 																						)
 																					}
 
 																					{
-																						nomination.get('materials').size > 0 && (
+																						nomination.materials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
 																								<Materials
-																									materials={nomination.get('materials')}
+																									materials={nomination.materials}
 																								/>
 																							</React.Fragment>
 																						)
@@ -522,11 +524,11 @@ const Company = props => {
 };
 
 Company.propTypes = {
-	company: ImmutablePropTypes.map.isRequired
+	company: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-	company: state.get('company')
+	company: state.company
 });
 
 export default connect(mapStateToProps)(Company);

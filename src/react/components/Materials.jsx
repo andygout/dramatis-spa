@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { AppendedFormatAndYear, AppendedWritingCredits, InstanceLink, PrependedSurMaterial } from '.';
 
@@ -16,25 +16,25 @@ const Materials = props => {
 						<React.Fragment key={index}>
 
 							{
-								material.get('surMaterial') && (
-									<PrependedSurMaterial surMaterial={material.get('surMaterial')} />
+								material.surMaterial && (
+									<PrependedSurMaterial surMaterial={material.surMaterial} />
 								)
 							}
 
 							<InstanceLink instance={material} />
 
 							{
-								(material.get('format') || material.get('year')) && (
+								(material.format || material.year) && (
 									<AppendedFormatAndYear
-										format={material.get('format')}
-										year={material.get('year')}
+										format={material.format}
+										year={material.year}
 									/>
 								)
 							}
 
 							{
-								material.get('writingCredits')?.size > 0 && (
-									<AppendedWritingCredits credits={material.get('writingCredits')} />
+								material.writingCredits?.length > 0 && (
+									<AppendedWritingCredits credits={material.writingCredits} />
 								)
 							}
 
@@ -49,7 +49,7 @@ const Materials = props => {
 };
 
 Materials.propTypes = {
-	materials: ImmutablePropTypes.list.isRequired
+	materials: PropTypes.array.isRequired
 };
 
 export default Materials;

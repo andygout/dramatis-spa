@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import getDifferentiatorSuffix from '../../lib/get-differentiator-suffix';
 import getInstanceTitle from '../../lib/get-instance-title';
@@ -12,7 +11,7 @@ const InstanceWrapper = props => {
 
 	const title = getInstanceTitle(instance);
 
-	const differentiatorSuffix = getDifferentiatorSuffix(instance.get('differentiator'));
+	const differentiatorSuffix = getDifferentiatorSuffix(instance.differentiator);
 
 	const pageTitleText = [
 		title,
@@ -25,16 +24,16 @@ const InstanceWrapper = props => {
 		<React.Fragment>
 
 			{
-				instance.get('name') && instance.get('model') && (
+				instance.name && instance.model && (
 					<InstanceDocumentTitle
 						title={title}
-						model={instance.get('model')}
+						model={instance.model}
 						differentiatorSuffix={differentiatorSuffix}
 					/>
 				)
 			}
 
-			<InstanceLabel model={instance.get('model', '')} />
+			<InstanceLabel model={instance.model || ''} />
 
 			<PageTitle text={pageTitleText} />
 
@@ -46,7 +45,7 @@ const InstanceWrapper = props => {
 };
 
 InstanceWrapper.propTypes = {
-	instance: ImmutablePropTypes.map.isRequired,
+	instance: PropTypes.object.isRequired,
 	titleName: PropTypes.string,
 	children: PropTypes.node
 };

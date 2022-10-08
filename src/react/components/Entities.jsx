@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { AppendedMembers, InstanceLink } from '.';
 
@@ -18,8 +18,8 @@ const Entities = props => {
 							<InstanceLink instance={entity} />
 
 							{
-								entity.get('members')?.size > 0 && (
-									<AppendedMembers members={entity.get('members')} />
+								entity.members?.length > 0 && (
+									<AppendedMembers members={entity.members} />
 								)
 							}
 
@@ -34,7 +34,7 @@ const Entities = props => {
 };
 
 Entities.propTypes = {
-	entities: ImmutablePropTypes.list.isRequired
+	entities: PropTypes.array.isRequired
 };
 
 export default Entities;

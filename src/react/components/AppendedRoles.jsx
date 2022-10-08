@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { JoinedRoles } from '.';
 
@@ -20,7 +20,7 @@ const AppendedRoles = props => {
 };
 
 AppendedRoles.propTypes = {
-	roles: ImmutablePropTypes.list.isRequired
+	roles: PropTypes.array.isRequired
 };
 
 export default AppendedRoles;

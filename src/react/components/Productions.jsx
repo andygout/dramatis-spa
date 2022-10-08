@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { AppendedVenue, InstanceLink } from '.';
 
@@ -18,8 +18,8 @@ const Productions = props => {
 							<InstanceLink instance={production} />
 
 							{
-								production.get('venue') && (
-									<AppendedVenue venue={production.get('venue')} />
+								production.venue && (
+									<AppendedVenue venue={production.venue} />
 								)
 							}
 
@@ -34,7 +34,7 @@ const Productions = props => {
 };
 
 Productions.propTypes = {
-	productions: ImmutablePropTypes.list.isRequired
+	productions: PropTypes.array.isRequired
 };
 
 export default Productions;

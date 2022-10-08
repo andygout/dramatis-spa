@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { WritingEntities } from '.';
 import { capitalise } from '../../lib/strings';
@@ -17,15 +16,15 @@ const WritingCredits = props => {
 					.map((credit, index) => {
 
 						const creditName = !isAppendage && index === 0
-							? capitalise(credit.get('name'))
-							: credit.get('name');
+							? capitalise(credit.name)
+							: credit.name;
 
 						return (
 							<React.Fragment key={index}>
 
 								<React.Fragment>{`${creditName} `}</React.Fragment>
 
-								<WritingEntities entities={credit.get('entities')} />
+								<WritingEntities entities={credit.entities} />
 
 							</React.Fragment>
 						);
@@ -40,7 +39,7 @@ const WritingCredits = props => {
 };
 
 WritingCredits.propTypes = {
-	credits: ImmutablePropTypes.list.isRequired,
+	credits: PropTypes.array.isRequired,
 	isAppendage: PropTypes.bool.isRequired
 };
 

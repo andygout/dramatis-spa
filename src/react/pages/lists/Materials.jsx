@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import { ListWrapper } from '../../utils';
@@ -19,11 +19,11 @@ const Materials = props => {
 };
 
 Materials.propTypes = {
-	materials: ImmutablePropTypes.list.isRequired
+	materials: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({
-	materials: state.get('materials')
+	materials: state.materials
 });
 
 export default connect(mapStateToProps)(Materials);

@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 const AppendedDepictions = props => {
 
@@ -14,20 +14,20 @@ const AppendedDepictions = props => {
 						<React.Fragment key={index}>
 
 							{
-								depiction.get('displayName') && (
-									<React.Fragment>{' (as '}<span className="role-text">{ depiction.get('displayName') }</span>)</React.Fragment>
+								depiction.displayName && (
+									<React.Fragment>{' (as '}<span className="role-text">{ depiction.displayName }</span>)</React.Fragment>
 								)
 							}
 
 							{
-								depiction.get('qualifier') && (
-									<React.Fragment>{` (${depiction.get('qualifier')})`}</React.Fragment>
+								depiction.qualifier && (
+									<React.Fragment>{` (${depiction.qualifier})`}</React.Fragment>
 								)
 							}
 
 							{
-								depiction.get('group') && (
-									<React.Fragment>{` (${depiction.get('group')})`}</React.Fragment>
+								depiction.group && (
+									<React.Fragment>{` (${depiction.group})`}</React.Fragment>
 								)
 							}
 
@@ -42,7 +42,7 @@ const AppendedDepictions = props => {
 };
 
 AppendedDepictions.propTypes = {
-	depictions: ImmutablePropTypes.list.isRequired
+	depictions: PropTypes.array.isRequired
 };
 
 export default AppendedDepictions;

@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { InstanceLink } from '.';
 
@@ -13,8 +13,8 @@ const AppendedVenue = props => {
 			<React.Fragment>{' - '}</React.Fragment>
 
 			{
-				venue.get('surVenue') && (
-					<React.Fragment><InstanceLink instance={venue.get('surVenue')} />{': '}</React.Fragment>
+				venue.surVenue && (
+					<React.Fragment><InstanceLink instance={venue.surVenue} />{': '}</React.Fragment>
 				)
 			}
 
@@ -26,7 +26,7 @@ const AppendedVenue = props => {
 };
 
 AppendedVenue.propTypes = {
-	venue: ImmutablePropTypes.map.isRequired
+	venue: PropTypes.object.isRequired
 };
 
 export default AppendedVenue;

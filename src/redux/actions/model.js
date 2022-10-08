@@ -1,5 +1,6 @@
 import nodeFetch from 'node-fetch';
 
+import { getIn } from '../../lib/object-interactions';
 import createAction from './base';
 import { receiveError } from './error';
 import * as actions from '../utils/model-action-names';
@@ -38,7 +39,7 @@ const performFetch = async url => {
 
 const fetchList = pluralisedModel => async (dispatch, getState) => {
 
-	const apiCallRequired = !getState().get(PLURALISED_MODEL_TO_PROP_NAME_MAP[pluralisedModel]).size;
+	const apiCallRequired = !getState()[PLURALISED_MODEL_TO_PROP_NAME_MAP[pluralisedModel]].length;
 
 	if (apiCallRequired) {
 
@@ -64,7 +65,7 @@ const fetchList = pluralisedModel => async (dispatch, getState) => {
 
 const fetchInstance = (model, uuid) => async (dispatch, getState) => {
 
-	const apiCallRequired = getState().getIn([MODEL_TO_PROP_NAME_MAP[model], 'uuid']) !== uuid;
+	const apiCallRequired = getIn(getState(), [MODEL_TO_PROP_NAME_MAP[model], 'uuid']) !== uuid;
 
 	if (apiCallRequired) {
 

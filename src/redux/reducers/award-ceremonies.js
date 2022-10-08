@@ -1,16 +1,14 @@
-import { List, fromJS } from 'immutable';
-
 import {
 	REQUEST_AWARD_CEREMONIES,
 	RECEIVE_AWARD_CEREMONIES
 } from '../utils/model-action-names';
 
-const awardCeremonies = (state = List(), action) => {
+const awardCeremonies = (state = [], action) => {
 
 	switch (action.type) {
 
 		case RECEIVE_AWARD_CEREMONIES:
-			return fromJS(action.payload);
+			return action.payload;
 
 		case REQUEST_AWARD_CEREMONIES:
 		default:

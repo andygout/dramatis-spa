@@ -1,16 +1,14 @@
-import { List, fromJS } from 'immutable';
-
 import {
 	REQUEST_VENUES,
 	RECEIVE_VENUES
 } from '../utils/model-action-names';
 
-const venues = (state = List(), action) => {
+const venues = (state = [], action) => {
 
 	switch (action.type) {
 
 		case RECEIVE_VENUES:
-			return fromJS(action.payload);
+			return action.payload;
 
 		case REQUEST_VENUES:
 		default:

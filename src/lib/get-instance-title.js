@@ -1,23 +1,24 @@
+import { getIn } from './object-interactions';
 import { MODELS } from '../utils/constants';
 
 export default instance => {
 
-	const name = instance.get('name');
+	const name = instance.name;
 
 	let title = name;
 
-	switch (instance.get('model')) {
+	switch (instance.model) {
 
 		case MODELS.AWARD_CEREMONY:
-			if (instance.get('award')) title = `${instance.getIn(['award', 'name'])} ${title}`;
+			if (instance.award) title = `${getIn(instance, ['award', 'name'])} ${title}`;
 			return title;
 
 		case MODELS.MATERIAL:
-			if (instance.get('surMaterial')) title = `${instance.getIn(['surMaterial', 'name'])}: ${title}`;
+			if (instance.surMaterial) title = `${getIn(instance, ['surMaterial', 'name'])}: ${title}`;
 			return title;
 
 		case MODELS.VENUE:
-			if (instance.get('surVenue')) title = `${instance.getIn(['surVenue', 'name'])}: ${title}`;
+			if (instance.surVenue) title = `${getIn(instance, ['surVenue', 'name'])}: ${title}`;
 			return title;
 
 		default:

@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import { Entities, InstanceFacet, InstanceLink, Materials, Productions } from '../../components';
@@ -9,8 +9,10 @@ const AwardCeremony = props => {
 
 	const { awardCeremony } = props;
 
-	const award = awardCeremony.get('award');
-	const categories = awardCeremony.get('categories');
+	const {
+		award,
+		categories
+	} = awardCeremony;
 
 	return (
 		<InstanceWrapper instance={awardCeremony}>
@@ -26,57 +28,57 @@ const AwardCeremony = props => {
 			}
 
 			{
-				categories?.size > 0 && (
+				categories?.length > 0 && (
 					<InstanceFacet labelText='Categories'>
 
 						{
 							categories.map((category, index) =>
 								<React.Fragment key={index}>
-									{ category.get('name') }
+									{ category.name }
 
 									<ul className="list">
 
 										{
-											category.get('nominations').map((nomination, index) =>
+											category.nominations.map((nomination, index) =>
 												<li key={index}>
-													<span className={nomination.get('isWinner') ? 'nomination-winner-text' : ''}>
-														{`${nomination.get('type')}: `}
+													<span className={nomination.isWinner ? 'nomination-winner-text' : ''}>
+														{`${nomination.type}: `}
 													</span>
 
 													{
-														nomination.get('entities').size > 0 && (
-															<Entities entities={nomination.get('entities')} />
+														nomination.entities.length > 0 && (
+															<Entities entities={nomination.entities} />
 														)
 													}
 
 													{
-														nomination.get('entities').size > 0 &&
+														nomination.entities.length > 0 &&
 														(
-															nomination.get('productions').size > 0 ||
-															nomination.get('materials').size > 0
+															nomination.productions.length > 0 ||
+															nomination.materials.length > 0
 														) && (
 															<React.Fragment>{' for '}</React.Fragment>
 														)
 													}
 
 													{
-														nomination.get('productions').size > 0 && (
+														nomination.productions.length > 0 && (
 															<Productions
-																productions={nomination.get('productions')}
+																productions={nomination.productions}
 															/>
 														)
 													}
 
 												{
-													nomination.get('productions').size > 0 &&
-													nomination.get('materials').size > 0 && (
+													nomination.productions.length > 0 &&
+													nomination.materials.length > 0 && (
 														<React.Fragment>{'; '}</React.Fragment>
 													)
 												}
 
 													{
-														nomination.get('materials').size > 0 && (
-															<Materials materials={nomination.get('materials')} />
+														nomination.materials.length > 0 && (
+															<Materials materials={nomination.materials} />
 														)
 													}
 												</li>
@@ -98,11 +100,11 @@ const AwardCeremony = props => {
 };
 
 AwardCeremony.propTypes = {
-	awardCeremony: ImmutablePropTypes.map.isRequired
+	awardCeremony: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-	awardCeremony: state.get('awardCeremony')
+	awardCeremony: state.awardCeremony
 });
 
 export default connect(mapStateToProps)(AwardCeremony);

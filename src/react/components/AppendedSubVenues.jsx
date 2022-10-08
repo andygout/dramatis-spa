@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { InstanceLink } from '.';
 
@@ -26,7 +26,7 @@ const AppendedSubVenues = props => {
 };
 
 AppendedSubVenues.propTypes = {
-	subVenues: ImmutablePropTypes.list.isRequired
+	subVenues: PropTypes.array.isRequired
 };
 
 export default AppendedSubVenues;

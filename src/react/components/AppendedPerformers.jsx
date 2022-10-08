@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { InstanceLink, AppendedPerformerOtherRoles } from '.';
 
@@ -24,17 +24,17 @@ const AppendedPerformers = props => {
 							<span className="role-text">
 
 								{
-									performer.get('roleName')
+									performer.roleName
 								}
 
 								{
-									performer.get('qualifier') && (
-										<React.Fragment>{` (${performer.get('qualifier')})`}</React.Fragment>
+									performer.qualifier && (
+										<React.Fragment>{` (${performer.qualifier})`}</React.Fragment>
 									)
 								}
 
 								{
-									performer.get('isAlternate') && (
+									performer.isAlternate && (
 										<React.Fragment>{' (alt)'}</React.Fragment>
 									)
 								}
@@ -42,8 +42,8 @@ const AppendedPerformers = props => {
 							</span>
 
 							{
-								performer.get('otherRoles').size > 0 && (
-									<AppendedPerformerOtherRoles otherRoles={performer.get('otherRoles')} />
+								performer.otherRoles.length > 0 && (
+									<AppendedPerformerOtherRoles otherRoles={performer.otherRoles} />
 								)
 							}
 
@@ -58,7 +58,7 @@ const AppendedPerformers = props => {
 };
 
 AppendedPerformers.propTypes = {
-	performers: ImmutablePropTypes.list.isRequired
+	performers: PropTypes.array.isRequired
 };
 
 export default AppendedPerformers;
