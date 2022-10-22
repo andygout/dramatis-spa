@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { isObjectWithKeys } from '../../lib/is-object-with-keys';
+import isObjectWithKeys from '../../lib/is-object-with-keys';
 import { InstanceLink } from '.';
 
 const JoinedRoles = props => {
