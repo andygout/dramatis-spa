@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { useMatch } from 'react-router-dom';
 
-import { ErrorMessage, Footer, Header, Navigation } from '../components';
+import { ErrorMessage, Footer, Header, Navigation } from './components';
 
-const FetchDataOnMountWrapper = props => {
+const Layout = props => {
 
 	const { path, documentTitle, error, children } = props;
 
@@ -50,7 +50,7 @@ const FetchDataOnMountWrapper = props => {
 
 };
 
-FetchDataOnMountWrapper.propTypes = {
+Layout.propTypes = {
 	path: PropTypes.string.isRequired,
 	documentTitle: PropTypes.func.isRequired,
 	error: PropTypes.object.isRequired,
@@ -63,4 +63,4 @@ const mapStateToProps = state => ({
 	error: state.error
 });
 
-export default connect(mapStateToProps)(FetchDataOnMountWrapper);
+export default connect(mapStateToProps)(Layout);

@@ -15,7 +15,7 @@ import {
 	Productions,
 	WritingCredits
 } from '../../components';
-import { InstanceWrapper } from '../../utils';
+import { InstanceWrapper } from '../../wrappers';
 
 const Material = props => {
 

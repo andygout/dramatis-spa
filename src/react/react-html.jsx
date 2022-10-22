@@ -3,13 +3,13 @@ import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router-dom/server';
 
-import App from './App';
+import AppRoutes from './AppRoutes';
 
 const reactHtml = (request, store) =>
 	renderToString(
 		<Provider store={store}>
 			<StaticRouter location={request.url} context={{}}>
-				<App />
+				<AppRoutes />
 			</StaticRouter>
 		</Provider>
 	);

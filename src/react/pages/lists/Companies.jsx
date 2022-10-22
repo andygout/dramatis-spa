@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { ListWrapper } from '../../utils';
+import { ListWrapper } from '../../wrappers';
 
 const Companies = props => {
 
