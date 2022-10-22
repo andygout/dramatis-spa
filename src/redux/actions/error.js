@@ -1,23 +1,23 @@
 import { getIn } from '../../lib/object-interactions';
 import createAction from './base';
 import {
-	RECEIVE_ERROR,
-	CANCEL_ERROR
+	ACTIVATE_ERROR,
+	DEACTIVATE_ERROR
 } from '../utils/error-action-names';
 
-const receiveError = error => createAction(RECEIVE_ERROR, error);
+const activateError = errorData => createAction(ACTIVATE_ERROR, { isActive: true, ...errorData });
 
-const cancelError = () => (dispatch, getState) => {
+const deactivateError = () => (dispatch, getState) => {
 
-	if (getIn(getState(), ['error', 'isExistent'])) {
+	if (getIn(getState(), ['error', 'isActive'])) {
 
-		dispatch(createAction(CANCEL_ERROR, { isExistent: false }));
+		dispatch(createAction(DEACTIVATE_ERROR, { isActive: false }));
 
 	}
 
 };
 
 export {
-	receiveError,
-	cancelError
+	activateError,
+	deactivateError
 };

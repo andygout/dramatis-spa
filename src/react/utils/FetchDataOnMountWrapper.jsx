@@ -36,7 +36,7 @@ const FetchDataOnMountWrapper = props => {
 			<main className="main-content">
 
 				{
-					error.isExistent
+					error.isActive
 						? <ErrorMessage errorText={error.message} />
 						: children
 				}

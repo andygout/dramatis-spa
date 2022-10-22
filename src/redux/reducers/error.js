@@ -1,14 +1,14 @@
 import {
-	RECEIVE_ERROR,
-	CANCEL_ERROR
+	ACTIVATE_ERROR,
+	DEACTIVATE_ERROR
 } from '../utils/error-action-names';
 
-const error = (state = { isExistent: false }, action) => {
+const error = (state = { isActive: false }, action) => {
 
 	switch (action.type) {
 
-		case RECEIVE_ERROR:
-		case CANCEL_ERROR:
+		case ACTIVATE_ERROR:
+		case DEACTIVATE_ERROR:
 			return action.payload;
 
 		default:

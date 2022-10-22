@@ -2,7 +2,7 @@ import nodeFetch from 'node-fetch';
 
 import { getIn } from '../../lib/object-interactions';
 import createAction from './base';
-import { receiveError } from './error';
+import { activateError } from './error';
 import * as actions from '../utils/model-action-names';
 import {
 	MODEL_TO_PROP_NAME_MAP,
@@ -55,7 +55,7 @@ const fetchList = pluralisedModel => async (dispatch, getState) => {
 
 		} catch ({ message }) {
 
-			dispatch(receiveError({ isExistent: true, message }));
+			dispatch(activateError({ message }));
 
 		}
 
@@ -81,7 +81,7 @@ const fetchInstance = (model, uuid) => async (dispatch, getState) => {
 
 		} catch ({ message }) {
 
-			dispatch(receiveError({ isExistent: true, message }));
+			dispatch(activateError({ message }));
 
 		}
 
