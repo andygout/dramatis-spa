@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
+import Layout from './Layout';
 import routes from './routes';
-import { FetchDataOnMountWrapper } from './utils';
 
-const App = () => {
+const AppRoutes = () => {
 
 	const location = useLocation();
 
@@ -19,14 +19,14 @@ const App = () => {
 							key={index}
 							path={route.path}
 							element={
-								<FetchDataOnMountWrapper
+								<Layout
 									key={location.pathname}
 									path={route.path}
 									documentTitle={route.documentTitle}
 									fetchData={route.fetchData}
 								>
 									<RouteComponent />
-								</FetchDataOnMountWrapper>
+								</Layout>
 							}
 						/>
 					);
@@ -37,4 +37,4 @@ const App = () => {
 
 };
 
-export default App;
+export default AppRoutes;

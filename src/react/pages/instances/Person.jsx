@@ -12,7 +12,7 @@ import {
 	Materials,
 	Productions
 } from '../../components';
-import { InstanceWrapper } from '../../utils';
+import { InstanceWrapper } from '../../wrappers';
 
 const Person = props => {
 

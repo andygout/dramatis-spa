@@ -15,7 +15,7 @@ import {
 	ProducerCredits,
 	Productions
 } from '../../components';
-import { InstanceWrapper } from '../../utils';
+import { InstanceWrapper } from '../../wrappers';
 
 const Production = props => {
 

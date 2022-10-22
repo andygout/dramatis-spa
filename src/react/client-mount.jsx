@@ -6,7 +6,7 @@ import { applyMiddleware, createStore, combineReducers } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 
-import App from './App';
+import AppRoutes from './AppRoutes';
 import reducers from '../redux/reducers';
 
 window.onload = () => {
@@ -25,7 +25,7 @@ window.onload = () => {
 		document.getElementById('page-container'),
 		<Provider store={store}>
 			<BrowserRouter>
-				<App />
+				<AppRoutes />
 			</BrowserRouter>
 		</Provider>
 	);

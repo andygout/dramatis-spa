@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { InstanceFacet, InstanceLink, List } from '../../components';
-import { InstanceWrapper } from '../../utils';
+import { InstanceWrapper } from '../../wrappers';
 
 const Venue = props => {
 
