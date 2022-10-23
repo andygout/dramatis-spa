@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { MODEL_TO_ROUTE_MAP } from '../../utils/constants';
 
@@ -15,9 +15,9 @@ const InstanceLink = props => {
 	const instancePath = `/${MODEL_TO_ROUTE_MAP[model]}/${uuid}`;
 
 	return (
-		<Link to={instancePath}>
+		<NavLink to={instancePath}>
 			{ instance.name }
-		</Link>
+		</NavLink>
 	);
 
 };

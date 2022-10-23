@@ -21,11 +21,7 @@ const ProducerEntities = props => {
 								)
 							}
 
-							{
-								entity.uuid
-									? <InstanceLink instance={entity} />
-									: entity.name
-							}
+							<InstanceLink instance={entity} />
 
 						</React.Fragment>
 					)
