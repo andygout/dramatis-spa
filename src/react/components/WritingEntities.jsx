@@ -21,11 +21,7 @@ const WritingEntities = props => {
 								)
 							}
 
-							{
-								entity.uuid
-									? <InstanceLink instance={entity} />
-									: entity.name
-							}
+							<InstanceLink instance={entity} />
 
 							{
 								(entity.format || entity.year) && (
