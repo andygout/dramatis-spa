@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { InstanceFacet, JoinedRoles, List } from '../../components';
+import { InstanceFacet, List } from '../../components';
 import { InstanceWrapper } from '../../wrappers';
 
 const Character = props => {
@@ -23,7 +23,11 @@ const Character = props => {
 				variantNamedDepictions?.length > 0 && (
 					<InstanceFacet labelText='Variant named depictions'>
 
-						<JoinedRoles instances={variantNamedDepictions} />
+						<span className="fictional-name-text">
+
+							{ variantNamedDepictions.join(' / ') }
+
+						</span>
 
 					</InstanceFacet>
 				)
@@ -43,7 +47,11 @@ const Character = props => {
 				variantNamedPortrayals?.length > 0 && (
 					<InstanceFacet labelText='Variant named portrayals'>
 
-						<JoinedRoles instances={variantNamedPortrayals} />
+						<span className="fictional-name-text">
+
+							{ variantNamedPortrayals.join(' / ') }
+
+						</span>
 
 					</InstanceFacet>
 				)
