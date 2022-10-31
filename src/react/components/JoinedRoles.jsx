@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import isObjectWithKeys from '../../lib/is-object-with-keys';
 import { InstanceLink } from '.';
 
 const JoinedRoles = props => {
@@ -9,7 +8,7 @@ const JoinedRoles = props => {
 	const { instances } = props;
 
 	return (
-		<span className="role-text">
+		<span className="fictional-name-text">
 
 			{
 				instances
@@ -17,21 +16,19 @@ const JoinedRoles = props => {
 						<React.Fragment key={index}>
 
 							{
-								isObjectWithKeys(instance) && instance.uuid
+								instance.uuid
 									? <InstanceLink instance={instance} />
-									: isObjectWithKeys(instance)
-										? instance.name
-										: instance
+									: instance.name
 							}
 
 							{
-								isObjectWithKeys(instance) && instance.qualifier && (
+								instance.qualifier && (
 									<React.Fragment>{` (${instance.qualifier})`}</React.Fragment>
 								)
 							}
 
 							{
-								isObjectWithKeys(instance) && instance.isAlternate && (
+								instance.isAlternate && (
 									<React.Fragment>{' (alt)'}</React.Fragment>
 								)
 							}

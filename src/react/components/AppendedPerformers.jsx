@@ -21,7 +21,7 @@ const AppendedPerformers = props => {
 
 							<React.Fragment>{' … '}</React.Fragment>
 
-							<span className="role-text">
+							<span className="fictional-name-text">
 
 								{
 									performer.roleName

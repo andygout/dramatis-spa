@@ -15,7 +15,9 @@ const AppendedDepictions = props => {
 
 							{
 								depiction.displayName && (
-									<React.Fragment>{' (as '}<span className="role-text">{ depiction.displayName }</span>)</React.Fragment>
+									<React.Fragment>
+										{' (as '}<span className="fictional-name-text">{ depiction.displayName }</span>)
+									</React.Fragment>
 								)
 							}
 
