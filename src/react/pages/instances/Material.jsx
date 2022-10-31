@@ -38,9 +38,6 @@ const Material = props => {
 		sourcingMaterialAwards
 	} = material;
 
-	const instanceFacetSubheader = subheaderText =>
-		<div className="instance-facet-subheader">{ subheaderText }</div>;
-
 	return (
 		<InstanceWrapper instance={material}>
 
@@ -120,7 +117,11 @@ const Material = props => {
 
 										{
 											Boolean(characterGroups[0].name) && (
-												instanceFacetSubheader(characterGroups[0].name)
+												<div className="instance-facet-subheader">
+
+													{ characterGroups[0].name }
+
+												</div>
 											)
 										}
 
@@ -137,7 +138,11 @@ const Material = props => {
 
 													{
 														Boolean(characterGroup.name) && (
-															instanceFacetSubheader(characterGroup.name)
+															<div className="instance-facet-subheader">
+
+																{ characterGroup.name }
+
+															</div>
 														)
 													}
 
