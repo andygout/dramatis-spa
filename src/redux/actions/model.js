@@ -1,5 +1,3 @@
-import nodeFetch from 'node-fetch';
-
 import { getIn } from '../../lib/object-interactions';
 import createAction from './base';
 import { activateError } from './error';
@@ -26,8 +24,6 @@ const receiveInstance = instance =>
 	createAction(actions[`RECEIVE_${instance.model}`], instance);
 
 const performFetch = async url => {
-
-	const fetch = global.fetch || nodeFetch;
 
 	const response = await fetch(url, { mode: 'cors' });
 
