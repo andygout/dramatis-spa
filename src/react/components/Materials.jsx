@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { AppendedFormatAndYear, AppendedWritingCredits, InstanceLink, PrependedSurMaterial } from '.';
+import { AppendedFormatAndYear, AppendedWritingCredits, InstanceLink, PrependedSurInstance } from '.';
 
 const Materials = props => {
 
@@ -17,7 +17,7 @@ const Materials = props => {
 
 							{
 								material.surMaterial && (
-									<PrependedSurMaterial surMaterial={material.surMaterial} />
+									<PrependedSurInstance surInstance={material.surMaterial} />
 								)
 							}
 

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { AppendedVenue, InstanceLink } from '.';
+import { AppendedVenue, InstanceLink, PrependedSurInstance } from '.';
 
 const Productions = props => {
 
@@ -14,6 +14,12 @@ const Productions = props => {
 				productions
 					.map((production, index) =>
 						<React.Fragment key={index}>
+
+							{
+								production.surProduction && (
+									<PrependedSurInstance surInstance={production.surProduction} />
+								)
+							}
 
 							<InstanceLink instance={production} />
 
