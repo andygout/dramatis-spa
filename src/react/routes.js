@@ -33,24 +33,6 @@ export default [
 		]
 	},
 	{
-		path: '/awards/ceremonies',
-		documentTitle: () => 'Award ceremonies',
-		component: AwardCeremonies,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			dispatch => dispatch(fetchList(PLURALISED_MODELS.AWARD_CEREMONIES))
-		]
-	},
-	{
-		path: '/awards/ceremonies/:uuid',
-		documentTitle: () => 'Award ceremony',
-		component: AwardCeremony,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.AWARD_CEREMONY, uuid))
-		]
-	},
-	{
 		path: '/awards',
 		documentTitle: () => 'Awards',
 		component: Awards,
@@ -66,6 +48,24 @@ export default [
 		fetchData: [
 			dispatch => dispatch(deactivateError()),
 			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.AWARD, uuid))
+		]
+	},
+	{
+		path: '/award-ceremonies',
+		documentTitle: () => 'Award ceremonies',
+		component: AwardCeremonies,
+		fetchData: [
+			dispatch => dispatch(deactivateError()),
+			dispatch => dispatch(fetchList(PLURALISED_MODELS.AWARD_CEREMONIES))
+		]
+	},
+	{
+		path: '/award-ceremonies/:uuid',
+		documentTitle: () => 'Award ceremony',
+		component: AwardCeremony,
+		fetchData: [
+			dispatch => dispatch(deactivateError()),
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.AWARD_CEREMONY, uuid))
 		]
 	},
 	{
