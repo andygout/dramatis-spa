@@ -2,31 +2,29 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { InstanceFacet, List } from '../../components';
-import { InstanceWrapper } from '../../wrappers';
+import { InstanceFacet, InstanceLinksList } from '../../components';
+import { InstancePageWrapper } from '../../page-wrappers';
 
 const Award = props => {
 
 	const { award } = props;
 
-	const {
-		ceremonies
-	} = award;
+	const { ceremonies } = award;
 
 	return (
-		<InstanceWrapper instance={award}>
+		<InstancePageWrapper instance={award}>
 
 			{
 				ceremonies?.length > 0 && (
 					<InstanceFacet labelText='Ceremonies'>
 
-						<List instances={ceremonies} />
+						<InstanceLinksList instances={ceremonies} />
 
 					</InstanceFacet>
 				)
 			}
 
-		</InstanceWrapper>
+		</InstancePageWrapper>
 	);
 
 };

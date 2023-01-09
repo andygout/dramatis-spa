@@ -2,20 +2,24 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Entities, InstanceFacet, InstanceLink, Materials, Productions } from '../../components';
-import { InstanceWrapper } from '../../wrappers';
+import {
+	CommaSeparatedMaterials,
+	CommaSeparatedProductions,
+	Entities,
+	InstanceFacet,
+	InstanceLink,
+	ListWrapper
+} from '../../components';
+import { InstancePageWrapper } from '../../page-wrappers';
 
 const AwardCeremony = props => {
 
 	const { awardCeremony } = props;
 
-	const {
-		award,
-		categories
-	} = awardCeremony;
+	const { award, categories } = awardCeremony;
 
 	return (
-		<InstanceWrapper instance={awardCeremony}>
+		<InstancePageWrapper instance={awardCeremony}>
 
 			{
 				award && (
@@ -36,7 +40,7 @@ const AwardCeremony = props => {
 								<React.Fragment key={index}>
 									{ category.name }
 
-									<ul className="list">
+									<ListWrapper>
 
 										{
 											category.nominations.map((nomination, index) =>
@@ -63,29 +67,31 @@ const AwardCeremony = props => {
 
 													{
 														nomination.productions.length > 0 && (
-															<Productions
+															<CommaSeparatedProductions
 																productions={nomination.productions}
 															/>
 														)
 													}
 
-												{
-													nomination.productions.length > 0 &&
-													nomination.materials.length > 0 && (
-														<React.Fragment>{'; '}</React.Fragment>
-													)
-												}
+													{
+														nomination.productions.length > 0 &&
+														nomination.materials.length > 0 && (
+															<React.Fragment>{'; '}</React.Fragment>
+														)
+													}
 
 													{
 														nomination.materials.length > 0 && (
-															<Materials materials={nomination.materials} />
+															<CommaSeparatedMaterials
+																materials={nomination.materials}
+															/>
 														)
 													}
 												</li>
 											)
 										}
 
-									</ul>
+									</ListWrapper>
 								</React.Fragment>
 							)
 						}
@@ -94,7 +100,7 @@ const AwardCeremony = props => {
 				)
 			}
 
-		</InstanceWrapper>
+		</InstancePageWrapper>
 	);
 
 };

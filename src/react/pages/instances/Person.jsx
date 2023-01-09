@@ -4,15 +4,21 @@ import { connect } from 'react-redux';
 
 import {
 	AppendedCoEntities,
-	AppendedEntities,
 	AppendedEmployerCompany,
+	AppendedEntities,
+	AppendedRoles,
+	CommaSeparatedMaterials,
+	CommaSeparatedProductions,
+	CreativeProductionsList,
+	CrewProductionsList,
 	InstanceFacet,
 	InstanceLink,
-	List,
-	Materials,
-	Productions
+	ListWrapper,
+	MaterialsList,
+	ProducerProductionsList,
+	ProductionLinkWithContext
 } from '../../components';
-import { InstanceWrapper } from '../../wrappers';
+import { InstancePageWrapper } from '../../page-wrappers';
 
 const Person = props => {
 
@@ -34,13 +40,13 @@ const Person = props => {
 	} = person;
 
 	return (
-		<InstanceWrapper instance={person}>
+		<InstancePageWrapper instance={person}>
 
 			{
 				materials?.length > 0 && (
 					<InstanceFacet labelText='Materials'>
 
-						<List instances={materials} />
+						<MaterialsList materials={materials} />
 
 					</InstanceFacet>
 				)
@@ -50,7 +56,7 @@ const Person = props => {
 				subsequentVersionMaterials?.length > 0 && (
 					<InstanceFacet labelText='Subsequent versions of their materials'>
 
-						<List instances={subsequentVersionMaterials} />
+						<MaterialsList materials={subsequentVersionMaterials} />
 
 					</InstanceFacet>
 				)
@@ -60,7 +66,7 @@ const Person = props => {
 				sourcingMaterials?.length > 0 && (
 					<InstanceFacet labelText='Materials as source material writer'>
 
-						<List instances={sourcingMaterials} />
+						<MaterialsList materials={sourcingMaterials} />
 
 					</InstanceFacet>
 				)
@@ -70,7 +76,7 @@ const Person = props => {
 				rightsGrantorMaterials?.length > 0 && (
 					<InstanceFacet labelText='Materials as rights grantor'>
 
-						<List instances={rightsGrantorMaterials} />
+						<MaterialsList materials={rightsGrantorMaterials} />
 
 					</InstanceFacet>
 				)
@@ -80,7 +86,7 @@ const Person = props => {
 				producerProductions?.length > 0 && (
 					<InstanceFacet labelText='Productions as producer'>
 
-						<List instances={producerProductions} />
+						<ProducerProductionsList productions={producerProductions} />
 
 					</InstanceFacet>
 				)
@@ -90,7 +96,25 @@ const Person = props => {
 				castMemberProductions?.length > 0 && (
 					<InstanceFacet labelText='Productions as cast member'>
 
-						<List instances={castMemberProductions} />
+						<ListWrapper>
+
+							{
+								castMemberProductions.map((castMemberProduction, index) =>
+									<li key={index}>
+
+										<ProductionLinkWithContext production={castMemberProduction} />
+
+										{
+											castMemberProduction.roles?.length > 0 && (
+												<AppendedRoles roles={castMemberProduction.roles} />
+											)
+										}
+
+									</li>
+								)
+							}
+
+						</ListWrapper>
 
 					</InstanceFacet>
 				)
@@ -100,7 +124,7 @@ const Person = props => {
 				creativeProductions?.length > 0 && (
 					<InstanceFacet labelText='Productions as creative team member'>
 
-						<List instances={creativeProductions} />
+						<CreativeProductionsList productions={creativeProductions} />
 
 					</InstanceFacet>
 				)
@@ -110,7 +134,7 @@ const Person = props => {
 				crewProductions?.length > 0 && (
 					<InstanceFacet labelText='Productions as crew member'>
 
-						<List instances={crewProductions} />
+						<CrewProductionsList productions={crewProductions} />
 
 					</InstanceFacet>
 				)
@@ -125,7 +149,7 @@ const Person = props => {
 								<React.Fragment key={index}>
 									<InstanceLink instance={award} />
 
-									<ul className="list">
+									<ListWrapper>
 
 										{
 											award.ceremonies.map((ceremony, index) =>
@@ -166,7 +190,7 @@ const Person = props => {
 																						nomination.productions.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
-																								<Productions
+																								<CommaSeparatedProductions
 																									productions={nomination.productions}
 																								/>
 																							</React.Fragment>
@@ -184,7 +208,7 @@ const Person = props => {
 																						nomination.materials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
-																								<Materials
+																								<CommaSeparatedMaterials
 																									materials={nomination.materials}
 																								/>
 																							</React.Fragment>
@@ -202,7 +226,7 @@ const Person = props => {
 											)
 										}
 
-									</ul>
+									</ListWrapper>
 								</React.Fragment>
 							)
 						}
@@ -220,7 +244,7 @@ const Person = props => {
 								<React.Fragment key={index}>
 									<InstanceLink instance={subsequentVersionMaterialAward} />
 
-									<ul className="list">
+									<ListWrapper>
 
 										{
 											subsequentVersionMaterialAward.ceremonies.map((ceremony, index) =>
@@ -245,18 +269,10 @@ const Person = props => {
 																						nomination.subsequentVersionMaterials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{': '}</React.Fragment>
-																								<Materials
+																								<CommaSeparatedMaterials
 																									materials={nomination.subsequentVersionMaterials}
 																								/>
 																							</React.Fragment>
-																						)
-																					}
-
-																					{
-																						nomination.employerCompany && (
-																							<AppendedEmployerCompany
-																								employerCompany={nomination.employerCompany}
-																							/>
 																						)
 																					}
 
@@ -272,7 +288,7 @@ const Person = props => {
 																						nomination.productions.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
-																								<Productions
+																								<CommaSeparatedProductions
 																									productions={nomination.productions}
 																								/>
 																							</React.Fragment>
@@ -290,7 +306,7 @@ const Person = props => {
 																						nomination.materials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
-																								<Materials
+																								<CommaSeparatedMaterials
 																									materials={nomination.materials}
 																								/>
 																							</React.Fragment>
@@ -308,7 +324,7 @@ const Person = props => {
 											)
 										}
 
-									</ul>
+									</ListWrapper>
 								</React.Fragment>
 							)
 						}
@@ -326,7 +342,7 @@ const Person = props => {
 								<React.Fragment key={index}>
 									<InstanceLink instance={sourcingMaterialAward} />
 
-									<ul className="list">
+									<ListWrapper>
 
 										{
 											sourcingMaterialAward.ceremonies.map((ceremony, index) =>
@@ -351,18 +367,10 @@ const Person = props => {
 																						nomination.sourcingMaterials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{': '}</React.Fragment>
-																								<Materials
+																								<CommaSeparatedMaterials
 																									materials={nomination.sourcingMaterials}
 																								/>
 																							</React.Fragment>
-																						)
-																					}
-
-																					{
-																						nomination.employerCompany && (
-																							<AppendedEmployerCompany
-																								employerCompany={nomination.employerCompany}
-																							/>
 																						)
 																					}
 
@@ -378,7 +386,7 @@ const Person = props => {
 																						nomination.productions.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
-																								<Productions
+																								<CommaSeparatedProductions
 																									productions={nomination.productions}
 																								/>
 																							</React.Fragment>
@@ -396,7 +404,7 @@ const Person = props => {
 																						nomination.materials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
-																								<Materials
+																								<CommaSeparatedMaterials
 																									materials={nomination.materials}
 																								/>
 																							</React.Fragment>
@@ -414,7 +422,7 @@ const Person = props => {
 											)
 										}
 
-									</ul>
+									</ListWrapper>
 								</React.Fragment>
 							)
 						}
@@ -432,7 +440,7 @@ const Person = props => {
 								<React.Fragment key={index}>
 									<InstanceLink instance={rightsGrantorMaterialAward} />
 
-									<ul className="list">
+									<ListWrapper>
 
 										{
 											rightsGrantorMaterialAward.ceremonies.map((ceremony, index) =>
@@ -457,18 +465,10 @@ const Person = props => {
 																						nomination.rightsGrantorMaterials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{': '}</React.Fragment>
-																								<Materials
+																								<CommaSeparatedMaterials
 																									materials={nomination.rightsGrantorMaterials}
 																								/>
 																							</React.Fragment>
-																						)
-																					}
-
-																					{
-																						nomination.employerCompany && (
-																							<AppendedEmployerCompany
-																								employerCompany={nomination.employerCompany}
-																							/>
 																						)
 																					}
 
@@ -484,7 +484,7 @@ const Person = props => {
 																						nomination.productions.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
-																								<Productions
+																								<CommaSeparatedProductions
 																									productions={nomination.productions}
 																								/>
 																							</React.Fragment>
@@ -502,7 +502,7 @@ const Person = props => {
 																						nomination.materials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
-																								<Materials
+																								<CommaSeparatedMaterials
 																									materials={nomination.materials}
 																								/>
 																							</React.Fragment>
@@ -520,7 +520,7 @@ const Person = props => {
 											)
 										}
 
-									</ul>
+									</ListWrapper>
 								</React.Fragment>
 							)
 						}
@@ -529,7 +529,7 @@ const Person = props => {
 				)
 			}
 
-		</InstanceWrapper>
+		</InstancePageWrapper>
 	);
 
 };

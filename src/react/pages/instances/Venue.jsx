@@ -2,21 +2,17 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { InstanceFacet, InstanceLink, List } from '../../components';
-import { InstanceWrapper } from '../../wrappers';
+import { InstanceFacet, InstanceLink, InstanceLinksList, ProductionsList } from '../../components';
+import { InstancePageWrapper } from '../../page-wrappers';
 
 const Venue = props => {
 
 	const { venue } = props;
 
-	const {
-		surVenue,
-		subVenues,
-		productions
-	} = venue;
+	const { surVenue, subVenues, productions } = venue;
 
 	return (
-		<InstanceWrapper instance={venue}>
+		<InstancePageWrapper instance={venue}>
 
 			{
 				surVenue && (
@@ -32,7 +28,7 @@ const Venue = props => {
 				subVenues?.length > 0 && (
 					<InstanceFacet labelText='Comprises'>
 
-						<List instances={subVenues} />
+						<InstanceLinksList instances={subVenues} />
 
 					</InstanceFacet>
 				)
@@ -42,13 +38,13 @@ const Venue = props => {
 				productions?.length > 0 && (
 					<InstanceFacet labelText='Productions'>
 
-						<List instances={productions} />
+						<ProductionsList productions={productions} />
 
 					</InstanceFacet>
 				)
 			}
 
-		</InstanceWrapper>
+		</InstancePageWrapper>
 	);
 
 };

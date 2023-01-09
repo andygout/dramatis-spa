@@ -2,18 +2,19 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { ListWrapper } from '../../wrappers';
+import { InstanceLinksList } from '../../components';
+import { ListPageWrapper } from '../../page-wrappers';
 
 const Companies = props => {
 
 	const { companies } = props;
 
 	return (
-		<ListWrapper
-			instances={companies}
-			pageTitleText='Companies'
-		>
-		</ListWrapper>
+		<ListPageWrapper pageTitleText='Companies'>
+
+			<InstanceLinksList instances={companies} />
+
+		</ListPageWrapper>
 	);
 
 };

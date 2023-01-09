@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { InstanceLink } from '.';
+import { AppendedQualifier, InstanceLink } from '.';
 
 const JoinedRoles = props => {
 
@@ -23,7 +23,7 @@ const JoinedRoles = props => {
 
 							{
 								instance.qualifier && (
-									<React.Fragment>{` (${instance.qualifier})`}</React.Fragment>
+									<AppendedQualifier qualifier={instance.qualifier} />
 								)
 							}
 

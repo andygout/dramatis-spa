@@ -6,16 +6,19 @@ import { getIn } from '../../../lib/object-interactions';
 import { capitalise } from '../../../lib/strings';
 import {
 	AppendedFormatAndYear,
-	AppendedWritingCredits,
+	CharactersList,
+	CommaSeparatedMaterials,
+	CommaSeparatedProductions,
 	Entities,
 	InstanceFacet,
 	InstanceLink,
-	List,
-	Materials,
-	Productions,
+	ListWrapper,
+	MaterialLinkWithContext,
+	MaterialsList,
+	ProductionsList,
 	WritingCredits
 } from '../../components';
-import { InstanceWrapper } from '../../wrappers';
+import { InstancePageWrapper } from '../../page-wrappers';
 
 const Material = props => {
 
@@ -39,7 +42,7 @@ const Material = props => {
 	} = material;
 
 	return (
-		<InstanceWrapper instance={material}>
+		<InstancePageWrapper instance={material}>
 
 			{
 				format && (
@@ -75,22 +78,7 @@ const Material = props => {
 				surMaterial && (
 					<InstanceFacet labelText='Part of'>
 
-						<InstanceLink instance={surMaterial} />
-
-						{
-							(surMaterial.format || surMaterial.year) && (
-								<AppendedFormatAndYear
-									format={surMaterial.format}
-									year={surMaterial.year}
-								/>
-							)
-						}
-
-						{
-							surMaterial.writingCredits?.length > 0 && (
-								<AppendedWritingCredits credits={surMaterial.writingCredits} />
-							)
-						}
+						<MaterialLinkWithContext material={surMaterial} />
 
 					</InstanceFacet>
 				)
@@ -100,7 +88,7 @@ const Material = props => {
 				subMaterials?.length > 0 && (
 					<InstanceFacet labelText='Comprises'>
 
-						<List instances={subMaterials} />
+						<MaterialsList materials={subMaterials} />
 
 					</InstanceFacet>
 				)
@@ -125,7 +113,7 @@ const Material = props => {
 											)
 										}
 
-										<List instances={characterGroups[0].characters} />
+										<CharactersList characters={characterGroups[0].characters} />
 
 									</React.Fragment>
 								)
@@ -146,7 +134,7 @@ const Material = props => {
 														)
 													}
 
-													<List instances={characterGroup.characters} />
+													<CharactersList characters={characterGroup.characters} />
 
 												</li>
 											)
@@ -164,22 +152,7 @@ const Material = props => {
 				originalVersionMaterial && (
 					<InstanceFacet labelText='Original version'>
 
-						<InstanceLink instance={originalVersionMaterial} />
-
-						{
-							(originalVersionMaterial.format || originalVersionMaterial.year) && (
-								<AppendedFormatAndYear
-									format={originalVersionMaterial.format}
-									year={originalVersionMaterial.year}
-								/>
-							)
-						}
-
-						{
-							originalVersionMaterial.writingCredits?.length > 0 && (
-								<AppendedWritingCredits credits={originalVersionMaterial.writingCredits} />
-							)
-						}
+						<MaterialLinkWithContext material={originalVersionMaterial} />
 
 					</InstanceFacet>
 				)
@@ -189,7 +162,7 @@ const Material = props => {
 				subsequentVersionMaterials?.length > 0 && (
 					<InstanceFacet labelText='Subsequent versions'>
 
-						<List instances={subsequentVersionMaterials} />
+						<MaterialsList materials={subsequentVersionMaterials} />
 
 					</InstanceFacet>
 				)
@@ -199,7 +172,7 @@ const Material = props => {
 				productions?.length > 0 && (
 					<InstanceFacet labelText='Productions'>
 
-						<List instances={productions} />
+						<ProductionsList productions={productions} />
 
 					</InstanceFacet>
 				)
@@ -209,7 +182,7 @@ const Material = props => {
 				sourcingMaterials?.length > 0 && (
 					<InstanceFacet labelText='Materials as source material'>
 
-						<List instances={sourcingMaterials} />
+						<MaterialsList materials={sourcingMaterials} />
 
 					</InstanceFacet>
 				)
@@ -219,7 +192,7 @@ const Material = props => {
 				sourcingMaterialProductions?.length > 0 && (
 					<InstanceFacet labelText='Productions of materials as source material'>
 
-						<List instances={sourcingMaterialProductions} />
+						<ProductionsList productions={sourcingMaterialProductions} />
 
 					</InstanceFacet>
 				)
@@ -234,7 +207,7 @@ const Material = props => {
 								<React.Fragment key={index}>
 									<InstanceLink instance={award} />
 
-									<ul className="list">
+									<ListWrapper>
 
 										{
 											award.ceremonies.map((ceremony, index) =>
@@ -270,7 +243,7 @@ const Material = props => {
 																						nomination.productions.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
-																								<Productions
+																								<CommaSeparatedProductions
 																									productions={nomination.productions}
 																								/>
 																							</React.Fragment>
@@ -313,7 +286,7 @@ const Material = props => {
 																						nomination.coMaterials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' (with '}</React.Fragment>
-																								<Materials
+																								<CommaSeparatedMaterials
 																									materials={nomination.coMaterials}
 																								/>
 																								<React.Fragment>{')'}</React.Fragment>
@@ -332,7 +305,7 @@ const Material = props => {
 											)
 										}
 
-									</ul>
+									</ListWrapper>
 								</React.Fragment>
 							)
 						}
@@ -350,7 +323,7 @@ const Material = props => {
 								<React.Fragment key={index}>
 									<InstanceLink instance={subsequentVersionMaterialAward} />
 
-									<ul className="list">
+									<ListWrapper>
 
 										{
 											subsequentVersionMaterialAward.ceremonies.map((ceremony, index) =>
@@ -375,7 +348,7 @@ const Material = props => {
 																						nomination.subsequentVersionMaterials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{': '}</React.Fragment>
-																								<Materials
+																								<CommaSeparatedMaterials
 																									materials={nomination.subsequentVersionMaterials}
 																								/>
 																							</React.Fragment>
@@ -397,7 +370,7 @@ const Material = props => {
 																						nomination.productions.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
-																								<Productions
+																								<CommaSeparatedProductions
 																									productions={nomination.productions}
 																								/>
 																							</React.Fragment>
@@ -415,7 +388,7 @@ const Material = props => {
 																						nomination.materials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' (with '}</React.Fragment>
-																								<Materials
+																								<CommaSeparatedMaterials
 																									materials={nomination.materials}
 																								/>
 																								<React.Fragment>{')'}</React.Fragment>
@@ -434,7 +407,7 @@ const Material = props => {
 											)
 										}
 
-									</ul>
+									</ListWrapper>
 								</React.Fragment>
 							)
 						}
@@ -452,7 +425,7 @@ const Material = props => {
 								<React.Fragment key={index}>
 									<InstanceLink instance={sourcingMaterialAward} />
 
-									<ul className="list">
+									<ListWrapper>
 
 										{
 											sourcingMaterialAward.ceremonies.map((ceremony, index) =>
@@ -477,7 +450,7 @@ const Material = props => {
 																						nomination.sourcingMaterials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{': '}</React.Fragment>
-																								<Materials
+																								<CommaSeparatedMaterials
 																									materials={nomination.sourcingMaterials}
 																								/>
 																							</React.Fragment>
@@ -499,7 +472,7 @@ const Material = props => {
 																						nomination.productions.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
-																								<Productions
+																								<CommaSeparatedProductions
 																									productions={nomination.productions}
 																								/>
 																							</React.Fragment>
@@ -517,7 +490,7 @@ const Material = props => {
 																						nomination.materials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' (with '}</React.Fragment>
-																								<Materials
+																								<CommaSeparatedMaterials
 																									materials={nomination.materials}
 																								/>
 																								<React.Fragment>{')'}</React.Fragment>
@@ -536,7 +509,7 @@ const Material = props => {
 											)
 										}
 
-									</ul>
+									</ListWrapper>
 								</React.Fragment>
 							)
 						}
@@ -545,7 +518,7 @@ const Material = props => {
 				)
 			}
 
-		</InstanceWrapper>
+		</InstancePageWrapper>
 	);
 
 };

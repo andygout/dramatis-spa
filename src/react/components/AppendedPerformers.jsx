@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { InstanceLink, AppendedPerformerOtherRoles } from '.';
+import { InstanceLink, JoinedRoles } from '.';
 
 const AppendedPerformers = props => {
 
@@ -43,7 +43,13 @@ const AppendedPerformers = props => {
 
 							{
 								performer.otherRoles.length > 0 && (
-									<AppendedPerformerOtherRoles otherRoles={performer.otherRoles} />
+									<React.Fragment>
+
+										<React.Fragment>{'; also performed: '}</React.Fragment>
+
+										<JoinedRoles instances={performer.otherRoles} />
+
+									</React.Fragment>
 								)
 							}
 
