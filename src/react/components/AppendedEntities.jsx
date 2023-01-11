@@ -8,13 +8,13 @@ const AppendedEntities = props => {
 	const { entities } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
-			<React.Fragment>{' … '}</React.Fragment>
+			<>{' … '}</>
 
 			<Entities entities={entities} />
 
-		</React.Fragment>
+		</>
 	);
 
 };

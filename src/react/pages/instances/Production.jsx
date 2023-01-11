@@ -206,42 +206,42 @@ const Production = props => {
 
 																					{
 																						nomination.entities.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{': '}</React.Fragment>
+																							<>
+																								<>{': '}</>
 																								<Entities
 																									entities={nomination.entities}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 
 																					{
 																						nomination.coProductions.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' (with '}</React.Fragment>
+																							<>
+																								<>{' (with '}</>
 																								<CommaSeparatedProductions
 																									productions={nomination.coProductions}
 																								/>
-																								<React.Fragment>{')'}</React.Fragment>
-																							</React.Fragment>
+																								<>{')'}</>
+																							</>
 																						)
 																					}
 
 																					{
 																						nomination.coProductions.length > 0 &&
 																						nomination.materials.length > 0 && (
-																							<React.Fragment>{';'}</React.Fragment>
+																							<>{';'}</>
 																						)
 																					}
 
 																					{
 																						nomination.materials.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' for '}</React.Fragment>
+																							<>
+																								<>{' for '}</>
 																								<CommaSeparatedMaterials
 																									materials={nomination.materials}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 																				</React.Fragment>

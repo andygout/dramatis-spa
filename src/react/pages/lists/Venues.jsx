@@ -22,9 +22,9 @@ const Venues = props => {
 
 							{
 								venue.subVenues?.length > 0 && (
-									<React.Fragment>
+									<>
 
-										<React.Fragment>{': '}</React.Fragment>
+										<>{': '}</>
 
 										{
 											venue.subVenues
@@ -34,7 +34,7 @@ const Venues = props => {
 												.reduce((prev, curr) => [prev, ' / ', curr])
 										}
 
-									</React.Fragment>
+									</>
 								)
 							}
 

@@ -188,30 +188,30 @@ const Person = props => {
 
 																					{
 																						nomination.productions.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' for '}</React.Fragment>
+																							<>
+																								<>{' for '}</>
 																								<CommaSeparatedProductions
 																									productions={nomination.productions}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 
 																					{
 																						nomination.productions.length > 0 &&
 																						nomination.materials.length > 0 && (
-																							<React.Fragment>{';'}</React.Fragment>
+																							<>{';'}</>
 																						)
 																					}
 
 																					{
 																						nomination.materials.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' for '}</React.Fragment>
+																							<>
+																								<>{' for '}</>
 																								<CommaSeparatedMaterials
 																									materials={nomination.materials}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 																				</React.Fragment>
@@ -267,12 +267,12 @@ const Person = props => {
 
 																					{
 																						nomination.subsequentVersionMaterials.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{': '}</React.Fragment>
+																							<>
+																								<>{': '}</>
 																								<CommaSeparatedMaterials
 																									materials={nomination.subsequentVersionMaterials}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 
@@ -286,30 +286,30 @@ const Person = props => {
 
 																					{
 																						nomination.productions.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' for '}</React.Fragment>
+																							<>
+																								<>{' for '}</>
 																								<CommaSeparatedProductions
 																									productions={nomination.productions}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 
 																					{
 																						nomination.productions.length > 0 &&
 																						nomination.materials.length > 0 && (
-																							<React.Fragment>{';'}</React.Fragment>
+																							<>{';'}</>
 																						)
 																					}
 
 																					{
 																						nomination.materials.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' for '}</React.Fragment>
+																							<>
+																								<>{' for '}</>
 																								<CommaSeparatedMaterials
 																									materials={nomination.materials}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 																				</React.Fragment>
@@ -365,12 +365,12 @@ const Person = props => {
 
 																					{
 																						nomination.sourcingMaterials.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{': '}</React.Fragment>
+																							<>
+																								<>{': '}</>
 																								<CommaSeparatedMaterials
 																									materials={nomination.sourcingMaterials}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 
@@ -384,30 +384,30 @@ const Person = props => {
 
 																					{
 																						nomination.productions.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' for '}</React.Fragment>
+																							<>
+																								<>{' for '}</>
 																								<CommaSeparatedProductions
 																									productions={nomination.productions}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 
 																					{
 																						nomination.productions.length > 0 &&
 																						nomination.materials.length > 0 && (
-																							<React.Fragment>{';'}</React.Fragment>
+																							<>{';'}</>
 																						)
 																					}
 
 																					{
 																						nomination.materials.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' for '}</React.Fragment>
+																							<>
+																								<>{' for '}</>
 																								<CommaSeparatedMaterials
 																									materials={nomination.materials}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 																				</React.Fragment>
@@ -463,12 +463,12 @@ const Person = props => {
 
 																					{
 																						nomination.rightsGrantorMaterials.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{': '}</React.Fragment>
+																							<>
+																								<>{': '}</>
 																								<CommaSeparatedMaterials
 																									materials={nomination.rightsGrantorMaterials}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 
@@ -482,30 +482,30 @@ const Person = props => {
 
 																					{
 																						nomination.productions.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' for '}</React.Fragment>
+																							<>
+																								<>{' for '}</>
 																								<CommaSeparatedProductions
 																									productions={nomination.productions}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 
 																					{
 																						nomination.productions.length > 0 &&
 																						nomination.materials.length > 0 && (
-																							<React.Fragment>{';'}</React.Fragment>
+																							<>{';'}</>
 																						)
 																					}
 
 																					{
 																						nomination.materials.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' for '}</React.Fragment>
+																							<>
+																								<>{' for '}</>
 																								<CommaSeparatedMaterials
 																									materials={nomination.materials}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 																				</React.Fragment>

@@ -21,7 +21,7 @@ const AppendedProductionDates = props => {
 	})();
 
 	return (
-		<React.Fragment>{` (${displayText})`}</React.Fragment>
+		<>{` (${displayText})`}</>
 	);
 
 };

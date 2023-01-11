@@ -20,13 +20,13 @@ const AwardCeremonies = props => {
 
 							{
 								awardCeremony.award && (
-									<React.Fragment>
+									<>
 
 										<InstanceLink instance={awardCeremony.award} />
 
-										<React.Fragment>{': '}</React.Fragment>
+										<>{': '}</>
 
-									</React.Fragment>
+									</>
 								)
 							}
 

@@ -9,7 +9,7 @@ const WritingCredits = props => {
 	const { credits, isAppendage } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
 			{
 				credits
@@ -22,7 +22,7 @@ const WritingCredits = props => {
 						return (
 							<React.Fragment key={index}>
 
-								<React.Fragment>{`${creditName} `}</React.Fragment>
+								<>{`${creditName} `}</>
 
 								<WritingEntities entities={credit.entities} />
 
@@ -33,7 +33,7 @@ const WritingCredits = props => {
 					.reduce((prev, curr) => [prev, '; ', curr])
 			}
 
-		</React.Fragment>
+		</>
 	);
 
 };

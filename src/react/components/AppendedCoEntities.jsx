@@ -8,15 +8,15 @@ const AppendedCoEntities = props => {
 	const { coEntities } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
-			<React.Fragment>{' (with '}</React.Fragment>
+			<>{' (with '}</>
 
 			<Entities entities={coEntities} />
 
-			<React.Fragment>{')'}</React.Fragment>
+			<>{')'}</>
 
-		</React.Fragment>
+		</>
 	);
 
 };

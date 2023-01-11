@@ -8,7 +8,7 @@ const ProductionLinkWithContext = props => {
 	const { production } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
 			{
 				production.surProduction && (
@@ -39,7 +39,7 @@ const ProductionLinkWithContext = props => {
 				)
 			}
 
-		</React.Fragment>
+		</>
 	);
 
 };

@@ -9,7 +9,7 @@ const ProducerCredits = props => {
 	const { credits } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
 			{
 				credits
@@ -22,7 +22,7 @@ const ProducerCredits = props => {
 						return (
 							<React.Fragment key={index}>
 
-								<React.Fragment>{`${creditName} `}</React.Fragment>
+								<>{`${creditName} `}</>
 
 								<ProducerEntities entities={credit.entities} />
 
@@ -33,7 +33,7 @@ const ProducerCredits = props => {
 					.reduce((prev, curr) => [prev, '; ', curr])
 			}
 
-		</React.Fragment>
+		</>
 	);
 
 };

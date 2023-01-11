@@ -8,13 +8,13 @@ const AppendedRoles = props => {
 	const { roles } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
-			<React.Fragment>{' … '}</React.Fragment>
+			<>{' … '}</>
 
 			<JoinedRoles instances={roles} />
 
-		</React.Fragment>
+		</>
 	);
 
 };

@@ -8,13 +8,13 @@ const PrependedSurInstance = props => {
 	const { surInstance } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
 			<InstanceLink instance={surInstance} />
 
-			<React.Fragment>{': '}</React.Fragment>
+			<>{': '}</>
 
-		</React.Fragment>
+		</>
 	);
 
 };

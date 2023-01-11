@@ -9,13 +9,13 @@ const ErrorMessage = props => {
 	const { errorText } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
 			<Helmet title={errorText} />
 
 			<PageTitle text={errorText} />
 
-		</React.Fragment>
+		</>
 	);
 
 };

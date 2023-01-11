@@ -8,16 +8,16 @@ const AppendedProductionTeamCredits = props => {
 	const { credits } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
-			<React.Fragment>{' … '}</React.Fragment>
+			<>{' … '}</>
 
 			{
 				credits
 					.map((credit, index) =>
 						<React.Fragment key={index}>
 
-							<React.Fragment>{ credit.name }</React.Fragment>
+							<>{ credit.name }</>
 
 							{
 								credit.members?.length > 0 && (
@@ -42,7 +42,7 @@ const AppendedProductionTeamCredits = props => {
 					.reduce((prev, curr) => [prev, '; ', curr])
 			}
 
-		</React.Fragment>
+		</>
 	);
 
 };

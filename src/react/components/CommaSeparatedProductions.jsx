@@ -8,7 +8,7 @@ const CommaSeparatedProductions = props => {
 	const { productions } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
 			{
 				productions
@@ -22,7 +22,7 @@ const CommaSeparatedProductions = props => {
 					.reduce((prev, curr) => [prev, ', ', curr])
 			}
 
-		</React.Fragment>
+		</>
 	);
 
 };

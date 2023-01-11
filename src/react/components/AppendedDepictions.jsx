@@ -6,7 +6,7 @@ const AppendedDepictions = props => {
 	const { depictions } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
 			{
 				depictions
@@ -15,21 +15,21 @@ const AppendedDepictions = props => {
 
 							{
 								depiction.displayName && (
-									<React.Fragment>
+									<>
 										{' (as '}<span className="fictional-name-text">{ depiction.displayName }</span>)
-									</React.Fragment>
+									</>
 								)
 							}
 
 							{
 								depiction.qualifier && (
-									<React.Fragment>{` (${depiction.qualifier})`}</React.Fragment>
+									<>{` (${depiction.qualifier})`}</>
 								)
 							}
 
 							{
 								depiction.group && (
-									<React.Fragment>{` (${depiction.group})`}</React.Fragment>
+									<>{` (${depiction.group})`}</>
 								)
 							}
 
@@ -38,7 +38,7 @@ const AppendedDepictions = props => {
 					.reduce((prev, curr) => [prev, ' /', curr])
 			}
 
-		</React.Fragment>
+		</>
 	);
 
 };

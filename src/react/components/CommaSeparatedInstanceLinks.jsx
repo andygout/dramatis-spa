@@ -8,7 +8,7 @@ const CommaSeparatedInstanceLinks = props => {
 	const { instances } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
 			{
 				instances
@@ -22,7 +22,7 @@ const CommaSeparatedInstanceLinks = props => {
 					.reduce((prev, curr) => [prev, ', ', curr])
 			}
 
-		</React.Fragment>
+		</>
 	);
 
 };

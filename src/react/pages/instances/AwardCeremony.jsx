@@ -61,7 +61,7 @@ const AwardCeremony = props => {
 															nomination.productions.length > 0 ||
 															nomination.materials.length > 0
 														) && (
-															<React.Fragment>{' for '}</React.Fragment>
+															<>{' for '}</>
 														)
 													}
 
@@ -76,7 +76,7 @@ const AwardCeremony = props => {
 													{
 														nomination.productions.length > 0 &&
 														nomination.materials.length > 0 && (
-															<React.Fragment>{'; '}</React.Fragment>
+															<>{'; '}</>
 														)
 													}
 

@@ -8,7 +8,7 @@ const CommaSeparatedMaterials = props => {
 	const { materials } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
 			{
 				materials
@@ -22,7 +22,7 @@ const CommaSeparatedMaterials = props => {
 					.reduce((prev, curr) => [prev, ', ', curr])
 			}
 
-		</React.Fragment>
+		</>
 	);
 
 };
