@@ -4,20 +4,21 @@ import { connect } from 'react-redux';
 
 import { formatDate } from '../../../lib/format-date';
 import {
-	AppendedFormatAndYear,
-	AppendedProductionDates,
-	AppendedVenue,
-	AppendedWritingCredits,
+	AppendedRoles,
+	CommaSeparatedMaterials,
+	CommaSeparatedProductions,
 	Entities,
 	InstanceFacet,
 	InstanceLink,
-	List,
-	Materials,
-	PrependedSurInstance,
+	ListWrapper,
+	MaterialLinkWithContext,
 	ProducerCredits,
-	Productions
+	ProductionLinkWithContext,
+	ProductionsList,
+	ProductionTeamCreditsList,
+	VenueLinkWithContext
 } from '../../components';
-import { InstanceWrapper } from '../../wrappers';
+import { InstancePageWrapper } from '../../page-wrappers';
 
 const Production = props => {
 
@@ -41,34 +42,13 @@ const Production = props => {
 	const dateFormatOptions = { weekday: 'long', month: 'long' };
 
 	return (
-		<InstanceWrapper instance={production}>
+		<InstancePageWrapper instance={production}>
 
 			{
 				material && (
 					<InstanceFacet labelText='Material'>
 
-						{
-							material.surMaterial && (
-								<PrependedSurInstance surInstance={material.surMaterial} />
-							)
-						}
-
-						<InstanceLink instance={material} />
-
-						{
-							(material.format || material.year) && (
-								<AppendedFormatAndYear
-									format={material.format}
-									year={material.year}
-								/>
-							)
-						}
-
-						{
-							material.writingCredits?.length > 0 && (
-								<AppendedWritingCredits credits={material.writingCredits} />
-							)
-						}
+						<MaterialLinkWithContext material={material} />
 
 					</InstanceFacet>
 				)
@@ -110,13 +90,7 @@ const Production = props => {
 				venue && (
 					<InstanceFacet labelText='Venue'>
 
-						{
-							venue.surVenue && (
-								<span><InstanceLink instance={venue.surVenue} />: </span>
-							)
-						}
-
-						<InstanceLink instance={venue} />
+						<VenueLinkWithContext venue={venue} />
 
 					</InstanceFacet>
 				)
@@ -126,22 +100,7 @@ const Production = props => {
 				surProduction && (
 					<InstanceFacet labelText='Part of'>
 
-						<InstanceLink instance={surProduction} />
-
-						{
-							surProduction.venue && (
-								<AppendedVenue venue={surProduction.venue} />
-							)
-						}
-
-						{
-							(surProduction.startDate || surProduction.endDate) && (
-								<AppendedProductionDates
-									startDate={surProduction.startDate}
-									endDate={surProduction.endDate}
-								/>
-							)
-						}
+						<ProductionLinkWithContext production={surProduction} />
 
 					</InstanceFacet>
 				)
@@ -151,7 +110,7 @@ const Production = props => {
 				subProductions?.length > 0 && (
 					<InstanceFacet labelText='Comprises'>
 
-						<List instances={subProductions} />
+						<ProductionsList productions={subProductions} />
 
 					</InstanceFacet>
 				)
@@ -171,7 +130,25 @@ const Production = props => {
 				cast?.length > 0 && (
 					<InstanceFacet labelText='Cast'>
 
-						<List instances={cast} />
+						<ListWrapper>
+
+							{
+								cast.map((castMember, index) =>
+									<li key={index}>
+
+										<InstanceLink instance={castMember} />
+
+										{
+											castMember.roles?.length > 0 && (
+												<AppendedRoles roles={castMember.roles} />
+											)
+										}
+
+									</li>
+								)
+							}
+
+						</ListWrapper>
 
 					</InstanceFacet>
 				)
@@ -181,7 +158,7 @@ const Production = props => {
 				creativeCredits?.length > 0 && (
 					<InstanceFacet labelText='Creative Team'>
 
-						<List instances={creativeCredits} />
+						<ProductionTeamCreditsList credits={creativeCredits} />
 
 					</InstanceFacet>
 				)
@@ -191,7 +168,7 @@ const Production = props => {
 				crewCredits?.length > 0 && (
 					<InstanceFacet labelText='Crew'>
 
-						<List instances={crewCredits} />
+						<ProductionTeamCreditsList credits={crewCredits} />
 
 					</InstanceFacet>
 				)
@@ -206,7 +183,7 @@ const Production = props => {
 								<React.Fragment key={index}>
 									<InstanceLink instance={award} />
 
-									<ul className="list">
+									<ListWrapper>
 
 										{
 											award.ceremonies.map((ceremony, index) =>
@@ -242,7 +219,7 @@ const Production = props => {
 																						nomination.coProductions.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' (with '}</React.Fragment>
-																								<Productions
+																								<CommaSeparatedProductions
 																									productions={nomination.coProductions}
 																								/>
 																								<React.Fragment>{')'}</React.Fragment>
@@ -261,7 +238,7 @@ const Production = props => {
 																						nomination.materials.length > 0 && (
 																							<React.Fragment>
 																								<React.Fragment>{' for '}</React.Fragment>
-																								<Materials
+																								<CommaSeparatedMaterials
 																									materials={nomination.materials}
 																								/>
 																							</React.Fragment>
@@ -279,7 +256,7 @@ const Production = props => {
 											)
 										}
 
-									</ul>
+									</ListWrapper>
 								</React.Fragment>
 							)
 						}
@@ -288,7 +265,7 @@ const Production = props => {
 				)
 			}
 
-		</InstanceWrapper>
+		</InstancePageWrapper>
 	);
 
 };

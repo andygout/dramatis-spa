@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { InstanceLink, PrependedMembers } from '.';
+import { CommaSeparatedInstanceLinks, InstanceLink } from '.';
 
 const ProducerEntities = props => {
 
@@ -17,7 +17,13 @@ const ProducerEntities = props => {
 
 							{
 								entity.members?.length > 0 && (
-									<PrependedMembers members={entity.members} />
+									<React.Fragment>
+
+										<CommaSeparatedInstanceLinks instances={entity.members} />
+
+										<React.Fragment>{' for '}</React.Fragment>
+
+									</React.Fragment>
 								)
 							}
 

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { InstanceLink } from '.';
+import { VenueLinkWithContext } from '.';
 
 const AppendedVenue = props => {
 
@@ -12,13 +12,7 @@ const AppendedVenue = props => {
 
 			<React.Fragment>{' - '}</React.Fragment>
 
-			{
-				venue.surVenue && (
-					<React.Fragment><InstanceLink instance={venue.surVenue} />{': '}</React.Fragment>
-				)
-			}
-
-			<InstanceLink instance={venue} />
+			<VenueLinkWithContext venue={venue} />
 
 		</React.Fragment>
 	);

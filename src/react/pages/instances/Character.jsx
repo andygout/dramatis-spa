@@ -2,22 +2,24 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { InstanceFacet, List } from '../../components';
-import { InstanceWrapper } from '../../wrappers';
+import {
+	AppendedDepictions,
+	AppendedPerformers,
+	InstanceFacet,
+	ListWrapper,
+	MaterialLinkWithContext,
+	ProductionLinkWithContext
+} from '../../components';
+import { InstancePageWrapper } from '../../page-wrappers';
 
 const Character = props => {
 
 	const { character } = props;
 
-	const {
-		variantNamedDepictions,
-		materials,
-		variantNamedPortrayals,
-		productions
-	} = character;
+	const { variantNamedDepictions, materials, variantNamedPortrayals, productions } = character;
 
 	return (
-		<InstanceWrapper instance={character}>
+		<InstancePageWrapper instance={character}>
 
 			{
 				variantNamedDepictions?.length > 0 && (
@@ -37,7 +39,25 @@ const Character = props => {
 				materials?.length > 0 && (
 					<InstanceFacet labelText='Materials'>
 
-						<List instances={materials} />
+						<ListWrapper>
+
+							{
+								materials.map((material, index) =>
+									<li key={index}>
+
+										<MaterialLinkWithContext material={material} />
+
+										{
+											material.depictions?.length > 0 && (
+												<AppendedDepictions depictions={material.depictions} />
+											)
+										}
+
+									</li>
+								)
+							}
+
+						</ListWrapper>
 
 					</InstanceFacet>
 				)
@@ -61,13 +81,31 @@ const Character = props => {
 				productions?.length > 0 && (
 					<InstanceFacet labelText='Productions'>
 
-						<List instances={productions} />
+						<ListWrapper>
+
+							{
+								productions.map((production, index) =>
+									<li key={index}>
+
+										<ProductionLinkWithContext production={production} />
+
+										{
+											production.performers?.length > 0 && (
+												<AppendedPerformers performers={production.performers} />
+											)
+										}
+
+									</li>
+								)
+							}
+
+						</ListWrapper>
 
 					</InstanceFacet>
 				)
 			}
 
-		</InstanceWrapper>
+		</InstancePageWrapper>
 	);
 
 };

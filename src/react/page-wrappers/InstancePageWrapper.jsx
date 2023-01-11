@@ -5,7 +5,7 @@ import getDifferentiatorSuffix from '../../lib/get-differentiator-suffix';
 import getInstanceTitle from '../../lib/get-instance-title';
 import { InstanceDocumentTitle, InstanceLabel, PageTitle } from '../components';
 
-const InstanceWrapper = props => {
+const InstancePageWrapper = props => {
 
 	const { instance, children } = props;
 
@@ -44,10 +44,10 @@ const InstanceWrapper = props => {
 
 };
 
-InstanceWrapper.propTypes = {
+InstancePageWrapper.propTypes = {
 	instance: PropTypes.object.isRequired,
 	titleName: PropTypes.string,
 	children: PropTypes.node
 };
 
-export default InstanceWrapper;
+export default InstancePageWrapper;
