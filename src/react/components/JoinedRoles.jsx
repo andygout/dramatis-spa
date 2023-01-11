@@ -29,7 +29,7 @@ const JoinedRoles = props => {
 
 							{
 								instance.isAlternate && (
-									<React.Fragment>{' (alt)'}</React.Fragment>
+									<>{' (alt)'}</>
 								)
 							}
 

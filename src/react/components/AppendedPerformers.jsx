@@ -8,9 +8,9 @@ const AppendedPerformers = props => {
 	const { performers } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
-			<React.Fragment>{' - performed by: '}</React.Fragment>
+			<>{' - performed by: '}</>
 
 			{
 				performers
@@ -19,7 +19,7 @@ const AppendedPerformers = props => {
 
 							<InstanceLink instance={performer} />
 
-							<React.Fragment>{' … '}</React.Fragment>
+							<>{' … '}</>
 
 							<span className="fictional-name-text">
 
@@ -29,13 +29,13 @@ const AppendedPerformers = props => {
 
 								{
 									performer.qualifier && (
-										<React.Fragment>{` (${performer.qualifier})`}</React.Fragment>
+										<>{` (${performer.qualifier})`}</>
 									)
 								}
 
 								{
 									performer.isAlternate && (
-										<React.Fragment>{' (alt)'}</React.Fragment>
+										<>{' (alt)'}</>
 									)
 								}
 
@@ -43,13 +43,13 @@ const AppendedPerformers = props => {
 
 							{
 								performer.otherRoles.length > 0 && (
-									<React.Fragment>
+									<>
 
-										<React.Fragment>{'; also performed: '}</React.Fragment>
+										<>{'; also performed: '}</>
 
 										<JoinedRoles instances={performer.otherRoles} />
 
-									</React.Fragment>
+									</>
 								)
 							}
 
@@ -58,7 +58,7 @@ const AppendedPerformers = props => {
 					.reduce((prev, curr) => [prev, ' / ', curr])
 			}
 
-		</React.Fragment>
+		</>
 	);
 
 };

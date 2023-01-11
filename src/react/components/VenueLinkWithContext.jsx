@@ -8,7 +8,7 @@ const VenueLinkWithContext = props => {
 	const { venue } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
 			{
 				venue.surVenue && (
@@ -18,7 +18,7 @@ const VenueLinkWithContext = props => {
 
 			<InstanceLink instance={venue} />
 
-		</React.Fragment>
+		</>
 	);
 
 };

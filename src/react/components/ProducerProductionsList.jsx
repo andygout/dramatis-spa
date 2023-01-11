@@ -18,13 +18,13 @@ const ProducerProductionsList = props => {
 
 						{
 							production.producerCredits?.length > 0 && (
-								<React.Fragment>
+								<>
 
-									<React.Fragment>{' … '}</React.Fragment>
+									<>{' … '}</>
 
 									<ProducerCredits credits={production.producerCredits} />
 
-								</React.Fragment>
+								</>
 							)
 						}
 

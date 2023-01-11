@@ -8,7 +8,7 @@ const WritingEntities = props => {
 	const { entities } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
 			{
 				entities
@@ -31,13 +31,13 @@ const WritingEntities = props => {
 
 							{
 								entity.writingCredits?.length > 0 && (
-									<React.Fragment>
+									<>
 
-										<React.Fragment>{' '}</React.Fragment>
+										<>{' '}</>
 
 										<WritingCredits credits={entity.writingCredits} isAppendage={true} />
 
-									</React.Fragment>
+									</>
 								)
 							}
 
@@ -46,7 +46,7 @@ const WritingEntities = props => {
 					.reduce((prev, curr) => [prev, ', ', curr])
 			}
 
-		</React.Fragment>
+		</>
 	);
 
 };

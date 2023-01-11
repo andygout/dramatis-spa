@@ -8,13 +8,13 @@ const AppendedVenue = props => {
 	const { venue } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
-			<React.Fragment>{' - '}</React.Fragment>
+			<>{' - '}</>
 
 			<VenueLinkWithContext venue={venue} />
 
-		</React.Fragment>
+		</>
 	);
 
 };

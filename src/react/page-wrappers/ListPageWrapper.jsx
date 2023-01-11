@@ -8,13 +8,13 @@ const ListPageWrapper = props => {
 	const { pageTitleText, children } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
 			<PageTitle text={pageTitleText} />
 
 			{ children }
 
-		</React.Fragment>
+		</>
 	);
 
 };

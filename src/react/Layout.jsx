@@ -21,7 +21,7 @@ const Layout = props => {
 	}, []);
 
 	return (
-		<React.Fragment>
+		<>
 
 			<Helmet
 				defaultTitle='TheatreBase'
@@ -45,7 +45,7 @@ const Layout = props => {
 
 			<Footer />
 
-		</React.Fragment>
+		</>
 	);
 
 };

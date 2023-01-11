@@ -6,11 +6,11 @@ const AppendedQualifier = props => {
 	const { qualifier } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
 			{` (${qualifier})`}
 
-		</React.Fragment>
+		</>
 	);
 
 };

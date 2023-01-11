@@ -8,7 +8,7 @@ const ProducerEntities = props => {
 	const { entities } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
 			{
 				entities
@@ -17,13 +17,13 @@ const ProducerEntities = props => {
 
 							{
 								entity.members?.length > 0 && (
-									<React.Fragment>
+									<>
 
 										<CommaSeparatedInstanceLinks instances={entity.members} />
 
-										<React.Fragment>{' for '}</React.Fragment>
+										<>{' for '}</>
 
-									</React.Fragment>
+									</>
 								)
 							}
 
@@ -34,7 +34,7 @@ const ProducerEntities = props => {
 					.reduce((prev, curr) => [prev, ', ', curr])
 			}
 
-		</React.Fragment>
+		</>
 	);
 
 };

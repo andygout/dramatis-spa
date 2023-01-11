@@ -48,7 +48,7 @@ const Material = props => {
 				format && (
 					<InstanceFacet labelText='Format'>
 
-						<React.Fragment>{ capitalise(format) }</React.Fragment>
+						<>{ capitalise(format) }</>
 
 					</InstanceFacet>
 				)
@@ -58,7 +58,7 @@ const Material = props => {
 				year && (
 					<InstanceFacet labelText='Year'>
 
-						<React.Fragment>{ year }</React.Fragment>
+						<>{ year }</>
 
 					</InstanceFacet>
 				)
@@ -101,7 +101,7 @@ const Material = props => {
 						{
 							characterGroups.length === 1
 								? (
-									<React.Fragment>
+									<>
 
 										{
 											Boolean(characterGroups[0].name) && (
@@ -115,7 +115,7 @@ const Material = props => {
 
 										<CharactersList characters={characterGroups[0].characters} />
 
-									</React.Fragment>
+									</>
 								)
 								: (
 									<ul className="list list--no-bullets">
@@ -230,37 +230,37 @@ const Material = props => {
 
 																					{
 																						nomination.entities.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{': '}</React.Fragment>
+																							<>
+																								<>{': '}</>
 																								<Entities
 																									entities={nomination.entities}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 
 																					{
 																						nomination.productions.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' for '}</React.Fragment>
+																							<>
+																								<>{' for '}</>
 																								<CommaSeparatedProductions
 																									productions={nomination.productions}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 
 																					{
 																						nomination.productions.length > 0 &&
 																						(nomination.recipientMaterial || nomination.coMaterials.length > 0) && (
-																							<React.Fragment>{';'}</React.Fragment>
+																							<>{';'}</>
 																						)
 																					}
 
 																					{
 																						nomination.recipientMaterial && (
-																							<React.Fragment>
-																								<React.Fragment>{' (for '}</React.Fragment>
+																							<>
+																								<>{' (for '}</>
 																								<InstanceLink instance={nomination.recipientMaterial} />
 																								{
 																									(getIn(nomination, ['recipientMaterial', 'format']) || getIn(nomination, ['recipientMaterial', 'year'])) && (
@@ -270,27 +270,27 @@ const Material = props => {
 																										/>
 																									)
 																								}
-																								<React.Fragment>{')'}</React.Fragment>
-																							</React.Fragment>
+																								<>{')'}</>
+																							</>
 																						)
 																					}
 
 																					{
 																						nomination.recipientMaterial &&
 																						nomination.coMaterials.length > 0 && (
-																							<React.Fragment>{';'}</React.Fragment>
+																							<>{';'}</>
 																						)
 																					}
 
 																					{
 																						nomination.coMaterials.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' (with '}</React.Fragment>
+																							<>
+																								<>{' (with '}</>
 																								<CommaSeparatedMaterials
 																									materials={nomination.coMaterials}
 																								/>
-																								<React.Fragment>{')'}</React.Fragment>
-																							</React.Fragment>
+																								<>{')'}</>
+																							</>
 																						)
 																					}
 																				</React.Fragment>
@@ -346,53 +346,53 @@ const Material = props => {
 
 																					{
 																						nomination.subsequentVersionMaterials.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{': '}</React.Fragment>
+																							<>
+																								<>{': '}</>
 																								<CommaSeparatedMaterials
 																									materials={nomination.subsequentVersionMaterials}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 
 																					{
 																						nomination.entities.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{': '}</React.Fragment>
+																							<>
+																								<>{': '}</>
 																								<Entities
 																									entities={nomination.entities}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 
 																					{
 																						nomination.productions.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' for '}</React.Fragment>
+																							<>
+																								<>{' for '}</>
 																								<CommaSeparatedProductions
 																									productions={nomination.productions}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 
 																					{
 																						nomination.productions.length > 0 &&
 																						nomination.materials.length > 0 && (
-																							<React.Fragment>{';'}</React.Fragment>
+																							<>{';'}</>
 																						)
 																					}
 
 																					{
 																						nomination.materials.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' (with '}</React.Fragment>
+																							<>
+																								<>{' (with '}</>
 																								<CommaSeparatedMaterials
 																									materials={nomination.materials}
 																								/>
-																								<React.Fragment>{')'}</React.Fragment>
-																							</React.Fragment>
+																								<>{')'}</>
+																							</>
 																						)
 																					}
 																				</React.Fragment>
@@ -448,53 +448,53 @@ const Material = props => {
 
 																					{
 																						nomination.sourcingMaterials.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{': '}</React.Fragment>
+																							<>
+																								<>{': '}</>
 																								<CommaSeparatedMaterials
 																									materials={nomination.sourcingMaterials}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 
 																					{
 																						nomination.entities.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{': '}</React.Fragment>
+																							<>
+																								<>{': '}</>
 																								<Entities
 																									entities={nomination.entities}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 
 																					{
 																						nomination.productions.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' for '}</React.Fragment>
+																							<>
+																								<>{' for '}</>
 																								<CommaSeparatedProductions
 																									productions={nomination.productions}
 																								/>
-																							</React.Fragment>
+																							</>
 																						)
 																					}
 
 																					{
 																						nomination.productions.length > 0 &&
 																						nomination.materials.length > 0 && (
-																							<React.Fragment>{';'}</React.Fragment>
+																							<>{';'}</>
 																						)
 																					}
 
 																					{
 																						nomination.materials.length > 0 && (
-																							<React.Fragment>
-																								<React.Fragment>{' (with '}</React.Fragment>
+																							<>
+																								<>{' (with '}</>
 																								<CommaSeparatedMaterials
 																									materials={nomination.materials}
 																								/>
-																								<React.Fragment>{')'}</React.Fragment>
-																							</React.Fragment>
+																								<>{')'}</>
+																							</>
 																						)
 																					}
 																				</React.Fragment>

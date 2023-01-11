@@ -21,7 +21,7 @@ const InstancePageWrapper = props => {
 		.join(' ');
 
 	return (
-		<React.Fragment>
+		<>
 
 			{
 				instance.name && instance.model && (
@@ -39,7 +39,7 @@ const InstancePageWrapper = props => {
 
 			{ children }
 
-		</React.Fragment>
+		</>
 	);
 
 };

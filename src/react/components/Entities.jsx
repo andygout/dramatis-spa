@@ -8,7 +8,7 @@ const Entities = props => {
 	const { entities } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
 			{
 				entities
@@ -28,7 +28,7 @@ const Entities = props => {
 					.reduce((prev, curr) => [prev, ', ', curr])
 			}
 
-		</React.Fragment>
+		</>
 	);
 
 };

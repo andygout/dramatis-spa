@@ -8,15 +8,15 @@ const AppendedMembers = props => {
 	const { members } = props;
 
 	return (
-		<React.Fragment>
+		<>
 
-			<React.Fragment>{' ('}</React.Fragment>
+			<>{' ('}</>
 
 			<CommaSeparatedInstanceLinks instances={members} />
 
-			<React.Fragment>{')'}</React.Fragment>
+			<>{')'}</>
 
-		</React.Fragment>
+		</>
 	);
 
 };
