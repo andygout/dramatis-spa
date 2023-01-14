@@ -1,4 +1,3 @@
-import { getIn } from '../../lib/object-interactions';
 import createAction from './base';
 import {
 	ACTIVATE_ERROR,
@@ -9,7 +8,7 @@ const activateError = errorData => createAction(ACTIVATE_ERROR, { isActive: true
 
 const deactivateError = () => (dispatch, getState) => {
 
-	if (getIn(getState(), ['error', 'isActive'])) {
+	if (getState().error.isActive) {
 
 		createAction(DEACTIVATE_ERROR, { isActive: false });
 

@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getIn } from '../../../lib/object-interactions';
 import { capitalise } from '../../../lib/strings';
 import {
 	AppendedFormatAndYear,
@@ -263,10 +262,10 @@ const Material = props => {
 																								<>{' (for '}</>
 																								<InstanceLink instance={nomination.recipientMaterial} />
 																								{
-																									(getIn(nomination, ['recipientMaterial', 'format']) || getIn(nomination, ['recipientMaterial', 'year'])) && (
+																									(nomination.recipientMaterial.format || nomination.recipientMaterial.year) && (
 																										<AppendedFormatAndYear
-																											format={getIn(nomination, ['recipientMaterial', 'format'])}
-																											year={getIn(nomination, ['recipientMaterial', 'year'])}
+																											format={nomination.recipientMaterial.format}
+																											year={nomination.recipientMaterial.year}
 																										/>
 																									)
 																								}
