@@ -1,4 +1,3 @@
-import { getIn } from '../../lib/object-interactions';
 import createAction from './base';
 import { activateError } from './error';
 import * as actions from '../utils/model-action-names';
@@ -61,7 +60,7 @@ const fetchList = pluralisedModel => async (dispatch, getState) => {
 
 const fetchInstance = (model, uuid) => async (dispatch, getState) => {
 
-	const apiCallRequired = getIn(getState(), [MODEL_TO_PROP_NAME_MAP[model], 'uuid']) !== uuid;
+	const apiCallRequired = getState()[MODEL_TO_PROP_NAME_MAP[model]].uuid !== uuid;
 
 	if (apiCallRequired) {
 
