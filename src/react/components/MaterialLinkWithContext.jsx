@@ -11,6 +11,12 @@ const MaterialLinkWithContext = props => {
 		<>
 
 			{
+				material.surMaterial?.surMaterial && (
+					<PrependedSurInstance surInstance={material.surMaterial.surMaterial} />
+				)
+			}
+
+			{
 				material.surMaterial && (
 					<PrependedSurInstance surInstance={material.surMaterial} />
 				)
