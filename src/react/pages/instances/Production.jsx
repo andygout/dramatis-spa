@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 
 import { formatDate } from '../../../lib/format-date';
 import {
+	AppendedProductionDates,
 	AppendedRoles,
+	AppendedVenue,
 	CommaSeparatedMaterials,
 	CommaSeparatedProductions,
 	Entities,
@@ -216,6 +218,37 @@ const Production = props => {
 																					}
 
 																					{
+																						nomination.entities.length > 0 && nomination.recipientProduction && (
+																							<>{';'}</>
+																						)
+																					}
+
+																					{
+																						nomination.recipientProduction && (
+																							<>
+																								<>{' (for '}</>
+																								<InstanceLink instance={nomination.recipientProduction} />
+																								{
+																									nomination.recipientProduction.venue && (
+																										<AppendedVenue venue={nomination.recipientProduction.venue} />
+																									)
+																								}
+
+																								{
+																									(nomination.recipientProduction.startDate || nomination.recipientProduction.endDate) && (
+																										<AppendedProductionDates
+																											startDate={nomination.recipientProduction.startDate}
+																											endDate={nomination.recipientProduction.endDate}
+																										/>
+																									)
+																								}
+																								<>{')'}</>
+																							</>
+																						)
+																					}
+
+																					{
+																						nomination.recipientProduction &&
 																						nomination.coProductions.length > 0 && (
 																							<>
 																								<>{' (with '}</>
