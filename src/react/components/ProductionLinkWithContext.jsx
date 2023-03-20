@@ -31,6 +31,12 @@ const ProductionLinkWithContext = props => {
 			}
 
 			{
+				production.subVenue && (
+					<AppendedVenue venue={production.subVenue} />
+				)
+			}
+
+			{
 				(production.startDate || production.endDate) && (
 					<AppendedProductionDates
 						startDate={production.startDate}
