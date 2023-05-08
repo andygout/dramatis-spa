@@ -26,8 +26,7 @@ const ProductionsList = props => {
 };
 
 ProductionsList.propTypes = {
-	productions: PropTypes.array.isRequired,
-	isNested: PropTypes.bool
+	productions: PropTypes.array.isRequired
 };
 
 export default ProductionsList;
