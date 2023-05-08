@@ -3,10 +3,10 @@ import React from 'react';
 
 const ListWrapper = props => {
 
-	const { isNested, children } = props;
+	const { children } = props;
 
 	return (
-		<ul className={isNested ? 'list--nested' : 'list'}>
+		<ul className="list">
 
 			{ children }
 
@@ -16,7 +16,6 @@ const ListWrapper = props => {
 };
 
 ListWrapper.propTypes = {
-	isNested: PropTypes.bool,
 	children: PropTypes.node.isRequired
 };
 
