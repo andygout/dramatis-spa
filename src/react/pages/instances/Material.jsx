@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import { capitalise } from '../../../lib/strings';
 import {
-	AppendedFormatAndYear,
 	CharactersList,
 	CommaSeparatedMaterials,
 	CommaSeparatedProductions,
@@ -282,31 +281,25 @@ const Material = props => {
 
 																						{
 																							nomination.productions.length > 0 &&
-																							(nomination.recipientMaterial || nomination.coMaterials.length > 0) && (
+																							(nomination.recipientMaterials.length > 0 || nomination.coMaterials.length > 0) && (
 																								<>{';'}</>
 																							)
 																						}
 
 																						{
-																							nomination.recipientMaterial && (
+																							nomination.recipientMaterials.length > 0 && (
 																								<>
 																									<>{' (for '}</>
-																									<InstanceLink instance={nomination.recipientMaterial} />
-																									{
-																										(nomination.recipientMaterial.format || nomination.recipientMaterial.year) && (
-																											<AppendedFormatAndYear
-																												format={nomination.recipientMaterial.format}
-																												year={nomination.recipientMaterial.year}
-																											/>
-																										)
-																									}
+																									<CommaSeparatedMaterials
+																										materials={nomination.recipientMaterials}
+																									/>
 																									<>{')'}</>
 																								</>
 																							)
 																						}
 
 																						{
-																							nomination.recipientMaterial &&
+																							nomination.recipientMaterials.length > 0 &&
 																							nomination.coMaterials.length > 0 && (
 																								<>{';'}</>
 																							)
