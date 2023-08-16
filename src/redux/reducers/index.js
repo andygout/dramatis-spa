@@ -13,6 +13,8 @@ import person from './person';
 import people from './people';
 import production from './production';
 import productions from './productions';
+import season from './season';
+import seasons from './seasons';
 import venue from './venue';
 import venues from './venues';
 
@@ -32,6 +34,8 @@ export default {
 	people,
 	production,
 	productions,
+	season,
+	seasons,
 	venue,
 	venues
 };

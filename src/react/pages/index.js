@@ -6,6 +6,7 @@ import {
 	Material,
 	Person,
 	Production,
+	Season,
 	Venue
 } from './instances';
 import {
@@ -16,6 +17,7 @@ import {
 	Materials,
 	People,
 	Productions,
+	Seasons,
 	Venues
 } from './lists';
 import Home from './Home';
@@ -36,6 +38,8 @@ export {
 	People,
 	Production,
 	Productions,
+	Season,
+	Seasons,
 	Venue,
 	Venues,
 	Home,

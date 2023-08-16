@@ -13,6 +13,8 @@ import {
 	People,
 	Production,
 	Productions,
+	Season,
+	Seasons,
 	Venue,
 	Venues,
 	Home,
@@ -156,6 +158,24 @@ export default [
 		fetchData: [
 			dispatch => dispatch(deactivateError()),
 			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.PRODUCTION, uuid))
+		]
+	},
+	{
+		path: '/seasons',
+		documentTitle: () => 'Seasons',
+		component: Seasons,
+		fetchData: [
+			dispatch => dispatch(deactivateError()),
+			dispatch => dispatch(fetchList(PLURALISED_MODELS.SEASONS))
+		]
+	},
+	{
+		path: '/seasons/:uuid',
+		documentTitle: () => 'Season',
+		component: Season,
+		fetchData: [
+			dispatch => dispatch(deactivateError()),
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.SEASON, uuid))
 		]
 	},
 	{
