@@ -7,6 +7,8 @@ import characters from './characters';
 import company from './company';
 import companies from './companies';
 import error from './error';
+import festival from './festival';
+import festivals from './festivals';
 import material from './material';
 import materials from './materials';
 import person from './person';
@@ -28,6 +30,8 @@ export default {
 	company,
 	companies,
 	error,
+	festival,
+	festivals,
 	material,
 	materials,
 	person,
