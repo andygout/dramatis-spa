@@ -33,6 +33,7 @@ const Production = props => {
 			endDate,
 			venue,
 			season,
+			festival,
 			surProduction,
 			subProductions,
 			producerCredits,
@@ -102,6 +103,16 @@ const Production = props => {
 						<InstanceFacet labelText='Season'>
 
 							<InstanceLink instance={season} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					festival && (
+						<InstanceFacet labelText='Festival'>
+
+							<InstanceLink instance={festival} />
 
 						</InstanceFacet>
 					)
