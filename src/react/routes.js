@@ -9,6 +9,8 @@ import {
 	Companies,
 	Festival,
 	Festivals,
+	FestivalSeries,
+	FestivalSerieses,
 	Material,
 	Materials,
 	Person,
@@ -124,6 +126,24 @@ export default [
 		fetchData: [
 			dispatch => dispatch(deactivateError()),
 			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.FESTIVAL, uuid))
+		]
+	},
+	{
+		path: '/festival-serieses',
+		documentTitle: () => 'Festival serieses',
+		component: FestivalSerieses,
+		fetchData: [
+			dispatch => dispatch(deactivateError()),
+			dispatch => dispatch(fetchList(PLURALISED_MODELS.FESTIVAL_SERIESES))
+		]
+	},
+	{
+		path: '/festival-serieses/:uuid',
+		documentTitle: () => 'Festival series',
+		component: FestivalSeries,
+		fetchData: [
+			dispatch => dispatch(deactivateError()),
+			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.FESTIVAL_SERIES, uuid))
 		]
 	},
 	{

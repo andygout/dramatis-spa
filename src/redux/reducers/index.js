@@ -9,6 +9,8 @@ import companies from './companies';
 import error from './error';
 import festival from './festival';
 import festivals from './festivals';
+import festivalSeries from './festival-series';
+import festivalSerieses from './festival-serieses';
 import material from './material';
 import materials from './materials';
 import person from './person';
@@ -32,6 +34,8 @@ export default {
 	error,
 	festival,
 	festivals,
+	festivalSeries,
+	festivalSerieses,
 	material,
 	materials,
 	person,
