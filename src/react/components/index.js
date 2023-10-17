@@ -18,6 +18,7 @@ import CreativeProductionsList from './CreativeProductionsList';
 import CrewProductionsList from './CrewProductionsList';
 import Entities from './Entities';
 import ErrorMessage from './ErrorMessage';
+import FestivalLinkWithContext from './FestivalLinkWithContext';
 import Footer from './Footer';
 import Header from './Header';
 import InstanceDocumentTitle from './InstanceDocumentTitle';
@@ -63,6 +64,7 @@ export {
 	CrewProductionsList,
 	Entities,
 	ErrorMessage,
+	FestivalLinkWithContext,
 	Footer,
 	Header,
 	InstanceDocumentTitle,

@@ -8,6 +8,7 @@ import {
 	CommaSeparatedMaterials,
 	CommaSeparatedProductions,
 	Entities,
+	FestivalLinkWithContext,
 	InstanceFacet,
 	InstanceLink,
 	ListWrapper,
@@ -112,7 +113,7 @@ const Production = props => {
 					festival && (
 						<InstanceFacet labelText='Festival'>
 
-							<InstanceLink instance={festival} />
+							<FestivalLinkWithContext festival={festival} />
 
 						</InstanceFacet>
 					)
