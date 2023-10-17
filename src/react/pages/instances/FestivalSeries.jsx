@@ -2,14 +2,29 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { InstanceFacet, InstanceLinksList } from '../../components';
 import { InstancePageWrapper } from '../../page-wrappers';
 
 const FestivalSeries = props => {
 
 	const { festivalSeries } = props;
 
+	const { festivals } = festivalSeries;
+
 	return (
-		<InstancePageWrapper instance={festivalSeries} />
+		<InstancePageWrapper instance={festivalSeries}>
+
+			{
+				festivals?.length > 0 && (
+					<InstanceFacet labelText='Comprises'>
+
+						<InstanceLinksList instances={festivals} />
+
+					</InstanceFacet>
+				)
+			}
+
+		</InstancePageWrapper>
 	);
 
 };

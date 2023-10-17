@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { InstanceLinksList } from '../../components';
+import { InstanceLink, ListWrapper } from '../../components';
 import { ListPageWrapper } from '../../page-wrappers';
 
 const Festivals = props => {
@@ -12,7 +12,31 @@ const Festivals = props => {
 	return (
 		<ListPageWrapper pageTitleText='Festivals'>
 
-			<InstanceLinksList instances={festivals} />
+			<ListWrapper>
+
+				{
+					festivals.map((festival, index) =>
+						<li key={index}>
+
+							{
+								festival.festivalSeries && (
+									<>
+
+										<InstanceLink instance={festival.festivalSeries} />
+
+										<>{': '}</>
+
+									</>
+								)
+							}
+
+							<InstanceLink instance={festival} />
+
+						</li>
+					)
+				}
+
+			</ListWrapper>
 
 		</ListPageWrapper>
 	);
