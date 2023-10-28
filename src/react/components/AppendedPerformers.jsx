@@ -33,13 +33,13 @@ const AppendedPerformers = props => {
 									)
 								}
 
-								{
-									performer.isAlternate && (
-										<>{' (alt)'}</>
-									)
-								}
-
 							</span>
+
+							{
+								performer.isAlternate && (
+									<>{' [alt]'}</>
+								)
+							}
 
 							{
 								performer.otherRoles.length > 0 && (
