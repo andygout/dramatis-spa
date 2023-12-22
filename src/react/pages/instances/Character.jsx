@@ -23,7 +23,7 @@ const Character = props => {
 
 			{
 				variantNamedDepictions?.length > 0 && (
-					<InstanceFacet labelText='Variant named depictions'>
+					<InstanceFacet labelText='Variant-named depictions'>
 
 						<span className="fictional-name-text">
 
@@ -65,7 +65,7 @@ const Character = props => {
 
 			{
 				variantNamedPortrayals?.length > 0 && (
-					<InstanceFacet labelText='Variant named portrayals'>
+					<InstanceFacet labelText='Variant-named portrayals'>
 
 						<span className="fictional-name-text">
 
