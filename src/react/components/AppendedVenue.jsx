@@ -10,7 +10,7 @@ const AppendedVenue = props => {
 	return (
 		<>
 
-			<>{' - '}</>
+			<>{' — '}</>
 
 			<VenueLinkWithContext venue={venue} />
 
