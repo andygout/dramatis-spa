@@ -10,7 +10,7 @@ const AppendedPerformers = props => {
 	return (
 		<>
 
-			<>{' - performed by: '}</>
+			<>{' — performed by: '}</>
 
 			{
 				performers
