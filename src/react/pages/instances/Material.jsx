@@ -33,6 +33,7 @@ const Material = props => {
 			characterGroups,
 			originalVersionMaterial,
 			subsequentVersionMaterials,
+			subsequentVersionMaterialProductions,
 			productions,
 			sourcingMaterials,
 			sourcingMaterialProductions,
@@ -192,6 +193,16 @@ const Material = props => {
 						<InstanceFacet labelText='Subsequent versions'>
 
 							<MaterialsList materials={subsequentVersionMaterials} />
+
+						</InstanceFacet>
+					)
+				}
+
+				{
+					subsequentVersionMaterialProductions?.length > 0 && (
+						<InstanceFacet labelText='Productions of subsequent versions'>
+
+							<ProductionsList productions={subsequentVersionMaterialProductions} />
 
 						</InstanceFacet>
 					)
