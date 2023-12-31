@@ -16,7 +16,8 @@ import {
 	ListWrapper,
 	MaterialsList,
 	ProducerProductionsList,
-	ProductionLinkWithContext
+	ProductionLinkWithContext,
+	ProductionsList
 } from '../../components';
 import { InstancePageWrapper } from '../../page-wrappers';
 
@@ -29,6 +30,10 @@ const Person = props => {
 		subsequentVersionMaterials,
 		sourcingMaterials,
 		rightsGrantorMaterials,
+		materialProductions,
+		subsequentVersionMaterialProductions,
+		sourcingMaterialProductions,
+		rightsGrantorMaterialProductions,
 		producerProductions,
 		castMemberProductions,
 		creativeProductions,
@@ -77,6 +82,46 @@ const Person = props => {
 					<InstanceFacet labelText='Materials as rights grantor'>
 
 						<MaterialsList materials={rightsGrantorMaterials} />
+
+					</InstanceFacet>
+				)
+			}
+
+			{
+				materialProductions?.length > 0 && (
+					<InstanceFacet labelText='Productions of materials'>
+
+						<ProductionsList productions={materialProductions} />
+
+					</InstanceFacet>
+				)
+			}
+
+			{
+				subsequentVersionMaterialProductions?.length > 0 && (
+					<InstanceFacet labelText='Productions of subsequent versions of their materials'>
+
+						<ProductionsList productions={subsequentVersionMaterialProductions} />
+
+					</InstanceFacet>
+				)
+			}
+
+			{
+				sourcingMaterialProductions?.length > 0 && (
+					<InstanceFacet labelText='Productions of materials as source material writer'>
+
+						<ProductionsList productions={sourcingMaterialProductions} />
+
+					</InstanceFacet>
+				)
+			}
+
+			{
+				rightsGrantorMaterialProductions?.length > 0 && (
+					<InstanceFacet labelText='Productions of materials as rights grantor'>
+
+						<ProductionsList productions={rightsGrantorMaterialProductions} />
 
 					</InstanceFacet>
 				)
