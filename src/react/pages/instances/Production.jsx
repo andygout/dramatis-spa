@@ -129,6 +129,12 @@ const Production = props => {
 
 									<InstanceLink instance={surProduction} />
 
+									{
+										surProduction.subtitle && (
+											<p>{ surProduction.subtitle }</p>
+										)
+									}
+
 								</InstanceFacet>
 
 								{
@@ -153,6 +159,12 @@ const Production = props => {
 										<InstanceFacet labelText='Production'>
 
 											<InstanceLink instance={subProduction} />
+
+											{
+												subProduction.subtitle && (
+													<p>{ subProduction.subtitle }</p>
+												)
+											}
 
 										</InstanceFacet>
 
