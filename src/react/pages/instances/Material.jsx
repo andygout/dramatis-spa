@@ -85,6 +85,12 @@ const Material = props => {
 
 									<InstanceLink instance={surMaterial} />
 
+									{
+										surMaterial.subtitle && (
+											<p>{ surMaterial.subtitle }</p>
+										)
+									}
+
 								</InstanceFacet>
 
 								{
@@ -109,6 +115,12 @@ const Material = props => {
 										<InstanceFacet labelText='Material'>
 
 											<InstanceLink instance={subMaterial} />
+
+											{
+												subMaterial.subtitle && (
+													<p>{ subMaterial.subtitle }</p>
+												)
+											}
 
 										</InstanceFacet>
 

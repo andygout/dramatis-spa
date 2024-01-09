@@ -3,7 +3,7 @@ import React from 'react';
 
 import getDifferentiatorSuffix from '../../lib/get-differentiator-suffix';
 import getInstanceTitle from '../../lib/get-instance-title';
-import { InstanceDocumentTitle, InstanceLabel, PageTitle } from '../components';
+import { InstanceDocumentTitle, InstanceLabel, PageSubtitle, PageTitle } from '../components';
 
 const InstancePageWrapper = props => {
 
@@ -36,6 +36,12 @@ const InstancePageWrapper = props => {
 			<InstanceLabel model={instance.model || ''} />
 
 			<PageTitle text={pageTitleText} />
+
+			{
+				instance.subtitle && (
+					<PageSubtitle text={instance.subtitle} />
+				)
+			}
 
 			{ children }
 
