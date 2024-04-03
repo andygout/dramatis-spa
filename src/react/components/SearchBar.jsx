@@ -10,7 +10,7 @@ const URL_BASE = 'http://localhost:3002';
 
 async function performFetch (url) {
 
-	const response = await fetch(url, { mode: 'cors' });
+	const response = await fetch(url, { mode: 'same-origin' });
 
 	if (response.status !== 200) throw new Error(response.statusText);
 
