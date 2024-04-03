@@ -9,7 +9,7 @@ const Header = () => {
 		<header className="header">
 
 			<Link to={'/'} className="header__component header__home-link">
-				TheatreBase
+				Dramatis
 			</Link>
 
 			<div className="header__component">
