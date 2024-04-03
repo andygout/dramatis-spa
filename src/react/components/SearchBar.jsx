@@ -67,7 +67,7 @@ const SearchBar = () => {
 			onSearch={handleSearch}
 			onChange={handleChange}
 			options={options}
-			placeholder='Search TheatreBase…'
+			placeholder='Search Dramatis…'
 			emptyLabel='No results found'
 			renderMenuItemChildren={(option, { text }) => (
 				<>
