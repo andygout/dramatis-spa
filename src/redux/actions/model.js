@@ -8,7 +8,7 @@ import {
 	PLURALISED_MODEL_TO_ROUTE_MAP
 } from '../../utils/constants';
 
-const URL_BASE = 'http://localhost:3000';
+const API_URL_BASE = 'http://localhost:3000';
 
 const requestList = pluralisedModel =>
 	createAction(actions[`REQUEST_${pluralisedModel}`]);
@@ -40,11 +40,11 @@ const fetchList = pluralisedModel => async (dispatch, getState) => {
 
 		dispatch(requestList(pluralisedModel));
 
-		const url = `${URL_BASE}/${PLURALISED_MODEL_TO_ROUTE_MAP[pluralisedModel]}`;
+		const apiUrl = `${API_URL_BASE}/${PLURALISED_MODEL_TO_ROUTE_MAP[pluralisedModel]}`;
 
 		try {
 
-			const list = await performFetch(url);
+			const list = await performFetch(apiUrl);
 
 			dispatch(receiveList(list, pluralisedModel));
 
@@ -66,11 +66,11 @@ const fetchInstance = (model, uuid) => async (dispatch, getState) => {
 
 		dispatch(requestInstance(model));
 
-		const url = `${URL_BASE}/${MODEL_TO_ROUTE_MAP[model]}/${uuid}`;
+		const apiUrl = `${API_URL_BASE}/${MODEL_TO_ROUTE_MAP[model]}/${uuid}`;
 
 		try {
 
-			const instance = await performFetch(url);
+			const instance = await performFetch(apiUrl);
 
 			dispatch(receiveInstance(instance));
 
