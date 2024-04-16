@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import {
 	AppendedCoEntities,
+	AppendedDate,
 	AppendedEntities,
 	AppendedMembers,
 	CommaSeparatedMaterials,
@@ -15,6 +16,7 @@ import {
 	ListWrapper,
 	MaterialsList,
 	ProducerProductionsList,
+	ProductionLinkWithContext,
 	ProductionsList
 } from '../../components';
 import { InstancePageWrapper } from '../../page-wrappers';
@@ -35,6 +37,7 @@ const Company = props => {
 		producerProductions,
 		creativeProductions,
 		crewProductions,
+		reviewPublicationProductions,
 		awards,
 		subsequentVersionMaterialAwards,
 		sourcingMaterialAwards,
@@ -149,6 +152,46 @@ const Company = props => {
 					<InstanceFacet labelText='Productions as crew member'>
 
 						<CrewProductionsList productions={crewProductions} />
+
+					</InstanceFacet>
+				)
+			}
+
+			{
+				reviewPublicationProductions?.length > 0 && (
+					<InstanceFacet labelText='Reviewed productions'>
+
+						<ListWrapper>
+
+							{
+								reviewPublicationProductions.map((reviewPublicationProduction, index) =>
+									<li key={index}>
+
+										<ProductionLinkWithContext production={reviewPublicationProduction} />
+
+										{' — reviewed by '}
+
+										<InstanceLink instance={reviewPublicationProduction.review.critic} />
+
+										{
+											(reviewPublicationProduction.review.date) && (
+												<AppendedDate date={reviewPublicationProduction.review.date} />
+											)
+										}
+
+										{': '}
+
+										<a
+											href={reviewPublicationProduction.review.url}
+											target="_blank"
+											rel="noopener noreferrer"
+										>{'link'}</a>
+
+									</li>
+								)
+							}
+
+						</ListWrapper>
 
 					</InstanceFacet>
 				)

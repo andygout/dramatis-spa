@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import {
 	AppendedCoEntities,
+	AppendedDate,
 	AppendedEmployerCompany,
 	AppendedEntities,
 	AppendedRoles,
@@ -38,6 +39,7 @@ const Person = props => {
 		castMemberProductions,
 		creativeProductions,
 		crewProductions,
+		reviewCriticProductions,
 		awards,
 		subsequentVersionMaterialAwards,
 		sourcingMaterialAwards,
@@ -180,6 +182,46 @@ const Person = props => {
 					<InstanceFacet labelText='Productions as crew member'>
 
 						<CrewProductionsList productions={crewProductions} />
+
+					</InstanceFacet>
+				)
+			}
+
+			{
+				reviewCriticProductions?.length > 0 && (
+					<InstanceFacet labelText='Reviewed productions'>
+
+						<ListWrapper>
+
+							{
+								reviewCriticProductions.map((reviewCriticProduction, index) =>
+									<li key={index}>
+
+										<ProductionLinkWithContext production={reviewCriticProduction} />
+
+										{' — reviewed for '}
+
+										<InstanceLink instance={reviewCriticProduction.review.publication} />
+
+										{
+											(reviewCriticProduction.review.date) && (
+												<AppendedDate date={reviewCriticProduction.review.date} />
+											)
+										}
+
+										{': '}
+
+										<a
+											href={reviewCriticProduction.review.url}
+											target="_blank"
+											rel="noopener noreferrer"
+										>{'link'}</a>
+
+									</li>
+								)
+							}
+
+						</ListWrapper>
 
 					</InstanceFacet>
 				)
