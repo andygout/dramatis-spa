@@ -1,4 +1,5 @@
 import AppendedCoEntities from './AppendedCoEntities';
+import AppendedDate from './AppendedDate';
 import AppendedDepictions from './AppendedDepictions';
 import AppendedEmployerCompany from './AppendedEmployerCompany';
 import AppendedEntities from './AppendedEntities';
@@ -47,6 +48,7 @@ import WritingEntities from './WritingEntities';
 
 export {
 	AppendedCoEntities,
+	AppendedDate,
 	AppendedDepictions,
 	AppendedEmployerCompany,
 	AppendedEntities,
