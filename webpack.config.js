@@ -31,7 +31,7 @@ const serverConfig = {
 								'@babel/preset-env',
 								{
 									targets: {
-										node: '20'
+										node: '22'
 									}
 								}
 							],
@@ -93,7 +93,7 @@ const clientConfig = {
 								'@babel/preset-env',
 								{
 									targets: {
-										node: '20'
+										node: '22'
 									}
 								}
 							],
