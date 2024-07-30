@@ -1,7 +1,7 @@
 import {
 	REQUEST_CHARACTER,
 	RECEIVE_CHARACTER
-} from '../utils/model-action-names';
+} from '../utils/model-action-names.js';
 
 const character = (state = {}, action) => {
 

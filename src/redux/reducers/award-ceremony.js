@@ -1,7 +1,7 @@
 import {
 	REQUEST_AWARD_CEREMONY,
 	RECEIVE_AWARD_CEREMONY
-} from '../utils/model-action-names';
+} from '../utils/model-action-names.js';
 
 const awardCeremony = (state = {}, action) => {
 

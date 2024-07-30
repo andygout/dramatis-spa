@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { useMatch } from 'react-router-dom';
 
-import { ErrorMessage, Footer, Header, Navigation } from './components';
+import { ErrorMessage, Footer, Header, Navigation } from './components/index.js';
 
 const Layout = props => {
 

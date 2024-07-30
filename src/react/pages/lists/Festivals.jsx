@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { InstanceLink, ListWrapper } from '../../components';
-import { ListPageWrapper } from '../../page-wrappers';
+import { InstanceLink, ListWrapper } from '../../components/index.js';
+import { ListPageWrapper } from '../../page-wrappers/index.js';
 
 const Festivals = props => {
 

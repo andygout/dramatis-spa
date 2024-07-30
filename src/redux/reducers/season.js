@@ -1,7 +1,7 @@
 import {
 	REQUEST_SEASON,
 	RECEIVE_SEASON
-} from '../utils/model-action-names';
+} from '../utils/model-action-names.js';
 
 const season = (state = {}, action) => {
 

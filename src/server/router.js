@@ -4,16 +4,16 @@ import { matchPath } from 'react-router-dom';
 import { applyMiddleware, createStore, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
-import getReactHtml from '../react/react-html';
-import reducers from '../redux/reducers';
-import routes from '../react/routes';
+import getReactHtml from '../react/react-html.jsx';
+import reducers from '../redux/reducers/index.js';
+import routes from '../react/routes.js';
 
 const router = new Router();
 
 const store = createStore(
 	combineReducers(reducers),
 	{},
-	applyMiddleware(...[thunkMiddleware])
+	applyMiddleware(...[thunkMiddleware.default])
 );
 
 router.get('*', async (request, response, next) => {

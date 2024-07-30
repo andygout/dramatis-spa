@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { AppendedMembers, InstanceLink } from '.';
+import { AppendedMembers, InstanceLink } from './index.js';
 
 const Entities = props => {
 

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { CommaSeparatedInstanceLinks } from '.';
+import { CommaSeparatedInstanceLinks } from './index.js';
 
 const AppendedMembers = props => {
 

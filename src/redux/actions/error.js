@@ -1,8 +1,8 @@
-import createAction from './base';
+import createAction from './base.js';
 import {
 	ACTIVATE_ERROR,
 	DEACTIVATE_ERROR
-} from '../utils/error-action-names';
+} from '../utils/error-action-names.js';
 
 const activateError = errorData => createAction(ACTIVATE_ERROR, { isActive: true, ...errorData });
 

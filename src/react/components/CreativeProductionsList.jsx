@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { AppendedProductionTeamCredits, ProductionLinkWithContext, ListWrapper } from '.';
+import { AppendedProductionTeamCredits, ProductionLinkWithContext, ListWrapper } from './index.js';
 
 const CreativeProductionsList = props => {
 

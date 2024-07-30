@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ErrorMessage } from '../components';
+import { ErrorMessage } from '../components/index.js';
 
 const NotFound = () => {
 

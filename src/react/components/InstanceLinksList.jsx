@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { InstanceLink, ListWrapper } from '.';
+import { InstanceLink, ListWrapper } from './index.js';
 
 const InstanceLinksList = props => {
 

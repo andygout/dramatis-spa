@@ -6,8 +6,8 @@ import { applyMiddleware, createStore, combineReducers } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 
-import AppRoutes from './AppRoutes';
-import reducers from '../redux/reducers';
+import AppRoutes from './AppRoutes.jsx';
+import reducers from '../redux/reducers/index.js';
 
 window.onload = () => {
 

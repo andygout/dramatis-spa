@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { InstanceLinksList } from '../../components';
-import { ListPageWrapper } from '../../page-wrappers';
+import { InstanceLinksList } from '../../components/index.js';
+import { ListPageWrapper } from '../../page-wrappers/index.js';
 
 const Companies = props => {
 

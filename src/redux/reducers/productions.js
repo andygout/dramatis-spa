@@ -1,7 +1,7 @@
 import {
 	REQUEST_PRODUCTIONS,
 	RECEIVE_PRODUCTIONS
-} from '../utils/model-action-names';
+} from '../utils/model-action-names.js';
 
 const productions = (state = [], action) => {
 

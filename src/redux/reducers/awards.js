@@ -1,7 +1,7 @@
 import {
 	REQUEST_AWARDS,
 	RECEIVE_AWARDS
-} from '../utils/model-action-names';
+} from '../utils/model-action-names.js';
 
 const awards = (state = [], action) => {
 

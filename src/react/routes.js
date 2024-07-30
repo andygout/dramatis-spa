@@ -23,11 +23,11 @@ import {
 	Venues,
 	Home,
 	NotFound
-} from './pages';
+} from './pages/index.js';
 
-import { deactivateError } from '../redux/actions/error';
-import { fetchList, fetchInstance } from '../redux/actions/model';
-import { MODELS, PLURALISED_MODELS } from '../utils/constants';
+import { deactivateError } from '../redux/actions/error.js';
+import { fetchList, fetchInstance } from '../redux/actions/model.js';
+import { MODELS, PLURALISED_MODELS } from '../utils/constants.js';
 
 export default [
 	{
@@ -239,6 +239,7 @@ export default [
 	{
 		path: '*',
 		documentTitle: () => 'Not Found',
-		component: NotFound
+		component: NotFound,
+		fetchData: []
 	}
 ];

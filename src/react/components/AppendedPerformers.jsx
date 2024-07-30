@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { InstanceLink, JoinedRoles } from '.';
+import { InstanceLink, JoinedRoles } from './index.js';
 
 const AppendedPerformers = props => {
 

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Entities } from '.';
+import { Entities } from './index.js';
 
 const AppendedCoEntities = props => {
 

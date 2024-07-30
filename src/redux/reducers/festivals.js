@@ -1,7 +1,7 @@
 import {
 	REQUEST_FESTIVALS,
 	RECEIVE_FESTIVALS
-} from '../utils/model-action-names';
+} from '../utils/model-action-names.js';
 
 const festivals = (state = [], action) => {
 

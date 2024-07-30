@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { InstanceLink } from '.';
+import { InstanceLink } from './index.js';
 
 const PrependedSurInstance = props => {
 

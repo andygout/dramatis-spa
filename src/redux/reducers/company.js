@@ -1,7 +1,7 @@
 import {
 	REQUEST_COMPANY,
 	RECEIVE_COMPANY
-} from '../utils/model-action-names';
+} from '../utils/model-action-names.js';
 
 const company = (state = {}, action) => {
 

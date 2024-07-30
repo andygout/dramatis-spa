@@ -1,7 +1,7 @@
 import {
 	REQUEST_MATERIAL,
 	RECEIVE_MATERIAL
-} from '../utils/model-action-names';
+} from '../utils/model-action-names.js';
 
 const material = (state = {}, action) => {
 

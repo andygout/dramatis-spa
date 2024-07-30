@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { MODEL_TO_ROUTE_MAP } from '../../utils/constants';
+import { MODEL_TO_ROUTE_MAP } from '../../utils/constants.js';
 
 const InstanceLink = props => {
 

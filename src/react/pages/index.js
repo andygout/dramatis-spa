@@ -10,7 +10,7 @@ import {
 	Production,
 	Season,
 	Venue
-} from './instances';
+} from './instances/index.js';
 import {
 	Awards,
 	AwardCeremonies,
@@ -23,9 +23,9 @@ import {
 	Productions,
 	Seasons,
 	Venues
-} from './lists';
-import Home from './Home';
-import NotFound from './NotFound';
+} from './lists/index.js';
+import Home from './Home.jsx';
+import NotFound from './NotFound.jsx';
 
 export {
 	Award,

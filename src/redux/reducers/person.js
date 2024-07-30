@@ -1,7 +1,7 @@
 import {
 	REQUEST_PERSON,
 	RECEIVE_PERSON
-} from '../utils/model-action-names';
+} from '../utils/model-action-names.js';
 
 const person = (state = {}, action) => {
 

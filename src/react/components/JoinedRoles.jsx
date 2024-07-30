@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { AppendedQualifier, InstanceLink } from '.';
+import { AppendedQualifier, InstanceLink } from './index.js';
 
 const JoinedRoles = props => {
 

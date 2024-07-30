@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { MaterialLinkWithContext } from '.';
+import { MaterialLinkWithContext } from './index.js';
 
 const CommaSeparatedMaterials = props => {
 
