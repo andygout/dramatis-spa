@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { capitalise } from '../../../lib/strings';
+import { capitalise } from '../../../lib/strings.js';
 import {
 	CharactersList,
 	CommaSeparatedMaterials,
@@ -15,8 +15,8 @@ import {
 	MaterialsList,
 	ProductionsList,
 	WritingCredits
-} from '../../components';
-import { InstancePageWrapper } from '../../page-wrappers';
+} from '../../components/index.js';
+import { InstancePageWrapper } from '../../page-wrappers/index.js';
 
 const Material = props => {
 

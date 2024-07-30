@@ -1,7 +1,7 @@
 import {
 	REQUEST_VENUE,
 	RECEIVE_VENUE
-} from '../utils/model-action-names';
+} from '../utils/model-action-names.js';
 
 const venue = (state = {}, action) => {
 

@@ -9,8 +9,8 @@ import {
 	ListWrapper,
 	MaterialLinkWithContext,
 	ProductionLinkWithContext
-} from '../../components';
-import { InstancePageWrapper } from '../../page-wrappers';
+} from '../../components/index.js';
+import { InstancePageWrapper } from '../../page-wrappers/index.js';
 
 const Character = props => {
 

@@ -19,8 +19,8 @@ import {
 	ProducerProductionsList,
 	ProductionLinkWithContext,
 	ProductionsList
-} from '../../components';
-import { InstancePageWrapper } from '../../page-wrappers';
+} from '../../components/index.js';
+import { InstancePageWrapper } from '../../page-wrappers/index.js';
 
 const Person = props => {
 

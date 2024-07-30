@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { AppendedFormatAndYear, InstanceLink, PrependedSurInstance, WritingCredits } from '.';
+import { AppendedFormatAndYear, InstanceLink, PrependedSurInstance, WritingCredits } from './index.js';
 
 const WritingEntities = props => {
 

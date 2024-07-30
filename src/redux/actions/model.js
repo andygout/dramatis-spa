@@ -1,12 +1,12 @@
-import createAction from './base';
-import { activateError } from './error';
-import * as actions from '../utils/model-action-names';
+import createAction from './base.js';
+import { activateError } from './error.js';
+import * as actions from '../utils/model-action-names.js';
 import {
 	MODEL_TO_PROP_NAME_MAP,
 	MODEL_TO_ROUTE_MAP,
 	PLURALISED_MODEL_TO_PROP_NAME_MAP,
 	PLURALISED_MODEL_TO_ROUTE_MAP
-} from '../../utils/constants';
+} from '../../utils/constants.js';
 
 const API_URL_BASE = 'http://localhost:3000';
 

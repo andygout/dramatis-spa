@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { ListWrapper, MaterialLinkWithContext } from '.';
+import { ListWrapper, MaterialLinkWithContext } from './index.js';
 
 const MaterialsList = props => {
 

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { VenueLinkWithContext } from '.';
+import { VenueLinkWithContext } from './index.js';
 
 const AppendedVenue = props => {
 

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { WritingEntities } from '.';
-import { capitalise } from '../../lib/strings';
+import { WritingEntities } from './index.js';
+import { capitalise } from '../../lib/strings.js';
 
 const WritingCredits = props => {
 

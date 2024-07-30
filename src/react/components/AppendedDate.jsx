@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { formatDate } from '../../lib/format-date';
+import { formatDate } from '../../lib/format-date.js';
 
 const AppendedDate = props => {
 

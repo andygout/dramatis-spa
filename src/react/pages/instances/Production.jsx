@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { formatDate } from '../../../lib/format-date';
+import { formatDate } from '../../../lib/format-date.js';
 import {
 	AppendedDate,
 	AppendedRoles,
@@ -17,8 +17,8 @@ import {
 	ProducerCredits,
 	ProductionTeamCreditsList,
 	VenueLinkWithContext
-} from '../../components';
-import { InstancePageWrapper } from '../../page-wrappers';
+} from '../../components/index.js';
+import { InstancePageWrapper } from '../../page-wrappers/index.js';
 
 const Production = props => {
 

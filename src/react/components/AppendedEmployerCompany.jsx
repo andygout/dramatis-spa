@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { CommaSeparatedInstanceLinks, InstanceLink } from '.';
+import { CommaSeparatedInstanceLinks, InstanceLink } from './index.js';
 
 const AppendedEmployerCompany = props => {
 

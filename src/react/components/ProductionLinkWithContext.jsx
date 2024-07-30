@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { AppendedProductionDates, AppendedVenue, InstanceLink, PrependedSurInstance } from '.';
+import { AppendedProductionDates, AppendedVenue, InstanceLink, PrependedSurInstance } from './index.js';
 
 const ProductionLinkWithContext = props => {
 
