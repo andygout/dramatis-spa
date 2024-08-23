@@ -239,6 +239,7 @@ export default [
 	{
 		path: '*',
 		documentTitle: () => 'Not Found',
-		component: NotFound
+		component: NotFound,
+		fetchData: []
 	}
 ];
