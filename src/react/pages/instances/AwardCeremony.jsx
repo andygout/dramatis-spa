@@ -9,8 +9,8 @@ import {
 	InstanceFacet,
 	InstanceLink,
 	ListWrapper
-} from '../../components';
-import { InstancePageWrapper } from '../../page-wrappers';
+} from '../../components/index.js';
+import { InstancePageWrapper } from '../../page-wrappers/index.js';
 
 const AwardCeremony = props => {
 

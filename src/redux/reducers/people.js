@@ -1,7 +1,7 @@
 import {
 	REQUEST_PEOPLE,
 	RECEIVE_PEOPLE
-} from '../utils/model-action-names';
+} from '../utils/model-action-names.js';
 
 const people = (state = [], action) => {
 

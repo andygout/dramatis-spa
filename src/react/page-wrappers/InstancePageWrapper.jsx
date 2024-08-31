@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import getDifferentiatorSuffix from '../../lib/get-differentiator-suffix';
-import getInstanceTitle from '../../lib/get-instance-title';
-import { InstanceDocumentTitle, InstanceLabel, PageSubtitle, PageTitle } from '../components';
+import getDifferentiatorSuffix from '../../lib/get-differentiator-suffix.js';
+import getInstanceTitle from '../../lib/get-instance-title.js';
+import { InstanceDocumentTitle, InstanceLabel, PageSubtitle, PageTitle } from '../components/index.js';
 
 const InstancePageWrapper = props => {
 

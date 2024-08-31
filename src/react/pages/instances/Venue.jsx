@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { InstanceFacet, InstanceLink, InstanceLinksList, ProductionsList } from '../../components';
-import { InstancePageWrapper } from '../../page-wrappers';
+import { InstanceFacet, InstanceLink, InstanceLinksList, ProductionsList } from '../../components/index.js';
+import { InstancePageWrapper } from '../../page-wrappers/index.js';
 
 const Venue = props => {
 

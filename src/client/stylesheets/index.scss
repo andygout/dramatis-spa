@@ -13,8 +13,8 @@
 @use 'dropdown-modifiers';
 @use 'form-control-modifiers';
 
-@import 'react-bootstrap-typeahead/css/Typeahead.css';
-@import 'react-bootstrap-typeahead/css/Typeahead.bs5.css';
+@import 'react-bootstrap-typeahead/css/Typeahead';
+@import 'react-bootstrap-typeahead/css/Typeahead.bs5';
 
 // Functions first
 @import 'bootstrap/scss/functions';

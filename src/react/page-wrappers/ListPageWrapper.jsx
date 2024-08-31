@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { PageTitle } from '../components';
+import { PageTitle } from '../components/index.js';
 
 const ListPageWrapper = props => {
 

@@ -1,7 +1,7 @@
 import {
 	ACTIVATE_ERROR,
 	DEACTIVATE_ERROR
-} from '../utils/error-action-names';
+} from '../utils/error-action-names.js';
 
 const error = (state = { isActive: false }, action) => {
 

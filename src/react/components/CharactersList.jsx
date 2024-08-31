@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { AppendedQualifier, InstanceLink, ListWrapper } from '.';
+import { AppendedQualifier, InstanceLink, ListWrapper } from './index.js';
 
 const CharactersList = props => {
 

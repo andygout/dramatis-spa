@@ -1,5 +1,5 @@
-import InstancePageWrapper from './InstancePageWrapper';
-import ListPageWrapper from './ListPageWrapper';
+import InstancePageWrapper from './InstancePageWrapper.jsx';
+import ListPageWrapper from './ListPageWrapper.jsx';
 
 export {
 	InstancePageWrapper,

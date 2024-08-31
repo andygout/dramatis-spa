@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { ListWrapper, ProductionLinkWithContext } from '.';
+import { ListWrapper, ProductionLinkWithContext } from './index.js';
 
 const ProductionsList = props => {
 

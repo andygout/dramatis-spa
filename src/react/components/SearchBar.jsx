@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { AsyncTypeahead, Highlighter } from 'react-bootstrap-typeahead';
 import { useNavigate } from 'react-router-dom';
 
-import { MODEL_TO_DISPLAY_NAME_MAP, MODEL_TO_ROUTE_MAP } from '../../utils/constants';
+import { MODEL_TO_DISPLAY_NAME_MAP, MODEL_TO_ROUTE_MAP } from '../../utils/constants.js';
 
 const URL_BASE = 'http://localhost:3002';
 
