@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import { capitalise } from '../../../lib/strings.js';
@@ -256,7 +256,7 @@ const Material = props => {
 
 							{
 								awards.map((award, index) =>
-									<React.Fragment key={index}>
+									<Fragment key={index}>
 										<InstanceLink instance={award} />
 
 										<ListWrapper>
@@ -269,13 +269,13 @@ const Material = props => {
 														{
 															ceremony.categories
 																.map((category, index) =>
-																	<React.Fragment key={index}>
+																	<Fragment key={index}>
 																		{ category.name }{': '}
 
 																		{
 																			category.nominations
 																				.map((nomination, index) =>
-																					<React.Fragment key={index}>
+																					<Fragment key={index}>
 																						<span className={nomination.isWinner ? 'nomination-winner-text' : ''}>
 																							{nomination.type}
 																						</span>
@@ -339,11 +339,11 @@ const Material = props => {
 																								</>
 																							)
 																						}
-																					</React.Fragment>
+																					</Fragment>
 																				)
 																				.reduce((accumulator, currentValue) => [accumulator, ', ', currentValue])
 																		}
-																	</React.Fragment>
+																	</Fragment>
 																)
 																.reduce((accumulator, currentValue) => [accumulator, '; ', currentValue])
 														}
@@ -352,7 +352,7 @@ const Material = props => {
 											}
 
 										</ListWrapper>
-									</React.Fragment>
+									</Fragment>
 								)
 							}
 
@@ -366,7 +366,7 @@ const Material = props => {
 
 							{
 								subsequentVersionMaterialAwards.map((subsequentVersionMaterialAward, index) =>
-									<React.Fragment key={index}>
+									<Fragment key={index}>
 										<InstanceLink instance={subsequentVersionMaterialAward} />
 
 										<ListWrapper>
@@ -379,13 +379,13 @@ const Material = props => {
 														{
 															ceremony.categories
 																.map((category, index) =>
-																	<React.Fragment key={index}>
+																	<Fragment key={index}>
 																		{ category.name }{': '}
 
 																		{
 																			category.nominations
 																				.map((nomination, index) =>
-																					<React.Fragment key={index}>
+																					<Fragment key={index}>
 																						<span className={nomination.isWinner ? 'nomination-winner-text' : ''}>
 																							{nomination.type}
 																						</span>
@@ -441,11 +441,11 @@ const Material = props => {
 																								</>
 																							)
 																						}
-																					</React.Fragment>
+																					</Fragment>
 																				)
 																				.reduce((accumulator, currentValue) => [accumulator, ', ', currentValue])
 																		}
-																	</React.Fragment>
+																	</Fragment>
 																)
 																.reduce((accumulator, currentValue) => [accumulator, '; ', currentValue])
 														}
@@ -454,7 +454,7 @@ const Material = props => {
 											}
 
 										</ListWrapper>
-									</React.Fragment>
+									</Fragment>
 								)
 							}
 
@@ -468,7 +468,7 @@ const Material = props => {
 
 							{
 								sourcingMaterialAwards.map((sourcingMaterialAward, index) =>
-									<React.Fragment key={index}>
+									<Fragment key={index}>
 										<InstanceLink instance={sourcingMaterialAward} />
 
 										<ListWrapper>
@@ -481,13 +481,13 @@ const Material = props => {
 														{
 															ceremony.categories
 																.map((category, index) =>
-																	<React.Fragment key={index}>
+																	<Fragment key={index}>
 																		{ category.name }{': '}
 
 																		{
 																			category.nominations
 																				.map((nomination, index) =>
-																					<React.Fragment key={index}>
+																					<Fragment key={index}>
 																						<span className={nomination.isWinner ? 'nomination-winner-text' : ''}>
 																							{nomination.type}
 																						</span>
@@ -543,11 +543,11 @@ const Material = props => {
 																								</>
 																							)
 																						}
-																					</React.Fragment>
+																					</Fragment>
 																				)
 																				.reduce((accumulator, currentValue) => [accumulator, ', ', currentValue])
 																		}
-																	</React.Fragment>
+																	</Fragment>
 																)
 																.reduce((accumulator, currentValue) => [accumulator, '; ', currentValue])
 														}
@@ -556,7 +556,7 @@ const Material = props => {
 											}
 
 										</ListWrapper>
-									</React.Fragment>
+									</Fragment>
 								)
 							}
 

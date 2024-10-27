@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Fragment } from 'react';
 
 const AppendedDepictions = props => {
 
@@ -11,7 +11,7 @@ const AppendedDepictions = props => {
 			{
 				depictions
 					.map((depiction, index) =>
-						<React.Fragment key={index}>
+						<Fragment key={index}>
 
 							{
 								depiction.displayName && (
@@ -33,7 +33,7 @@ const AppendedDepictions = props => {
 								)
 							}
 
-						</React.Fragment>
+						</Fragment>
 					)
 					.reduce((accumulator, currentValue) => [accumulator, ' /', currentValue])
 			}

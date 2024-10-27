@@ -20,6 +20,7 @@ const serverBundle = {
 		'node:http',
 		'prop-types',
 		'react',
+		'react/jsx-runtime',
 		'react-bootstrap-typeahead',
 		'react-dom/server',
 		'react-helmet',
@@ -34,6 +35,7 @@ const serverBundle = {
 	},
 	plugins: [
 		esbuild({
+			jsx: 'automatic',
 			jsxFactory: 'React.createElement',
 			jsxFragment: 'React.Fragment'
 		}),
@@ -61,7 +63,12 @@ const clientScriptsBundle = {
 		}),
 		babel({
 			babelHelpers: 'bundled',
-			presets: ['@babel/preset-react'],
+			presets: [
+				[
+					'@babel/preset-react',
+					{ runtime: 'automatic' }
+				]
+			],
 			extensions: ['.js', '.jsx']
 		}),
 		commonjs(),

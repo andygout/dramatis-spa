@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { PageTitle } from '../components/index.js';
 
 const Home = () => {

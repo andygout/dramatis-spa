@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Fragment } from 'react';
 
 import { AppendedFormatAndYear, InstanceLink, PrependedSurInstance, WritingCredits } from './index.js';
 
@@ -13,7 +13,7 @@ const WritingEntities = props => {
 			{
 				entities
 					.map((entity, index) =>
-						<React.Fragment key={index}>
+						<Fragment key={index}>
 
 							{
 								entity.surMaterial?.surMaterial && (
@@ -47,7 +47,7 @@ const WritingEntities = props => {
 								)
 							}
 
-						</React.Fragment>
+						</Fragment>
 					)
 					.reduce((accumulator, currentValue, currentIndex) => {
 

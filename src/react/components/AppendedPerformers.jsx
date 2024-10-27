@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Fragment } from 'react';
 
 import { InstanceLink, JoinedRoles } from './index.js';
 
@@ -15,7 +15,7 @@ const AppendedPerformers = props => {
 			{
 				performers
 					.map((performer, index) =>
-						<React.Fragment key={index}>
+						<Fragment key={index}>
 
 							<InstanceLink instance={performer} />
 
@@ -53,7 +53,7 @@ const AppendedPerformers = props => {
 								)
 							}
 
-						</React.Fragment>
+						</Fragment>
 					)
 					.reduce((accumulator, currentValue) => [accumulator, ' / ', currentValue])
 			}

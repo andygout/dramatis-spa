@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import { MODEL_TO_DISPLAY_NAME_MAP } from '../../utils/constants.js';

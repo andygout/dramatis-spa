@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Fragment } from 'react';
 
 import { MaterialLinkWithContext } from './index.js';
 
@@ -13,11 +13,11 @@ const CommaSeparatedMaterials = props => {
 			{
 				materials
 					.map((material, index) =>
-						<React.Fragment key={index}>
+						<Fragment key={index}>
 
 							<MaterialLinkWithContext material={material} />
 
-						</React.Fragment>
+						</Fragment>
 					)
 					.reduce((accumulator, currentValue) => [accumulator, ', ', currentValue])
 			}

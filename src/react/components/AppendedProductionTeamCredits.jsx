@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Fragment } from 'react';
 
 import { AppendedCoEntities, AppendedEmployerCompany, AppendedMembers } from './index.js';
 
@@ -15,7 +15,7 @@ const AppendedProductionTeamCredits = props => {
 			{
 				credits
 					.map((credit, index) =>
-						<React.Fragment key={index}>
+						<Fragment key={index}>
 
 							<>{ credit.name }</>
 
@@ -37,7 +37,7 @@ const AppendedProductionTeamCredits = props => {
 								)
 							}
 
-						</React.Fragment>
+						</Fragment>
 					)
 					.reduce((accumulator, currentValue) => [accumulator, '; ', currentValue])
 			}

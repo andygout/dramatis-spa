@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Fragment } from 'react';
 
 import { WritingEntities } from './index.js';
 import { capitalise } from '../../lib/strings.js';
@@ -20,13 +20,13 @@ const WritingCredits = props => {
 							: credit.name;
 
 						return (
-							<React.Fragment key={index}>
+							<Fragment key={index}>
 
 								<>{`${creditName} `}</>
 
 								<WritingEntities entities={credit.entities} />
 
-							</React.Fragment>
+							</Fragment>
 						);
 
 					})
