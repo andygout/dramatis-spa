@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import {
@@ -37,7 +37,7 @@ const AwardCeremony = props => {
 
 						{
 							categories.map((category, index) =>
-								<React.Fragment key={index}>
+								<Fragment key={index}>
 									{ category.name }
 
 									<ListWrapper>
@@ -92,7 +92,7 @@ const AwardCeremony = props => {
 										}
 
 									</ListWrapper>
-								</React.Fragment>
+								</Fragment>
 							)
 						}
 

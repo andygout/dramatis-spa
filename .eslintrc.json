@@ -39,6 +39,7 @@
     "no-var": 2,
     "one-var": [2, "never"],
     "quotes": [2, "single"],
+    "react/react-in-jsx-scope": 0,
     "semi": 2,
     "space-before-function-paren": 2,
     "spaced-comment": 2,

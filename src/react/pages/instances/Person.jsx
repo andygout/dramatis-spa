@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import {
@@ -233,7 +233,7 @@ const Person = props => {
 
 						{
 							awards.map((award, index) =>
-								<React.Fragment key={index}>
+								<Fragment key={index}>
 									<InstanceLink instance={award} />
 
 									<ListWrapper>
@@ -246,13 +246,13 @@ const Person = props => {
 													{
 														ceremony.categories
 															.map((category, index) =>
-																<React.Fragment key={index}>
+																<Fragment key={index}>
 																	{ category.name }{': '}
 
 																	{
 																		category.nominations
 																			.map((nomination, index) =>
-																				<React.Fragment key={index}>
+																				<Fragment key={index}>
 																					<span className={nomination.isWinner ? 'nomination-winner-text' : ''}>
 																						{nomination.type}
 																					</span>
@@ -301,11 +301,11 @@ const Person = props => {
 																							</>
 																						)
 																					}
-																				</React.Fragment>
+																				</Fragment>
 																			)
 																			.reduce((accumulator, currentValue) => [accumulator, ', ', currentValue])
 																	}
-																</React.Fragment>
+																</Fragment>
 															)
 															.reduce((accumulator, currentValue) => [accumulator, '; ', currentValue])
 													}
@@ -314,7 +314,7 @@ const Person = props => {
 										}
 
 									</ListWrapper>
-								</React.Fragment>
+								</Fragment>
 							)
 						}
 
@@ -328,7 +328,7 @@ const Person = props => {
 
 						{
 							subsequentVersionMaterialAwards.map((subsequentVersionMaterialAward, index) =>
-								<React.Fragment key={index}>
+								<Fragment key={index}>
 									<InstanceLink instance={subsequentVersionMaterialAward} />
 
 									<ListWrapper>
@@ -341,13 +341,13 @@ const Person = props => {
 													{
 														ceremony.categories
 															.map((category, index) =>
-																<React.Fragment key={index}>
+																<Fragment key={index}>
 																	{ category.name }{': '}
 
 																	{
 																		category.nominations
 																			.map((nomination, index) =>
-																				<React.Fragment key={index}>
+																				<Fragment key={index}>
 																					<span className={nomination.isWinner ? 'nomination-winner-text' : ''}>
 																						{nomination.type}
 																					</span>
@@ -399,11 +399,11 @@ const Person = props => {
 																							</>
 																						)
 																					}
-																				</React.Fragment>
+																				</Fragment>
 																			)
 																			.reduce((accumulator, currentValue) => [accumulator, ', ', currentValue])
 																	}
-																</React.Fragment>
+																</Fragment>
 															)
 															.reduce((accumulator, currentValue) => [accumulator, '; ', currentValue])
 													}
@@ -412,7 +412,7 @@ const Person = props => {
 										}
 
 									</ListWrapper>
-								</React.Fragment>
+								</Fragment>
 							)
 						}
 
@@ -426,7 +426,7 @@ const Person = props => {
 
 						{
 							sourcingMaterialAwards.map((sourcingMaterialAward, index) =>
-								<React.Fragment key={index}>
+								<Fragment key={index}>
 									<InstanceLink instance={sourcingMaterialAward} />
 
 									<ListWrapper>
@@ -439,13 +439,13 @@ const Person = props => {
 													{
 														ceremony.categories
 															.map((category, index) =>
-																<React.Fragment key={index}>
+																<Fragment key={index}>
 																	{ category.name }{': '}
 
 																	{
 																		category.nominations
 																			.map((nomination, index) =>
-																				<React.Fragment key={index}>
+																				<Fragment key={index}>
 																					<span className={nomination.isWinner ? 'nomination-winner-text' : ''}>
 																						{nomination.type}
 																					</span>
@@ -497,11 +497,11 @@ const Person = props => {
 																							</>
 																						)
 																					}
-																				</React.Fragment>
+																				</Fragment>
 																			)
 																			.reduce((accumulator, currentValue) => [accumulator, ', ', currentValue])
 																	}
-																</React.Fragment>
+																</Fragment>
 															)
 															.reduce((accumulator, currentValue) => [accumulator, '; ', currentValue])
 													}
@@ -510,7 +510,7 @@ const Person = props => {
 										}
 
 									</ListWrapper>
-								</React.Fragment>
+								</Fragment>
 							)
 						}
 
@@ -524,7 +524,7 @@ const Person = props => {
 
 						{
 							rightsGrantorMaterialAwards.map((rightsGrantorMaterialAward, index) =>
-								<React.Fragment key={index}>
+								<Fragment key={index}>
 									<InstanceLink instance={rightsGrantorMaterialAward} />
 
 									<ListWrapper>
@@ -537,13 +537,13 @@ const Person = props => {
 													{
 														ceremony.categories
 															.map((category, index) =>
-																<React.Fragment key={index}>
+																<Fragment key={index}>
 																	{ category.name }{': '}
 
 																	{
 																		category.nominations
 																			.map((nomination, index) =>
-																				<React.Fragment key={index}>
+																				<Fragment key={index}>
 																					<span className={nomination.isWinner ? 'nomination-winner-text' : ''}>
 																						{nomination.type}
 																					</span>
@@ -595,11 +595,11 @@ const Person = props => {
 																							</>
 																						)
 																					}
-																				</React.Fragment>
+																				</Fragment>
 																			)
 																			.reduce((accumulator, currentValue) => [accumulator, ', ', currentValue])
 																	}
-																</React.Fragment>
+																</Fragment>
 															)
 															.reduce((accumulator, currentValue) => [accumulator, '; ', currentValue])
 													}
@@ -608,7 +608,7 @@ const Person = props => {
 										}
 
 									</ListWrapper>
-								</React.Fragment>
+								</Fragment>
 							)
 						}
 

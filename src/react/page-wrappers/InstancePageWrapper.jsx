@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 
 import getDifferentiatorSuffix from '../../lib/get-differentiator-suffix.js';
 import getInstanceTitle from '../../lib/get-instance-title.js';

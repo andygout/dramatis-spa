@@ -1,6 +1,6 @@
 /* eslint no-unused-vars: ["error", { "argsIgnorePattern": "(newSelectionPrefix|paginationText|renderMenuItemChildren)" }] */
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AsyncTypeahead, Highlighter } from 'react-bootstrap-typeahead';
 import { useNavigate } from 'react-router-dom';
 

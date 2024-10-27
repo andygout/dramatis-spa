@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Fragment } from 'react';
 
 import { AppendedMembers, InstanceLink } from './index.js';
 
@@ -13,7 +13,7 @@ const Entities = props => {
 			{
 				entities
 					.map((entity, index) =>
-						<React.Fragment key={index}>
+						<Fragment key={index}>
 
 							<InstanceLink instance={entity} />
 
@@ -23,7 +23,7 @@ const Entities = props => {
 								)
 							}
 
-						</React.Fragment>
+						</Fragment>
 					)
 					.reduce((accumulator, currentValue) => [accumulator, ', ', currentValue])
 			}

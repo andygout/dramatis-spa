@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Fragment } from 'react';
 
 import { AppendedQualifier, InstanceLink } from './index.js';
 
@@ -13,7 +13,7 @@ const JoinedRoles = props => {
 			{
 				instances
 					.map((instance, index) =>
-						<React.Fragment key={index}>
+						<Fragment key={index}>
 
 							<span className="fictional-name-text">
 
@@ -37,7 +37,7 @@ const JoinedRoles = props => {
 								)
 							}
 
-						</React.Fragment>
+						</Fragment>
 					)
 					.reduce((accumulator, currentValue) => [accumulator, ' / ', currentValue])
 			}

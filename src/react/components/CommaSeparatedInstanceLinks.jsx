@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Fragment } from 'react';
 
 import { InstanceLink } from './index.js';
 
@@ -13,11 +13,11 @@ const CommaSeparatedInstanceLinks = props => {
 			{
 				instances
 					.map((instance, index) =>
-						<React.Fragment key={index}>
+						<Fragment key={index}>
 
 							<InstanceLink key={index} instance={instance} />
 
-						</React.Fragment>
+						</Fragment>
 					)
 					.reduce((accumulator, currentValue) => [accumulator, ', ', currentValue])
 			}

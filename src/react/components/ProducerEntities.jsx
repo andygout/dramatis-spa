@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Fragment } from 'react';
 
 import { CommaSeparatedInstanceLinks, InstanceLink } from './index.js';
 
@@ -13,7 +13,7 @@ const ProducerEntities = props => {
 			{
 				entities
 					.map((entity, index) =>
-						<React.Fragment key={index}>
+						<Fragment key={index}>
 
 							{
 								entity.members?.length > 0 && (
@@ -29,7 +29,7 @@ const ProducerEntities = props => {
 
 							<InstanceLink instance={entity} />
 
-						</React.Fragment>
+						</Fragment>
 					)
 					.reduce((accumulator, currentValue) => [accumulator, ', ', currentValue])
 			}

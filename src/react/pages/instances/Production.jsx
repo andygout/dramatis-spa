@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import { formatDate } from '../../../lib/format-date.js';
@@ -286,7 +286,7 @@ const Production = props => {
 
 							{
 								awards.map((award, index) =>
-									<React.Fragment key={index}>
+									<Fragment key={index}>
 										<InstanceLink instance={award} />
 
 										<ListWrapper>
@@ -299,13 +299,13 @@ const Production = props => {
 														{
 															ceremony.categories
 																.map((category, index) =>
-																	<React.Fragment key={index}>
+																	<Fragment key={index}>
 																		{ category.name }{': '}
 
 																		{
 																			category.nominations
 																				.map((nomination, index) =>
-																					<React.Fragment key={index}>
+																					<Fragment key={index}>
 																						<span className={nomination.isWinner ? 'nomination-winner-text' : ''}>
 																							{nomination.type}
 																						</span>
@@ -376,11 +376,11 @@ const Production = props => {
 																								</>
 																							)
 																						}
-																					</React.Fragment>
+																					</Fragment>
 																				)
 																				.reduce((accumulator, currentValue) => [accumulator, ', ', currentValue])
 																		}
-																	</React.Fragment>
+																	</Fragment>
 																)
 																.reduce((accumulator, currentValue) => [accumulator, '; ', currentValue])
 														}
@@ -389,7 +389,7 @@ const Production = props => {
 											}
 
 										</ListWrapper>
-									</React.Fragment>
+									</Fragment>
 								)
 							}
 
