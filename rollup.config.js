@@ -35,9 +35,7 @@ const serverBundle = {
 	},
 	plugins: [
 		esbuild({
-			jsx: 'automatic',
-			jsxFactory: 'React.createElement',
-			jsxFragment: 'React.Fragment'
+			jsx: 'automatic'
 		}),
 		copy({
 			targets: [
