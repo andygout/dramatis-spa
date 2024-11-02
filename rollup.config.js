@@ -17,7 +17,10 @@ const serverBundle = {
 	external: [
 		'express',
 		'express-session',
+		'morgan',
 		'node:http',
+		'node:path',
+		'node:url',
 		'prop-types',
 		'react',
 		'react/jsx-runtime',
@@ -28,7 +31,8 @@ const serverBundle = {
 		'react-router-dom',
 		'react-router-dom/server.js',
 		'redux',
-		'redux-thunk'
+		'redux-thunk',
+		'serve-favicon'
 	],
 	watch: {
 		clearScreen: false
