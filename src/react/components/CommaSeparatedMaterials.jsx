@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
-import { MaterialLinkWithContext } from './index.js';
+import MaterialLinkWithContext from './MaterialLinkWithContext.jsx';
 
 const CommaSeparatedMaterials = props => {
 

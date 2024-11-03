@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
-import { ProductionLinkWithContext } from './index.js';
+import ProductionLinkWithContext from './ProductionLinkWithContext.jsx';
 
 const CommaSeparatedProductions = props => {
 

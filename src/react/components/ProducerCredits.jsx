@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
-import { ProducerEntities } from './index.js';
 import { capitalise } from '../../lib/strings.js';
+import ProducerEntities from './ProducerEntities.jsx';
 
 const ProducerCredits = props => {
 

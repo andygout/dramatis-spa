@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
-import { AppendedEntities, ListWrapper } from './index.js';
+import AppendedEntities from './AppendedEntities.jsx';
+import ListWrapper from './ListWrapper.jsx';
 
 const ProductionTeamCreditsList = props => {
 

@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
-import { InstanceLink, JoinedRoles } from './index.js';
+import InstanceLink from './InstanceLink.jsx';
+import JoinedRoles from './JoinedRoles.jsx';
 
 const AppendedPerformers = props => {
 

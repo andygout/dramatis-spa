@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { Entities } from './index.js';
+import Entities from './Entities.jsx';
 
 const AppendedEntities = props => {
 
