@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
-import { InstanceLink } from './index.js';
+import InstanceLink from './InstanceLink.jsx';
 
 const CommaSeparatedInstanceLinks = props => {
 

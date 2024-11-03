@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
-import { CommaSeparatedInstanceLinks, InstanceLink } from './index.js';
+import CommaSeparatedInstanceLinks from './CommaSeparatedInstanceLinks.jsx';
+import InstanceLink from './InstanceLink.jsx';
 
 const ProducerEntities = props => {
 

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
-import { PageTitle } from './index.js';
+import PageTitle from './PageTitle.jsx';
 
 const ErrorMessage = props => {
 

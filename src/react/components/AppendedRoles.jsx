@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { JoinedRoles } from './index.js';
+import JoinedRoles from './JoinedRoles.jsx';
 
 const AppendedRoles = props => {
 

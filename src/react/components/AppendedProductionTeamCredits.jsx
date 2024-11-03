@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
-import { AppendedCoEntities, AppendedEmployerCompany, AppendedMembers } from './index.js';
+import AppendedCoEntities from './AppendedCoEntities.jsx';
+import AppendedEmployerCompany from './AppendedEmployerCompany.jsx';
+import AppendedMembers from './AppendedMembers.jsx';
 
 const AppendedProductionTeamCredits = props => {
 

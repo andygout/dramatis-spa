@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
-import { InstanceLink, PrependedSurInstance } from './index.js';
+import InstanceLink from './InstanceLink.jsx';
+import PrependedSurInstance from './PrependedSurInstance.jsx';
 
 const FestivalLinkWithContext = props => {
 
