@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { Helmet } from 'react-helmet';
 import { matchPath } from 'react-router-dom';
 import { applyMiddleware, createStore, combineReducers } from 'redux';
-import thunkMiddleware from 'redux-thunk';
+import { thunk as thunkMiddleware } from 'redux-thunk';
 
 import getReactHtml from '../react/react-html.jsx';
 import reducers from '../redux/reducers/index.js';
@@ -13,7 +13,7 @@ const router = new Router();
 const store = createStore(
 	combineReducers(reducers),
 	{},
-	applyMiddleware(...[thunkMiddleware.default])
+	applyMiddleware(...[thunkMiddleware])
 );
 
 router.get('*', async (request, response, next) => {
