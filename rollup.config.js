@@ -15,6 +15,7 @@ const serverBundle = {
 		sourcemap: 'inline'
 	},
 	external: [
+		'@reduxjs/toolkit',
 		'express',
 		'express-session',
 		'morgan',
