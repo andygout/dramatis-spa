@@ -29,6 +29,7 @@
     "npm": "10.7.0"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "2.5.0",
     "bootstrap": "5.3.3",
     "express": "4.21.2",
     "express-session": "1.18.1",
@@ -40,9 +41,7 @@
     "react-helmet": "6.1.0",
     "react-redux": "9.2.0",
     "react-router-dom": "6.23.1",
-    "redux": "5.0.1",
     "redux-logger": "3.0.6",
-    "redux-thunk": "3.1.0",
     "serve-favicon": "2.5.0"
   },
   "devDependencies": {
