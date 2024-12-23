@@ -20,23 +20,23 @@ router.get('*', async (request, response, next) => {
 
 		const { dispatch, getState } = store;
 
-		const fetchDataPromises = [];
+		let fetchDataPromise;
 
 		routes.some(route => {
 
 			const match = matchPath(route, request.url);
 
 			if (match && route.fetchData) {
-				route.fetchData.forEach(fetchDataFunction =>
-					fetchDataPromises.push(fetchDataFunction(dispatch, match))
-				);
+
+				fetchDataPromise = route.fetchData(dispatch, match);
+
 			}
 
 			return match;
 
 		});
 
-		await Promise.all(fetchDataPromises);
+		await fetchDataPromise;
 
 		const preloadedState = getState();
 
