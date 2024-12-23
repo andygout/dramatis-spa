@@ -1,8 +1,7 @@
+import { configureStore } from '@reduxjs/toolkit';
 import { Router } from 'express';
 import { Helmet } from 'react-helmet';
 import { matchPath } from 'react-router-dom';
-import { applyMiddleware, createStore, combineReducers } from 'redux';
-import { thunk as thunkMiddleware } from 'redux-thunk';
 
 import getReactHtml from '../react/react-html.jsx';
 import reducers from '../redux/reducers/index.js';
@@ -10,11 +9,10 @@ import routes from '../react/routes.js';
 
 const router = new Router();
 
-const store = createStore(
-	combineReducers(reducers),
-	{},
-	applyMiddleware(...[thunkMiddleware])
-);
+const store = configureStore({
+	reducer: reducers,
+	middleware: getDefaultMiddleware => getDefaultMiddleware()
+});
 
 router.get('*', async (request, response, next) => {
 
