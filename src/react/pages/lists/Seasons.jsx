@@ -1,12 +1,10 @@
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-
 import { InstanceLinksList } from '../../components/index.js';
 import { ListPageWrapper } from '../../page-wrappers/index.js';
+import { useGetSeasonsQuery } from '../../../redux/slices/api.js';
 
-const Seasons = props => {
+const Seasons = () => {
 
-	const { seasons } = props;
+	const { data: seasons = [] } = useGetSeasonsQuery();
 
 	return (
 		<ListPageWrapper pageTitleText='Seasons'>
@@ -18,12 +16,4 @@ const Seasons = props => {
 
 };
 
-Seasons.propTypes = {
-	seasons: PropTypes.array.isRequired
-};
-
-const mapStateToProps = state => ({
-	seasons: state.seasons
-});
-
-export default connect(mapStateToProps)(Seasons);
+export default Seasons;

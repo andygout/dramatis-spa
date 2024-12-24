@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
-import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import {
 	AppendedCoEntities,
@@ -21,10 +20,13 @@ import {
 	ProductionsList
 } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
+import { useGetPersonQuery } from '../../../redux/slices/api.js';
 
-const Person = props => {
+const Person = () => {
 
-	const { person } = props;
+	const { uuid } = useParams();
+
+	const { data: person = {} } = useGetPersonQuery(uuid);
 
 	const {
 		materials,
@@ -621,12 +623,4 @@ const Person = props => {
 
 };
 
-Person.propTypes = {
-	person: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-	person: state.person
-});
-
-export default connect(mapStateToProps)(Person);
+export default Person;

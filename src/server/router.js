@@ -1,42 +1,23 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { Router } from 'express';
 import { Helmet } from 'react-helmet';
-import { matchPath } from 'react-router-dom';
 
 import getReactHtml from '../react/react-html.jsx';
 import reducers from '../redux/reducers/index.js';
-import routes from '../react/routes.js';
+import { api } from '../redux/slices/api.js';
 
 const router = new Router();
 
 const store = configureStore({
 	reducer: reducers,
-	middleware: getDefaultMiddleware => getDefaultMiddleware()
+	middleware: getDefaultMiddleware => getDefaultMiddleware().concat(api.middleware)
 });
 
 router.get('*', async (request, response, next) => {
 
 	try {
 
-		const { dispatch, getState } = store;
-
-		let fetchDataPromise;
-
-		routes.some(route => {
-
-			const match = matchPath(route, request.url);
-
-			if (match && route.fetchData) {
-
-				fetchDataPromise = route.fetchData(dispatch, match);
-
-			}
-
-			return match;
-
-		});
-
-		await fetchDataPromise;
+		const { getState } = store;
 
 		const preloadedState = getState();
 

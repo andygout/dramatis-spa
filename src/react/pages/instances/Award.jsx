@@ -1,12 +1,14 @@
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import { InstanceFacet, InstanceLinksList } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
+import { useGetAwardQuery } from '../../../redux/slices/api.js';
 
-const Award = props => {
+const Award = () => {
 
-	const { award } = props;
+	const { uuid } = useParams();
+
+	const { data: award = {} } = useGetAwardQuery(uuid);
 
 	const { ceremonies } = award;
 
@@ -28,12 +30,4 @@ const Award = props => {
 
 };
 
-Award.propTypes = {
-	award: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-	award: state.award
-});
-
-export default connect(mapStateToProps)(Award);
+export default Award;

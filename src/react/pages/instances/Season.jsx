@@ -1,12 +1,14 @@
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import { InstanceFacet, ProductionsList } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
+import { useGetSeasonQuery } from '../../../redux/slices/api.js';
 
-const Season = props => {
+const Season = () => {
 
-	const { season } = props;
+	const { uuid } = useParams();
+
+	const { data: season = {} } = useGetSeasonQuery(uuid);
 
 	const { productions } = season;
 
@@ -28,12 +30,4 @@ const Season = props => {
 
 };
 
-Season.propTypes = {
-	season: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-	season: state.season
-});
-
-export default connect(mapStateToProps)(Season);
+export default Season;

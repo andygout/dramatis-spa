@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
-import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import {
 	CommaSeparatedMaterials,
@@ -11,10 +10,13 @@ import {
 	ListWrapper
 } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
+import { useGetAwardCeremonyQuery } from '../../../redux/slices/api.js';
 
-const AwardCeremony = props => {
+const AwardCeremony = () => {
 
-	const { awardCeremony } = props;
+	const { uuid } = useParams();
+
+	const { data: awardCeremony = {} } = useGetAwardCeremonyQuery(uuid);
 
 	const { award, categories } = awardCeremony;
 
@@ -105,12 +107,4 @@ const AwardCeremony = props => {
 
 };
 
-AwardCeremony.propTypes = {
-	awardCeremony: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-	awardCeremony: state.awardCeremony
-});
-
-export default connect(mapStateToProps)(AwardCeremony);
+export default AwardCeremony;

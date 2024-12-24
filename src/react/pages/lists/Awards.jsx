@@ -1,12 +1,10 @@
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-
 import { InstanceLinksList } from '../../components/index.js';
 import { ListPageWrapper } from '../../page-wrappers/index.js';
+import { useGetAwardsQuery } from '../../../redux/slices/api.js';
 
-const Awards = props => {
+const Awards = () => {
 
-	const { awards } = props;
+	const { data: awards = [] } = useGetAwardsQuery();
 
 	return (
 		<ListPageWrapper pageTitleText='Awards'>
@@ -18,12 +16,4 @@ const Awards = props => {
 
 };
 
-Awards.propTypes = {
-	awards: PropTypes.array.isRequired
-};
-
-const mapStateToProps = state => ({
-	awards: state.awards
-});
-
-export default connect(mapStateToProps)(Awards);
+export default Awards;

@@ -16,6 +16,7 @@ const serverBundle = {
 	},
 	external: [
 		'@reduxjs/toolkit',
+		'@reduxjs/toolkit/query/react',
 		'express',
 		'express-session',
 		'morgan',

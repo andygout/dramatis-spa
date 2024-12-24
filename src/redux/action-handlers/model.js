@@ -1,3 +1,5 @@
+// TODO: Ensure the api slice does everything this file does.
+
 import * as actions from '../actions/index.js';
 import {
 	MODEL_TO_PROP_NAME_MAP,

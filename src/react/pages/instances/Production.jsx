@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
-import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import { formatDate } from '../../../lib/format-date.js';
 import {
@@ -19,10 +18,13 @@ import {
 	VenueLinkWithContext
 } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
+import { useGetProductionQuery } from '../../../redux/slices/api.js';
 
-const Production = props => {
+const Production = () => {
 
-	const { production } = props;
+	const { uuid } = useParams();
+
+	const { data: production = {} } = useGetProductionQuery(uuid);
 
 	const dateFormatOptions = { weekday: 'long', month: 'long' };
 
@@ -414,12 +416,4 @@ const Production = props => {
 
 };
 
-Production.propTypes = {
-	production: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-	production: state.production
-});
-
-export default connect(mapStateToProps)(Production);
+export default Production;
