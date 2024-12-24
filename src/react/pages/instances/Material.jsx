@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
-import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import { capitalise } from '../../../lib/strings.js';
 import {
@@ -17,10 +16,13 @@ import {
 	WritingCredits
 } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
+import { useGetMaterialQuery } from '../../../redux/slices/api.js';
 
-const Material = props => {
+const Material = () => {
 
-	const { material } = props;
+	const { uuid } = useParams();
+
+	const { data: material = {} } = useGetMaterialQuery(uuid);
 
 	const renderMaterial = material => {
 
@@ -581,12 +583,4 @@ const Material = props => {
 
 };
 
-Material.propTypes = {
-	material: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-	material: state.material
-});
-
-export default connect(mapStateToProps)(Material);
+export default Material;

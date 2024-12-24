@@ -2,21 +2,18 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { useMatch } from 'react-router-dom';
 
 import { ErrorMessage, Footer, Header, Navigation } from './components/index.js';
 
 const Layout = props => {
 
-	const { path, documentTitle, error, children } = props;
-
-	const match = useMatch(path);
+	const { documentTitle, error, children } = props;
 
 	useEffect(() => {
 
-		const { fetchData, dispatch } = props;
+		const { deactivateError, dispatch } = props;
 
-		if (fetchData) fetchData(dispatch, match);
+		if (deactivateError) dispatch(deactivateError());
 
 	}, []);
 
@@ -51,12 +48,11 @@ const Layout = props => {
 };
 
 Layout.propTypes = {
-	path: PropTypes.string.isRequired,
 	documentTitle: PropTypes.func.isRequired,
+	deactivateError: PropTypes.func.isRequired,
+	dispatch: PropTypes.func.isRequired,
 	error: PropTypes.object.isRequired,
-	children: PropTypes.node.isRequired,
-	fetchData: PropTypes.func,
-	dispatch: PropTypes.func.isRequired
+	children: PropTypes.node.isRequired
 };
 
 const mapStateToProps = state => ({

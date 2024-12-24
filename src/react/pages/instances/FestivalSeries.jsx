@@ -1,12 +1,14 @@
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import { InstanceFacet, InstanceLinksList } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
+import { useGetFestivalSeriesQuery } from '../../../redux/slices/api.js';
 
-const FestivalSeries = props => {
+const FestivalSeries = () => {
 
-	const { festivalSeries } = props;
+	const { uuid } = useParams();
+
+	const { data: festivalSeries = {} } = useGetFestivalSeriesQuery(uuid);
 
 	const { festivals } = festivalSeries;
 
@@ -28,12 +30,4 @@ const FestivalSeries = props => {
 
 };
 
-FestivalSeries.propTypes = {
-	festivalSeries: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-	festivalSeries: state.festivalSeries
-});
-
-export default connect(mapStateToProps)(FestivalSeries);
+export default FestivalSeries;

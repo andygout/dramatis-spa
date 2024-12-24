@@ -49,20 +49,6 @@ const MODEL_TO_DISPLAY_NAME_MAP = {
 	[VENUE]: 'venue'
 };
 
-const MODEL_TO_PROP_NAME_MAP = {
-	[AWARD]: 'award',
-	[AWARD_CEREMONY]: 'awardCeremony',
-	[CHARACTER]: 'character',
-	[COMPANY]: 'company',
-	[FESTIVAL]: 'festival',
-	[FESTIVAL_SERIES]: 'festivalSeries',
-	[MATERIAL]: 'material',
-	[PERSON]: 'person',
-	[PRODUCTION]: 'production',
-	[SEASON]: 'season',
-	[VENUE]: 'venue'
-};
-
 const MODEL_TO_ROUTE_MAP = {
 	[AWARD]: 'awards',
 	[AWARD_CEREMONY]: 'award-ceremonies',
@@ -91,20 +77,6 @@ const PLURALISED_MODELS = {
 	[VENUES]: VENUES
 };
 
-const PLURALISED_MODEL_TO_PROP_NAME_MAP = {
-	[AWARDS]: 'awards',
-	[AWARD_CEREMONIES]: 'awardCeremonies',
-	[CHARACTERS]: 'characters',
-	[COMPANIES]: 'companies',
-	[FESTIVALS]: 'festivals',
-	[FESTIVAL_SERIESES]: 'festivalSerieses',
-	[MATERIALS]: 'materials',
-	[PEOPLE]: 'people',
-	[PRODUCTIONS]: 'productions',
-	[SEASONS]: 'seasons',
-	[VENUES]: 'venues'
-};
-
 const PLURALISED_MODEL_TO_ROUTE_MAP = {
 	[AWARDS]: 'awards',
 	[AWARD_CEREMONIES]: 'award-ceremonies',
@@ -122,9 +94,7 @@ const PLURALISED_MODEL_TO_ROUTE_MAP = {
 export {
 	MODELS,
 	MODEL_TO_DISPLAY_NAME_MAP,
-	MODEL_TO_PROP_NAME_MAP,
 	MODEL_TO_ROUTE_MAP,
 	PLURALISED_MODELS,
-	PLURALISED_MODEL_TO_PROP_NAME_MAP,
 	PLURALISED_MODEL_TO_ROUTE_MAP
 };

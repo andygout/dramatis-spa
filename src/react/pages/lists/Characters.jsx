@@ -1,12 +1,10 @@
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-
 import { InstanceLinksList } from '../../components/index.js';
 import { ListPageWrapper } from '../../page-wrappers/index.js';
+import { useGetCharactersQuery } from '../../../redux/slices/api.js';
 
-const Characters = props => {
+const Characters = () => {
 
-	const { characters } = props;
+	const { data: characters = [] } = useGetCharactersQuery();
 
 	return (
 		<ListPageWrapper pageTitleText='Characters'>
@@ -18,12 +16,4 @@ const Characters = props => {
 
 };
 
-Characters.propTypes = {
-	characters: PropTypes.array.isRequired
-};
-
-const mapStateToProps = state => ({
-	characters: state.characters
-});
-
-export default connect(mapStateToProps)(Characters);
+export default Characters;
