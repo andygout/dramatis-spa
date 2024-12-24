@@ -25,8 +25,8 @@ import {
 	NotFound
 } from './pages/index.js';
 
-import { deactivateError } from '../redux/actions/error.js';
-import { fetchList, fetchInstance } from '../redux/actions/model.js';
+import { deactivateError } from '../redux/action-handlers/error.js';
+import { fetchList, fetchInstance } from '../redux/action-handlers/model.js';
 import { MODELS, PLURALISED_MODELS } from '../utils/constants.js';
 
 export default [
@@ -34,212 +34,168 @@ export default [
 		path: '/',
 		documentTitle: () => 'Home',
 		component: Home,
-		fetchData: [
-			dispatch => dispatch(deactivateError())
-		]
+		fetchData: null,
+		deactivateError
 	},
 	{
 		path: '/awards',
 		documentTitle: () => 'Awards',
 		component: Awards,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			dispatch => dispatch(fetchList(PLURALISED_MODELS.AWARDS))
-		]
+		fetchData: dispatch => dispatch(fetchList(PLURALISED_MODELS.AWARDS)),
+		deactivateError
 	},
 	{
 		path: '/awards/:uuid',
 		documentTitle: () => 'Award',
 		component: Award,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.AWARD, uuid))
-		]
+		fetchData: (dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.AWARD, uuid)),
+		deactivateError
 	},
 	{
 		path: '/award-ceremonies',
 		documentTitle: () => 'Award ceremonies',
 		component: AwardCeremonies,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			dispatch => dispatch(fetchList(PLURALISED_MODELS.AWARD_CEREMONIES))
-		]
+		fetchData: dispatch => dispatch(fetchList(PLURALISED_MODELS.AWARD_CEREMONIES)),
+		deactivateError
 	},
 	{
 		path: '/award-ceremonies/:uuid',
 		documentTitle: () => 'Award ceremony',
 		component: AwardCeremony,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.AWARD_CEREMONY, uuid))
-		]
+		fetchData: (dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.AWARD_CEREMONY, uuid)),
+		deactivateError
 	},
 	{
 		path: '/characters',
 		documentTitle: () => 'Characters',
 		component: Characters,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			dispatch => dispatch(fetchList(PLURALISED_MODELS.CHARACTERS))
-		]
+		fetchData: dispatch => dispatch(fetchList(PLURALISED_MODELS.CHARACTERS)),
+		deactivateError
 	},
 	{
 		path: '/characters/:uuid',
 		documentTitle: () => 'Character',
 		component: Character,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.CHARACTER, uuid))
-		]
+		fetchData: (dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.CHARACTER, uuid)),
+		deactivateError
 	},
 	{
 		path: '/companies',
 		documentTitle: () => 'Companies',
 		component: Companies,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			dispatch => dispatch(fetchList(PLURALISED_MODELS.COMPANIES))
-		]
+		fetchData: dispatch => dispatch(fetchList(PLURALISED_MODELS.COMPANIES)),
+		deactivateError
 	},
 	{
 		path: '/companies/:uuid',
 		documentTitle: () => 'Comany',
 		component: Company,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.COMPANY, uuid))
-		]
+		fetchData: (dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.COMPANY, uuid)),
+		deactivateError
 	},
 	{
 		path: '/festivals',
 		documentTitle: () => 'Festivals',
 		component: Festivals,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			dispatch => dispatch(fetchList(PLURALISED_MODELS.FESTIVALS))
-		]
+		fetchData: dispatch => dispatch(fetchList(PLURALISED_MODELS.FESTIVALS)),
+		deactivateError
 	},
 	{
 		path: '/festivals/:uuid',
 		documentTitle: () => 'Festival',
 		component: Festival,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.FESTIVAL, uuid))
-		]
+		fetchData: (dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.FESTIVAL, uuid)),
+		deactivateError
 	},
 	{
 		path: '/festival-serieses',
 		documentTitle: () => 'Festival serieses',
 		component: FestivalSerieses,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			dispatch => dispatch(fetchList(PLURALISED_MODELS.FESTIVAL_SERIESES))
-		]
+		fetchData: dispatch => dispatch(fetchList(PLURALISED_MODELS.FESTIVAL_SERIESES)),
+		deactivateError
 	},
 	{
 		path: '/festival-serieses/:uuid',
 		documentTitle: () => 'Festival series',
 		component: FestivalSeries,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.FESTIVAL_SERIES, uuid))
-		]
+		fetchData: (dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.FESTIVAL_SERIES, uuid)),
+		deactivateError
 	},
 	{
 		path: '/materials',
 		documentTitle: () => 'Materials',
 		component: Materials,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			dispatch => dispatch(fetchList(PLURALISED_MODELS.MATERIALS))
-		]
+		fetchData: dispatch => dispatch(fetchList(PLURALISED_MODELS.MATERIALS)),
+		deactivateError
 	},
 	{
 		path: '/materials/:uuid',
 		documentTitle: () => 'Material',
 		component: Material,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.MATERIAL, uuid))
-		]
+		fetchData: (dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.MATERIAL, uuid)),
+		deactivateError
 	},
 	{
 		path: '/people',
 		documentTitle: () => 'People',
 		component: People,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			dispatch => dispatch(fetchList(PLURALISED_MODELS.PEOPLE))
-		]
+		fetchData: dispatch => dispatch(fetchList(PLURALISED_MODELS.PEOPLE)),
+		deactivateError
 	},
 	{
 		path: '/people/:uuid',
 		documentTitle: () => 'Person',
 		component: Person,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.PERSON, uuid))
-		]
+		fetchData: (dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.PERSON, uuid)),
+		deactivateError
 	},
 	{
 		path: '/productions',
 		documentTitle: () => 'Productions',
 		component: Productions,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			dispatch => dispatch(fetchList(PLURALISED_MODELS.PRODUCTIONS))
-		]
+		fetchData: dispatch => dispatch(fetchList(PLURALISED_MODELS.PRODUCTIONS)),
+		deactivateError
 	},
 	{
 		path: '/productions/:uuid',
 		documentTitle: () => 'Production',
 		component: Production,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.PRODUCTION, uuid))
-		]
+		fetchData: (dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.PRODUCTION, uuid)),
+		deactivateError
 	},
 	{
 		path: '/seasons',
 		documentTitle: () => 'Seasons',
 		component: Seasons,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			dispatch => dispatch(fetchList(PLURALISED_MODELS.SEASONS))
-		]
+		fetchData: dispatch => dispatch(fetchList(PLURALISED_MODELS.SEASONS)),
+		deactivateError
 	},
 	{
 		path: '/seasons/:uuid',
 		documentTitle: () => 'Season',
 		component: Season,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.SEASON, uuid))
-		]
+		fetchData: (dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.SEASON, uuid)),
+		deactivateError
 	},
 	{
 		path: '/venues',
 		documentTitle: () => 'Venues',
 		component: Venues,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			dispatch => dispatch(fetchList(PLURALISED_MODELS.VENUES))
-		]
+		fetchData: dispatch => dispatch(fetchList(PLURALISED_MODELS.VENUES)),
+		deactivateError
 	},
 	{
 		path: '/venues/:uuid',
 		documentTitle: () => 'Venue',
 		component: Venue,
-		fetchData: [
-			dispatch => dispatch(deactivateError()),
-			(dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.VENUE, uuid))
-		]
+		fetchData: (dispatch, { params: { uuid } }) => dispatch(fetchInstance(MODELS.VENUE, uuid)),
+		deactivateError
 	},
 	{
 		path: '*',
 		documentTitle: () => 'Not Found',
 		component: NotFound,
-		fetchData: []
+		fetchData: null,
+		deactivateError: null
 	}
 ];

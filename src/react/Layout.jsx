@@ -16,7 +16,7 @@ const Layout = props => {
 
 		const { fetchData, dispatch } = props;
 
-		if (fetchData) fetchData.map(fetchDataFunction => fetchDataFunction(dispatch, match));
+		if (fetchData) fetchData(dispatch, match);
 
 	}, []);
 
@@ -55,7 +55,7 @@ Layout.propTypes = {
 	documentTitle: PropTypes.func.isRequired,
 	error: PropTypes.object.isRequired,
 	children: PropTypes.node.isRequired,
-	fetchData: PropTypes.array.isRequired,
+	fetchData: PropTypes.func,
 	dispatch: PropTypes.func.isRequired
 };
 

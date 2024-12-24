@@ -23,6 +23,7 @@ const AppRoutes = () => {
 									path={route.path}
 									documentTitle={route.documentTitle}
 									fetchData={route.fetchData}
+									deactivateError={route.deactivateError}
 								>
 									<RouteComponent />
 								</Layout>
