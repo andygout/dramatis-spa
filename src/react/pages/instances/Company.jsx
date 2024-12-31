@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
-import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import {
 	AppendedCoEntities,
@@ -20,10 +19,13 @@ import {
 	ProductionsList
 } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
+import { useGetCompanyQuery } from '../../../redux/slices/api.js';
 
-const Company = props => {
+const Company = () => {
 
-	const { company } = props;
+	const { uuid } = useParams();
+
+	const { data: company = {} } = useGetCompanyQuery(uuid);
 
 	const {
 		materials,
@@ -591,12 +593,4 @@ const Company = props => {
 
 };
 
-Company.propTypes = {
-	company: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-	company: state.company
-});
-
-export default connect(mapStateToProps)(Company);
+export default Company;

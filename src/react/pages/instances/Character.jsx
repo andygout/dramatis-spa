@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import {
 	AppendedDepictions,
@@ -10,10 +9,13 @@ import {
 	ProductionLinkWithContext
 } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
+import { useGetCharacterQuery } from '../../../redux/slices/api.js';
 
-const Character = props => {
+const Character = () => {
 
-	const { character } = props;
+	const { uuid } = useParams();
+
+	const { data: character = {} } = useGetCharacterQuery(uuid);
 
 	const { variantNamedDepictions, materials, variantNamedPortrayals, productions } = character;
 
@@ -109,12 +111,4 @@ const Character = props => {
 
 };
 
-Character.propTypes = {
-	character: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-	character: state.character
-});
-
-export default connect(mapStateToProps)(Character);
+export default Character;

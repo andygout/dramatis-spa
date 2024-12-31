@@ -1,12 +1,10 @@
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-
 import { InstanceLinksList } from '../../components/index.js';
 import { ListPageWrapper } from '../../page-wrappers/index.js';
+import { useGetCompaniesQuery } from '../../../redux/slices/api.js';
 
-const Companies = props => {
+const Companies = () => {
 
-	const { companies } = props;
+	const { data: companies = [] } = useGetCompaniesQuery();
 
 	return (
 		<ListPageWrapper pageTitleText='Companies'>
@@ -18,12 +16,4 @@ const Companies = props => {
 
 };
 
-Companies.propTypes = {
-	companies: PropTypes.array.isRequired
-};
-
-const mapStateToProps = state => ({
-	companies: state.companies
-});
-
-export default connect(mapStateToProps)(Companies);
+export default Companies;

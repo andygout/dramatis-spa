@@ -1,12 +1,14 @@
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import { InstanceFacet, InstanceLink, InstanceLinksList, ProductionsList } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
+import { useGetVenueQuery } from '../../../redux/slices/api.js';
 
-const Venue = props => {
+const Venue = () => {
 
-	const { venue } = props;
+	const { uuid } = useParams();
+
+	const { data: venue = {} } = useGetVenueQuery(uuid);
 
 	const { surVenue, subVenues, productions } = venue;
 
@@ -48,12 +50,4 @@ const Venue = props => {
 
 };
 
-Venue.propTypes = {
-	venue: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-	venue: state.venue
-});
-
-export default connect(mapStateToProps)(Venue);
+export default Venue;

@@ -6,6 +6,7 @@ import reduxLoggerMiddleware from 'redux-logger';
 
 import AppRoutes from './AppRoutes.jsx';
 import reducers from '../redux/reducers/index.js';
+import { api } from '../redux/slices/api.js';
 
 window.onload = () => {
 
@@ -13,7 +14,7 @@ window.onload = () => {
 
 	const middleware = getDefaultMiddleware => {
 
-		const middleware = getDefaultMiddleware();
+		const middleware = getDefaultMiddleware().concat(api.middleware);
 
 		if (process.env.NODE_ENV !== 'production') {
 			middleware.push(reduxLoggerMiddleware);
