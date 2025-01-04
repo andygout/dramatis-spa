@@ -1,17 +1,21 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 
 import { ErrorMessage, Footer, Header, Navigation } from './components/index.js';
 
 const Layout = props => {
 
-	const { documentTitle, error, children } = props;
+	const { documentTitle, children } = props;
+
+	const dispatch = useDispatch();
+
+	const error = useSelector(state => state.error);
 
 	useEffect(() => {
 
-		const { deactivateError, dispatch } = props;
+		const { deactivateError } = props;
 
 		if (deactivateError) dispatch(deactivateError());
 
@@ -49,14 +53,8 @@ const Layout = props => {
 
 Layout.propTypes = {
 	documentTitle: PropTypes.func.isRequired,
-	deactivateError: PropTypes.func.isRequired,
-	dispatch: PropTypes.func.isRequired,
-	error: PropTypes.object.isRequired,
+	deactivateError: PropTypes.func,
 	children: PropTypes.node.isRequired
 };
 
-const mapStateToProps = state => ({
-	error: state.error
-});
-
-export default connect(mapStateToProps)(Layout);
+export default Layout;
