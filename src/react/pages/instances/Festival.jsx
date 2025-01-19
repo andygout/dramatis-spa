@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
 
 import { InstanceFacet, InstanceLink, ProductionsList } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';

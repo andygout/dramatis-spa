@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { hydrateRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router';
 import reduxLoggerMiddleware from 'redux-logger';
 
 import AppRoutes from './AppRoutes.jsx';
