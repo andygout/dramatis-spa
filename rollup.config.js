@@ -30,8 +30,7 @@ const serverBundle = {
 		'react-dom/server',
 		'react-helmet',
 		'react-redux',
-		'react-router-dom',
-		'react-router-dom/server.js',
+		'react-router',
 		'serve-favicon'
 	],
 	watch: {

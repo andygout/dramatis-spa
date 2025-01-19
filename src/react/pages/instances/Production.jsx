@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
 
 import { formatDate } from '../../../lib/format-date.js';
 import {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AsyncTypeahead, Highlighter } from 'react-bootstrap-typeahead';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 import { MODEL_TO_DISPLAY_NAME_MAP, MODEL_TO_ROUTE_MAP } from '../../utils/constants.js';
 

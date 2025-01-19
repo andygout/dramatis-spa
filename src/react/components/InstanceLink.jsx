@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router';
 
 import { MODEL_TO_ROUTE_MAP } from '../../utils/constants.js';
 
