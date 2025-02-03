@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
 import MaterialLinkWithContext from './MaterialLinkWithContext.jsx';
@@ -25,10 +24,6 @@ const CommaSeparatedMaterials = props => {
 		</>
 	);
 
-};
-
-CommaSeparatedMaterials.propTypes = {
-	materials: PropTypes.array.isRequired
 };
 
 export default CommaSeparatedMaterials;

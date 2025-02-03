@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
 import PageTitle from './PageTitle.jsx';
@@ -17,10 +16,6 @@ const ErrorMessage = props => {
 		</>
 	);
 
-};
-
-ErrorMessage.propTypes = {
-	errorText: PropTypes.string.isRequired
 };
 
 export default ErrorMessage;

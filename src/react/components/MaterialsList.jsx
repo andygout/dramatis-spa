@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import ListWrapper from './ListWrapper.jsx';
 import MaterialLinkWithContext from './MaterialLinkWithContext.jsx';
 
@@ -23,10 +21,6 @@ const MaterialsList = props => {
 		</ListWrapper>
 	);
 
-};
-
-MaterialsList.propTypes = {
-	materials: PropTypes.array.isRequired
 };
 
 export default MaterialsList;

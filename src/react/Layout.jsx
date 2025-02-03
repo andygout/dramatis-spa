@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
@@ -49,12 +48,6 @@ const Layout = props => {
 		</>
 	);
 
-};
-
-Layout.propTypes = {
-	documentTitle: PropTypes.func.isRequired,
-	deactivateError: PropTypes.func,
-	children: PropTypes.node.isRequired
 };
 
 export default Layout;

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
 import { capitalise } from '../../lib/strings.js';
@@ -36,10 +35,6 @@ const ProducerCredits = props => {
 		</>
 	);
 
-};
-
-ProducerCredits.propTypes = {
-	credits: PropTypes.array.isRequired
 };
 
 export default ProducerCredits;

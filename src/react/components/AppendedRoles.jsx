@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import JoinedRoles from './JoinedRoles.jsx';
 
 const AppendedRoles = props => {
@@ -16,10 +14,6 @@ const AppendedRoles = props => {
 		</>
 	);
 
-};
-
-AppendedRoles.propTypes = {
-	roles: PropTypes.array.isRequired
 };
 
 export default AppendedRoles;

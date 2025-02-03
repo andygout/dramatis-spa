@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { NavLink } from 'react-router';
 
 import { MODEL_TO_ROUTE_MAP } from '../../utils/constants.js';
@@ -19,10 +18,6 @@ const InstanceLink = props => {
 		</NavLink>
 	);
 
-};
-
-InstanceLink.propTypes = {
-	instance: PropTypes.object.isRequired
 };
 
 export default InstanceLink;

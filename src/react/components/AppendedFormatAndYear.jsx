@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 const AppendedFormatAndYear = props => {
 
 	const { format, year } = props;
@@ -10,11 +8,6 @@ const AppendedFormatAndYear = props => {
 		<>{` (${displayText})`}</>
 	);
 
-};
-
-AppendedFormatAndYear.propTypes = {
-	format: PropTypes.string,
-	year: PropTypes.number
 };
 
 export default AppendedFormatAndYear;

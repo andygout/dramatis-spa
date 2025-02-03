@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
 import InstanceLink from './InstanceLink.jsx';
@@ -62,10 +61,6 @@ const AppendedPerformers = props => {
 		</>
 	);
 
-};
-
-AppendedPerformers.propTypes = {
-	performers: PropTypes.array.isRequired
 };
 
 export default AppendedPerformers;

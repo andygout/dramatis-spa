@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import AppendedProductionDates from './AppendedProductionDates.jsx';
 import AppendedVenue from './AppendedVenue.jsx';
 import InstanceLink from './InstanceLink.jsx';
@@ -50,10 +48,6 @@ const ProductionLinkWithContext = props => {
 		</>
 	);
 
-};
-
-ProductionLinkWithContext.propTypes = {
-	production: PropTypes.object.isRequired
 };
 
 export default ProductionLinkWithContext;

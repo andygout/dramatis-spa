@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import ProducerCredits from './ProducerCredits.jsx';
 import ProductionLinkWithContext from './ProductionLinkWithContext.jsx';
 import ListWrapper from './ListWrapper.jsx';
@@ -36,10 +34,6 @@ const ProducerProductionsList = props => {
 		</ListWrapper>
 	);
 
-};
-
-ProducerProductionsList.propTypes = {
-	productions: PropTypes.array.isRequired
 };
 
 export default ProducerProductionsList;

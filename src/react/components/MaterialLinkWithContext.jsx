@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import AppendedFormatAndYear from './AppendedFormatAndYear.jsx';
 import InstanceLink from './InstanceLink.jsx';
 import PrependedSurInstance from './PrependedSurInstance.jsx';
@@ -47,10 +45,6 @@ const MaterialLinkWithContext = props => {
 		</>
 	);
 
-};
-
-MaterialLinkWithContext.propTypes = {
-	material: PropTypes.object.isRequired
 };
 
 export default MaterialLinkWithContext;

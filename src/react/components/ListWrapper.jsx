@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 const ListWrapper = props => {
 
 	const { children } = props;
@@ -12,10 +10,6 @@ const ListWrapper = props => {
 		</ul>
 	);
 
-};
-
-ListWrapper.propTypes = {
-	children: PropTypes.node.isRequired
 };
 
 export default ListWrapper;

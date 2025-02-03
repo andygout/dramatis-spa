@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
 import AppendedFormatAndYear from './AppendedFormatAndYear.jsx';
@@ -76,10 +75,6 @@ const WritingEntities = props => {
 		</>
 	);
 
-};
-
-WritingEntities.propTypes = {
-	entities: PropTypes.array.isRequired
 };
 
 export default WritingEntities;

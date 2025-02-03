@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
 import CommaSeparatedInstanceLinks from './CommaSeparatedInstanceLinks.jsx';
@@ -38,10 +37,6 @@ const ProducerEntities = props => {
 		</>
 	);
 
-};
-
-ProducerEntities.propTypes = {
-	entities: PropTypes.array.isRequired
 };
 
 export default ProducerEntities;

@@ -23,7 +23,6 @@ const serverBundle = {
 		'node:http',
 		'node:path',
 		'node:url',
-		'prop-types',
 		'react',
 		'react/jsx-runtime',
 		'react-bootstrap-typeahead',

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
 import ProductionLinkWithContext from './ProductionLinkWithContext.jsx';
@@ -25,10 +24,6 @@ const CommaSeparatedProductions = props => {
 		</>
 	);
 
-};
-
-CommaSeparatedProductions.propTypes = {
-	productions: PropTypes.array.isRequired
 };
 
 export default CommaSeparatedProductions;

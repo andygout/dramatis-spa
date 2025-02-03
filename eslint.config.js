@@ -86,6 +86,7 @@ export default [
 			react: reactPlugin
 		},
 		rules: {
+			'react/prop-types': 'off',
 			'react/react-in-jsx-scope': 'off'
 		}
 	},

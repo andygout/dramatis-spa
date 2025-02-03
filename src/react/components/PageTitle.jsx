@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 const PageTitle = props => {
 
 	const { text } = props;
@@ -10,10 +8,6 @@ const PageTitle = props => {
 		</h1>
 	);
 
-};
-
-PageTitle.propTypes = {
-	text: PropTypes.string.isRequired
 };
 
 export default PageTitle;
