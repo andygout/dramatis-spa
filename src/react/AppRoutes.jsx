@@ -20,7 +20,7 @@ const AppRoutes = () => {
 							element={
 								<Layout
 									key={location.pathname}
-									documentTitle={route.documentTitle}
+									pageTitle={route.pageTitle}
 									deactivateError={route.deactivateError}
 								>
 									<RouteComponent />

@@ -1,12 +1,11 @@
-import { Helmet } from 'react-helmet';
-
+import getDocumentTitle from '../../lib/get-document-title.js';
 import { MODEL_TO_DISPLAY_NAME_MAP } from '../../utils/constants.js';
 
 const InstanceDocumentTitle = props => {
 
 	const { title, model, differentiatorSuffix } = props;
 
-	const documentTitle = [
+	const pageTitle = [
 		title,
 		`(${MODEL_TO_DISPLAY_NAME_MAP[model]})`,
 		differentiatorSuffix
@@ -14,8 +13,10 @@ const InstanceDocumentTitle = props => {
 		.filter(Boolean)
 		.join(' ');
 
+	const documentTitle = getDocumentTitle(pageTitle);
+
 	return (
-		<Helmet title={documentTitle} />
+		<title>{documentTitle}</title>
 	);
 
 };

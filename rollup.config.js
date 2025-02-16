@@ -27,7 +27,6 @@ const serverBundle = {
 		'react/jsx-runtime',
 		'react-bootstrap-typeahead',
 		'react-dom/server',
-		'react-helmet',
 		'react-redux',
 		'react-router',
 		'serve-favicon'
