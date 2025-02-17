@@ -1,26 +1,22 @@
-import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
-
+import getDocumentTitle from '../../lib/get-document-title.js';
 import PageTitle from './PageTitle.jsx';
 
 const ErrorMessage = props => {
 
 	const { errorText } = props;
 
+	const documentTitle = getDocumentTitle(errorText);
+
 	return (
 		<>
 
-			<Helmet title={errorText} />
+			<title>{documentTitle}</title>
 
 			<PageTitle text={errorText} />
 
 		</>
 	);
 
-};
-
-ErrorMessage.propTypes = {
-	errorText: PropTypes.string.isRequired
 };
 
 export default ErrorMessage;

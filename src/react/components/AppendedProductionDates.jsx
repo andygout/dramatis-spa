@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import { formatDate } from '../../lib/format-date.js';
 
 const AppendedProductionDates = props => {
@@ -23,11 +21,6 @@ const AppendedProductionDates = props => {
 		<>{` (${displayText})`}</>
 	);
 
-};
-
-AppendedProductionDates.propTypes = {
-	startDate: PropTypes.string,
-	endDate: PropTypes.string
 };
 
 export default AppendedProductionDates;

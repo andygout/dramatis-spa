@@ -29,145 +29,145 @@ import { deactivateError } from '../redux/action-handlers/error.js';
 export default [
 	{
 		path: '/',
-		documentTitle: () => 'Home',
+		pageTitle: 'Home',
 		component: Home,
 		deactivateError
 	},
 	{
 		path: '/awards',
-		documentTitle: () => 'Awards',
+		pageTitle: 'Awards',
 		component: Awards,
 		deactivateError
 	},
 	{
 		path: '/awards/:uuid',
-		documentTitle: () => 'Award',
+		pageTitle: 'Award',
 		component: Award,
 		deactivateError
 	},
 	{
 		path: '/award-ceremonies',
-		documentTitle: () => 'Award ceremonies',
+		pageTitle: 'Award ceremonies',
 		component: AwardCeremonies,
 		deactivateError
 	},
 	{
 		path: '/award-ceremonies/:uuid',
-		documentTitle: () => 'Award ceremony',
+		pageTitle: 'Award ceremony',
 		component: AwardCeremony,
 		deactivateError
 	},
 	{
 		path: '/characters',
-		documentTitle: () => 'Characters',
+		pageTitle: 'Characters',
 		component: Characters,
 		deactivateError
 	},
 	{
 		path: '/characters/:uuid',
-		documentTitle: () => 'Character',
+		pageTitle: 'Character',
 		component: Character,
 		deactivateError
 	},
 	{
 		path: '/companies',
-		documentTitle: () => 'Companies',
+		pageTitle: 'Companies',
 		component: Companies,
 		deactivateError
 	},
 	{
 		path: '/companies/:uuid',
-		documentTitle: () => 'Comany',
+		pageTitle: 'Comany',
 		component: Company,
 		deactivateError
 	},
 	{
 		path: '/festivals',
-		documentTitle: () => 'Festivals',
+		pageTitle: 'Festivals',
 		component: Festivals,
 		deactivateError
 	},
 	{
 		path: '/festivals/:uuid',
-		documentTitle: () => 'Festival',
+		pageTitle: 'Festival',
 		component: Festival,
 		deactivateError
 	},
 	{
 		path: '/festival-serieses',
-		documentTitle: () => 'Festival serieses',
+		pageTitle: 'Festival serieses',
 		component: FestivalSerieses,
 		deactivateError
 	},
 	{
 		path: '/festival-serieses/:uuid',
-		documentTitle: () => 'Festival series',
+		pageTitle: 'Festival series',
 		component: FestivalSeries,
 		deactivateError
 	},
 	{
 		path: '/materials',
-		documentTitle: () => 'Materials',
+		pageTitle: 'Materials',
 		component: Materials,
 		deactivateError
 	},
 	{
 		path: '/materials/:uuid',
-		documentTitle: () => 'Material',
+		pageTitle: 'Material',
 		component: Material,
 		deactivateError
 	},
 	{
 		path: '/people',
-		documentTitle: () => 'People',
+		pageTitle: 'People',
 		component: People,
 		deactivateError
 	},
 	{
 		path: '/people/:uuid',
-		documentTitle: () => 'Person',
+		pageTitle: 'Person',
 		component: Person,
 		deactivateError
 	},
 	{
 		path: '/productions',
-		documentTitle: () => 'Productions',
+		pageTitle: 'Productions',
 		component: Productions,
 		deactivateError
 	},
 	{
 		path: '/productions/:uuid',
-		documentTitle: () => 'Production',
+		pageTitle: 'Production',
 		component: Production,
 		deactivateError
 	},
 	{
 		path: '/seasons',
-		documentTitle: () => 'Seasons',
+		pageTitle: 'Seasons',
 		component: Seasons,
 		deactivateError
 	},
 	{
 		path: '/seasons/:uuid',
-		documentTitle: () => 'Season',
+		pageTitle: 'Season',
 		component: Season,
 		deactivateError
 	},
 	{
 		path: '/venues',
-		documentTitle: () => 'Venues',
+		pageTitle: 'Venues',
 		component: Venues,
 		deactivateError
 	},
 	{
 		path: '/venues/:uuid',
-		documentTitle: () => 'Venue',
+		pageTitle: 'Venue',
 		component: Venue,
 		deactivateError
 	},
 	{
 		path: '*',
-		documentTitle: () => 'Not Found',
+		pageTitle: 'Not Found',
 		component: NotFound,
 		deactivateError: null
 	}

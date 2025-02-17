@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import InstanceLink from './InstanceLink.jsx';
 
 const PrependedSurInstance = props => {
@@ -16,10 +14,6 @@ const PrependedSurInstance = props => {
 		</>
 	);
 
-};
-
-PrependedSurInstance.propTypes = {
-	surInstance: PropTypes.object.isRequired
 };
 
 export default PrependedSurInstance;

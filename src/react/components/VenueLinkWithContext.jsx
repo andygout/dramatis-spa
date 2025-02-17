@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import InstanceLink from './InstanceLink.jsx';
 import PrependedSurInstance from './PrependedSurInstance.jsx';
 
@@ -21,10 +19,6 @@ const VenueLinkWithContext = props => {
 		</>
 	);
 
-};
-
-VenueLinkWithContext.propTypes = {
-	venue: PropTypes.object.isRequired
 };
 
 export default VenueLinkWithContext;

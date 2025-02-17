@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
 const AppendedDepictions = props => {
@@ -41,10 +40,6 @@ const AppendedDepictions = props => {
 		</>
 	);
 
-};
-
-AppendedDepictions.propTypes = {
-	depictions: PropTypes.array.isRequired
 };
 
 export default AppendedDepictions;

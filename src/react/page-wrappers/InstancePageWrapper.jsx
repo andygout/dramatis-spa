@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import getDifferentiatorSuffix from '../../lib/get-differentiator-suffix.js';
 import getInstanceTitle from '../../lib/get-instance-title.js';
 import { InstanceDocumentTitle, InstanceLabel, PageSubtitle, PageTitle } from '../components/index.js';
@@ -47,12 +45,6 @@ const InstancePageWrapper = props => {
 		</>
 	);
 
-};
-
-InstancePageWrapper.propTypes = {
-	instance: PropTypes.object.isRequired,
-	titleName: PropTypes.string,
-	children: PropTypes.node
 };
 
 export default InstancePageWrapper;

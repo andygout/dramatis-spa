@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
 import AppendedQualifier from './AppendedQualifier.jsx';
@@ -46,10 +45,6 @@ const JoinedRoles = props => {
 		</>
 	);
 
-};
-
-JoinedRoles.propTypes = {
-	instances: PropTypes.array.isRequired
 };
 
 export default JoinedRoles;

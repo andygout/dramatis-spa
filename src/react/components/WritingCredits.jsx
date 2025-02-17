@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
 import { capitalise } from '../../lib/strings.js';
@@ -36,11 +35,6 @@ const WritingCredits = props => {
 		</>
 	);
 
-};
-
-WritingCredits.propTypes = {
-	credits: PropTypes.array.isRequired,
-	isAppendage: PropTypes.bool.isRequired
 };
 
 export default WritingCredits;

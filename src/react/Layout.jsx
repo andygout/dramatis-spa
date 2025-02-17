@@ -1,13 +1,14 @@
-import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Helmet } from 'react-helmet';
 
+import getDocumentTitle from '../lib/get-document-title.js';
 import { ErrorMessage, Footer, Header, Navigation } from './components/index.js';
 
 const Layout = props => {
 
-	const { documentTitle, children } = props;
+	const { pageTitle, children } = props;
+
+	const documentTitle = getDocumentTitle(pageTitle);
 
 	const dispatch = useDispatch();
 
@@ -24,11 +25,7 @@ const Layout = props => {
 	return (
 		<>
 
-			<Helmet
-				defaultTitle='Dramatis'
-				titleTemplate='%s | Dramatis'
-				title={documentTitle()}
-			/>
+			<title>{documentTitle}</title>
 
 			<Header />
 
@@ -49,12 +46,6 @@ const Layout = props => {
 		</>
 	);
 
-};
-
-Layout.propTypes = {
-	documentTitle: PropTypes.func.isRequired,
-	deactivateError: PropTypes.func,
-	children: PropTypes.node.isRequired
 };
 
 export default Layout;

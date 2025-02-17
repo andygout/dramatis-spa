@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import CommaSeparatedInstanceLinks from './CommaSeparatedInstanceLinks.jsx';
 
 const AppendedMembers = props => {
@@ -18,10 +16,6 @@ const AppendedMembers = props => {
 		</>
 	);
 
-};
-
-AppendedMembers.propTypes = {
-	members: PropTypes.array.isRequired
 };
 
 export default AppendedMembers;

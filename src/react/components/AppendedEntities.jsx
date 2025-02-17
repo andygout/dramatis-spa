@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import Entities from './Entities.jsx';
 
 const AppendedEntities = props => {
@@ -16,10 +14,6 @@ const AppendedEntities = props => {
 		</>
 	);
 
-};
-
-AppendedEntities.propTypes = {
-	entities: PropTypes.array.isRequired
 };
 
 export default AppendedEntities;

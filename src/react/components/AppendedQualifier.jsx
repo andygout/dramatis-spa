@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 const AppendedQualifier = props => {
 
 	const { qualifier } = props;
@@ -12,10 +10,6 @@ const AppendedQualifier = props => {
 		</>
 	);
 
-};
-
-AppendedQualifier.propTypes = {
-	qualifier: PropTypes.string.isRequired
 };
 
 export default AppendedQualifier;

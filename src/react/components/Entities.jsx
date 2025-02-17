@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
 import AppendedMembers from './AppendedMembers.jsx';
@@ -32,10 +31,6 @@ const Entities = props => {
 		</>
 	);
 
-};
-
-Entities.propTypes = {
-	entities: PropTypes.array.isRequired
 };
 
 export default Entities;

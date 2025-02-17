@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
 import InstanceLink from './InstanceLink.jsx';
@@ -25,10 +24,6 @@ const CommaSeparatedInstanceLinks = props => {
 		</>
 	);
 
-};
-
-CommaSeparatedInstanceLinks.propTypes = {
-	instances: PropTypes.array.isRequired
 };
 
 export default CommaSeparatedInstanceLinks;

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { Router } from 'express';
-import { Helmet } from 'react-helmet';
 
+import getDocumentTitle from '../lib/get-document-title.js';
 import getReactHtml from '../react/react-html.jsx';
 import reducers from '../redux/reducers/index.js';
 import { api } from '../redux/slices/api.js';
@@ -23,7 +23,7 @@ router.get('*', async (request, response, next) => {
 
 		const reactHtml = getReactHtml(request, store);
 
-		const head = Helmet.rewind();
+		const documentTitle = getDocumentTitle();
 
 		const html = `
 			<!DOCTYPE html>
@@ -31,7 +31,7 @@ router.get('*', async (request, response, next) => {
 			<html lang="en-GB">
 
 				<head>
-					${head.title.toString()}
+					<title>${documentTitle}</title>
 					<link rel="stylesheet" href="/main.css">
 					<script src="/main.js"></script>
 					<meta charset="utf-8">

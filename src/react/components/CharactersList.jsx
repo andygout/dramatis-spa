@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import AppendedQualifier from './AppendedQualifier.jsx';
 import InstanceLink from './InstanceLink.jsx';
 import ListWrapper from './ListWrapper.jsx';
@@ -30,10 +28,6 @@ const CharactersList = props => {
 		</ListWrapper>
 	);
 
-};
-
-CharactersList.propTypes = {
-	characters: PropTypes.array.isRequired
 };
 
 export default CharactersList;

@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import CommaSeparatedInstanceLinks from './CommaSeparatedInstanceLinks.jsx';
 import InstanceLink from './InstanceLink.jsx';
 
@@ -35,10 +33,6 @@ const AppendedEmployerCompany = props => {
 		</>
 	);
 
-};
-
-AppendedEmployerCompany.propTypes = {
-	employerCompany: PropTypes.object.isRequired
 };
 
 export default AppendedEmployerCompany;

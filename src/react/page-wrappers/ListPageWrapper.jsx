@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import { PageTitle } from '../components/index.js';
 
 const ListPageWrapper = props => {
@@ -16,11 +14,6 @@ const ListPageWrapper = props => {
 		</>
 	);
 
-};
-
-ListPageWrapper.propTypes = {
-	pageTitleText: PropTypes.string.isRequired,
-	children: PropTypes.node.isRequired
 };
 
 export default ListPageWrapper;

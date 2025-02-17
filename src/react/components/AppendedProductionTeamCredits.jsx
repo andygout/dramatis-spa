@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 
 import AppendedCoEntities from './AppendedCoEntities.jsx';
@@ -47,10 +46,6 @@ const AppendedProductionTeamCredits = props => {
 		</>
 	);
 
-};
-
-AppendedProductionTeamCredits.propTypes = {
-	credits: PropTypes.array.isRequired
 };
 
 export default AppendedProductionTeamCredits;

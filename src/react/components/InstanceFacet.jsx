@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 const InstanceFacet = props => {
 
 	const { labelText, children } = props;
@@ -18,11 +16,6 @@ const InstanceFacet = props => {
 		</div>
 	);
 
-};
-
-InstanceFacet.propTypes = {
-	labelText: PropTypes.string.isRequired,
-	children: PropTypes.node.isRequired
 };
 
 export default InstanceFacet;
