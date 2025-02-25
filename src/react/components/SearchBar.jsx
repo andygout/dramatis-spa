@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { AsyncTypeahead, Highlighter } from 'react-bootstrap-typeahead';
 import { useNavigate } from 'react-router';
 
@@ -19,6 +19,8 @@ async function performFetch (url) {
 }
 
 const SearchBar = () => {
+
+	const typeaheadRef = useRef(null);
 
 	const [isLoading, setIsLoading] = useState(false);
 	const [options, setOptions] = useState([]);
@@ -47,6 +49,13 @@ const SearchBar = () => {
 
 			const instancePath = `/${MODEL_TO_ROUTE_MAP[model]}/${uuid}`;
 
+			if (typeaheadRef.current) {
+
+				typeaheadRef.current.blur();
+				typeaheadRef.current.clear();
+
+			}
+
 			navigate(instancePath);
 
 		}
@@ -55,6 +64,7 @@ const SearchBar = () => {
 
 	return (
 		<AsyncTypeahead
+			ref={typeaheadRef}
 			id='search-result-options'
 			filterBy={() => true}
 			delay={1000}

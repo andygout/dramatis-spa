@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router';
 import reduxLoggerMiddleware from 'redux-logger';
 
 import AppRoutes from './AppRoutes.jsx';
+import Layout from './Layout.jsx';
 import reducers from '../redux/reducers/index.js';
 import { api } from '../redux/slices/api.js';
 
@@ -35,7 +36,9 @@ window.onload = () => {
 		document.getElementById('page-container'),
 		<Provider store={store}>
 			<BrowserRouter>
-				<AppRoutes />
+				<Layout>
+					<AppRoutes />
+				</Layout>
 			</BrowserRouter>
 		</Provider>
 	);
