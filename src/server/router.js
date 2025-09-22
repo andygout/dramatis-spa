@@ -13,7 +13,7 @@ const store = configureStore({
 	middleware: getDefaultMiddleware => getDefaultMiddleware().concat(api.middleware)
 });
 
-router.get('*', async (request, response, next) => {
+router.use(async (request, response, next) => {
 
 	try {
 
