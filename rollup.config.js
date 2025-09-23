@@ -55,6 +55,15 @@ const clientScriptsBundle = {
 	watch: {
 		clearScreen: false
 	},
+	onwarn: (warning, warn) => {
+		if (
+			warning.code === 'MODULE_LEVEL_DIRECTIVE' &&
+			/"use client"/.test(warning.message || '')
+		) {
+			return; // Silence only this specific warning.
+		}
+		warn(warning); // Keep all other warnings.
+	},
 	plugins: [
 		nodeResolve({
 			browser: true,
