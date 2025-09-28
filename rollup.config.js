@@ -1,10 +1,12 @@
+import path from 'node:path';
+
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import copy from 'rollup-plugin-copy';
 import esbuild from 'rollup-plugin-esbuild';
-import scss from 'rollup-plugin-scss';
+import sassPlugin from 'rollup-plugin-sass';
 import watchGlobs from 'rollup-plugin-watch-globs';
 import * as sass from 'sass';
 
@@ -99,10 +101,22 @@ const clientStylesBundle = {
 		watchGlobs([
 			'src/client/stylesheets/**/*.scss'
 		]),
-		scss({
-			fileName: 'main.css',
-			failOnError: true,
-			sass
+		sassPlugin({
+			output: 'public/main.css',
+			api: 'modern',
+			runtime: sass,
+			options: {
+				// Let @import find packages' stylesheets by looking in node_modules directory.
+				loadPaths: [
+					path.resolve('node_modules')
+				],
+				// Until dependencies have migrated to Sass's modern compiler API.
+				silenceDeprecations: [
+					'import',
+					'global-builtin',
+					'color-functions'
+				]
+			}
 		})
 	]
 };
