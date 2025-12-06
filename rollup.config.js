@@ -79,7 +79,8 @@ const clientScriptsBundle = {
 					{ runtime: 'automatic' }
 				]
 			],
-			extensions: ['.js', '.jsx']
+			extensions: ['.js', '.jsx'],
+			exclude: 'node_modules/**'
 		}),
 		commonjs(),
 		replace({
