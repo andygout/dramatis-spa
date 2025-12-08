@@ -1,4 +1,4 @@
-import { formatDate } from '../../lib/format-date.js';
+import formatDate from '../../lib/format-date.js';
 
 const AppendedProductionDates = props => {
 
