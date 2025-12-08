@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { useParams } from 'react-router';
 
-import { formatDate } from '../../../lib/format-date.js';
+import formatDate from '../../../lib/format-date.js';
 import {
 	AppendedDate,
 	AppendedRoles,

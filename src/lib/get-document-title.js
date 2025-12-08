@@ -1,4 +1,4 @@
-export default pageTitle => {
+const getDocumentTitle = pageTitle => {
 
 	const websiteName = 'Dramatis';
 
@@ -10,3 +10,5 @@ export default pageTitle => {
 	return documentTitle;
 
 };
+
+export default getDocumentTitle;
