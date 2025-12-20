@@ -51,7 +51,7 @@ const serverBundle = {
 const clientScriptsBundle = {
 	input: 'src/react/client-mount.jsx',
 	output: {
-		file: 'public/main.js',
+		file: 'public/scripts/main.js',
 		format: 'iife'
 	},
 	watch: {
@@ -91,7 +91,9 @@ const clientScriptsBundle = {
 };
 
 const clientStylesBundle = {
-	input: 'src/client/stylesheets/index.scss',
+	// Rollup requires a JavaScript entry point.
+	// index.js is a placeholder for this purpose.
+	input: 'src/client/stylesheets/index.js',
 	output: {
 		dir: 'public'
 	},
@@ -100,10 +102,34 @@ const clientStylesBundle = {
 	},
 	plugins: [
 		watchGlobs([
-			'src/client/stylesheets/**/*.scss'
+			'src/client/stylesheets/**/*.css'
+		]),
+		copy({
+			targets: [
+				{
+					src: 'src/client/stylesheets/**/*.css',
+					dest: 'public/stylesheets',
+					flatten: false
+				}
+			]
+		})
+	]
+};
+
+const clientBootstrapStylesBundle = {
+	input: 'src/client/stylesheets/bootstrap.scss',
+	output: {
+		dir: 'public'
+	},
+	watch: {
+		clearScreen: false
+	},
+	plugins: [
+		watchGlobs([
+			'src/client/stylesheets/bootstrap.scss'
 		]),
 		sassPlugin({
-			output: 'public/main.css',
+			output: 'public/stylesheets/bootstrap.css',
 			api: 'modern',
 			runtime: sass,
 			options: {
@@ -125,5 +151,6 @@ const clientStylesBundle = {
 export default [
 	serverBundle,
 	clientScriptsBundle,
-	clientStylesBundle
+	clientStylesBundle,
+	clientBootstrapStylesBundle
 ];

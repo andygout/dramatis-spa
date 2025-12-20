@@ -1,0 +1,7 @@
+.form-control {
+	color: var(--default-text-color);
+
+	&:focus {
+		border-color: var(--autocomplete-selected-option-background-color);
+	}
+}
