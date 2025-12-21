@@ -1,18 +1,3 @@
-@use 'lib/color-variables';
-
-@use 'normalize';
-
-@use 'footer';
-@use 'header';
-@use 'instance';
-@use 'list';
-@use 'navigation';
-@use 'page';
-@use 'text';
-
-@use 'dropdown-modifiers';
-@use 'form-control-modifiers';
-
 @import 'react-bootstrap-typeahead/css/Typeahead';
 @import 'react-bootstrap-typeahead/css/Typeahead.bs5';
 
