@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import { AsyncTypeahead, Highlighter } from 'react-bootstrap-typeahead';
+import { useCallback, useRef, useState } from 'react';
+import { AsyncTypeahead, ClearButton, Highlighter } from 'react-bootstrap-typeahead';
 import { useNavigate } from 'react-router';
 
 import { MODEL_TO_DISPLAY_NAME_MAP, MODEL_TO_ROUTE_MAP } from '../../utils/constants.js';
@@ -22,12 +22,13 @@ const SearchBar = () => {
 
 	const typeaheadRef = useRef(null);
 
+	const [query, setQuery] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
 	const [options, setOptions] = useState([]);
 
 	const navigate = useNavigate();
 
-	const handleSearch = async searchTerm => {
+	const handleSearch = useCallback(async searchTerm => {
 
 		setIsLoading(true);
 
@@ -39,9 +40,9 @@ const SearchBar = () => {
 
 		setIsLoading(false);
 
-	};
+	}, []);
 
-	const handleChange = ([selectedOption]) => {
+	const handleChange = useCallback(([selectedOption]) => {
 
 		if (selectedOption) {
 
@@ -50,6 +51,8 @@ const SearchBar = () => {
 			const instancePath = `/${MODEL_TO_ROUTE_MAP[model]}/${uuid}`;
 
 			if (typeaheadRef.current) {
+
+				setQuery('');
 
 				typeaheadRef.current.blur();
 				typeaheadRef.current.clear();
@@ -60,7 +63,15 @@ const SearchBar = () => {
 
 		}
 
-	};
+	}, [navigate]);
+
+	const clearInput = useCallback(() => {
+
+		setQuery('');
+
+		typeaheadRef.current?.clear();
+
+	}, []);
 
 	return (
 		<AsyncTypeahead
@@ -72,6 +83,7 @@ const SearchBar = () => {
 			labelKey='name'
 			minLength={3}
 			maxHeight={'200px'}
+			onInputChange={text => setQuery(text)}
 			onSearch={handleSearch}
 			onChange={handleChange}
 			options={options}
@@ -88,7 +100,19 @@ const SearchBar = () => {
 					</span>
 				</>
 			)}
-		/>
+		>
+			{
+				query.length > 0 && !isLoading && (
+					<div className="rbt-aux">
+						<ClearButton
+							onClick={clearInput}
+							onMouseDown={event => event.preventDefault()}
+							label="Clear input"
+						/>
+					</div>
+				)
+			}
+		</AsyncTypeahead>
 	);
 };
 

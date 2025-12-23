@@ -1,4 +1,7 @@
 .form-control {
+	--rbt-aux-width: 2.5rem; /* Width applied by react-bootstrap-typeahead to accommodate the clear button. */
+
+	padding-right: var(--rbt-aux-width); /* Avoid input text overlapping the clear input button. */
 	color: var(--default-text-color);
 
 	&:focus {
