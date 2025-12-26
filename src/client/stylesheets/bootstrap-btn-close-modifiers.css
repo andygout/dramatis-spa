@@ -1,0 +1,6 @@
+/* Use original focus state styling for clear input button. */
+.btn-close:focus {
+	outline: revert;
+	box-shadow: revert;
+	opacity: revert;
+}
