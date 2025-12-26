@@ -50,6 +50,7 @@ router.use(async (request, response, next) => {
 
 					<link rel="stylesheet" href="/stylesheets/bootstrap-dropdown-modifiers.css" />
 					<link rel="stylesheet" href="/stylesheets/bootstrap-form-control-modifiers.css" />
+					<link rel="stylesheet" href="/stylesheets/rbt-input-modifiers.css" />
 
 					<script src="/scripts/main.js"></script>
 
