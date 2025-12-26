@@ -1,0 +1,6 @@
+/* Prevent autocomplete hint from overspilling outside of input field. */
+.rbt-input-main,
+.rbt-input-hint {
+	width: 100%;
+	box-sizing: border-box;
+}
