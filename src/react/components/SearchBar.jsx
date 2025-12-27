@@ -32,7 +32,7 @@ const SearchBar = () => {
 
 		setIsLoading(true);
 
-		const url = `${URL_BASE}/api/search?searchTerm=${encodeURIComponent(searchTerm)}`;
+		const url = `${URL_BASE}/api/search?searchTerm=${encodeURIComponent(searchTerm.trim())}`;
 
 		const searchResults = await performFetch(url);
 
