@@ -1,4 +1,10 @@
 /* rbt-input modifiers */
+/* Ensure focus styling is consistent with other elements. */
+.rbt-input-main:focus-visible {
+	outline: -webkit-focus-ring-color auto 1px;
+	outline-offset: 0;
+}
+
 /* Prevent autocomplete hint from overspilling outside of input field. */
 .rbt-input-main,
 .rbt-input-hint {
