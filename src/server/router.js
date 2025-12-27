@@ -46,12 +46,12 @@ router.use(async (request, response, next) => {
 					<link rel="stylesheet" href="/stylesheets/page.css" />
 					<link rel="stylesheet" href="/stylesheets/text.css" />
 
-					<link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+					<link rel="stylesheet" href="/stylesheets/scss-imports.css" />
+					<link rel="stylesheet" href="/stylesheets/react-bootstrap-typeahead.css" />
+					<link rel="stylesheet" href="/stylesheets/react-bootstrap-typeahead.bs5.css" />
 
-					<link rel="stylesheet" href="/stylesheets/bootstrap-btn-close-modifiers.css" />
-					<link rel="stylesheet" href="/stylesheets/bootstrap-dropdown-modifiers.css" />
-					<link rel="stylesheet" href="/stylesheets/bootstrap-form-control-modifiers.css" />
-					<link rel="stylesheet" href="/stylesheets/rbt-input-modifiers.css" />
+					<link rel="stylesheet" href="/stylesheets/bootstrap-modifiers.css" />
+					<link rel="stylesheet" href="/stylesheets/react-bootstrap-typeahead-modifiers.css" />
 
 					<script src="/scripts/main.js"></script>
 
