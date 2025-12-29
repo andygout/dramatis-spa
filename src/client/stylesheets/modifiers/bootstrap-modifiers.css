@@ -24,6 +24,10 @@
 	}
 }
 
+.dropdown-item:hover {
+	background-color: var(--autocomplete-option-background-color-hover);
+}
+
 .dropdown-item.active, .dropdown-item:active {
 	color: var(--autocomplete-selected-option-color);
 	background-color: var(--autocomplete-selected-option-background-color);
