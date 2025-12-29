@@ -1,4 +1,4 @@
-/* rbt-input modifiers */
+/* rbt-input overrides */
 /* Ensure focus styling is consistent with other elements. */
 .rbt-input-main:focus-visible {
 	outline: -webkit-focus-ring-color auto 1px;
@@ -12,7 +12,7 @@
 	box-sizing: border-box;
 }
 
-/* Support modification of dropdown-item:hover styling. */
+/* Support override of dropdown-item:hover styling. */
 .rbt-highlight-text {
 	background-color: transparent;
 }

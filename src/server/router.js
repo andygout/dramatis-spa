@@ -50,8 +50,8 @@ router.use(async (request, response, next) => {
 					<link rel="stylesheet" href="/stylesheets/react-bootstrap-typeahead.css" />
 					<link rel="stylesheet" href="/stylesheets/react-bootstrap-typeahead.bs5.css" />
 
-					<link rel="stylesheet" href="/stylesheets/bootstrap-modifiers.css" />
-					<link rel="stylesheet" href="/stylesheets/react-bootstrap-typeahead-modifiers.css" />
+					<link rel="stylesheet" href="/stylesheets/bootstrap-overrides.css" />
+					<link rel="stylesheet" href="/stylesheets/react-bootstrap-typeahead-overrides.css" />
 
 					<script src="/scripts/main.js"></script>
 
