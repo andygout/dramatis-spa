@@ -1,4 +1,4 @@
-/* btn-close modifiers */
+/* btn-close overrides */
 /* Use original focus state styling for clear input button. */
 .btn-close:focus {
 	outline: revert;
@@ -6,7 +6,7 @@
 	opacity: revert;
 }
 
-/* dropdown modifiers */
+/* dropdown overrides */
 .dropdown-menu {
 	padding: 8px;
 	box-sizing: border-box;
@@ -42,7 +42,7 @@
 	color: var(--autocomplete-option-suffix-color);
 }
 
-/* form-control modifiers */
+/* form-control overrides */
 .form-control {
 	--rbt-aux-width: 2.5rem; /* Width applied by react-bootstrap-typeahead to accommodate the clear button. */
 
