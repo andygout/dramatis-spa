@@ -1,5 +1,10 @@
 :root {
 	--autocomplete-option-border-color: #E3E3E3;
+	--autocomplete-option-background-color-hover: color-mix(
+		in srgb,
+		var(--autocomplete-selected-option-background-color),
+		transparent 90%
+	);
 	--autocomplete-option-suffix-color: #949494;
 	--autocomplete-selected-option-background-color: #006699;
 	--autocomplete-selected-option-color: #FFFFFF;

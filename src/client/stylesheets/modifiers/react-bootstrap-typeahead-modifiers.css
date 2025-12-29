@@ -11,3 +11,8 @@
 	width: 100%;
 	box-sizing: border-box;
 }
+
+/* Support modification of dropdown-item:hover styling. */
+.rbt-highlight-text {
+	background-color: transparent;
+}
