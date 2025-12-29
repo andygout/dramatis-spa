@@ -1,4 +1,3 @@
-/* rbt-input overrides */
 /* Ensure focus styling is consistent with other elements. */
 .rbt-input-main:focus-visible {
 	outline: -webkit-focus-ring-color auto 1px;
