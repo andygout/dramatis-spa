@@ -1,4 +1,5 @@
 import js from '@eslint/js';
+import eslintConfigPrettier from 'eslint-config-prettier';
 import mochaPlugin from 'eslint-plugin-mocha';
 import reactPlugin from 'eslint-plugin-react';
 import globals from 'globals';
@@ -16,10 +17,7 @@ export default [
 		}
 	},
 	{
-		ignores: [
-			'built/*',
-			'public/*'
-		]
+		ignores: ['built/*', 'public/*']
 	},
 	{
 		languageOptions: {
@@ -55,9 +53,7 @@ export default [
 		}
 	},
 	{
-		files: [
-			'**/*.jsx'
-		],
+		files: ['**/*.jsx'],
 		languageOptions: {
 			globals: {
 				...globals.browser
@@ -76,9 +72,7 @@ export default [
 		}
 	},
 	{
-		files: [
-			'test/**/*.test.js'
-		],
+		files: ['test/**/*.test.js'],
 		languageOptions: {
 			globals: {
 				...globals.mocha
@@ -91,5 +85,6 @@ export default [
 			'mocha/no-exclusive-tests': 'error',
 			'mocha/no-mocha-arrows': 'off'
 		}
-	}
+	},
+	eslintConfigPrettier
 ];

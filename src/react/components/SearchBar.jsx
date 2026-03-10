@@ -6,8 +6,7 @@ import { MODEL_TO_DISPLAY_NAME_MAP, MODEL_TO_ROUTE_MAP } from '../../utils/const
 
 const URL_BASE = 'http://localhost:3002';
 
-async function performFetch (url) {
-
+async function performFetch(url) {
 	const response = await fetch(url, { mode: 'same-origin' });
 
 	if (response.status !== 200) throw new Error(response.statusText);
@@ -15,11 +14,9 @@ async function performFetch (url) {
 	const searchResults = await response.json();
 
 	return searchResults;
-
 }
 
 const SearchBar = () => {
-
 	const typeaheadRef = useRef(null);
 
 	const [query, setQuery] = useState('');
@@ -28,8 +25,7 @@ const SearchBar = () => {
 
 	const navigate = useNavigate();
 
-	const handleSearch = useCallback(async searchTerm => {
-
+	const handleSearch = useCallback(async (searchTerm) => {
 		setIsLoading(true);
 
 		const url = `${URL_BASE}/api/search?searchTerm=${encodeURIComponent(searchTerm.trim())}`;
@@ -39,79 +35,66 @@ const SearchBar = () => {
 		setOptions(searchResults);
 
 		setIsLoading(false);
-
 	}, []);
 
-	const handleChange = useCallback(([selectedOption]) => {
+	const handleChange = useCallback(
+		([selectedOption]) => {
+			if (selectedOption) {
+				const { model, uuid } = selectedOption;
 
-		if (selectedOption) {
+				const instancePath = `/${MODEL_TO_ROUTE_MAP[model]}/${uuid}`;
 
-			const { model, uuid } = selectedOption;
+				if (typeaheadRef.current) {
+					setQuery('');
 
-			const instancePath = `/${MODEL_TO_ROUTE_MAP[model]}/${uuid}`;
+					typeaheadRef.current.blur();
+					typeaheadRef.current.clear();
+				}
 
-			if (typeaheadRef.current) {
-
-				setQuery('');
-
-				typeaheadRef.current.blur();
-				typeaheadRef.current.clear();
-
+				navigate(instancePath);
 			}
-
-			navigate(instancePath);
-
-		}
-
-	}, [navigate]);
+		},
+		[navigate]
+	);
 
 	const clearInput = useCallback(() => {
-
 		setQuery('');
 
 		typeaheadRef.current?.clear();
-
 	}, []);
 
 	return (
 		<AsyncTypeahead
 			ref={typeaheadRef}
-			id='search-result-options'
+			id="search-result-options"
 			filterBy={() => true}
 			delay={1000}
 			isLoading={isLoading}
-			labelKey='name'
+			labelKey="name"
 			minLength={3}
 			maxHeight={'200px'}
-			onInputChange={text => setQuery(text)}
+			onInputChange={(text) => setQuery(text)}
 			onSearch={handleSearch}
 			onChange={handleChange}
 			options={options}
-			placeholder='Search Dramatis…'
-			emptyLabel='No results found'
+			placeholder="Search Dramatis…"
+			emptyLabel="No results found"
 			renderMenuItemChildren={(option, { text }) => (
 				<>
-					<Highlighter search={text}>
-						{option.name}
-					</Highlighter>
-					{' '}
-					<span className="dropdown-item-suffix">
-						({MODEL_TO_DISPLAY_NAME_MAP[option.model]})
-					</span>
+					<Highlighter search={text}>{option.name}</Highlighter>{' '}
+					<span className="dropdown-item-suffix">({MODEL_TO_DISPLAY_NAME_MAP[option.model]})</span>
 				</>
 			)}
 		>
-			{
-				query.length > 0 && !isLoading && (
-					<div className="rbt-aux">
-						<ClearButton
-							onClick={clearInput}
-							onMouseDown={event => event.preventDefault()}
-							label="Clear input"
-						/>
-					</div>
-				)
-			}
+			{query.length > 0 && !isLoading && (
+				<div className="rbt-aux">
+					<ClearButton
+						onClick={clearInput}
+						onMouseDown={(event) => event.preventDefault()}
+						label="Clear input"
+					/>
+				</div>
+			)}
 		</AsyncTypeahead>
 	);
 };

@@ -1,15 +1,7 @@
-const AppendedQualifier = props => {
-
+const AppendedQualifier = (props) => {
 	const { qualifier } = props;
 
-	return (
-		<>
-
-			{` (${qualifier})`}
-
-		</>
-	);
-
+	return <>{` (${qualifier})`}</>;
 };
 
 export default AppendedQualifier;

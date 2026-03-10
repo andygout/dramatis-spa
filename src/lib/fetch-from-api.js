@@ -1,15 +1,12 @@
 const API_URL_BASE = 'http://localhost:3000';
 
-const fetchFromApi = async apiPath => {
-
+const fetchFromApi = async (apiPath) => {
 	const apiUrl = `${API_URL_BASE}${apiPath}`;
 
 	try {
-
 		const response = await fetch(apiUrl, { mode: 'cors' });
 
 		if (response.status !== 200) {
-
 			const { status, statusText } = response;
 
 			const error = new Error(statusText);
@@ -17,15 +14,12 @@ const fetchFromApi = async apiPath => {
 			error.status = status;
 
 			throw error;
-
 		}
 
 		const data = await response.json();
 
 		return data;
-
 	} catch (error) {
-
 		// If fetch is successful but provides a non-200 response.
 		if (typeof error.status === 'number') throw error;
 
@@ -37,9 +31,7 @@ const fetchFromApi = async apiPath => {
 		internalServerError.status = 500;
 
 		throw internalServerError;
-
 	}
-
 };
 
 export default fetchFromApi;

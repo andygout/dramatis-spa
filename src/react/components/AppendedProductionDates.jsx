@@ -1,7 +1,6 @@
 import formatDate from '../../lib/format-date.js';
 
-const AppendedProductionDates = props => {
-
+const AppendedProductionDates = (props) => {
 	const { startDate, endDate } = props;
 
 	const displayText = (() => {
@@ -17,10 +16,7 @@ const AppendedProductionDates = props => {
 		}
 	})();
 
-	return (
-		<>{` (${displayText})`}</>
-	);
-
+	return <>{` (${displayText})`}</>;
 };
 
 export default AppendedProductionDates;
