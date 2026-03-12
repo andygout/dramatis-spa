@@ -3,38 +3,26 @@ import { Fragment } from 'react';
 import { capitalise } from '../../lib/strings.js';
 import ProducerEntities from './ProducerEntities.jsx';
 
-const ProducerCredits = props => {
-
+const ProducerCredits = (props) => {
 	const { credits } = props;
 
 	return (
 		<>
+			{credits
+				.map((credit, index) => {
+					const creditName = index === 0 ? capitalise(credit.name) : credit.name;
 
-			{
-				credits
-					.map((credit, index) => {
+					return (
+						<Fragment key={index}>
+							<>{`${creditName} `}</>
 
-						const creditName = index === 0
-							? capitalise(credit.name)
-							: credit.name;
-
-						return (
-							<Fragment key={index}>
-
-								<>{`${creditName} `}</>
-
-								<ProducerEntities entities={credit.entities} />
-
-							</Fragment>
-						);
-
-					})
-					.reduce((accumulator, currentValue) => [accumulator, '; ', currentValue])
-			}
-
+							<ProducerEntities entities={credit.entities} />
+						</Fragment>
+					);
+				})
+				.reduce((accumulator, currentValue) => [accumulator, '; ', currentValue])}
 		</>
 	);
-
 };
 
 export default ProducerCredits;

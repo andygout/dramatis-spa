@@ -12,7 +12,6 @@ import { InstancePageWrapper } from '../../page-wrappers/index.js';
 import { useGetCharacterQuery } from '../../../redux/slices/api.js';
 
 const Character = () => {
-
 	const { uuid } = useParams();
 
 	const { data: character = {} } = useGetCharacterQuery(uuid);
@@ -21,94 +20,51 @@ const Character = () => {
 
 	return (
 		<InstancePageWrapper instance={character}>
+			{variantNamedDepictions?.length > 0 && (
+				<InstanceFacet labelText="Variant-named depictions">
+					<span className="fictional-name-text">{variantNamedDepictions.join(' / ')}</span>
+				</InstanceFacet>
+			)}
 
-			{
-				variantNamedDepictions?.length > 0 && (
-					<InstanceFacet labelText='Variant-named depictions'>
+			{materials?.length > 0 && (
+				<InstanceFacet labelText="Materials">
+					<ListWrapper>
+						{materials.map((material, index) => (
+							<li key={index}>
+								<MaterialLinkWithContext material={material} />
 
-						<span className="fictional-name-text">
+								{material.depictions?.length > 0 && (
+									<AppendedDepictions depictions={material.depictions} />
+								)}
+							</li>
+						))}
+					</ListWrapper>
+				</InstanceFacet>
+			)}
 
-							{ variantNamedDepictions.join(' / ') }
+			{variantNamedPortrayals?.length > 0 && (
+				<InstanceFacet labelText="Variant-named portrayals">
+					<span className="fictional-name-text">{variantNamedPortrayals.join(' / ')}</span>
+				</InstanceFacet>
+			)}
 
-						</span>
+			{productions?.length > 0 && (
+				<InstanceFacet labelText="Productions">
+					<ListWrapper>
+						{productions.map((production, index) => (
+							<li key={index}>
+								<ProductionLinkWithContext production={production} />
 
-					</InstanceFacet>
-				)
-			}
-
-			{
-				materials?.length > 0 && (
-					<InstanceFacet labelText='Materials'>
-
-						<ListWrapper>
-
-							{
-								materials.map((material, index) =>
-									<li key={index}>
-
-										<MaterialLinkWithContext material={material} />
-
-										{
-											material.depictions?.length > 0 && (
-												<AppendedDepictions depictions={material.depictions} />
-											)
-										}
-
-									</li>
-								)
-							}
-
-						</ListWrapper>
-
-					</InstanceFacet>
-				)
-			}
-
-			{
-				variantNamedPortrayals?.length > 0 && (
-					<InstanceFacet labelText='Variant-named portrayals'>
-
-						<span className="fictional-name-text">
-
-							{ variantNamedPortrayals.join(' / ') }
-
-						</span>
-
-					</InstanceFacet>
-				)
-			}
-
-			{
-				productions?.length > 0 && (
-					<InstanceFacet labelText='Productions'>
-
-						<ListWrapper>
-
-							{
-								productions.map((production, index) =>
-									<li key={index}>
-
-										<ProductionLinkWithContext production={production} />
-
-										{
-											production.performers?.length > 0 && (
-												<AppendedPerformers performers={production.performers} />
-											)
-										}
-
-									</li>
-								)
-							}
-
-						</ListWrapper>
-
-					</InstanceFacet>
-				)
-			}
-
+								{production.performers?.length > 0 && (
+									<AppendedPerformers performers={production.performers} />
+								)}
+							</li>
+						))}
+					</ListWrapper>
+				</InstanceFacet>
+			)}
 		</InstancePageWrapper>
 	);
-
 };
 
 export default Character;

@@ -5,7 +5,6 @@ import { InstancePageWrapper } from '../../page-wrappers/index.js';
 import { useGetFestivalQuery } from '../../../redux/slices/api.js';
 
 const Festival = () => {
-
 	const { uuid } = useParams();
 
 	const { data: festival = {} } = useGetFestivalQuery(uuid);
@@ -14,30 +13,19 @@ const Festival = () => {
 
 	return (
 		<InstancePageWrapper instance={festival}>
+			{festivalSeries && (
+				<InstanceFacet labelText="Festival series">
+					<InstanceLink instance={festivalSeries} />
+				</InstanceFacet>
+			)}
 
-			{
-				festivalSeries && (
-					<InstanceFacet labelText='Festival series'>
-
-						<InstanceLink instance={festivalSeries} />
-
-					</InstanceFacet>
-				)
-			}
-
-			{
-				productions?.length > 0 && (
-					<InstanceFacet labelText='Productions'>
-
-						<ProductionsList productions={productions} />
-
-					</InstanceFacet>
-				)
-			}
-
+			{productions?.length > 0 && (
+				<InstanceFacet labelText="Productions">
+					<ProductionsList productions={productions} />
+				</InstanceFacet>
+			)}
 		</InstancePageWrapper>
 	);
-
 };
 
 export default Festival;

@@ -3,17 +3,13 @@ import { ListPageWrapper } from '../../page-wrappers/index.js';
 import { useGetMaterialsQuery } from '../../../redux/slices/api.js';
 
 const Materials = () => {
-
 	const { data: materials = [] } = useGetMaterialsQuery();
 
 	return (
-		<ListPageWrapper pageTitleText='Materials'>
-
+		<ListPageWrapper pageTitleText="Materials">
 			<MaterialsList materials={materials} />
-
 		</ListPageWrapper>
 	);
-
 };
 
 export default Materials;

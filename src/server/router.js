@@ -10,13 +10,11 @@ const router = new Router();
 
 const store = configureStore({
 	reducer: reducers,
-	middleware: getDefaultMiddleware => getDefaultMiddleware().concat(api.middleware)
+	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware)
 });
 
 router.use(async (request, response, next) => {
-
 	try {
-
 		const { getState } = store;
 
 		const preloadedState = getState();
@@ -67,16 +65,15 @@ router.use(async (request, response, next) => {
 				</div>
 
 			</html>
-		`.split('\n').map(line => line.trim()).join('');
+		`
+			.split('\n')
+			.map((line) => line.trim())
+			.join('');
 
 		response.send(html);
-
 	} catch (error) {
-
 		next(error);
-
 	}
-
 });
 
 export default router;

@@ -1,38 +1,30 @@
 import CommaSeparatedInstanceLinks from './CommaSeparatedInstanceLinks.jsx';
 import InstanceLink from './InstanceLink.jsx';
 
-const AppendedEmployerCompany = props => {
-
+const AppendedEmployerCompany = (props) => {
 	const { employerCompany } = props;
 
 	return (
 		<>
-
 			<>{' ('}</>
 
-			{
-				employerCompany.coMembers?.length > 0 && (
-					<>
+			{employerCompany.coMembers?.length > 0 && (
+				<>
+					<>{'with '}</>
 
-						<>{'with '}</>
+					<CommaSeparatedInstanceLinks instances={employerCompany.coMembers} />
 
-						<CommaSeparatedInstanceLinks instances={employerCompany.coMembers} />
-
-						<>{' '}</>
-
-					</>
-				)
-			}
+					<> </>
+				</>
+			)}
 
 			<>{'for '}</>
 
 			<InstanceLink instance={employerCompany} />
 
 			<>{')'}</>
-
 		</>
 	);
-
 };
 
 export default AppendedEmployerCompany;

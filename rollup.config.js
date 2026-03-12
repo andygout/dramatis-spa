@@ -41,9 +41,7 @@ const serverBundle = {
 			jsx: 'automatic'
 		}),
 		copy({
-			targets: [
-				{ src: './src/server/assets/favicon.ico', dest: 'built/assets' }
-			]
+			targets: [{ src: './src/server/assets/favicon.ico', dest: 'built/assets' }]
 		})
 	]
 };
@@ -58,10 +56,7 @@ const clientScriptsBundle = {
 		clearScreen: false
 	},
 	onwarn: (warning, warn) => {
-		if (
-			warning.code === 'MODULE_LEVEL_DIRECTIVE' &&
-			/"use client"/.test(warning.message || '')
-		) {
+		if (warning.code === 'MODULE_LEVEL_DIRECTIVE' && /"use client"/.test(warning.message || '')) {
 			return; // Silence only this specific warning.
 		}
 		warn(warning); // Keep all other warnings.
@@ -73,12 +68,7 @@ const clientScriptsBundle = {
 		}),
 		babel({
 			babelHelpers: 'bundled',
-			presets: [
-				[
-					'@babel/preset-react',
-					{ runtime: 'automatic' }
-				]
-			],
+			presets: [['@babel/preset-react', { runtime: 'automatic' }]],
 			extensions: ['.js', '.jsx'],
 			exclude: 'node_modules/**'
 		}),
@@ -101,9 +91,7 @@ const clientStylesBundle = {
 		clearScreen: false
 	},
 	plugins: [
-		watchGlobs([
-			'src/client/stylesheets/**/*.css'
-		]),
+		watchGlobs(['src/client/stylesheets/**/*.css']),
 		copy({
 			targets: [
 				{
@@ -135,32 +123,19 @@ const clientScssImportsStylesBundle = {
 		clearScreen: false
 	},
 	plugins: [
-		watchGlobs([
-			'src/client/stylesheets/scss-imports/**/*.scss'
-		]),
+		watchGlobs(['src/client/stylesheets/scss-imports/**/*.scss']),
 		sassPlugin({
 			output: 'public/stylesheets/scss-imports.css',
 			api: 'modern',
 			runtime: sass,
 			options: {
 				// Let @import find packages' stylesheets by looking in node_modules directory.
-				loadPaths: [
-					path.resolve('node_modules')
-				],
+				loadPaths: [path.resolve('node_modules')],
 				// Until dependencies have migrated to Sass's modern compiler API.
-				silenceDeprecations: [
-					'import',
-					'global-builtin',
-					'color-functions'
-				]
+				silenceDeprecations: ['import', 'global-builtin', 'color-functions']
 			}
 		})
 	]
 };
 
-export default [
-	serverBundle,
-	clientScriptsBundle,
-	clientStylesBundle,
-	clientScssImportsStylesBundle
-];
+export default [serverBundle, clientScriptsBundle, clientStylesBundle, clientScssImportsStylesBundle];
