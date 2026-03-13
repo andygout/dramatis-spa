@@ -2,9 +2,7 @@ import { useCallback, useRef, useState } from 'react';
 import { AsyncTypeahead, ClearButton, Highlighter } from 'react-bootstrap-typeahead';
 import { useNavigate } from 'react-router';
 
-import { MODEL_TO_DISPLAY_NAME_MAP, MODEL_TO_ROUTE_MAP } from '../../utils/constants.js';
-
-const URL_BASE = 'http://localhost:3002';
+import { DRAMATIS_SPA_BASE_URL, MODEL_TO_DISPLAY_NAME_MAP, MODEL_TO_ROUTE_MAP } from '../../utils/constants.js';
 
 async function performFetch(url) {
 	const response = await fetch(url, { mode: 'same-origin' });
@@ -28,7 +26,7 @@ const SearchBar = () => {
 	const handleSearch = useCallback(async (searchTerm) => {
 		setIsLoading(true);
 
-		const url = `${URL_BASE}/api/search?searchTerm=${encodeURIComponent(searchTerm.trim())}`;
+		const url = `${DRAMATIS_SPA_BASE_URL}/api/search?searchTerm=${encodeURIComponent(searchTerm.trim())}`;
 
 		const searchResults = await performFetch(url);
 
