@@ -27,7 +27,7 @@ const baseQuery = async (apiRoute, { dispatch }) => {
 	}
 };
 
-const getInstancesQuery = (pluralisedModel) => `${PLURALISED_MODEL_TO_ROUTE_MAP[pluralisedModel]}`;
+const getListQuery = (pluralisedModel) => `${PLURALISED_MODEL_TO_ROUTE_MAP[pluralisedModel]}`;
 
 const getInstanceQuery = ({ model, uuid }) => `${MODEL_TO_ROUTE_MAP[model]}/${uuid}`;
 
@@ -35,67 +35,67 @@ export const api = createApi({
 	baseQuery,
 	endpoints: (build) => ({
 		getAwards: build.query({
-			query: () => getInstancesQuery(PLURALISED_MODELS.AWARDS)
+			query: () => getListQuery(PLURALISED_MODELS.AWARDS)
 		}),
 		getAward: build.query({
 			query: (uuid) => getInstanceQuery({ model: MODELS.AWARD, uuid })
 		}),
 		getAwardCeremonies: build.query({
-			query: () => getInstancesQuery(PLURALISED_MODELS.AWARD_CEREMONIES)
+			query: () => getListQuery(PLURALISED_MODELS.AWARD_CEREMONIES)
 		}),
 		getAwardCeremony: build.query({
 			query: (uuid) => getInstanceQuery({ model: MODELS.AWARD_CEREMONY, uuid })
 		}),
 		getCharacters: build.query({
-			query: () => getInstancesQuery(PLURALISED_MODELS.CHARACTERS)
+			query: () => getListQuery(PLURALISED_MODELS.CHARACTERS)
 		}),
 		getCharacter: build.query({
 			query: (uuid) => getInstanceQuery({ model: MODELS.CHARACTER, uuid })
 		}),
 		getCompanies: build.query({
-			query: () => getInstancesQuery(PLURALISED_MODELS.COMPANIES)
+			query: () => getListQuery(PLURALISED_MODELS.COMPANIES)
 		}),
 		getCompany: build.query({
 			query: (uuid) => getInstanceQuery({ model: MODELS.COMPANY, uuid })
 		}),
 		getFestivals: build.query({
-			query: () => getInstancesQuery(PLURALISED_MODELS.FESTIVALS)
+			query: () => getListQuery(PLURALISED_MODELS.FESTIVALS)
 		}),
 		getFestival: build.query({
 			query: (uuid) => getInstanceQuery({ model: MODELS.FESTIVAL, uuid })
 		}),
 		getFestivalSerieses: build.query({
-			query: () => getInstancesQuery(PLURALISED_MODELS.FESTIVAL_SERIESES)
+			query: () => getListQuery(PLURALISED_MODELS.FESTIVAL_SERIESES)
 		}),
 		getFestivalSeries: build.query({
 			query: (uuid) => getInstanceQuery({ model: MODELS.FESTIVAL_SERIES, uuid })
 		}),
 		getMaterials: build.query({
-			query: () => getInstancesQuery(PLURALISED_MODELS.MATERIALS)
+			query: () => getListQuery(PLURALISED_MODELS.MATERIALS)
 		}),
 		getMaterial: build.query({
 			query: (uuid) => getInstanceQuery({ model: MODELS.MATERIAL, uuid })
 		}),
 		getPeople: build.query({
-			query: () => getInstancesQuery(PLURALISED_MODELS.PEOPLE)
+			query: () => getListQuery(PLURALISED_MODELS.PEOPLE)
 		}),
 		getPerson: build.query({
 			query: (uuid) => getInstanceQuery({ model: MODELS.PERSON, uuid })
 		}),
 		getProductions: build.query({
-			query: () => getInstancesQuery(PLURALISED_MODELS.PRODUCTIONS)
+			query: () => getListQuery(PLURALISED_MODELS.PRODUCTIONS)
 		}),
 		getProduction: build.query({
 			query: (uuid) => getInstanceQuery({ model: MODELS.PRODUCTION, uuid })
 		}),
 		getSeasons: build.query({
-			query: () => getInstancesQuery(PLURALISED_MODELS.SEASONS)
+			query: () => getListQuery(PLURALISED_MODELS.SEASONS)
 		}),
 		getSeason: build.query({
 			query: (uuid) => getInstanceQuery({ model: MODELS.SEASON, uuid })
 		}),
 		getVenues: build.query({
-			query: () => getInstancesQuery(PLURALISED_MODELS.VENUES)
+			query: () => getListQuery(PLURALISED_MODELS.VENUES)
 		}),
 		getVenue: build.query({
 			query: (uuid) => getInstanceQuery({ model: MODELS.VENUE, uuid })
