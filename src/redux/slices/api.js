@@ -1,13 +1,17 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 
 import { errorActivated } from '../actions/index.js';
-import { MODELS, MODEL_TO_ROUTE_MAP, PLURALISED_MODELS, PLURALISED_MODEL_TO_ROUTE_MAP } from '../../utils/constants.js';
-
-const API_BASE_URL = 'http://localhost:3000';
+import {
+	DRAMATIS_SPA_BASE_URL,
+	MODELS,
+	MODEL_TO_ROUTE_MAP,
+	PLURALISED_MODELS,
+	PLURALISED_MODEL_TO_ROUTE_MAP
+} from '../../utils/constants.js';
 
 const baseQuery = async (apiRoute, { dispatch }) => {
 	try {
-		const apiUrl = `${API_BASE_URL}${apiRoute}`;
+		const apiUrl = `${DRAMATIS_SPA_BASE_URL}/api/${apiRoute}`;
 
 		const response = await fetch(apiUrl, { mode: 'cors' });
 
@@ -23,9 +27,9 @@ const baseQuery = async (apiRoute, { dispatch }) => {
 	}
 };
 
-const getInstancesQuery = (pluralisedModel) => `/${PLURALISED_MODEL_TO_ROUTE_MAP[pluralisedModel]}`;
+const getInstancesQuery = (pluralisedModel) => `${PLURALISED_MODEL_TO_ROUTE_MAP[pluralisedModel]}`;
 
-const getInstanceQuery = ({ model, uuid }) => `/${MODEL_TO_ROUTE_MAP[model]}/${uuid}`;
+const getInstanceQuery = ({ model, uuid }) => `${MODEL_TO_ROUTE_MAP[model]}/${uuid}`;
 
 export const api = createApi({
 	baseQuery,
