@@ -1,12 +1,10 @@
 import js from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import mochaPlugin from 'eslint-plugin-mocha';
 import reactPlugin from 'eslint-plugin-react';
 import globals from 'globals';
 
 export default [
 	js.configs.recommended,
-	mochaPlugin.configs.recommended,
 	reactPlugin.configs.flat.recommended,
 	reactPlugin.configs.flat['jsx-runtime'],
 	{
@@ -69,21 +67,6 @@ export default [
 		},
 		rules: {
 			'react/prop-types': 'off'
-		}
-	},
-	{
-		files: ['test/**/*.test.js'],
-		languageOptions: {
-			globals: {
-				...globals.mocha
-			}
-		},
-		plugins: {
-			mocha: mochaPlugin
-		},
-		rules: {
-			'mocha/no-exclusive-tests': 'error',
-			'mocha/no-mocha-arrows': 'off'
 		}
 	},
 	eslintConfigPrettier
