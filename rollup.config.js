@@ -11,7 +11,7 @@ import watchGlobs from 'rollup-plugin-watch-globs';
 import * as sass from 'sass';
 
 const serverBundle = {
-	input: 'src/server/app.js',
+	input: 'src/server/server.js',
 	output: {
 		file: 'built/main.js',
 		sourcemap: 'inline'
