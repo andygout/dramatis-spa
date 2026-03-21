@@ -5,7 +5,7 @@
   "description": "Single-page application (SPA) that provides listings for theatrical productions, materials, and associated data.",
   "author": "https://github.com/andygout",
   "license": "MS-RSL",
-  "main": "src/server/app.js",
+  "main": "src/server/server.js",
   "scripts": {
     "format": "prettier \"**/*.{js,jsx,json,css,md,yml}\" --write",
     "lint": "eslint",
