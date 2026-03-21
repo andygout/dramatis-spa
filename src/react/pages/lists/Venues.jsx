@@ -1,6 +1,6 @@
+import { useGetVenuesQuery } from '../../../redux/slices/api.js';
 import { InstanceLink, ListWrapper } from '../../components/index.js';
 import { ListPageWrapper } from '../../page-wrappers/index.js';
-import { useGetVenuesQuery } from '../../../redux/slices/api.js';
 
 const Venues = () => {
 	const { data: venues = [] } = useGetVenuesQuery();

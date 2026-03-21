@@ -1,6 +1,6 @@
+import { useGetAwardCeremoniesQuery } from '../../../redux/slices/api.js';
 import { InstanceLink, ListWrapper } from '../../components/index.js';
 import { ListPageWrapper } from '../../page-wrappers/index.js';
-import { useGetAwardCeremoniesQuery } from '../../../redux/slices/api.js';
 
 const AwardCeremonies = () => {
 	const { data: awardCeremonies = [] } = useGetAwardCeremoniesQuery();

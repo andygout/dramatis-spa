@@ -1,3 +1,4 @@
+import Home from './Home.jsx';
 import {
 	Award,
 	AwardCeremony,
@@ -24,7 +25,6 @@ import {
 	Seasons,
 	Venues
 } from './lists/index.js';
-import Home from './Home.jsx';
 import NotFound from './NotFound.jsx';
 
 export {

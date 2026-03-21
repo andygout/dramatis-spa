@@ -1,8 +1,8 @@
 import { useParams } from 'react-router';
 
+import { useGetFestivalQuery } from '../../../redux/slices/api.js';
 import { InstanceFacet, InstanceLink, ProductionsList } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
-import { useGetFestivalQuery } from '../../../redux/slices/api.js';
 
 const Festival = () => {
 	const { uuid } = useParams();

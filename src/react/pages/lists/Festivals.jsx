@@ -1,6 +1,6 @@
+import { useGetFestivalsQuery } from '../../../redux/slices/api.js';
 import { InstanceLink, ListWrapper } from '../../components/index.js';
 import { ListPageWrapper } from '../../page-wrappers/index.js';
-import { useGetFestivalsQuery } from '../../../redux/slices/api.js';
 
 const Festivals = () => {
 	const { data: festivals = [] } = useGetFestivalsQuery();

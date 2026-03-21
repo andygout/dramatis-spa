@@ -1,6 +1,6 @@
+import { useGetProductionsQuery } from '../../../redux/slices/api.js';
 import { ProductionsList } from '../../components/index.js';
 import { ListPageWrapper } from '../../page-wrappers/index.js';
-import { useGetProductionsQuery } from '../../../redux/slices/api.js';
 
 const Productions = () => {
 	const { data: productions = [] } = useGetProductionsQuery();

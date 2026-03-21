@@ -1,6 +1,5 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 
-import { errorActivated } from '../actions/index.js';
 import {
 	DRAMATIS_SPA_BASE_URL,
 	MODELS,
@@ -8,6 +7,7 @@ import {
 	PLURALISED_MODELS,
 	PLURALISED_MODEL_TO_ROUTE_MAP
 } from '../../utils/constants.js';
+import { errorActivated } from '../actions/index.js';
 
 const baseQuery = async (apiRoute, { dispatch }) => {
 	try {

@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import { useParams } from 'react-router';
 
 import formatDate from '../../../lib/format-date.js';
+import { useGetProductionQuery } from '../../../redux/slices/api.js';
 import {
 	AppendedDate,
 	AppendedRoles,
@@ -18,7 +19,6 @@ import {
 	VenueLinkWithContext
 } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
-import { useGetProductionQuery } from '../../../redux/slices/api.js';
 
 const Production = () => {
 	const { uuid } = useParams();
