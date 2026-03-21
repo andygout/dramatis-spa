@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { useParams } from 'react-router';
 
+import { useGetPersonQuery } from '../../../redux/slices/api.js';
 import {
 	AppendedCoEntities,
 	AppendedDate,
@@ -20,7 +21,6 @@ import {
 	ProductionsList
 } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
-import { useGetPersonQuery } from '../../../redux/slices/api.js';
 
 const Person = () => {
 	const { uuid } = useParams();

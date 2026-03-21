@@ -1,5 +1,5 @@
-import getDocumentTitle from '../../lib/get-document-title.js';
 import PageTitle from './PageTitle.jsx';
+import getDocumentTitle from '../../lib/get-document-title.js';
 
 const ErrorMessage = (props) => {
 	const { errorText } = props;

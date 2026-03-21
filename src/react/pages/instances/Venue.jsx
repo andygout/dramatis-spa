@@ -1,8 +1,8 @@
 import { useParams } from 'react-router';
 
+import { useGetVenueQuery } from '../../../redux/slices/api.js';
 import { InstanceFacet, InstanceLink, InstanceLinksList, ProductionsList } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
-import { useGetVenueQuery } from '../../../redux/slices/api.js';
 
 const Venue = () => {
 	const { uuid } = useParams();

@@ -1,6 +1,6 @@
+import { useGetCompaniesQuery } from '../../../redux/slices/api.js';
 import { InstanceLinksList } from '../../components/index.js';
 import { ListPageWrapper } from '../../page-wrappers/index.js';
-import { useGetCompaniesQuery } from '../../../redux/slices/api.js';
 
 const Companies = () => {
 	const { data: companies = [] } = useGetCompaniesQuery();

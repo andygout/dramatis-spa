@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { useParams } from 'react-router';
 
+import { useGetCompanyQuery } from '../../../redux/slices/api.js';
 import {
 	AppendedCoEntities,
 	AppendedDate,
@@ -19,7 +20,6 @@ import {
 	ProductionsList
 } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
-import { useGetCompanyQuery } from '../../../redux/slices/api.js';
 
 const Company = () => {
 	const { uuid } = useParams();

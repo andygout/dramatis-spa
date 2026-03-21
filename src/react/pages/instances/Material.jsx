@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import { useParams } from 'react-router';
 
 import { capitalise } from '../../../lib/strings.js';
+import { useGetMaterialQuery } from '../../../redux/slices/api.js';
 import {
 	CharactersList,
 	CommaSeparatedMaterials,
@@ -16,7 +17,6 @@ import {
 	WritingCredits
 } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
-import { useGetMaterialQuery } from '../../../redux/slices/api.js';
 
 const Material = () => {
 	const { uuid } = useParams();

@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { useParams } from 'react-router';
 
+import { useGetAwardCeremonyQuery } from '../../../redux/slices/api.js';
 import {
 	CommaSeparatedMaterials,
 	CommaSeparatedProductions,
@@ -10,7 +11,6 @@ import {
 	ListWrapper
 } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
-import { useGetAwardCeremonyQuery } from '../../../redux/slices/api.js';
 
 const AwardCeremony = () => {
 	const { uuid } = useParams();

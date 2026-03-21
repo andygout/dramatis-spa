@@ -1,5 +1,6 @@
 import { useParams } from 'react-router';
 
+import { useGetCharacterQuery } from '../../../redux/slices/api.js';
 import {
 	AppendedDepictions,
 	AppendedPerformers,
@@ -9,7 +10,6 @@ import {
 	ProductionLinkWithContext
 } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
-import { useGetCharacterQuery } from '../../../redux/slices/api.js';
 
 const Character = () => {
 	const { uuid } = useParams();

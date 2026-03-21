@@ -1,8 +1,8 @@
 import { useParams } from 'react-router';
 
+import { useGetSeasonQuery } from '../../../redux/slices/api.js';
 import { InstanceFacet, ProductionsList } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
-import { useGetSeasonQuery } from '../../../redux/slices/api.js';
 
 const Season = () => {
 	const { uuid } = useParams();
