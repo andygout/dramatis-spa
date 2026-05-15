@@ -17,3 +17,35 @@ Single-page application (SPA) that provides listings for theatrical productions,
 ## To run linting checks
 
 - `$ npm run lint-check`
+
+## Architecture
+
+```mermaid
+flowchart LR
+	%% Containers and components
+	subgraph CLIENT_SIDE[Client-side]
+		BROWSER(Browser)
+	end
+
+	subgraph SERVER_SIDE[Server-side]
+		DRAMATIS_API(dramatis-api)
+		DRAMATIS_SPA(dramatis-spa)
+	end
+
+	%% Relationships
+	BROWSER -- 1. GET data --> DRAMATIS_SPA
+
+	DRAMATIS_SPA -- 2. GET data --> DRAMATIS_API
+
+	%% Style Definitions
+	classDef browser fill:#c2ad01,stroke:#625800,color:#FFFFFF
+
+	classDef dramatisSpa fill:#478e84,stroke:#094a40,color:#FFFFFF
+
+	classDef dramatisApi fill:#006699,stroke:#042c53,color:#FFFFFF
+
+	%% Apply Styles
+	class DRAMATIS_API dramatisApi
+	class DRAMATIS_SPA dramatisSpa
+	class BROWSER browser
+```
