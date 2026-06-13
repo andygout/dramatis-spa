@@ -48,6 +48,10 @@ router.get('/seasons', (request, response, next) => listsController(request, res
 
 router.get('/seasons/:uuid', (request, response, next) => instancesController(request, response, next));
 
+router.get('/times', (request, response, next) => listsController(request, response, next));
+
+router.get('/times/:uuid', (request, response, next) => instancesController(request, response, next));
+
 router.get('/search', (request, response, next) => searchController(request, response, next));
 
 router.get('/venues', (request, response, next) => listsController(request, response, next));

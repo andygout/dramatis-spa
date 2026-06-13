@@ -10,6 +10,7 @@ import {
 	Person,
 	Production,
 	Season,
+	Time,
 	Venue
 } from './instances/index.js';
 import {
@@ -23,6 +24,7 @@ import {
 	People,
 	Productions,
 	Seasons,
+	Times,
 	Venues
 } from './lists/index.js';
 import NotFound from './NotFound.jsx';
@@ -48,6 +50,8 @@ export {
 	Productions,
 	Season,
 	Seasons,
+	Time,
+	Times,
 	Venue,
 	Venues,
 	Home,
