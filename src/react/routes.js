@@ -19,6 +19,8 @@ import {
 	Productions,
 	Season,
 	Seasons,
+	Time,
+	Times,
 	Venue,
 	Venues,
 	Home,
@@ -151,6 +153,18 @@ export default [
 		path: '/seasons/:uuid',
 		pageTitle: 'Season',
 		component: Season,
+		deactivateError
+	},
+	{
+		path: '/times',
+		pageTitle: 'Times',
+		component: Times,
+		deactivateError
+	},
+	{
+		path: '/times/:uuid',
+		pageTitle: 'Time',
+		component: Time,
 		deactivateError
 	},
 	{

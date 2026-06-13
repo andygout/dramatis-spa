@@ -94,6 +94,12 @@ export const api = createApi({
 		getSeason: build.query({
 			query: (uuid) => getInstanceQuery({ model: MODELS.SEASON, uuid })
 		}),
+		getTimes: build.query({
+			query: () => getListQuery(PLURALISED_MODELS.TIMES)
+		}),
+		getTime: build.query({
+			query: (uuid) => getInstanceQuery({ model: MODELS.TIME, uuid })
+		}),
 		getVenues: build.query({
 			query: () => getListQuery(PLURALISED_MODELS.VENUES)
 		}),
@@ -124,6 +130,8 @@ export const {
 	useGetProductionQuery,
 	useGetSeasonsQuery,
 	useGetSeasonQuery,
+	useGetTimesQuery,
+	useGetTimeQuery,
 	useGetVenuesQuery,
 	useGetVenueQuery
 } = api;
