@@ -82,6 +82,12 @@ export const api = createApi({
 		getPerson: build.query({
 			query: (uuid) => getInstanceQuery({ model: MODELS.PERSON, uuid })
 		}),
+		getPlaces: build.query({
+			query: () => getListQuery(PLURALISED_MODELS.PLACES)
+		}),
+		getPlace: build.query({
+			query: (uuid) => getInstanceQuery({ model: MODELS.PLACE, uuid })
+		}),
 		getProductions: build.query({
 			query: () => getListQuery(PLURALISED_MODELS.PRODUCTIONS)
 		}),
@@ -126,6 +132,8 @@ export const {
 	useGetMaterialQuery,
 	useGetPeopleQuery,
 	useGetPersonQuery,
+	useGetPlacesQuery,
+	useGetPlaceQuery,
 	useGetProductionsQuery,
 	useGetProductionQuery,
 	useGetSeasonsQuery,

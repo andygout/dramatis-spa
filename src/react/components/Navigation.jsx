@@ -41,6 +41,10 @@ const Navigation = () => {
 				</li>
 
 				<li>
+					<Link to={'/places'}>Places</Link>
+				</li>
+
+				<li>
 					<Link to={'/productions'}>Productions</Link>
 				</li>
 
