@@ -70,6 +70,12 @@ export const api = createApi({
 		getFestivalSeries: build.query({
 			query: (uuid) => getInstanceQuery({ model: MODELS.FESTIVAL_SERIES, uuid })
 		}),
+		getLocales: build.query({
+			query: () => getListQuery(PLURALISED_MODELS.LOCALES)
+		}),
+		getLocale: build.query({
+			query: (uuid) => getInstanceQuery({ model: MODELS.LOCALE, uuid })
+		}),
 		getMaterials: build.query({
 			query: () => getListQuery(PLURALISED_MODELS.MATERIALS)
 		}),
@@ -128,6 +134,8 @@ export const {
 	useGetFestivalQuery,
 	useGetFestivalSeriesesQuery,
 	useGetFestivalSeriesQuery,
+	useGetLocalesQuery,
+	useGetLocaleQuery,
 	useGetMaterialsQuery,
 	useGetMaterialQuery,
 	useGetPeopleQuery,

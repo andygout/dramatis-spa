@@ -32,6 +32,10 @@ router.get('/festival-serieses', (request, response, next) => listsController(re
 
 router.get('/festival-serieses/:uuid', (request, response, next) => instancesController(request, response, next));
 
+router.get('/locales', (request, response, next) => listsController(request, response, next));
+
+router.get('/locales/:uuid', (request, response, next) => instancesController(request, response, next));
+
 router.get('/materials', (request, response, next) => listsController(request, response, next));
 
 router.get('/materials/:uuid', (request, response, next) => instancesController(request, response, next));
