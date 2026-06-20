@@ -33,6 +33,10 @@ const Navigation = () => {
 				</li>
 
 				<li>
+					<Link to={'/locales'}>Locales</Link>
+				</li>
+
+				<li>
 					<Link to={'/materials'}>Materials</Link>
 				</li>
 

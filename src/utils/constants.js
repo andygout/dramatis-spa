@@ -13,6 +13,8 @@ const FESTIVAL = 'FESTIVAL';
 const FESTIVALS = 'FESTIVALS';
 const FESTIVAL_SERIES = 'FESTIVAL_SERIES';
 const FESTIVAL_SERIESES = 'FESTIVAL_SERIESES';
+const LOCALE = 'LOCALE';
+const LOCALES = 'LOCALES';
 const MATERIAL = 'MATERIAL';
 const MATERIALS = 'MATERIALS';
 const PERSON = 'PERSON';
@@ -35,6 +37,7 @@ const MODELS = {
 	[COMPANY]: COMPANY,
 	[FESTIVAL]: FESTIVAL,
 	[FESTIVAL_SERIES]: FESTIVAL_SERIES,
+	[LOCALE]: LOCALE,
 	[MATERIAL]: MATERIAL,
 	[PERSON]: PERSON,
 	[PLACE]: PLACE,
@@ -51,6 +54,7 @@ const MODEL_TO_DISPLAY_NAME_MAP = {
 	[COMPANY]: 'company',
 	[FESTIVAL]: 'festival',
 	[FESTIVAL_SERIES]: 'festival series',
+	[LOCALE]: 'locale',
 	[MATERIAL]: 'material',
 	[PERSON]: 'person',
 	[PLACE]: 'place',
@@ -67,6 +71,7 @@ const MODEL_TO_ROUTE_MAP = {
 	[COMPANY]: 'companies',
 	[FESTIVAL]: 'festivals',
 	[FESTIVAL_SERIES]: 'festival-serieses',
+	[LOCALE]: 'locales',
 	[MATERIAL]: 'materials',
 	[PERSON]: 'people',
 	[PLACE]: 'places',
@@ -83,6 +88,7 @@ const PLURALISED_MODELS = {
 	[COMPANIES]: COMPANIES,
 	[FESTIVALS]: FESTIVALS,
 	[FESTIVAL_SERIESES]: FESTIVAL_SERIESES,
+	[LOCALES]: LOCALES,
 	[MATERIALS]: MATERIALS,
 	[PEOPLE]: PEOPLE,
 	[PLACES]: PLACES,
@@ -99,6 +105,7 @@ const PLURALISED_MODEL_TO_ROUTE_MAP = {
 	[COMPANIES]: 'companies',
 	[FESTIVALS]: 'festivals',
 	[FESTIVAL_SERIESES]: 'festival-serieses',
+	[LOCALES]: 'locales',
 	[MATERIALS]: 'materials',
 	[PEOPLE]: 'people',
 	[PLACES]: 'places',

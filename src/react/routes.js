@@ -11,6 +11,8 @@ import {
 	Festivals,
 	FestivalSeries,
 	FestivalSerieses,
+	Locale,
+	Locales,
 	Material,
 	Materials,
 	Person,
@@ -107,6 +109,18 @@ export default [
 		path: '/festival-serieses/:uuid',
 		pageTitle: 'Festival series',
 		component: FestivalSeries,
+		deactivateError
+	},
+	{
+		path: '/locales',
+		pageTitle: 'Locales',
+		component: Locales,
+		deactivateError
+	},
+	{
+		path: '/locales/:uuid',
+		pageTitle: 'Locale',
+		component: Locale,
 		deactivateError
 	},
 	{
