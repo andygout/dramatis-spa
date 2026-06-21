@@ -66,4 +66,11 @@ router.get('/venues', (request, response, next) => listsController(request, resp
 
 router.get('/venues/:uuid', (request, response, next) => instancesController(request, response, next));
 
+router.use((request, response, next) => {
+	const error = new Error('Not Found');
+	error.status = 404;
+
+	return next(error);
+});
+
 export default router;
