@@ -1,6 +1,7 @@
 import { useParams } from 'react-router';
 
 import { useGetTimeQuery } from '../../../redux/slices/api.js';
+import { InstanceFacet, MaterialsList } from '../../components/index.js';
 import { InstancePageWrapper } from '../../page-wrappers/index.js';
 
 const Time = () => {
@@ -8,7 +9,17 @@ const Time = () => {
 
 	const { data: time = {} } = useGetTimeQuery(uuid);
 
-	return <InstancePageWrapper instance={time} />;
+	const { materials } = time;
+
+	return (
+		<InstancePageWrapper instance={time}>
+			{materials?.length > 0 && (
+				<InstanceFacet labelText="Materials as setting">
+					<MaterialsList materials={materials} />
+				</InstanceFacet>
+			)}
+		</InstancePageWrapper>
+	);
 };
 
 export default Time;
