@@ -1,4 +1,5 @@
 import AppendedFormatAndYear from './AppendedFormatAndYear.jsx';
+import AppendedSettings from './AppendedSettings.jsx';
 import InstanceLink from './InstanceLink.jsx';
 import PrependedSurInstance from './PrependedSurInstance.jsx';
 import WritingCredits from './WritingCredits.jsx';
@@ -27,6 +28,8 @@ const MaterialLinkWithContext = (props) => {
 					<WritingCredits credits={material.writingCredits} isAppendage={true} />
 				</>
 			)}
+
+			{material.settings?.length > 0 && <AppendedSettings settings={material.settings} />}
 		</>
 	);
 };
