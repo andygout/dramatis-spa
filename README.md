@@ -21,31 +21,40 @@ Single-page application (SPA) that provides listings for theatrical productions,
 ## Architecture
 
 ```mermaid
-flowchart LR
-	%% Containers and components
-	subgraph CLIENT_SIDE[Client-side]
-		BROWSER(Browser)
-	end
+---
+config:
+  theme: base
+  themeVariables:
+    actorBkg: "#E6E6E6"
+    actorBorder: "#808080"
+    actorTextColor: "#000000"
+---
+sequenceDiagram
+  %% Components and grouping boxes
+  actor CLIENT as Client
 
-	subgraph SERVER_SIDE[Server-side]
-		DRAMATIS_API(dramatis-api)
-		DRAMATIS_SPA(dramatis-spa)
-	end
+  box rgb(216, 240, 236) SPA
+    participant DRAMATIS_SPA as dramatis-spa
+  end
 
-	%% Relationships
-	BROWSER -- 1. GET data --> DRAMATIS_SPA
+  box rgb(218, 231, 242) API
+    participant DRAMATIS_API as dramatis-api
+  end
 
-	DRAMATIS_SPA -- 2. GET data --> DRAMATIS_API
+  box rgb(223, 240, 216) Database
+    participant NEO4J_DATABASE as Neo4j database
+  end
 
-	%% Style Definitions
-	classDef browser fill:#c2ad01,stroke:#625800,color:#FFFFFF
+  %% Relationships
+  CLIENT ->> DRAMATIS_SPA: GET request
 
-	classDef dramatisSpa fill:#478e84,stroke:#094a40,color:#FFFFFF
+  DRAMATIS_SPA ->> DRAMATIS_API: GET request
 
-	classDef dramatisApi fill:#006699,stroke:#042c53,color:#FFFFFF
+  DRAMATIS_API ->> NEO4J_DATABASE: Read data
 
-	%% Apply Styles
-	class DRAMATIS_API dramatisApi
-	class DRAMATIS_SPA dramatisSpa
-	class BROWSER browser
+  NEO4J_DATABASE -->> DRAMATIS_API: Return data
+
+  DRAMATIS_API -->> DRAMATIS_SPA: Return data
+
+  DRAMATIS_SPA -->> CLIENT: Return data
 ```
