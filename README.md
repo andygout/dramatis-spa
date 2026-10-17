@@ -46,11 +46,11 @@ sequenceDiagram
   end
 
   %% Relationships
-  CLIENT ->> DRAMATIS_SPA: GET data
+  CLIENT ->> DRAMATIS_SPA: GET request
 
-  DRAMATIS_SPA ->> DRAMATIS_API: GET data
+  DRAMATIS_SPA ->> DRAMATIS_API: GET request
 
-  DRAMATIS_API ->> NEO4J_DATABASE: Retrieve data
+  DRAMATIS_API ->> NEO4J_DATABASE: Read data
 
   NEO4J_DATABASE -->> DRAMATIS_API: Return data
 
