@@ -14,13 +14,13 @@ const Place = () => {
 	return (
 		<InstancePageWrapper instance={place}>
 			{surPlaces?.length > 0 && (
-				<InstanceFacet labelText="Is within (bounding boxes)">
+				<InstanceFacet labelText="Is within">
 					<InstanceLinksList instances={surPlaces} />
 				</InstanceFacet>
 			)}
 
 			{subPlaces?.length > 0 && (
-				<InstanceFacet labelText="Contains (bounding boxes)">
+				<InstanceFacet labelText="Contains">
 					<InstanceLinksList instances={subPlaces} />
 				</InstanceFacet>
 			)}
